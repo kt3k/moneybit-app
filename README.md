@@ -10,7 +10,14 @@
 - WebView app
   - Use [straw][straw] as native bridging framework.
 - Use [capsid][capsid] as UI framework.
-- Use [moneybit-domain][moneybit-domain] as core domain
+- Use [moneybit-domain][moneybit-domain] as core domain.
+- Store journal data in Storage.
+
+# Features
+
+- Can manage multiple journals. Can switch journals.
+- Can set up/modify period of each journal.
+
 
 # License
 
