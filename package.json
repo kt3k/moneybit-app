@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "bulbo": "^6.6.0"
+  },
+  "name": "moneybit-app",
+  "description": "バランスシート作成アプリ",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kt3k/moneybit-app.git"
+  },
+  "keywords": [
+    "accounting",
+    "app"
+  ],
+  "author": "Yoshiya Hinosawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kt3k/moneybit-app/issues"
+  },
+  "homepage": "https://github.com/kt3k/moneybit-app#readme"
+}
