@@ -1,7 +1,4 @@
 {
-  "devDependencies": {
-    "bulbo": "^6.6.0"
-  },
   "name": "moneybit-app",
   "description": "バランスシート作成アプリ",
   "version": "0.1.0",
@@ -22,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/kt3k/moneybit-app/issues"
   },
-  "homepage": "https://github.com/kt3k/moneybit-app#readme"
+  "homepage": "https://github.com/kt3k/moneybit-app#readme",
+  "devDependencies": {
+    "bulbo": "^6.6.0"
+  }
 }
