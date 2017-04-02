@@ -11,6 +11,7 @@
   - Use [straw][straw] as native bridging framework.
 - Use [capsid][capsid] as UI framework.
 - Use [moneybit-domain][moneybit-domain] as core domain.
+- Use [bulma][bulma.io] for css framework.
 - Store journal data in Storage.
 
 # Features

@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/kt3k/moneybit-app#readme",
   "devDependencies": {
-    "bulbo": "^6.6.0"
+    "bulbo": "^6.6.0",
+    "gulp-front-matter": "^1.3.0",
+    "gulp-nunjucks-render": "^2.0.0",
+    "layout1": "^1.0.2",
+    "moneybit-domain": "^0.1.2"
   }
 }
