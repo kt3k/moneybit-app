@@ -1,5 +1,7 @@
 # moneybit-app (now 企画フェーズ)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kt3k/balance-kun.svg)](https://greenkeeper.io/)
+
 バランスシート作成アプリ
 
 - フリーランスエンジニア/デザイナ/コンサルタント向け
