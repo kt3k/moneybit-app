@@ -1,0 +1,13 @@
+.app-header {
+  background-color: #eee;
+  border-bottom: solid 1px #999;
+}
+
+.app-header .control {
+  width: 90%;
+}
+
+.app-header .select,
+.app-header select {
+  width: 100%;
+}

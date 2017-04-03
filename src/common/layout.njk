@@ -2,13 +2,17 @@
 <html>
   <head>
     <title>{{ file.fm.title }}</title>
-    <link rel="stylesheet" href="{{ basepath }}/bulma.css" />
+    <link rel="stylesheet" href="{{ basepath }}/vendor/bulma.css" />
+    <link rel="stylesheet" href="{{ basepath }}/common/index.css" />
+    {% if file.fm.css %}
+    <link rel="stylesheet" href="{{ basepath }}{{ file.fm.css }}" />
+    {% endif %}
   </head>
   <body>
-    <header></header>
+    {% include src + '/common/header.njk' %}
     <main>
-      {{ file.content | safe }}
+      {{ file.contents | safe }}
     </main>
-    <footer></footer>
+    <footer>フッター</footer>
   </body>
 </html>
