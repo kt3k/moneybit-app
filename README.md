@@ -13,6 +13,7 @@
 - Use [moneybit-domain][moneybit-domain] as core domain.
 - Use [bulma][bulma.io] for css framework.
 - Store journal data in Storage.
+- i18n with t10.js
 
 # Features
 
