@@ -12,7 +12,7 @@ const paths = {
     njk: {
       pages: `${src}/*/index.njk`,
       layout: `${src}/common/layout.njk`,
-      parts: `${src}/common/*.njk`
+      all: `${src}/**/*.njk`
     },
     css: {
       pages: `${src}/*/index.css`,
@@ -24,7 +24,7 @@ const paths = {
 
 // html
 asset(paths.src.njk.pages)
-  .watch(paths.src.njk.pages, paths.src.njk.parts)
+  .watch(paths.src.njk.all)
   .pipe(frontMatter({ property: 'fm' }))
   .pipe(nunjucks())
   .pipe(layout1.nunjucks(paths.src.njk.layout, { data: { src } }))
