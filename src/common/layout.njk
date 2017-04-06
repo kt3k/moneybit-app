@@ -11,10 +11,6 @@
     {% endif %}
   </head>
   <body>
-    {% include src + '/common/header.njk' %}
-    <main>
-      {{ file.contents | safe }}
-    </main>
-    {% include src + '/common/footer.njk' %}
+    {% block body %}{% endblock %}
   </body>
 </html>

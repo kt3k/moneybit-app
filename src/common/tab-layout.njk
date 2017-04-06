@@ -1,0 +1,15 @@
+{% extends src + '/common/layout.njk' %}
+
+{% block body %}
+{% include src + '/common/header.njk' %}
+<main>
+  <div class="placeholder325"></div>
+  <div class="section">
+    <div class="container">
+      {{ file.contents | safe }}
+    </div>
+  </div>
+  <div class="placeholder450"></div>
+</main>
+{% include src + '/common/footer.njk' %}
+{% endblock %}
