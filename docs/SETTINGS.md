@@ -9,8 +9,10 @@ AccountTypeChart に関する設定をするタブ
   - Journal の名前
   - Journal の期間
   - Journal の設定通貨
+  - Journal の小数点 (. or ,)
+  - Journal の3桁区切り点 (, or .)
 
-- AccountTypeChart の各種設定
+- AccountTypeChart (勘定科目) の各種設定
   - ASSET, LIABILITY, EQUITY, EXPENSE, REVENUE 各項目の勘定科目リスト表示
 
 ## 行動要素
@@ -21,8 +23,8 @@ AccountTypeChart に関する設定をするタブ
   - Journal の設定通貨を変える
 
 - AccountTypeChart の設定
-  - ASSET の勘定科目を追加する / 削除する
-  - LIABILITY の勘定科目を追加する / 削除する
-  - EQUITY の勘定科目を追加する / 削除する
-  - EXPENSE の勘定科目を追加する / 削除する
-  - REVENUE の勘定科目を追加する / 削除する
+  - ASSET の勘定科目を追加 / 編集 / 削除する
+  - LIABILITY の勘定科目を追加 / 編集 / 削除する
+  - EQUITY の勘定科目を追加 / 編集 / 削除する
+  - EXPENSE の勘定科目を追加 / 編集 / 削除する
+  - REVENUE の勘定科目を追加 / 編集 / 削除する
