@@ -7,5 +7,7 @@
   - 期首
 - Income Statement (損益計算書) が見れる
 - その他グラフ表示
+- Balance Sheet を送るボタン
+  - csv 形式でアプリ共有 (メーラー/google driveなど)
 
 ---
