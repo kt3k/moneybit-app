@@ -8,6 +8,7 @@ class DocumentRepository {
 
   getById (id) {
     infrastructure.get(this.createStorageKey(id), null).then(data => {
+      return factory.createFromObject(data)
     })
   }
 

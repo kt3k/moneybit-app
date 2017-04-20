@@ -6,6 +6,7 @@
   "scripts": {
     "start": "bulbo serve",
     "build": "bulbo build",
+    "lint": "standard",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,6 +32,12 @@
     "layout1": "^1.0.2",
     "moneybit-domain": "^0.1.2",
     "postcss-import": "^9.1.0",
+    "standard": "^10.0.2",
     "t10": "^0.5.1"
+  },
+  "standard": {
+    "globals": [
+      "infrastructure"
+    ]
   }
 }
