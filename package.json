@@ -10,6 +10,7 @@
     "start": "bulbo serve",
     "build": "bulbo build",
     "lint": "standard",
+    "fix": "standard --fix",
     "test": "karma start",
     "codecov": "codecov"
   },
@@ -51,6 +52,10 @@
     "t10": "^0.5.1"
   },
   "standard": {
+    "env": [
+      "mocha",
+      "browser"
+    ],
     "globals": [
       "infrastructure"
     ]
