@@ -1,6 +1,10 @@
 # moneybit-app (now 企画フェーズ)
 
-バランスシート作成アプリ
+> バランスシート作成アプリ
+
+[![CircleCI](https://circleci.com/gh/kt3k/moneybit-app.svg?style=svg)](https://circleci.com/gh/kt3k/moneybit-app)
+[![codecov](https://codecov.io/gh/kt3k/moneybit-app/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/moneybit-app)
+
 
 - フリーランスエンジニア/デザイナ/コンサルタント向け
 - 年次取引数1000未満の個人事業主がメインターゲット
