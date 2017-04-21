@@ -1,1 +1,3 @@
-exports.storage = require('./storage')
+const storage = require('./storage')
+
+global.infrastructure = { storage }

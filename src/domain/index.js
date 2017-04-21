@@ -1,7 +1,7 @@
-const coreDomain = require('moneybit-domain')
+const { Journal, Trade } = require('moneybit-domain')
 
-exports.Journal = coreDomain.Journal
-exports.Trade = coreDomain.Trade
+exports.Journal = Journal
+exports.Trade = Trade
 exports.Document = require('./document')
 exports.Currency = require('./currency')
 exports.CommaPeriodSetting = require('./comma-period-setting')

@@ -37,7 +37,7 @@ asset(paths.src.njk.pages)
 // js
 asset(paths.src.js.pages)
   .watch(paths.src.js.all)
-  .pipe(bundle({}))
+  .pipe(bundle({ transform: 'babelify' }))
 
 // css
 asset(paths.src.css.pages)

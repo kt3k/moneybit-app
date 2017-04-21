@@ -7,7 +7,7 @@ class Language {
   }
 }
 
-Language.EN = Language({ name: 'en' })
-Language.JA = Language({ name: 'ja' })
+Language.EN = new Language({ name: 'en' })
+Language.JA = new Language({ name: 'ja' })
 
 module.exports = Language
