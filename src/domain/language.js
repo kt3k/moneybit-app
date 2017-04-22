@@ -2,12 +2,12 @@
  * Represents the display language of the app.
  */
 class Language {
-  constructor ({ name }) {
-    this.name = name
+  constructor ({ code }) {
+    this.code = code
   }
 }
 
-Language.EN = new Language({ name: 'en' })
-Language.JA = new Language({ name: 'ja' })
+Language.EN = new Language({ code: 'en' })
+Language.JA = new Language({ code: 'ja' })
 
 module.exports = Language
