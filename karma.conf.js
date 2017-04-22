@@ -12,7 +12,7 @@ module.exports = config => config.set({
     transform: [['babelify', { presets: ['env'], plugins: ['istanbul'] }]]
   },
   reporters: ['progress', 'coverage'],
-  coverageReporters: { type: 'lcov' },
+  coverageReporter: { reporters: [{ type: 'lcov' }] },
   browsers: ['Chrome'],
   singleRun: true
 })
