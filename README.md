@@ -1,4 +1,4 @@
-# moneybit-app (now 企画フェーズ)
+# moneybit-app WIP
 
 > バランスシート作成アプリ
 
@@ -14,10 +14,18 @@
 - WebView app
   - Use [straw][straw] as native bridging framework.
 - Use [capsid][capsid] as UI framework.
-- Use [moneybit-domain][moneybit-domain] as core domain.
+- Use DDD as design architecture of business logic.
+  - Use [moneybit-domain][moneybit-domain] as core domain.
 - Use [bulma][bulma.io] for css framework.
-- Store journal data in Storage.
-- i18n with t10.js
+  - could be changed later.
+- Store journal data in straw.Storage.
+- i18n with [t10][t10].
+- transpile with babel
+- bundle scripts with browserify (I like it)
+- build the static resources with [bulbo][bulbo].
+- test with karma, mocha, chai.
+- test coverage with istanbul and codecov.
+- ci with circle-ci.
 
 # Features
 
@@ -33,3 +41,5 @@ MIT
 [capsid]: https://github.com/capsidjs/capsid
 [moneybit-domain]: https://github.com/kt3k/moneybit
 [bulma.io]: https://bulma.io
+[bulbo]: https://npm.im/bulbo
+[t10]: https://npm.im/t10
