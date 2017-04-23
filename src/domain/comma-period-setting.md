@@ -2,6 +2,7 @@
 name: CommaPeriodSetting
 desc: The setting of comma and period for separating digits.
 src: https://github.com/kt3k/moneybit-app/blob/master/src/domain/comma-period-setting.js
+edit: https://github.com/kt3k/moneybit-app/blob/master/src/domain/comma-period-setting.md
 props:
 - name: name
   type: string

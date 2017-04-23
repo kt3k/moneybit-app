@@ -837,6 +837,13 @@ braces@^1.8.2:
     preserve "^0.2.0"
     repeat-element "^1.1.2"
 
+branch-pipe@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/branch-pipe/-/branch-pipe-1.0.1.tgz#f1a1903d15cf8421658ead586c062db7c8dc253d"
+  dependencies:
+    duplexer2 "^0.1.4"
+    merge-stream "^1.0.1"
+
 brorand@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
@@ -1005,7 +1012,7 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
-bulbo@^6.5.0, bulbo@^6.7.0:
+bulbo@^6.7.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/bulbo/-/bulbo-6.7.0.tgz#57c765a461524a6be6d0cf939a80d19108dda5de"
   dependencies:
@@ -1019,6 +1026,21 @@ bulbo@^6.5.0, bulbo@^6.7.0:
     stream-splicer "^2.0.0"
     vinyl-fs "^2.2.1"
     vinyl-serve "^2.6.1"
+
+bulbo@^6.8.0:
+  version "6.8.0"
+  resolved "https://registry.yarnpkg.com/bulbo/-/bulbo-6.8.0.tgz#95c3f52a9ab6d3c0494a7f35370201c622621710"
+  dependencies:
+    chalk "^1.1.1"
+    chokidar "^1.4.2"
+    gulp-plumber "^1.1.0"
+    interpret "^1.0.0"
+    liftoff "^2.2.0"
+    minimisted "^1.1.1"
+    minirocket "^2.0.0"
+    stream-splicer "^2.0.0"
+    vinyl-fs "^2.2.1"
+    vinyl-serve "^2.7.0"
 
 bundle-through@^1.0.3:
   version "1.0.3"
@@ -1618,22 +1640,22 @@ domain-browser@~1.1.0:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
-domaindoc@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-1.6.0.tgz#fb4e1d731ffea49d12d0aa9d4092bfc17a19e4e0"
+domaindoc@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-1.8.0.tgz#5159dce5364c8ec28eaedddb036e20e78a3a2a0f"
   dependencies:
-    bulbo "^6.5.0"
+    branch-pipe "^1.0.1"
+    bulbo "^6.8.0"
     chalk "^1.1.3"
     gulp-consolidate "^0.2.0"
     gulp-front-matter "^1.3.0"
     gulp-marked "^1.0.0"
     gulp-trimlines "^1.0.0"
-    layout1 "^1.0.2"
+    layout1 "^1.1.0"
     minimisted "^1.1.1"
     minirocket "^2.0.0"
     nunjucks "^3.0.0"
-    vinyl-accumulate "^1.4.0"
-    vinyl-fork "^1.0.1"
+    vinyl-accumulate "^1.4.1"
 
 duplexer2@0.0.2:
   version "0.0.2"
@@ -3223,6 +3245,13 @@ layout1@^1.0.2:
     consolidate "^0.14.5"
     gulp-wrap "^0.13.0"
 
+layout1@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/layout1/-/layout1-1.1.0.tgz#b2e6687cd74ea84394e5f26644d25c4252338203"
+  dependencies:
+    consolidate "^0.14.5"
+    gulp-wrap "^0.13.0"
+
 lazy-cache@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
@@ -3598,7 +3627,7 @@ meow@^3.3.0:
     redent "^1.0.0"
     trim-newlines "^1.0.0"
 
-merge-stream@^1.0.0:
+merge-stream@^1.0.0, merge-stream@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-1.0.1.tgz#4041202d508a342ba00174008df0c251b8c135e1"
   dependencies:
@@ -5246,7 +5275,7 @@ verror@1.3.6:
   dependencies:
     extsprintf "1.0.2"
 
-vinyl-accumulate@^1.4.0:
+vinyl-accumulate@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/vinyl-accumulate/-/vinyl-accumulate-1.4.1.tgz#2b22679df61a3543e973f7b6fa3e9f745d4fdaba"
   dependencies:
@@ -5260,13 +5289,6 @@ vinyl-bufferstream@^1.0.1:
   resolved "https://registry.yarnpkg.com/vinyl-bufferstream/-/vinyl-bufferstream-1.0.1.tgz#0537869f580effa4ca45acb47579e4b9fe63081a"
   dependencies:
     bufferstreams "1.0.1"
-
-vinyl-fork@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vinyl-fork/-/vinyl-fork-1.0.1.tgz#57a363f4dd7044ee383357042f941d1dfb89c403"
-  dependencies:
-    duplexer2 "^0.1.4"
-    merge-stream "^1.0.0"
 
 vinyl-fs@^2.2.1, vinyl-fs@^2.4.4:
   version "2.4.4"
@@ -5293,6 +5315,15 @@ vinyl-fs@^2.2.1, vinyl-fs@^2.4.4:
 vinyl-serve@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/vinyl-serve/-/vinyl-serve-2.6.1.tgz#98d7b959b5bc88a1174941e0364e2ae8fa7c9d8f"
+  dependencies:
+    es6-promise "^4.0.3"
+    mime "^1.3.4"
+    moment "^2.15.1"
+    through2 "^2.0.1"
+
+vinyl-serve@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/vinyl-serve/-/vinyl-serve-2.7.0.tgz#ae1fef3ffb32264a1ba738c0abf4219b850c367f"
   dependencies:
     es6-promise "^4.0.3"
     mime "^1.3.4"
