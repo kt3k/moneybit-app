@@ -1,0 +1,4 @@
+title: MoneyBit App Domain Models
+source: src/domain
+dest: docs/domain
+port: 50000
