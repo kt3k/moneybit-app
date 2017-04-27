@@ -1,4 +1,5 @@
-const { asset } = require('bulbo')
+const bulbo = require('bulbo')
+const { asset } = bulbo
 const frontMatter = require('gulp-front-matter')
 const nunjucks = require('gulp-nunjucks-render')
 const layout1 = require('layout1')
@@ -26,6 +27,8 @@ const paths = {
     vendor: `${src}/vendor/**/*.*`
   }
 }
+
+bulbo.debugPagePath('__moneybit__')
 
 // html
 asset(paths.src.njk.pages)
