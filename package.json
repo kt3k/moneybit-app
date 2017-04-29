@@ -9,7 +9,7 @@
   "scripts": {
     "start": "bulbo serve",
     "build": "bulbo build",
-    "domaindoc": "domaindoc",
+    "doc": "domaindoc",
     "lint": "standard",
     "fix": "standard --fix",
     "test": "karma start",
@@ -37,7 +37,7 @@
     "bundle-through": "^1.0.3",
     "chai": "^3.5.0",
     "codecov": "^2.1.0",
-    "domaindoc": "^2.0.0",
+    "domaindoc": "^2.2.0",
     "gulp-front-matter": "^1.3.0",
     "gulp-nunjucks-render": "^2.0.0",
     "gulp-postcss": "^6.4.0",
@@ -48,7 +48,7 @@
     "karma-mocha": "^1.3.0",
     "layout1": "^1.0.2",
     "mocha": "^3.2.0",
-    "moneybit-domain": "^0.1.2",
+    "moneybit-domain": "^0.3.0",
     "postcss-import": "^9.1.0",
     "standard": "^10.0.2",
     "t10": "^0.5.1"
