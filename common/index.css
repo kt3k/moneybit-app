@@ -1,0 +1,44 @@
+.app-header-wrapper {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+.app-header {
+  background-color: #eee;
+  border-bottom: solid 1px #999;
+}
+
+.app-header .control {
+  width: 90%;
+}
+
+.app-header .select,
+.app-header select {
+  width: 100%;
+}
+
+.app-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-top: solid 1px #999;
+}
+
+.app-footer .level-item {
+  max-width: 32%;
+}
+
+.placeholder325 {
+  width: 1px;
+  height: 3.25rem;
+}
+
+.placeholder450 {
+  width: 1px;
+  height: 4.50rem;
+}

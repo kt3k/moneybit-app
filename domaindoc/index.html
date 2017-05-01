@@ -1,0 +1,1002 @@
+
+
+
+<html>
+  <head>
+    <title>MoneyBit App Domain Models</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="./asset/fontawesome/css/font-awesome.css" />
+<link rel="stylesheet" href="./asset/bulma.css" />
+<link rel="shortcut icon" href="./asset/favicon.png" type="image/png">
+
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-center">
+        <div class="nav-item">
+          <a href="./index.html">MoneyBit App Domain Models</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="section">
+      <div class="container">
+
+
+<div class="columns">
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./comma-period-setting.html">CommaPeriodSetting</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/comma-period-setting.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/comma-period-setting.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">App</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>name</b>
+                <small>string</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The setting of comma and period for separating digits.
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./currency.html">Currency</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/currency.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/currency.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">App</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>code</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>name</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>symbol</b>
+                <small>string</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The currency
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./document.html">Document</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/document.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/document.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">App</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>id</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>name</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>journalId</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>chartId</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>currency</b>
+                <small><a href="./currency.html">Currency</a></small>
+              </p>
+
+              <p>
+                <b>start</b>
+                <small>moment</small>
+              </p>
+
+              <p>
+                <b>end</b>
+                <small>moment</small>
+              </p>
+
+              <p>
+                <b>commaPeriodSetting</b>
+                <small><a href="./comma-period-setting.html">CommaPeriodSetting</a></small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The document model
+        </div>
+      </footer>
+    </div>
+  </div>
+  </div><div class="columns">
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./language.html">Language</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/language.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/language.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">App</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>code</b>
+                <small>string</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The language
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./user.html">User</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/user.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/user.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">App</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>id</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>documents</b>
+                <small><a href="./document.html">Document</a>[]</small>
+              </p>
+
+              <p>
+                <b>settings</b>
+                <small><a href="./user-settings.html">UserSettings</a></small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The user
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./user-settings.html">UserSettings</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/user-settings.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/user-settings.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">App</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>defaultChart</b>
+                <small><a href="./account-type-chart.html">AccountTypeChart</a></small>
+              </p>
+
+              <p>
+                <b>language</b>
+                <small><a href="./language.html">Language</a></small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The miscellaneous settings of the user
+        </div>
+      </footer>
+    </div>
+  </div>
+  </div><div class="columns">
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./account.html">Account</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/account.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/account.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>date</b>
+                <small>moment</small>
+              </p>
+
+              <p>
+                <b>type</b>
+                <small><a href="./account-type.html">AccountType</a></small>
+              </p>
+
+              <p>
+                <b>amount</b>
+                <small><a href="./money.html">Money</a></small>
+              </p>
+
+              <p>
+                <b>description</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>trade</b>
+                <small><a href="./trade.html">Trade</a></small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          Account represents a debit or credit in a trade.
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./account-type.html">AccountType</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/account-type.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/account-type.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>name</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>majorType</b>
+                <small><a href="./major-account-type.html">MajorAccountType</a></small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The account type
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./account-type-chart.html">AccountTypeChart</a>
+        </p>
+
+
+
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>id</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>accountTypes</b>
+                <small>Map&lt;string, <a href="./account-type.html">AccountType</a>&gt;</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The chart of the account types.
+        </div>
+      </footer>
+    </div>
+  </div>
+  </div><div class="columns">
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./credit.html">Credit</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/credit.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/credit.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>date</b>
+                <small>moment</small>
+              </p>
+
+              <p>
+                <b>type</b>
+                <small><a href="./account-type.html">AccountType</a></small>
+              </p>
+
+              <p>
+                <b>amount</b>
+                <small><a href="./money.html">Money</a></small>
+              </p>
+
+              <p>
+                <b>description</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>trade</b>
+                <small><a href="./trade.html">Trade</a></small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The credit of a trade
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./debit.html">Debit</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/debit.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/debit.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>date</b>
+                <small>moment</small>
+              </p>
+
+              <p>
+                <b>type</b>
+                <small><a href="./account-type.html">AccountType</a></small>
+              </p>
+
+              <p>
+                <b>amount</b>
+                <small><a href="./money.html">Money</a></small>
+              </p>
+
+              <p>
+                <b>description</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>trade</b>
+                <small><a href="./trade.html">Trade</a></small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The debit of a trade
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./journal.html">Journal</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/journal.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/journal.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>id</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>trades</b>
+                <small><a href="./trade.html">Trade</a>[]</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          Journal is a series of trades.
+        </div>
+      </footer>
+    </div>
+  </div>
+  </div><div class="columns">
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./ledger.html">Ledger</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/ledger.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/ledger.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>subledgers</b>
+                <small><a href="./subledger.html">Subledger</a>[]</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          Ledger represents the general ledger of the account period of a journal.
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./major-account-type.html">MajorAccountType</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/major-account-type.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/major-account-type.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>name</b>
+                <small>string</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The major account type.
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./money.html">Money</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/money.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/money.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>amount</b>
+                <small>number</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          The money
+        </div>
+      </footer>
+    </div>
+  </div>
+  </div><div class="columns">
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./subledger.html">Subledger</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/subledger.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/subledger.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>type</b>
+                <small><a href="./account-type.html">AccountType</a></small>
+              </p>
+
+              <p>
+                <b>accounts</b>
+                <small><a href="./account.html">Account</a>[]</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          Subledger is a component of a ledger which has accounts of the single account type
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./trade.html">Trade</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/trade.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/trade.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>id</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>date</b>
+                <small>moment</small>
+              </p>
+
+              <p>
+                <b>description</b>
+                <small>string</small>
+              </p>
+
+              <p>
+                <b>credits</b>
+                <small><a href="./credit.html">Credit</a>[]</small>
+              </p>
+
+              <p>
+                <b>debits</b>
+                <small><a href="./debit.html">Debit</a>[]</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          Trade is a transation
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <div class="column is-4">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="./trade-side.html">TradeSide</a>
+        </p>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/trade-side.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit/blob/master/packages/moneybit-domain/trade-side.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+      </header>
+
+      <div class="card-content">
+
+          <span class="tag is-pulled-right">Core</span>
+
+        <div class="content">
+
+
+              <p>
+                <b>name</b>
+                <small>string</small>
+              </p>
+
+
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          TradeSide represents the side of the trade
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+</div>
+
+
+        <hr>
+<footer>
+<p>Generated by <a href="https://npm.im/domaindoc">domaindoc</a>@v2.5.0
+</footer>
+
+      </div>
+    </div>
+  </body>
+</html>
