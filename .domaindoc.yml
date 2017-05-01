@@ -4,5 +4,5 @@ source:
     label: App
   node_modules/moneybit-domain:
     label: Core
-dest: docs/domain
+dest: build/domaindoc
 port: 50000

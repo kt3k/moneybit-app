@@ -7,9 +7,11 @@
     "last 3 versions"
   ],
   "scripts": {
+    "clean": "rimraf build",
     "start": "bulbo serve",
     "build": "bulbo build",
     "doc": "domaindoc",
+    "gh-pages": "npm run clean && npm run build && domaindoc build && gh-pages -d build",
     "lint": "standard",
     "fix": "standard --fix",
     "test": "karma start",
@@ -38,6 +40,7 @@
     "chai": "^3.5.0",
     "codecov": "^2.1.0",
     "domaindoc": "^2.5.0",
+    "gh-pages": "^0.12.0",
     "gulp-front-matter": "^1.3.0",
     "gulp-nunjucks-render": "^2.0.0",
     "gulp-postcss": "^6.4.0",
@@ -50,6 +53,7 @@
     "mocha": "^3.2.0",
     "moneybit-domain": "^0.4.0",
     "postcss-import": "^9.1.0",
+    "rimraf": "^2.6.1",
     "standard": "^10.0.2",
     "t10": "^0.5.1"
   },
