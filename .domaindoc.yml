@@ -1,4 +1,8 @@
 title: MoneyBit App Domain Models
-source: src/domain
+source:
+  src/domain:
+    label: App
+  node_modules/moneybit-domain:
+    label: Core
 dest: docs/domain
 port: 50000
