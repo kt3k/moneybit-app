@@ -10,12 +10,12 @@ props:
 - name: name
   type: string
   desc: The name of the document
-- name: journal
-  type: Journal
-  desc: The journal of the document
-- name: chart
-  type: AccountTypeChart
-  desc: The chart of the account types
+- name: journalId
+  type: string
+  desc: The id of the journal of the document
+- name: chartId
+  type: string
+  desc: The id of the chart of the account types
 - name: currency
   type: Currency
   desc: The currency of the document
