@@ -2432,13 +2432,9 @@ glogg@^1.0.0:
   dependencies:
     sparkles "^1.0.0"
 
-graceful-fs@4.1.10:
+graceful-fs@4.1.10, graceful-fs@4.X, graceful-fs@^4.0.0, graceful-fs@^4.1.2:
   version "4.1.10"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.10.tgz#f2d720c22092f743228775c75e3612632501f131"
-
-graceful-fs@4.X, graceful-fs@^4.0.0, graceful-fs@^4.1.2:
-  version "4.1.11"
-  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
 "graceful-readlink@>= 1.0.0":
   version "1.0.1"
@@ -3781,9 +3777,9 @@ moment@^2.15.1:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
-moneybit-domain@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/moneybit-domain/-/moneybit-domain-0.4.0.tgz#7585823fe369a46fd8752c3441ef9f488928fce0"
+moneybit-domain@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/moneybit-domain/-/moneybit-domain-0.5.0.tgz#7646c6b2148c667621d8eddfa5b14a34e2d3d9d7"
   dependencies:
     js-yaml "^3.8.2"
 
