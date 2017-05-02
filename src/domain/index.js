@@ -1,6 +1,7 @@
 const { Journal, Trade } = require('moneybit-domain')
 
 exports.Journal = Journal
+exports.Journal.Repository = require('./journal-repository')
 exports.Trade = Trade
 exports.Document = require('./document')
 exports.Currency = require('./currency')
