@@ -4,7 +4,7 @@ class CommaPeriodSetting {
   }
 }
 
-CommaPeriodSetting.CommaPeriod = new CommaPeriodSetting({ name: 'comma-period' })
-CommaPeriodSetting.PeriodComma = new CommaPeriodSetting({ name: 'period-comma' })
+CommaPeriodSetting['comma-period'] = new CommaPeriodSetting({ name: 'comma-period' })
+CommaPeriodSetting['period-comma'] = new CommaPeriodSetting({ name: 'period-comma' })
 
 module.exports = CommaPeriodSetting

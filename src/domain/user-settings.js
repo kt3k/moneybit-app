@@ -1,7 +1,7 @@
 
 class UserSettings {
-  constructor ({ defaultChart, language }) {
-    this.defaultChart = defaultChart
+  constructor ({ defaultChartId, language }) {
+    this.defaultChartId = defaultChartId
     this.language = language
   }
 }

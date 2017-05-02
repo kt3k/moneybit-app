@@ -1,0 +1,29 @@
+{
+  "id": "john",
+  "documents": [
+    {
+      "id": "1",
+      "name": "Journal of kt3k.com 2016",
+      "journalId": "j1",
+      "chartId": "c1",
+      "currencyCode": "JPY",
+      "start": "2016-01-01",
+      "end": "2016-12-31",
+      "commaPeriodSetting": "comma-period"
+    },
+    {
+      "id": "2",
+      "name": "Journal of kt3k.com 2017",
+      "journalId": "j2",
+      "chartId": "c2",
+      "currencyCode": "JPY",
+      "start": "2017-01-01",
+      "end": "2017-12-31",
+      "commaPeriodSetting": "period-comma"
+    }
+  ],
+  "settings": {
+    "defaultChartId": "default-chart",
+    "languageCode": "en"
+  }
+}
