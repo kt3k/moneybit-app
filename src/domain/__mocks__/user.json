@@ -25,5 +25,6 @@
   "settings": {
     "defaultChartId": "default-chart",
     "languageCode": "en"
-  }
+  },
+  "currentDocumentId": "2"
 }

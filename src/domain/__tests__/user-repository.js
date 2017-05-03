@@ -21,6 +21,7 @@ describe('UserRepository', () => {
       return repo.getById('john').then(user => {
         expect(user).to.be.instanceof(User)
         expect(user.id).to.equal('john')
+        expect(user.currentDocument.id).to.equal('2')
       })
     })
   })

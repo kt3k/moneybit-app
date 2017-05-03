@@ -29,7 +29,8 @@ class UserRepository {
     return {
       id: user.id,
       documents: this.documentsToArray(user.documents),
-      settings: this.settingsToObject(user.settings)
+      settings: this.settingsToObject(user.settings),
+      currentDocumentId: user.currentDocument.id
     }
   }
 
@@ -76,11 +77,15 @@ class UserRepository {
   deserialize (obj) {
     const documentFactory = new DocumentFactory()
     const userSettingsFactory = new UserSettingsFactory()
+    const documents = documentFactory.createDocumentsFromArray(obj.documents)
+
+    const currentDocument = documents.filter(document => document.id === obj.currentDocumentId)[0]
 
     return new User({
       id: obj.id,
-      documents: documentFactory.createDocumentsFromArray(obj.documents),
+      documents,
       settings: userSettingsFactory.createFromObject(obj.settings),
+      currentDocument
     })
   }
 

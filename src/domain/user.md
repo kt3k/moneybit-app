@@ -13,6 +13,9 @@ props:
 - name: settings
   type: UserSettings
   desc: The settings of the user
+- name: currentDocument
+  type: Document
+  desc: The current document id
 ---
 
 The user model.
