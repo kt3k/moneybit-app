@@ -30,7 +30,7 @@ class UserRepository {
       id: user.id,
       documents: this.documentsToArray(user.documents),
       settings: this.settingsToObject(user.settings),
-      currentDocumentId: user.currentDocument.id
+      currentDocumentId: user.currentDocument && user.currentDocument.id
     }
   }
 
@@ -75,6 +75,8 @@ class UserRepository {
    * @return {User}
    */
   deserialize (obj) {
+    if (!obj) { return null }
+
     const documentFactory = new DocumentFactory()
     const userSettingsFactory = new UserSettingsFactory()
     const documents = documentFactory.createDocumentsFromArray(obj.documents)
