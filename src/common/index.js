@@ -1,1 +1,5 @@
 global.t10 = require('t10')
+global.capsid = require('capsid')
+global.$ = require('jquery')
+const capsidJQuery = require('capsid/jquery.js')
+capsidJQuery(global.capsid, global.$)

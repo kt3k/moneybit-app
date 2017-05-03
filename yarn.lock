@@ -1083,6 +1083,10 @@ caniuse-db@^1.0.30000639:
   version "1.0.30000664"
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000664.tgz#e16316e5fdabb9c7209b2bf0744ffc8a14201f22"
 
+capsid@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/capsid/-/capsid-0.8.0.tgz#fa528c8f58adabf2db0626c2053681b15e02aa25"
+
 caseless@~0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.11.0.tgz#715b96ea9841593cc33067923f5ec60ebda4f7d7"
