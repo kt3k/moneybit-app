@@ -28,7 +28,7 @@ class UserInitService {
   createInitialSettings () {
     return new UserSettings({
       defaultChartId: null,
-      language: null,
+      language: null
     })
   }
 }

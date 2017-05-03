@@ -55,7 +55,7 @@ class UserRepository {
       currencyCode: document.currency.code,
       start: document.start.format('YYYY-MM-DD'),
       end: document.end.format('YYYY-MM-DD'),
-      commaPeriodSetting: document.commaPeriodSetting.name,
+      commaPeriodSetting: document.commaPeriodSetting.name
     }
   }
 

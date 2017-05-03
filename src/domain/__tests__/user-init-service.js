@@ -13,7 +13,7 @@ describe('UserInitService', () => {
     td.reset()
   })
 
-  describe('getOrCreate', () =>{
+  describe('getOrCreate', () => {
     it('creates the user when not available', () => {
       return service.getOrCreate('jonathan').then(user => {
         expect(user).to.be.instanceof(User)
