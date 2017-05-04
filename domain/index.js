@@ -8345,19 +8345,13 @@ const moment = require('moment')
 const Money = require('./money')
 const Debit = require('./debit')
 const Credit = require('./credit')
+const AccountType = require('./account-type')
 const { DEBIT } = require('./trade-side')
 
 /**
  * The factory class for Account model.
  */
 class AccountFactory {
-  /**
-   * @param {AccountTypeChart} chart
-   */
-  constructor (chart) {
-    this.chart = chart
-  }
-
   /**
    * @param {string} typeName The type name of journal entry (e.g. 売上, 売掛金)
    * @param {number} amount The amount of the entry
@@ -8366,7 +8360,7 @@ class AccountFactory {
    * @param {TradeSide} side The side of the entry (DEBIT or CREDIT)
    */
   createFromParams (typeName, amount, { date, desc }, side) {
-    const type = this.chart.getByName(typeName)
+    const type = new AccountType(typeName)
     const money = new Money(amount)
 
     date = moment(date)
@@ -8389,7 +8383,7 @@ class AccountFactory {
 
 module.exports = AccountFactory
 
-},{"./credit":40,"./debit":41,"./money":49,"./trade-side":52,"moment":32}],34:[function(require,module,exports){
+},{"./account-type":36,"./credit":40,"./debit":41,"./money":49,"./trade-side":52,"moment":32}],34:[function(require,module,exports){
 const AccountTypeChart = require('./account-type-chart')
 const AccountType = require('./account-type')
 const { ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE } = require('./major-account-type')
@@ -8411,7 +8405,7 @@ class AccountTypeChartFactory {
 
       if (accountTypeNames) {
         accountTypeNames.forEach(name => {
-          chart.addAccountType(new AccountType(name, majorType))
+          chart.set(new AccountType(name), majorType)
         })
       }
     })
@@ -8429,33 +8423,29 @@ module.exports = AccountTypeChartFactory
 class AccountTypeChart {
   constructor (id) {
     this.id = id
-    this.accountTypes = new Map()
+    this.majorTypes = new Map()
   }
 
   /**
-   * Adds the account type to the chart.
+   * Sets the account type to the major type.
    * @param {AccountType} accountType The account type
+   * @param {MajorAccountType} majorType The major account type
    */
-  addAccountType (accountType) {
-    this.accountTypes.set(accountType.name, accountType)
+  set (accountType, majorType) {
+    this.majorTypes.set(accountType.name, majorType)
   }
 
   /**
-   * Gets the account type by the name.
-   * @param {string} name The name of the account type
-   * @return {Account}
-   * @throws {Error} when the account type name is not found in the chart
+   * Gets the major type by the account type.
+   * @param {AccountType} accountType The account type
+   * @return {MajorAccountType}
    */
-  getByName (name) {
-    if (typeof name !== 'string') {
-      throw new Error(`The account type name must be a string: typeof name is ${typeof name}`)
+  getMajorTypeByAccountType (accountType) {
+    if (!this.majorTypes.has(accountType.name)) {
+      throw new Error(`The account type name is not found in the chart: ${accountType.name}`)
     }
 
-    if (!this.accountTypes.has(name)) {
-      throw new Error(`The account type name is not found in the chart: ${name}`)
-    }
-
-    return this.accountTypes.get(name)
+    return this.majorTypes.get(accountType.name)
   }
 }
 
@@ -8470,19 +8460,9 @@ module.exports = AccountTypeChart
 class AccountType {
   /**
    * @param {string} name The name of the account type
-   * @param {MajorAccountType} majorType The major account type
    */
-  constructor (name, majorType) {
+  constructor (name) {
     this.name = name
-    this.majorType = majorType
-  }
-
-  /**
-   * Returns the side on which this account has positive value.
-   * @return {TradeSide}
-   */
-  side () {
-    return this.majorType.side
   }
 
   /**
@@ -8491,7 +8471,7 @@ class AccountType {
    * @return {boolean}
    */
   equals (type) {
-    return this.name === type.name && this.majorType === type.majorType
+    return this.name === type.name
   }
 }
 
@@ -8799,11 +8779,8 @@ const TradeFactory = require('./trade-factory')
  * JournalFactory is the factroy class for Journal model.
  */
 class JournalFactory {
-  /**
-   * @param {AccountTypeChart} chart
-   */
-  constructor (chart) {
-    this.tradeFactory = new TradeFactory(chart)
+  constructor () {
+    this.tradeFactory = new TradeFactory()
   }
 
   /**
@@ -8857,19 +8834,21 @@ class Journal {
   }
 
   /**
-   * Creates a ledger.
-   *
+   * Creates the ledger.
+   * @param {AccountTypeChart} chart The chart
    * @return {Ledger}
    */
-  toLedger () {
-    return ledgerFactory.createFromJournal(this)
+  toLedger (chart) {
+    return ledgerFactory.createFromJournalAndChart(this, chart)
   }
 
   /**
+   * Creates the balancesheet.
+   * @param {AccountTypeChart} chart The chart
    * @return {BalanceSheet}
    */
-  toBalanceSheet () {
-    return new BalanceSheet(this.toLedger())
+  toBalanceSheet (chart) {
+    return new BalanceSheet(this.toLedger(chart))
   }
 
   /**
@@ -8917,20 +8896,25 @@ const Subledger = require('./subledger')
  * The factory class for the ledger model.
  */
 class LedgerFactory {
-  createFromJournal (journal) {
-    return this.createFromAccounts(journal.accounts())
+  /*
+   * Creates the ledger from the journal and chart.
+   * @param {Array<Account>} accounts The accounts
+   * @param {AccountTypeChart} chart The account type chart
+   */
+  createFromJournalAndChart (journal, chart) {
+    return this.createFromAccountsAndChart(journal.accounts(), chart)
   }
 
   /**
-   * Creates the ledger from the list of the accounts.
-   *
+   * Creates the ledger from the chart and the list of the accounts.
    * @param {Array<Account>} accounts The accounts
+   * @param {AccountTypeChart} chart The account type chart
    */
-  createFromAccounts (accounts) {
+  createFromAccountsAndChart (accounts, chart) {
     let subledgers = {}
 
     accounts.forEach(account => {
-      subledgers[account.type.name] = subledgers[account.type.name] || new Subledger(account.type, [])
+      subledgers[account.type.name] = subledgers[account.type.name] || new Subledger(account.type, chart.getMajorTypeByAccountType(account.type), [])
 
       subledgers[account.type.name].add(account)
     })
@@ -9087,7 +9071,7 @@ class Ledger {
    * @param {Subledger} subledger The subledger
    */
   add (subledger) {
-    switch (subledger.type.majorType) {
+    switch (subledger.majorType) {
       case ASSET:
         this.subledgers[ASSET.name].push(subledger)
         break
@@ -9127,7 +9111,7 @@ class Ledger {
     const subledgers = this.subledgerList.filter(subledger => subledger.type.equals(type))
 
     if (subledgers.length === 0) {
-      throw new Error('No such account: ' + type.name)
+      throw new Error(`No such account: ${type.name}`)
     }
 
     return subledgers[0]
@@ -9227,10 +9211,12 @@ class Subledger {
   /**
    * @constructor
    * @param {AccountType} type The account type of the subledger
+   * @param {MajorAccountType} majorType The major account type
    * @param {Array<Account>} accounts
    */
-  constructor (type, accounts) {
+  constructor (type, majorType, accounts) {
     this.type = type
+    this.majorType = majorType
     this.accounts = accounts.sort((x, y) => x.dateDiff(y))
   }
 
@@ -9257,7 +9243,7 @@ class Subledger {
    * @return {TradeSide}
    */
   side () {
-    return this.type.side()
+    return this.majorType.side
   }
 
   /**
@@ -9299,7 +9285,7 @@ class Subledger {
    * @param {moment} month The month
    */
   filterByMonth (month) {
-    return new Subledger(this.type, this.accounts.filter(account => account.isInMonth(month)))
+    return new Subledger(this.type, this.majorType, this.accounts.filter(account => account.isInMonth(month)))
   }
 
   /**
@@ -9344,11 +9330,8 @@ const AccountFactory = require('./account-factory')
  * The factory class for trade model.
  */
 class TradeFactory {
-  /**
-   * @param {AccountTypeChart} chart
-   */
-  constructor (chart) {
-    this.accountFactory = new AccountFactory(chart)
+  constructor () {
+    this.accountFactory = new AccountFactory()
   }
 
   /**
@@ -9489,8 +9472,8 @@ var CommaPeriodSetting = function CommaPeriodSetting(_ref) {
   this.name = name;
 };
 
-CommaPeriodSetting.CommaPeriod = new CommaPeriodSetting({ name: 'comma-period' });
-CommaPeriodSetting.PeriodComma = new CommaPeriodSetting({ name: 'period-comma' });
+CommaPeriodSetting['comma-period'] = new CommaPeriodSetting({ name: 'comma-period' });
+CommaPeriodSetting['period-comma'] = new CommaPeriodSetting({ name: 'period-comma' });
 
 module.exports = CommaPeriodSetting;
 
@@ -9539,17 +9522,37 @@ var DocumentFactory = function () {
 
     /**
      * @param {Object} obj The object
+     * @return {Document}
      */
     value: function createFromObject(obj) {
       return new Document({
         id: obj.id,
         name: obj.name,
         journalId: obj.journalId,
-        chart: obj.chartId,
+        chartId: obj.chartId,
         currency: Currency[obj.currencyCode],
         start: moment(obj.start),
         end: moment(obj.end),
         commaPeriodSetting: CommaPeriodSetting[obj.commaPeriodSetting]
+      });
+    }
+
+    /**
+     * @param {Array} array The array
+     * @return {Document[]}
+     */
+
+  }, {
+    key: 'createDocumentsFromArray',
+    value: function createDocumentsFromArray(array) {
+      var _this = this;
+
+      if (!array) {
+        return [];
+      }
+
+      return array.map(function (obj) {
+        return _this.createFromObject(obj);
       });
     }
   }]);
@@ -9685,15 +9688,142 @@ var _require = require('moneybit-domain'),
     Trade = _require.Trade;
 
 exports.Journal = Journal;
+exports.Journal.Repository = require('./journal-repository');
 exports.Trade = Trade;
 exports.Document = require('./document');
 exports.Currency = require('./currency');
 exports.CommaPeriodSetting = require('./comma-period-setting');
 exports.User = require('./user');
+exports.User.Repository = require('./user-repository');
+exports.User.InitService = require('./user-init-service');
 exports.UserSettings = require('./user-settings');
 exports.Language = require('./language');
 
-},{"./comma-period-setting":55,"./currency":56,"./document":59,"./language":61,"./user":63,"./user-settings":62,"moneybit-domain":42}],61:[function(require,module,exports){
+},{"./comma-period-setting":55,"./currency":56,"./document":59,"./journal-repository":61,"./language":62,"./user":67,"./user-init-service":63,"./user-repository":64,"./user-settings":66,"moneybit-domain":42}],61:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var _require = require('moneybit-domain'),
+    Journal = _require.Journal;
+
+var JournalRepository = function () {
+  function JournalRepository() {
+    _classCallCheck(this, JournalRepository);
+  }
+
+  _createClass(JournalRepository, [{
+    key: 'getById',
+
+    /**
+     * Gets the journal by the id.
+     * @param {string} id The id of the journal
+     * @return {Promise<Journal>}
+     */
+    value: function getById(id) {
+      var _this = this;
+
+      return infrastructure.storage.get(this.createKey(id), null).then(function (data) {
+        return _this.deserialize(data);
+      });
+    }
+
+    /**
+     * Creates the persistent key.
+     * @param {string} id The id of the journal
+     * @return {string}
+     */
+
+  }, {
+    key: 'createKey',
+    value: function createKey(id) {
+      return 'journal-' + id;
+    }
+
+    /**
+     * Saves the journal.
+     * @param {Journal} journal The journal
+     * @return {Promise}
+     */
+
+  }, {
+    key: 'save',
+    value: function save(journal) {
+      return infrastructure.storage.set(this.createKey(journal.id), this.serialize(journal));
+    }
+
+    /**
+     * @param {Journal} journal The journal
+     * @return {Object}
+     */
+
+  }, {
+    key: 'serialize',
+    value: function serialize(journal) {
+      var _this2 = this;
+
+      return {
+        id: journal.id,
+        trades: journal.trades.map(function (trade) {
+          return _this2.tradeToObject(trade);
+        })
+      };
+    }
+
+    /**
+     * @param {Trade} trade The trade
+     * @return {Object}
+     */
+
+  }, {
+    key: 'tradeToObject',
+    value: function tradeToObject(trade) {
+      return {
+        id: trade.id,
+        desc: trade.description,
+        date: trade.date.format('YYYY-MM-DD'),
+        dr: this.accountsToObject(trade.debits),
+        cr: this.accountsToObject(trade.credits)
+      };
+    }
+
+    /**
+     * @param {Account[]} accounts The accounts
+     * @return {Object}
+     */
+
+  }, {
+    key: 'accountsToObject',
+    value: function accountsToObject(accounts) {
+      var obj = {};
+
+      accounts.forEach(function (account) {
+        obj[account.type.name] = account.amount.amount;
+      });
+
+      return obj;
+    }
+
+    /**
+     * @param {Object} obj The object
+     * @return {Journal}
+     */
+
+  }, {
+    key: 'deserialize',
+    value: function deserialize(obj) {
+      return new Journal.Factory().createFromIdAndArray(obj.id, obj.trades);
+    }
+  }]);
+
+  return JournalRepository;
+}();
+
+module.exports = JournalRepository;
+
+},{"moneybit-domain":42}],62:[function(require,module,exports){
 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9714,24 +9844,270 @@ Language.JA = new Language({ code: 'ja' });
 
 module.exports = Language;
 
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var User = require('./user');
+var UserSettings = require('./user-settings');
+
+var repo = new User.Repository();
+
+var UserInitService = function () {
+  function UserInitService() {
+    _classCallCheck(this, UserInitService);
+  }
+
+  _createClass(UserInitService, [{
+    key: 'getOrCreate',
+
+    /**
+     * @param {string} id The id of the user
+     * @return {User}
+     */
+    value: function getOrCreate(id) {
+      var _this = this;
+
+      return repo.getById(id).then(function (user) {
+        return user || _this.createUser(id);
+      });
+    }
+
+    /**
+     * @param {string} id The id
+     * @return {User}
+     */
+
+  }, {
+    key: 'createUser',
+    value: function createUser(id) {
+      return new User({
+        id: id,
+        documents: [],
+        settings: this.createInitialSettings(),
+        currentDocument: null
+      });
+    }
+  }, {
+    key: 'createInitialSettings',
+    value: function createInitialSettings() {
+      return new UserSettings({
+        defaultChartId: null,
+        language: null
+      });
+    }
+  }]);
+
+  return UserInitService;
+}();
+
+module.exports = UserInitService;
+
+},{"./user":67,"./user-settings":66}],64:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var DocumentFactory = require('./document-factory');
+var UserSettingsFactory = require('./user-settings-factory');
+var User = require('./user');
+
+var UserRepository = function () {
+  function UserRepository() {
+    _classCallCheck(this, UserRepository);
+  }
+
+  _createClass(UserRepository, [{
+    key: 'getById',
+
+    /**
+     * Gets the user by id.
+     * @param {string} id The id
+     * @return {User}
+     */
+    value: function getById(id) {
+      var _this = this;
+
+      return infrastructure.storage.get(this.createKey(id), null).then(function (data) {
+        return _this.deserialize(data);
+      });
+    }
+
+    /**
+     * @param {User} user The user
+     * @return {Promise}
+     */
+
+  }, {
+    key: 'save',
+    value: function save(user) {
+      return infrastructure.storage.set(this.createKey(user.id), this.serialize(user));
+    }
+
+    /**
+     * @param {User} user The user
+     * @return {object}
+     */
+
+  }, {
+    key: 'serialize',
+    value: function serialize(user) {
+      return {
+        id: user.id,
+        documents: this.documentsToArray(user.documents),
+        settings: this.settingsToObject(user.settings),
+        currentDocumentId: user.currentDocument && user.currentDocument.id
+      };
+    }
+
+    /**
+     * @param {Document[]} documents
+     * @return {Object[]}
+     */
+
+  }, {
+    key: 'documentsToArray',
+    value: function documentsToArray(documents) {
+      var _this2 = this;
+
+      return documents.map(function (doc) {
+        return _this2.documentToObject(doc);
+      });
+    }
+
+    /**
+     * @param {Document} document
+     * @return {Object}
+     */
+
+  }, {
+    key: 'documentToObject',
+    value: function documentToObject(document) {
+      return {
+        id: document.id,
+        name: document.name,
+        journalId: document.journalId,
+        chartId: document.chartId,
+        currencyCode: document.currency.code,
+        start: document.start.format('YYYY-MM-DD'),
+        end: document.end.format('YYYY-MM-DD'),
+        commaPeriodSetting: document.commaPeriodSetting.name
+      };
+    }
+
+    /**
+     * @param {UserSettings} settings The user settings
+     * @return {Object}
+     */
+
+  }, {
+    key: 'settingsToObject',
+    value: function settingsToObject(settings) {
+      return {
+        defaultChartId: settings.defaultChartId,
+        languageCode: settings.language.code
+      };
+    }
+
+    /**
+     * @param {Object} obj
+     * @return {User}
+     */
+
+  }, {
+    key: 'deserialize',
+    value: function deserialize(obj) {
+      if (!obj) {
+        return null;
+      }
+
+      var documentFactory = new DocumentFactory();
+      var userSettingsFactory = new UserSettingsFactory();
+      var documents = documentFactory.createDocumentsFromArray(obj.documents);
+
+      var currentDocument = documents.filter(function (document) {
+        return document.id === obj.currentDocumentId;
+      })[0];
+
+      return new User({
+        id: obj.id,
+        documents: documents,
+        settings: userSettingsFactory.createFromObject(obj.settings),
+        currentDocument: currentDocument
+      });
+    }
+
+    /**
+     * Creates the key for serialization.
+     * @param {string} id The id
+     * @return {string}
+     */
+
+  }, {
+    key: 'createKey',
+    value: function createKey(id) {
+      return 'user-' + id;
+    }
+  }]);
+
+  return UserRepository;
+}();
+
+module.exports = UserRepository;
+
+},{"./document-factory":57,"./user":67,"./user-settings-factory":65}],65:[function(require,module,exports){
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var UserSettings = require('./user-settings');
+var Language = require('./language');
+
+var UserSettingsFactory = function () {
+  function UserSettingsFactory() {
+    _classCallCheck(this, UserSettingsFactory);
+  }
+
+  _createClass(UserSettingsFactory, [{
+    key: 'createFromObject',
+    value: function createFromObject(obj) {
+      return new UserSettings({
+        defaultChartId: obj.defaultChartId,
+        language: new Language({ code: obj.languageCode })
+      });
+    }
+  }]);
+
+  return UserSettingsFactory;
+}();
+
+module.exports = UserSettingsFactory;
+
+},{"./language":62,"./user-settings":66}],66:[function(require,module,exports){
 "use strict";
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var UserSettings = function UserSettings(_ref) {
-  var defaultChart = _ref.defaultChart,
+  var defaultChartId = _ref.defaultChartId,
       language = _ref.language;
 
   _classCallCheck(this, UserSettings);
 
-  this.defaultChart = defaultChart;
+  this.defaultChartId = defaultChartId;
   this.language = language;
 };
 
 module.exports = UserSettings;
 
-},{}],63:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 "use strict";
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9741,17 +10117,20 @@ var User =
  * @param {string} id The id
  * @param {Document[]} documents The documents
  * @param {UserSettings} settings The user settings
+ * @param {Document} currentDocument The current document
  */
 function User(_ref) {
   var id = _ref.id,
       documents = _ref.documents,
-      settings = _ref.settings;
+      settings = _ref.settings,
+      currentDocument = _ref.currentDocument;
 
   _classCallCheck(this, User);
 
   this.id = id;
   this.documents = documents;
   this.settings = settings;
+  this.currentDocument = currentDocument;
 };
 
 module.exports = User;
