@@ -16,3 +16,7 @@
 ## 3rd tab
 
 - You configure the app.
+
+## New document screen
+
+- You create a new document by setting name, comma-period-setting, currecy and start and end date of the journal.

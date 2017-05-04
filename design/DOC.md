@@ -1,4 +1,4 @@
-# Balance Kun design doc
+# MoneyBit app design doc
 
 - A SP app for iOS and Android, based on straw, capsid and bulbo.
 
