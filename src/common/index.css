@@ -3,3 +3,11 @@
 @import "layout";
 @import "utils";
 @import "brand-stripe";
+
+body {
+  background: #fff;
+}
+
+html {
+  background: #eee;
+}
