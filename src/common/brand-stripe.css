@@ -1,0 +1,9 @@
+
+.c-brand-stripe {
+  height: 14px;
+  background-color: #eee;
+  background-image: url(./brand-stripe.svg);
+  background-size: auto 14px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

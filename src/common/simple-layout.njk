@@ -1,0 +1,5 @@
+{% extends src + '/common/layout.njk' %}
+
+{% block body %}
+{{ file.contents | safe }}
+{% endblock %}

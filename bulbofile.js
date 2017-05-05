@@ -8,12 +8,13 @@ const postcssImport = require('postcss-import')
 const bundle = require('bundle-through')
 
 const src = 'src'
+const basepath = process.env.BASEPATH || ''
 
 const paths = {
   src: {
     njk: {
       pages: `${src}/*/index.njk`,
-      tabLayout: `${src}/common/tab-layout.njk`,
+      layoutRoot: `${src}/common`,
       all: `${src}/**/*.njk`
     },
     js: {
@@ -24,9 +25,14 @@ const paths = {
       pages: `${src}/*/index.css`,
       all: `${src}/**/*.css`
     },
+    img: {
+      all: `${src}/**/*.svg`
+    },
     vendor: `${src}/vendor/**/*.*`
   }
 }
+
+const data = { src, basepath }
 
 bulbo.debugPagePath('__moneybit__')
 
@@ -34,8 +40,10 @@ bulbo.debugPagePath('__moneybit__')
 asset(paths.src.njk.pages)
   .watch(paths.src.njk.all)
   .pipe(frontMatter({ property: 'fm' }))
-  .pipe(nunjucks())
-  .pipe(layout1.nunjucks(paths.src.njk.tabLayout, { data: { src } }))
+  .pipe(nunjucks({ data }))
+  .pipe(layout1.nunjucks(file => (
+    `${paths.src.njk.layoutRoot}/${file.fm.layout || 'tab-layout'}.njk`
+  ), { data }))
 
 // js
 asset(paths.src.js.pages)
@@ -49,4 +57,8 @@ asset(paths.src.css.pages)
 
 // vendor
 asset(paths.src.vendor)
+  .base(src)
+
+// img
+asset(paths.src.img.all)
   .base(src)
