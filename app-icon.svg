@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="278px" height="278px" viewBox="0 0 278 278" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-111.000000, -111.000000)">
+            <g id="logo" transform="translate(111.000000, 111.000000)">
+                <rect id="Rectangle-2" fill="#FFF5D3" x="0" y="0" width="278" height="278" rx="139"></rect>
+                <g id="Group" transform="translate(34.000000, 97.000000)">
+                    <rect id="Rectangle" fill="#E3B00E" x="28" y="0" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#E3B00E" x="112" y="0" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#E3B00E" x="140" y="0" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#E3B00E" x="168" y="49" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#E3B00E" x="196" y="0" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#E3B00E" x="28" y="49" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#858278" x="0" y="0" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#858278" x="56" y="0" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#858278" x="0" y="49" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#858278" x="56" y="49" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#858278" x="84" y="49" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#858278" x="112" y="49" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#858278" x="140" y="49" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#858278" x="196" y="49" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#858278" x="84" y="0" width="14" height="35" rx="7"></rect>
+                    <rect id="Rectangle" fill="#858278" x="168" y="0" width="14" height="35" rx="7"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
