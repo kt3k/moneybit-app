@@ -1,6 +1,6 @@
 <footer class="app-footer">
   <nav class="level is-mobile">
-    <div class="level-item has-text-centered">
+    <div class="level-item has-text-centered {% if file.relative.indexOf('bs/index.html') !== -1 %}is-selected{% endif %}">
       <div>
         <p class="heading">Balance Sheet</p>
         <p class="title">
@@ -10,7 +10,7 @@
         </p>
       </div>
     </div>
-    <div class="level-item has-text-centered">
+    <div class="level-item has-text-centered {% if file.relative.indexOf('journal/index.html') !== -1 %}is-selected{% endif %}">
       <div>
         <p class="heading">Journal</p>
         <p class="title">
@@ -20,7 +20,7 @@
         </p>
       </div>
     </div>
-    <div class="level-item has-text-centered">
+    <div class="level-item has-text-centered {% if file.relative.indexOf('settings/index.html') !== -1 %}is-selected{% endif %}">
       <div>
         <p class="heading">Settings</p>
         <p class="title">

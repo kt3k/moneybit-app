@@ -4,11 +4,14 @@
   right: 0;
   bottom: 0;
   width: 100%;
-  padding-top: 8px;
   background-color: rgba(255, 255, 255, 0.8);
   border-top: solid 1px #999;
 }
 
 .app-footer .level-item {
   max-width: 32%;
+}
+
+.app-footer .is-selected {
+  background-color: rgba(238, 238, 238, 0.8);
 }
