@@ -10,7 +10,7 @@
 }
 
 .app-header .control {
-  width: 90%;
+  width: calc(100vw - 50px);
 }
 
 .app-header .select,
