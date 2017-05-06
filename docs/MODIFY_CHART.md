@@ -1,0 +1,7 @@
+# CHART 入力欄
+
+- ASSET 一覧
+- EQUITY 一覧
+- LIABILITY 一覧
+- REVENUE 一覧
+- EXPENSE 一覧

@@ -1,16 +1,16 @@
 # 設定タブ
 
-その時選んでいる Journal に紐づいた設定をするタブ
+選択中の Journal に紐づいた設定をするタブ
 AccountTypeChart に関する設定をするタブ
 
 ## 表示要素
 
 - Journal の各種設定
-  - Journal の名前
-  - Journal の期間
-  - Journal の設定通貨
-  - Journal の小数点 (. or ,)
-  - Journal の3桁区切り点 (, or .)
+  - Journal のタイトル
+  - Journal の開始日
+  - Journal の終了日
+  - Journal の通貨
+  - Journal のコンマスタイル
 
 - AccountTypeChart (勘定科目) の各種設定
   - ASSET, LIABILITY, EQUITY, EXPENSE, REVENUE 各項目の勘定科目リスト表示
