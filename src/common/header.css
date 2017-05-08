@@ -1,5 +1,6 @@
 .app-header-wrapper {
   position: fixed;
+  padding-top: 8px;
   width: 100%;
   z-index: 2;
 }

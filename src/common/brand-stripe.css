@@ -1,9 +1,14 @@
 
 .c-brand-stripe {
-  height: 14px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 16px;
   background-color: #eee;
   background-image: url(./brand-stripe.svg);
   background-size: auto 14px;
   background-repeat: no-repeat;
   background-position: center center;
+  z-index: 3;
 }
