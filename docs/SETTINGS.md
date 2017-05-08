@@ -1,7 +1,9 @@
 # 設定タブ
 
-選択中の Journal に紐づいた設定をするタブ
-AccountTypeChart に関する設定をするタブ
+選択中の Document に関する設定をするタブ
+ドキュメントの AccountTypeChart に関する設定をするタブ
+AccountTypeChart に任意の AccountType を追加できる
+AccountTypeChart 内で、 Journal で使われていない AccountType を削除できる
 
 ## 表示要素
 
@@ -14,6 +16,7 @@ AccountTypeChart に関する設定をするタブ
 
 - AccountTypeChart (勘定科目) の各種設定
   - ASSET, LIABILITY, EQUITY, EXPENSE, REVENUE 各項目の勘定科目リスト表示
+  - 使われていない勘定科目の削除ボタン
 
 ## 行動要素
 
