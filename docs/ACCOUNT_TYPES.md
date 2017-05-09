@@ -4,6 +4,7 @@
 - Accounts Receivable
 - Land
 - Equipment
+- Inventory
 
 # LIABILITIES
 
