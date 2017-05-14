@@ -2,7 +2,9 @@ title: MoneyBit App Domain Models
 source:
   src/domain:
     label: App
+    color: '#d1fff8'
   node_modules/moneybit-domain:
     label: Core
+    color: '#ffe1d1'
 dest: build/domaindoc
 port: 50000

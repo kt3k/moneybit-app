@@ -1646,9 +1646,9 @@ domain-browser@~1.1.0:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
-domaindoc@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-2.5.0.tgz#eff5b82549f9400eacc42de89c892f7b70ed8ef9"
+domaindoc@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-2.7.1.tgz#f37be14517a3d12145322c09e97d395e4fe1904c"
   dependencies:
     branch-pipe "^1.0.1"
     bulbo "^6.11.0"
@@ -1659,6 +1659,7 @@ domaindoc@^2.5.0:
     gulp-marked "^1.0.0"
     gulp-trimlines "^1.0.0"
     layout1 "^1.1.0"
+    micromatch "^2.3.11"
     minimisted "^1.1.1"
     minirocket "^2.0.0"
     nunjucks "^3.0.0"
@@ -3281,7 +3282,7 @@ labeled-stream-splicer@^2.0.0:
     isarray "~0.0.1"
     stream-splicer "^2.0.0"
 
-layout1@^1.0.2, layout1@^1.1.0:
+layout1@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/layout1/-/layout1-1.1.0.tgz#b2e6687cd74ea84394e5f26644d25c4252338203"
   dependencies:
