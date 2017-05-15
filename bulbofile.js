@@ -6,8 +6,9 @@ const layout1 = require('layout1')
 const postcss = require('gulp-postcss')
 const postcssImport = require('postcss-import')
 const bundle = require('bundle-through')
+const path = require('path')
 
-const src = 'src'
+const src = path.join(__dirname, 'src')
 const basepath = process.env.BASEPATH || ''
 
 const paths = {
@@ -19,6 +20,7 @@ const paths = {
     },
     js: {
       pages: `${src}/*/index.js`,
+      i18n: `${src}/i18n/*.js`,
       all: `${src}/**/*.js`
     },
     css: {
@@ -35,6 +37,7 @@ const paths = {
 const data = { src, basepath }
 
 bulbo.debugPagePath('__moneybit__')
+bulbo.base(src)
 
 // html
 asset(paths.src.njk.pages)
@@ -46,7 +49,7 @@ asset(paths.src.njk.pages)
   ), { data }))
 
 // js
-asset(paths.src.js.pages)
+asset(paths.src.js.pages, paths.src.js.i18n)
   .watch(paths.src.js.all)
   .pipe(bundle({ transform: 'babelify' }))
 
@@ -57,8 +60,6 @@ asset(paths.src.css.pages)
 
 // vendor
 asset(paths.src.vendor)
-  .base(src)
 
 // img
 asset(paths.src.img.all)
-  .base(src)

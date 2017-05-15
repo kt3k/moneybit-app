@@ -1,3 +1,4 @@
 const storage = require('./storage')
+const locale = require('./locale')
 
-global.infrastructure = { storage }
+global.infrastructure = { storage, locale }
