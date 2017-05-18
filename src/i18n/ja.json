@@ -1,3 +1,20 @@
 {
-  "test": "テスト"
+  "app.settings": "設定",
+  "app.journal.add_an_entry": "仕訳帳に追加する",
+  "domain.balancesheet": "貸借対照表",
+  "domain.asset": "資産",
+  "domain.assets": "資産",
+  "domain.liability": "負債",
+  "domain.liabilities": "負債",
+  "domain.equity": "純資産",
+  "domain.revenue": "収益",
+  "domain.revenues": "収益",
+  "domain.expense": "費用",
+  "domain.expenses": "費用",
+  "domain.journal": "仕訳帳",
+  "domain.debit": "借方",
+  "domain.credit": "貸方",
+  "ui.form.save": "保存",
+  "ui.form.edit": "編集",
+  "ui.form.delete": "削除"
 }

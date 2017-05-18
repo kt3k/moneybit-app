@@ -1,0 +1,10 @@
+/* hide untranslated contents */
+t, .t-text, .t-attr {
+  opacity: 0;
+  transition-duration: 500ms;
+}
+
+.t-text-done, .t-attr {
+  opacity: 1;
+  transition-duration: 500ms;
+}

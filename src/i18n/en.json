@@ -1,3 +1,20 @@
 {
-  "test": "Test"
+  "app.settings": "Settings",
+  "app.journal.add_an_entry": "Add an entry",
+  "domain.balancesheet": "Balance Sheet",
+  "domain.asset": "Asset",
+  "domain.assets": "Assets",
+  "domain.liability": "Liability",
+  "domain.liabilities": "Liabilities",
+  "domain.equity": "Equity",
+  "domain.revenue": "Revenue",
+  "domain.revenues": "Revenues",
+  "domain.expense": "Expense",
+  "domain.expenses": "Expenses",
+  "domain.journal": "Journal",
+  "domain.debit": "Debit",
+  "domain.credit": "Credit",
+  "ui.form.save": "Save",
+  "ui.form.edit": "Edit",
+  "ui.form.delete": "Delete"
 }

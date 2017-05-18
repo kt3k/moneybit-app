@@ -8,6 +8,8 @@ const postcssImport = require('postcss-import')
 const bundle = require('bundle-through')
 const path = require('path')
 
+require('nunjucks').configure({ noCache: true })
+
 const src = path.join(__dirname, 'src')
 const basepath = process.env.BASEPATH || ''
 
@@ -21,7 +23,7 @@ const paths = {
     js: {
       pages: `${src}/*/index.js`,
       i18n: `${src}/i18n/*.js`,
-      all: `${src}/**/*.js`
+      all: `${src}/**/*.{js,json}`
     },
     css: {
       pages: `${src}/*/index.css`,

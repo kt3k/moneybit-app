@@ -12,6 +12,7 @@ class InitService {
    */
   async init () {
     await this.initLanguage()
+    t10.scan() // translate
     await this.initUser()
   }
 
