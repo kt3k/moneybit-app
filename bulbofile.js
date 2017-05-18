@@ -3,8 +3,7 @@ const { asset } = bulbo
 const frontMatter = require('gulp-front-matter')
 const nunjucks = require('gulp-nunjucks-render')
 const layout1 = require('layout1')
-const postcss = require('gulp-postcss')
-const postcssImport = require('postcss-import')
+const sass = require('gulp-sass');
 const bundle = require('bundle-through')
 const path = require('path')
 
@@ -25,9 +24,9 @@ const paths = {
       i18n: `${src}/i18n/*.js`,
       all: `${src}/**/*.{js,json}`
     },
-    css: {
-      pages: `${src}/*/index.css`,
-      all: `${src}/**/*.css`
+    scss: {
+      pages: `${src}/*/index.scss`,
+      all: `${src}/**/*.scss`
     },
     img: {
       all: `${src}/**/*.svg`
@@ -56,9 +55,9 @@ asset(paths.src.js.pages, paths.src.js.i18n)
   .pipe(bundle({ transform: 'babelify' }))
 
 // css
-asset(paths.src.css.pages)
-  .watch(paths.src.css.all)
-  .pipe(postcss([postcssImport()]))
+asset(paths.src.scss.pages)
+  .watch(paths.src.scss.all)
+  .pipe(sass())
 
 // vendor
 asset(paths.src.vendor)
