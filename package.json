@@ -70,7 +70,10 @@
       "browser"
     ],
     "globals": [
-      "infrastructure"
+      "infrastructure",
+      "$",
+      "basepath",
+      "t10"
     ]
   }
 }

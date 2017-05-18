@@ -3,7 +3,7 @@ const { asset } = bulbo
 const frontMatter = require('gulp-front-matter')
 const nunjucks = require('gulp-nunjucks-render')
 const layout1 = require('layout1')
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')
 const bundle = require('bundle-through')
 const path = require('path')
 
