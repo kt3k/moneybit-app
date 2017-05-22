@@ -59,6 +59,10 @@ acorn@^5.0.1, acorn@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.0.3.tgz#c460df08491463f028ccb82eab3730bf01087b3d"
 
+action-selector@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/action-selector/-/action-selector-1.0.0.tgz#572f4bd8144183fd32da5d52c90932e1dd77db49"
+
 after@0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/after/-/after-0.8.2.tgz#fedb394f9f0e02aa9768e702bda23b505fae7e1f"
@@ -785,6 +789,17 @@ beeper@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/beeper/-/beeper-1.1.1.tgz#e6d5ea8c5dad001304a70b22638447f69cb2f809"
 
+berber@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/berber/-/berber-1.1.1.tgz#f98952562849979a53e971d8942f5b8fbdebe0d6"
+  dependencies:
+    action-selector "^1.0.0"
+    bulbo "^6.12.1"
+    callsites "^2.0.0"
+    chalk "^1.1.3"
+    find-root "^1.0.0"
+    pad-right "^0.2.2"
+
 better-assert@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/better-assert/-/better-assert-1.0.2.tgz#40866b9e1b9e0b55b481894311e68faffaebc522"
@@ -1030,7 +1045,22 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
-bulbo@^6.11.0, bulbo@^6.7.0:
+bulbo@^6.12.1:
+  version "6.12.1"
+  resolved "https://registry.yarnpkg.com/bulbo/-/bulbo-6.12.1.tgz#c2b026154620e5b28f827f14af6e0722fadae589"
+  dependencies:
+    chalk "^1.1.1"
+    chokidar "^1.4.2"
+    gulp-plumber "^1.1.0"
+    interpret "^1.0.0"
+    liftoff "^2.2.0"
+    minimisted "^1.1.1"
+    minirocket "^2.0.0"
+    stream-splicer "^2.0.0"
+    vinyl-fs "^2.2.1"
+    vinyl-serve "^2.7.0"
+
+bulbo@^6.7.0:
   version "6.11.0"
   resolved "https://registry.yarnpkg.com/bulbo/-/bulbo-6.11.0.tgz#b90c529e97f2458b019ec3321fd4a8a00382a7dc"
   dependencies:
@@ -1075,6 +1105,10 @@ callsite@1.0.0, callsite@^1.0.0:
 callsites@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-0.2.0.tgz#afab96262910a7f33c19a5775825c69f34e350ca"
+
+callsites@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/callsites/-/callsites-2.0.0.tgz#06eb84f00eea413da86affefacbffb36093b3c50"
 
 camelcase-keys@^2.0.0:
   version "2.1.0"
@@ -1672,13 +1706,12 @@ domain-browser@~1.1.0:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
-domaindoc@^2.7.1:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-2.7.1.tgz#f37be14517a3d12145322c09e97d395e4fe1904c"
+domaindoc@^2.7.4:
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-2.7.4.tgz#25523e29715c0430924063619d6fe226c768f2dc"
   dependencies:
+    berber "^1.1.1"
     branch-pipe "^1.0.1"
-    bulbo "^6.11.0"
-    chalk "^1.1.3"
     gulp-consolidate "^0.2.0"
     gulp-data "^1.2.1"
     gulp-front-matter "^1.3.0"
@@ -1686,8 +1719,6 @@ domaindoc@^2.7.1:
     gulp-trimlines "^1.0.0"
     layout1 "^1.1.0"
     micromatch "^2.3.11"
-    minimisted "^1.1.1"
-    minirocket "^2.0.0"
     nunjucks "^3.0.0"
     require-yaml "^0.0.1"
     vinyl-accumulate "^1.4.1"
@@ -4158,6 +4189,12 @@ p-locate@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-locate/-/p-locate-2.0.0.tgz#20a0103b222a70c8fd39cc2e580680f3dde5ec43"
   dependencies:
     p-limit "^1.1.0"
+
+pad-right@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/pad-right/-/pad-right-0.2.2.tgz#6fbc924045d244f2a2a244503060d3bfc6009774"
+  dependencies:
+    repeat-string "^1.5.2"
 
 pako@~0.2.0:
   version "0.2.9"
