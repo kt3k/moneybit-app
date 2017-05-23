@@ -1,0 +1,33 @@
+.app-menu-dropdown {
+  position: absolute;
+  top: 56px;
+  right: 6px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: solid 1px $dark-gray;
+  background-color: $very-light-gray;
+  font-size: 18px;
+  line-height: 2.7;
+  text-align: right;
+  z-index: 2;
+
+  &::before {
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    content: '';
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: $dark-gray transparent;
+  }
+
+  &::after {
+    position: absolute;
+    top: -6px;
+    right: 12px;
+    content: '';
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: $very-light-gray transparent;
+  }
+}

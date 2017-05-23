@@ -1,4 +1,6 @@
 {
+  "app.menu.review_app": "アプリをレビューする",
+  "app.menu.help": "ヘルプ",
   "app.settings": "設定",
   "app.total": "合計",
   "app.journal.add_an_entry": "仕訳帳に追加する",

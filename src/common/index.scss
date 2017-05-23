@@ -1,14 +1,16 @@
+@import "vars";
 @import "header";
 @import "footer";
 @import "layout";
 @import "utils";
 @import "brand-stripe";
+@import "molecules/app-menu-dropdown";
 @import "t10";
 
 body {
-  background: #fff;
+  background: $white;
 }
 
 html {
-  background: #eee;
+  background: $very-light-gray;
 }

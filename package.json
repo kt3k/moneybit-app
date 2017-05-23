@@ -61,7 +61,7 @@
     "moneybit-domain": "^0.5.0",
     "rimraf": "^2.6.1",
     "standard": "^10.0.2",
-    "t10": "^0.5.1",
+    "t10": "^1.0.0",
     "testdouble": "^2.1.2"
   },
   "standard": {
