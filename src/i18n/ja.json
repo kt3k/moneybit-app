@@ -1,5 +1,6 @@
 {
   "app.settings": "設定",
+  "app.total": "合計",
   "app.journal.add_an_entry": "仕訳帳に追加する",
   "domain.balancesheet": "貸借対照表",
   "domain.asset": "資産",

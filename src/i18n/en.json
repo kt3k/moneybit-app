@@ -1,5 +1,6 @@
 {
   "app.settings": "Settings",
+  "app.total": "Total",
   "app.journal.add_an_entry": "Add an entry",
   "domain.balancesheet": "Balance Sheet",
   "domain.asset": "Asset",
