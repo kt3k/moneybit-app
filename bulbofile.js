@@ -39,6 +39,7 @@ const data = { src, basepath }
 
 bulbo.debugPagePath('__moneybit__')
 bulbo.base(src)
+bulbo.port(4000)
 
 // html
 asset(paths.src.njk.pages)
