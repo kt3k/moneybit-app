@@ -8,13 +8,17 @@
 .app-header {
   background-color: #eee;
   border-bottom: solid 1px #999;
-}
 
-.app-header .control {
-  width: calc(100vw - 50px);
-}
+  & .control {
+    width: calc(100vw - 50px);
+  }
 
-.app-header .select,
-.app-header select {
-  width: 100%;
+  & .select,
+  & select {
+    width: 100%;
+  }
+
+  .app-menu-btn {
+    cursor: pointer;
+  }
 }

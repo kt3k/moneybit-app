@@ -36,6 +36,7 @@
     "babel-plugin-istanbul": "^4.1.1",
     "babel-plugin-transform-inline-environment-variables": "^0.0.2",
     "babel-polyfill": "^6.23.0",
+    "babel-preset-decorators-legacy": "^1.0.0",
     "babel-preset-env": "^1.4.0",
     "babelify": "^7.3.0",
     "bulbo": "^6.7.0",

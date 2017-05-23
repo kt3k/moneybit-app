@@ -9,7 +9,15 @@
   font-size: 18px;
   line-height: 2.7;
   text-align: right;
+  transition-duration: 500ms;
+  opacity: 0;
+  transform: translate(0, -10px);
   z-index: 2;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 
   &::before {
     position: absolute;

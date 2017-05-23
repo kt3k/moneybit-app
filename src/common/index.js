@@ -7,6 +7,8 @@ global.$ = require('jquery')
 const capsidJQuery = require('capsid/jquery.js')
 capsidJQuery(global.capsid, global.$)
 
+require('./header.js')
+
 const InitService = require('../app/init-service')
 
 new InitService().init()

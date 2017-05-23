@@ -1,6 +1,7 @@
 {
   "presets": [
-    "env"
+    "env",
+    "decorators-legacy"
   ],
   "plugins": [
     "transform-inline-environment-variables"
