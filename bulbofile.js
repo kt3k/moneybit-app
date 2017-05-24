@@ -11,6 +11,7 @@ require('nunjucks').configure({ noCache: true })
 
 const src = path.join(__dirname, 'src')
 const basepath = process.env.BASEPATH || ''
+const reviewUrl = process.env.REVIEW_URL || 'https://example.com/'
 
 const paths = {
   src: {
@@ -38,7 +39,7 @@ const paths = {
   }
 }
 
-const data = { src, basepath }
+const data = { src, basepath, reviewUrl }
 
 bulbo.debugPagePath('__moneybit__')
 bulbo.base(src)

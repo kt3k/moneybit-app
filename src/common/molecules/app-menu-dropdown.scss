@@ -1,4 +1,6 @@
 .app-menu-dropdown {
+  $bg-color: $white;
+
   position: absolute;
   top: 56px;
   right: 6px;
@@ -6,6 +8,7 @@
   border-radius: 8px;
   border: solid 1px $dark-gray;
   background-color: $very-light-gray;
+  background-color: $bg-color;
   font-size: 18px;
   line-height: 2.7;
   text-align: right;
@@ -36,6 +39,6 @@
     content: '';
     border-width: 0 8px 8px 8px;
     border-style: solid;
-    border-color: $very-light-gray transparent;
+    border-color: $bg-color transparent;
   }
 }
