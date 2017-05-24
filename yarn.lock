@@ -1093,6 +1093,10 @@ bulbo@^6.7.0:
     vinyl-fs "^2.2.1"
     vinyl-serve "^2.7.0"
 
+bulma@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.4.1.tgz#620b7986bc552311358aa9393c10905c55648864"
+
 bundle-through@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/bundle-through/-/bundle-through-1.0.3.tgz#0839f3d0a101c13df269041489841036b80e9c04"
