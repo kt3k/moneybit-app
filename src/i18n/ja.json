@@ -1,4 +1,7 @@
 {
+  "app.menu.app_settings": "アプリの設定",
+  "app.menu.create_new_journal": "新しい仕訳帳を作る",
+  "app.menu.export": "エクスポート",
   "app.menu.review_app": "アプリをレビューする",
   "app.menu.help": "ヘルプ",
   "app.settings": "設定",

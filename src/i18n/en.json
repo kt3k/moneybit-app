@@ -1,4 +1,7 @@
 {
+  "app.menu.app_settings": "App Settings",
+  "app.menu.create_new_journal": "Create New Journal",
+  "app.menu.export": "Export",
   "app.menu.review_app": "Review App",
   "app.menu.help": "Help",
   "app.settings": "Settings",

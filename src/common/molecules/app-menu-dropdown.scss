@@ -4,18 +4,29 @@
   position: absolute;
   top: 56px;
   right: 6px;
-  padding: 10px 18px;
+  padding: 5px 18px;
   border-radius: 8px;
   border: solid 1px $dark-gray;
   background-color: $very-light-gray;
   background-color: $bg-color;
   font-size: 18px;
-  line-height: 2.7;
   text-align: right;
   transition-duration: 500ms;
   opacity: 0;
   transform: translate(0, -10px);
   z-index: 2;
+
+  & ul li a {
+    width: 100%;
+  }
+
+  & ul li {
+    padding-top: 14px;
+  }
+
+  & ul li:last-child {
+    padding-bottom: 14px;
+  }
 
   &.is-visible {
     opacity: 1;
