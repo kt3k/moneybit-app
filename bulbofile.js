@@ -15,17 +15,20 @@ const basepath = process.env.BASEPATH || ''
 const paths = {
   src: {
     njk: {
-      pages: `${src}/*/index.njk`,
+      pages: `${src}/pages/*/index.njk`,
       layoutRoot: `${src}/common`,
       all: `${src}/**/*.njk`
     },
     js: {
-      pages: `${src}/*/index.js`,
+      pages: `${src}/pages/*/index.js`,
+      common: `${src}/common/index.js`,
+      infrastructure: `${src}/infrastructure/index.js`,
       i18n: `${src}/i18n/*.js`,
       all: `${src}/**/*.{js,json}`
     },
     scss: {
-      pages: `${src}/*/index.scss`,
+      pages: `${src}/pages/*/index.scss`,
+      common: `${src}/common/index.scss`,
       all: `${src}/**/*.scss`
     },
     img: {
@@ -51,12 +54,12 @@ asset(paths.src.njk.pages)
   ), { data }))
 
 // js
-asset(paths.src.js.pages, paths.src.js.i18n)
+asset(paths.src.js.pages, paths.src.js.common, paths.src.js.infrastructure, paths.src.js.i18n)
   .watch(paths.src.js.all)
   .pipe(bundle({ transform: 'babelify' }))
 
 // css
-asset(paths.src.scss.pages)
+asset(paths.src.scss.pages, paths.src.scss.common)
   .watch(paths.src.scss.all)
   .pipe(sass())
 
