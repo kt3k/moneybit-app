@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="278px" height="278px" viewBox="0 0 278 278" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+<svg width="286px" height="286px" viewBox="0 0 286 286" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44 (41411) - http://www.bohemiancoding.com/sketch -->
     <title>logo</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="radialGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFEFB7" offset="100%"></stop>
+        </radialGradient>
+        <rect id="path-2" x="0" y="0" width="278" height="278" rx="139"></rect>
+        <filter x="-2.5%" y="-1.8%" width="105.0%" height="105.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.361979167   0 0 0 0 0.297213753   0 0 0 0 0.0705348057  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard" transform="translate(-111.000000, -111.000000)">
+        <g id="Artboard" transform="translate(-107.000000, -109.000000)">
             <g id="logo" transform="translate(111.000000, 111.000000)">
-                <rect id="Rectangle-2" fill="#FFF5D3" x="0" y="0" width="278" height="278" rx="139"></rect>
+                <g id="Rectangle-2">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="url(#radialGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    <rect stroke="#B79621" stroke-width="2" x="1" y="1" width="276" height="276" rx="138"></rect>
+                </g>
                 <g id="Group" transform="translate(34.000000, 97.000000)">
                     <rect id="Rectangle" fill="#E3B00E" x="28" y="0" width="14" height="35" rx="7"></rect>
                     <rect id="Rectangle" fill="#E3B00E" x="112" y="0" width="14" height="35" rx="7"></rect>
