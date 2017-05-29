@@ -1,0 +1,9 @@
+.settings-title-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & .journal-title {
+    margin-right: 15px;
+  }
+}
