@@ -64,7 +64,8 @@
     "rimraf": "^2.6.1",
     "standard": "^10.0.2",
     "t10": "^1.0.0",
-    "testdouble": "^2.1.2"
+    "testdouble": "^2.1.2",
+    "watchify": "^3.9.0"
   },
   "standard": {
     "env": [
