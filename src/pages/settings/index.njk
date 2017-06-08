@@ -1,16 +1,17 @@
 ---
 css: pages/settings/index.css
 ---
-<h1 class="title t-text">app.title</h1>
+<h2 class="title t-text">app.title</h2>
 
 {% include src + '/pages/settings/title-area.njk' %}
 
 <hr />
 
-<div class="contents">
-</div>
+{% include src + '/pages/settings/misc-settings.njk' %}
 
 <hr />
+
+<h2 class="title">Chart of Accounts</h2>
 
 <div class="menu">
   <ul class="menu-list">
