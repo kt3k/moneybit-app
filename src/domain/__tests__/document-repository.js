@@ -1,6 +1,7 @@
 const { Document } = require('../')
 
 const { expect } = require('chai')
+const { describe, it } = require('kocha')
 
 describe('DocumentRepository', () => {
   describe('getById', () => {

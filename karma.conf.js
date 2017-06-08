@@ -1,5 +1,5 @@
 module.exports = config => config.set({
-  frameworks: ['mocha', 'browserify'],
+  frameworks: ['kocha', 'browserify'],
   files: [
     'src/__tests__/helper.js',
     'src/**/__tests__/**/*.js'

@@ -1,5 +1,6 @@
 const td = require('testdouble')
 const { expect } = require('chai')
+const { describe, it, beforeEach, afterEach } = require('kocha')
 
 const { Journal } = require('../')
 const { journal, journalObj } = require('../__mocks__')
