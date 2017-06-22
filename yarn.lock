@@ -819,6 +819,18 @@ berber@^1.1.1:
     find-root "^1.0.0"
     pad-right "^0.2.2"
 
+berber@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/berber/-/berber-1.1.3.tgz#fceeb8ef2216cad36875523c70b86be062470d8c"
+  dependencies:
+    action-selector "^1.0.0"
+    bulbo "^6.12.1"
+    callsites "^2.0.0"
+    chalk "^1.1.3"
+    find-root "^1.0.0"
+    minimisted "^2.0.0"
+    pad-right "^0.2.2"
+
 better-assert@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/better-assert/-/better-assert-1.0.2.tgz#40866b9e1b9e0b55b481894311e68faffaebc522"
@@ -3429,6 +3441,18 @@ labeled-stream-splicer@^2.0.0:
     isarray "~0.0.1"
     stream-splicer "^2.0.0"
 
+langsheet@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/langsheet/-/langsheet-1.0.2.tgz#46add9ea679ebec741bd507caf0f4f8e7de3e38d"
+  dependencies:
+    berber "^1.1.3"
+    layout1 "^1.1.0"
+    lodash "^4.17.4"
+    nunjucks "^3.0.1"
+    require-yaml "^0.0.1"
+    through2 "^2.0.3"
+    vinyl-accumulate "^1.4.1"
+
 layout1@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/layout1/-/layout1-1.1.0.tgz#b2e6687cd74ea84394e5f26644d25c4252338203"
@@ -3737,7 +3761,7 @@ lodash@^3.10.0, lodash@^3.10.1, lodash@^3.8.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.0:
+lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -3897,6 +3921,12 @@ minimist@~0.0.1:
 minimisted@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/minimisted/-/minimisted-1.1.1.tgz#c48e2f415a53d1f6b24b3a35a0d95601cfbd6811"
+  dependencies:
+    minimist "^1.2.0"
+
+minimisted@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/minimisted/-/minimisted-2.0.0.tgz#5e3295e74ed701b1cbeaa863a888181d6efbe8ce"
   dependencies:
     minimist "^1.2.0"
 
@@ -4083,7 +4113,7 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-nunjucks@^3.0.0:
+nunjucks@^3.0.0, nunjucks@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/nunjucks/-/nunjucks-3.0.1.tgz#4de74a3e550baf6fa3370323f3d1c7c2a86bdc4d"
   dependencies:
@@ -4568,18 +4598,9 @@ read-pkg@^1.0.0:
     normalize-package-data "^2.3.2"
     path-type "^1.0.0"
 
-"readable-stream@>=1.0.33-1 <1.1.0-0", readable-stream@~1.0.17, readable-stream@~1.0.2:
+"readable-stream@>=1.0.33-1 <1.1.0-0", readable-stream@^1.0.33, readable-stream@~1.0.17, readable-stream@~1.0.2:
   version "1.0.34"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.0.34.tgz#125820e34bc842d2f2aaafafe4c2916ee32c157c"
-  dependencies:
-    core-util-is "~1.0.0"
-    inherits "~2.0.1"
-    isarray "0.0.1"
-    string_decoder "~0.10.x"
-
-readable-stream@^1.0.33, readable-stream@~1.1.9:
-  version "1.1.14"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.1.14.tgz#7cf4c54ef648e3813084c636dd2079e166c081d9"
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.1"
@@ -4597,6 +4618,15 @@ readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable
     safe-buffer "~5.0.1"
     string_decoder "~1.0.0"
     util-deprecate "~1.0.1"
+
+readable-stream@~1.1.9:
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.1.14.tgz#7cf4c54ef648e3813084c636dd2079e166c081d9"
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "0.0.1"
+    string_decoder "~0.10.x"
 
 readable-stream@~2.0.0:
   version "2.0.6"
