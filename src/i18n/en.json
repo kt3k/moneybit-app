@@ -21,6 +21,11 @@
   "domain.journal": "Journal",
   "domain.debit": "Debit",
   "domain.credit": "Credit",
+  "domain.chart_of_accounts": "Chart of Accounts",
+  "domain.currency": "Currency",
+  "domain.comma_period_style": "Comma Style",
+  "domain.journal.start_date": "Start Date",
+  "domain.journal.end_date": "End Date",
   "ui.form.save": "Save",
   "ui.form.edit": "Edit",
   "ui.form.delete": "Delete"

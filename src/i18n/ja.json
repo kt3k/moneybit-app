@@ -21,6 +21,11 @@
   "domain.journal": "仕訳帳",
   "domain.debit": "借方",
   "domain.credit": "貸方",
+  "domain.chart_of_accounts": "勘定科目一覧",
+  "domain.currency": "通貨",
+  "domain.comma_period_style": "コンマスタイル",
+  "domain.journal.start_date": "開始日",
+  "domain.journal.end_date": "終了日",
   "ui.form.save": "保存",
   "ui.form.edit": "編集",
   "ui.form.delete": "削除"
