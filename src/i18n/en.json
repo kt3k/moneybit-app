@@ -8,6 +8,7 @@
   "app.title": "Title",
   "app.total": "Total",
   "app.journal.add_an_entry": "Add an entry",
+  "app.edit_chart_of_accounts": "Edit Chart of Accounts",
   "domain.balancesheet": "Balance Sheet",
   "domain.asset": "Asset",
   "domain.assets": "Assets",

@@ -8,6 +8,7 @@
   "app.title": "タイトル",
   "app.total": "合計",
   "app.journal.add_an_entry": "仕訳帳に追加する",
+  "app.edit_chart_of_accounts": "勘定科目一覧を編集する",
   "domain.balancesheet": "貸借対照表",
   "domain.asset": "資産",
   "domain.assets": "資産",
