@@ -3,8 +3,8 @@
 $primary: $lime-green;
 $danger: $bright-pink;
 @import "../../node_modules/bulma/bulma";
-@import "organisms/header";
-@import "organisms/footer";
+@import "atoms/index";
+@import "organisms/index";
 @import "layout";
 @import "utils";
 @import "atoms/brand-stripe";
