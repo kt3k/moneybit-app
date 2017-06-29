@@ -9,6 +9,7 @@
   "app.total": "Total",
   "app.journal.add_an_entry": "Add an entry",
   "app.edit_chart_of_accounts": "Edit Chart of Accounts",
+  "app.save_this_chart_as_the_default_chart": "Save this chart as the default chart of the app.",
   "domain.balancesheet": "Balance Sheet",
   "domain.asset": "Asset",
   "domain.assets": "Assets",
@@ -29,5 +30,6 @@
   "domain.journal.end_date": "End Date",
   "ui.form.save": "Save",
   "ui.form.edit": "Edit",
+  "ui.form.finish_editing": "Finish editing",
   "ui.form.delete": "Delete"
 }
