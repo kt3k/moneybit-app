@@ -4,16 +4,103 @@ layout: simple-layout
 <header class="app-header-wrapper">
   {% include src + '/common/atoms/brand-stripe.njk' %}
   <nav class="nav app-header">
+    <div class="nav-left">
+      <div class="nav-item">
+        <a href="../settings/index.html">
+          <i class="fa fa-chevron-left"></i>
+        </a>
+      </div>
+    </div>
     <div class="nav-center">
       <div class="nav-item">
         <h1><strong class="t-text">app.menu.app_settings</strong></h1>
       </div>
     </div>
+    <div class="nav-right">
+      <p class="nav-item app-menu-btn">
+        <span class="icon">
+          <i class="fa fa-reorder"></i>
+        </span>
+      </p>
+    </div>
   </nav>
+  {% include src + '/common/molecules/app-menu-dropdown.njk' %}
 </header>
 
 <main class="l-main">
-  <div class="contents">
-    <a href="{{ basepath }}/pages/new/index.html">新しい仕訳帳を作る</a>
+  <div class="section">
+    <div class="box">
+      <h2 class="title t-text">app.journal.create_new</h2>
+      <p class="t-text">app.lets_create_new_journal</p>
+      <hr />
+      <a class="button is-primary t-text is-wide">ui.form.create</a>
+    </div>
+
+    <hr />
+
+    <h2 class="title t-text">app.title.language</h2>
+
+    <div class="field has-addons">
+      <p class="control">
+        <a class="button is-primary" href="#">
+          <t>app.language.auto</t>
+        </a>
+      </p>
+      <p class="control">
+        <a class="button" href="#">
+          English
+        </a>
+      </p>
+      <p class="control">
+        <a class="button" href="#">
+          日本語
+        </a>
+      </p>
+    </div>
+
+    <hr />
+
+    <h2 class="title t-text">domain.chart_of_accounts</h2>
+
+    <p><t>app.this_chart_of_accounts_is_used_as_default</t></p>
+
+    <div class="short-section">
+      <a class="button is-primary is-wide t-text" href="../edit-chart-of-accounts/index.html">app.edit_chart_of_accounts</a>
+    </div>
+    <br />
+
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title"><i class="fa fa-diamond"></i>&nbsp;<t>domain.assets</t></p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <ul>
+            <li>Cash
+            <li>Accounts Payable
+            <li>Land
+            <li>Equipment
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title"><i class="fa fa-bank"></i>&nbsp;<t>domain.liabilities</t></p>  </header>
+      <div class="card-content">
+        <div class="content">
+          <ul>
+            <li><a class="nav-itme" href="#">Loans Payable</a>
+            <li><a class="nav-itme" href="#">Accounts Payable</a>
+            <li><a class="nav-itme" href="#">Bonds Payable</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br />
+
+
   </div>
 </main>

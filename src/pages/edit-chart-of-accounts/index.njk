@@ -6,12 +6,25 @@ css: pages/edit-chart-of-accounts/index.css
 <header class="app-header-wrapper">
   {% include src + '/common/atoms/brand-stripe.njk' %}
   <nav class="nav app-header">
+    <div class="nav-left">
+      <div class="nav-item">
+        <a href="../settings/index.html">
+          <i class="fa fa-chevron-left"></i>
+        </a>
+      </div>
+    </div>
     <div class="nav-center">
       <div class="nav-item">
         <h1><strong class="t-text">app.edit_chart_of_accounts</strong></h1>
       </div>
     </div>
+    <div class="nav-right">
+      <div class="nav-item app-menu-btn">
+        <i class="fa fa-reorder"></i>
+      </div>
+    </div>
   </nav>
+  {% include src + '/common/molecules/app-menu-dropdown.njk' %}
 </header>
 
 <main class="l-main">

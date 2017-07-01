@@ -4,9 +4,16 @@ layout: simple-layout
 <header class="app-header-wrapper">
   {% include src + '/common/atoms/brand-stripe.njk' %}
   <nav class="nav app-header">
+    <div class="nav-left">
+      <div class="nav-item">
+        <a href="../settings/index.html">
+          <i class="fa fa-chevron-left"></i>
+        </a>
+      </div>
+    </div>
     <div class="nav-center">
       <div class="nav-item">
-        <h1><strong>Create New Document</strong></h1>
+        <h1><strong class="t-text">app.journal.create_new</strong></h1>
       </div>
     </div>
   </nav>
