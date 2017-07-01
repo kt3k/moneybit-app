@@ -44,3 +44,5 @@ class AppMenu {
     this.$target.removeClass('is-visible')
   }
 }
+
+module.exports = AppMenu
