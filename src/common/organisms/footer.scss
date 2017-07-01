@@ -6,12 +6,17 @@
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   border-top: solid 1px #999;
-}
 
-.app-footer .level-item {
-  max-width: 32%;
-}
+  .level-item {
+    padding-top: 2px;
+    max-width: 32%;
+  }
 
-.app-footer .is-selected {
-  background-color: rgba(238, 238, 238, 0.8);
+  .is-selected {
+    background-color: rgba(238, 238, 238, 0.8);
+  }
+
+  .tab-icon {
+    padding-bottom: 6px;
+  }
 }
