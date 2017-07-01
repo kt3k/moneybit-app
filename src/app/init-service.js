@@ -23,8 +23,6 @@ class InitService {
   async initLanguage () {
     const tag = await infrastructure.locale.getLangTag()
 
-    $.ajaxSetup({ cache: true }) // TODO: remove when vinyl-serve is updated
-
     await $.getScript(`${basepath}/i18n/${tag}.js`)
   }
 
