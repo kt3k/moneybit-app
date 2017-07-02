@@ -9,11 +9,12 @@ const { User } = require('../domain')
 class InitService {
   /**
    * Initializes the basic data.
+   * @resolve {User}
    */
   async init () {
-    await this.initLanguage()
-    t10.scan() // translate
-    await this.initUser()
+    const [_, user] = await Promise.all([this.initLanguage(), this.initUser()])
+
+    return user
   }
 
   /**
@@ -24,6 +25,8 @@ class InitService {
     const tag = await infrastructure.locale.getLangTag()
 
     await $.getScript(`${basepath}/i18n/${tag}.js`)
+
+    t10.scan() // translate
   }
 
   /**

@@ -9,6 +9,6 @@ capsidJQuery(global.capsid, global.$)
 
 require('./organisms/header.js')
 
-const InitService = require('../app/init-service')
+const { modelHub } = require('../app/')
 
-new InitService().init()
+global.modelHub = modelHub
