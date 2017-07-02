@@ -8,8 +8,9 @@
   ],
   "scripts": {
     "clean": "rimraf build",
-    "start": "bulbo serve",
+    "start": "run-p -r serve doc lang",
     "start-ja": "cross-env LANG_TAG=ja npm start",
+    "serve": "bulbo serve",
     "build": "bulbo build",
     "doc": "domaindoc",
     "gh-pages": "npm run clean && npm run build && domaindoc build && gh-pages -d build",
@@ -66,6 +67,7 @@
     "langsheet": "^1.0.2",
     "layout1": "^1.1.0",
     "moneybit-domain": "^0.5.0",
+    "npm-run-all": "^4.0.2",
     "rimraf": "^2.6.1",
     "standard": "^10.0.2",
     "t10": "^1.0.0",
