@@ -27,11 +27,14 @@
 - test coverage with istanbul and codecov.
 - ci with circle-ci.
 
+# Wireframes
+
+![](https://kt3k.github.io/moneybit-app/design/ss.png)
+
 # Features
 
 - Can manage multiple journals. Can switch journals.
 - Can set up/modify period of each journal.
-
 
 # License
 
