@@ -1,0 +1,8 @@
+{
+  "message": "preset0 - typical app state",
+  "localStorage": {
+    "user": {
+      "id": "1"
+    }
+  }
+}

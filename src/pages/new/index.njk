@@ -16,9 +16,27 @@ layout: simple-layout
         <h1><strong class="t-text">app.journal.create_new</strong></h1>
       </div>
     </div>
+    <div class="nav-right">
+      <p class="nav-item app-menu-btn">
+        <span class="icon">
+          <i class="fa fa-reorder"></i>
+        </span>
+      </p>
+    </div>
   </nav>
+  {% include src + '/common/molecules/app-menu-dropdown.njk' %}
 </header>
 
 <main class="l-main">
-Create New Document
+  <div class="section">
+    <h2 class="title">Title</h2>
+
+    <div class="field">
+      <p class="control">
+        <input class="input" type="text" placeholder="Journal Title"/>
+      </p>
+    </div>
+
+    <hr />
+  </div>
 </main>
