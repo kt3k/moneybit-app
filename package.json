@@ -48,6 +48,7 @@
     "bundle-through": "^1.0.3",
     "capsid": "^0.8.0",
     "chai": "^3.5.0",
+    "chrome-console-debug-menu": "^1.0.1",
     "codecov": "^2.1.0",
     "cross-env": "^5.0.0",
     "dirty-chai": "^1.2.2",

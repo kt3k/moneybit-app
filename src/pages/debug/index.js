@@ -1,23 +1,22 @@
 console.log('__DEBUG_MODE__')
 
-const Menu = require('./menu')
-const { resetLocalStorage } = Menu
+const menu = require('chrome-console-debug-menu')
+const { resetLocalStorage } = menu
 
-global.m = Menu.create('m', {
+global.m = menu.create('m', {
   ls: {
     description: 'localStorage controls',
     methods: {
       clear: {
         description: 'Clear localStorage',
         func () {
-          return resetLocalStorage('Clearing localStorage')
+          return resetLocalStorage({ message: 'Clearing localStorage' })
         }
       },
       preset0: {
         description: 'Sets localStorage in a typical state',
         func () {
-          const { message, localStorage } = require('./preset0')
-          return resetLocalStorage(message, localStorage)
+          return resetLocalStorage(require('./preset0'))
         }
       }
     }
