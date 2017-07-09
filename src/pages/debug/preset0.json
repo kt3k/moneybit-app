@@ -1,8 +1,14 @@
 {
-  "message": "preset0 - typical app state",
+  "message": "preset0 - typical state",
   "localStorage": {
-    "user": {
-      "id": "1"
+    "user-1": {
+      "id": "1",
+      "documents": [],
+      "settings": {
+        "defaultChartId": null,
+        "languageCode": null
+      },
+      "currentDocumentId": null
     }
   }
 }
