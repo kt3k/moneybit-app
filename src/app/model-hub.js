@@ -7,6 +7,10 @@ const EventEmitter = require('events')
  * The hub of the all models handled in this app.
  */
 class ModelHub extends EventEmitter {
+  get domain () {
+    return require('../domain')
+  }
+
   constructor () {
     super()
     this.initService = new InitService()

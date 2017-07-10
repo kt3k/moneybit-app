@@ -12,17 +12,22 @@ class InitService {
    * @resolve {User}
    */
   async init () {
-    const [_, user] = await Promise.all([this.initLanguage(), this.initUser()])
+    const user = await this.initUser()
+
+    const language = user.settings.language
+
+    await this.initLanguage(language ? language.code : null)
 
     return user
   }
 
   /**
    * Initializes the language.
+   * @param {string} langTag The language tag
    * @return {Promise}
    */
-  async initLanguage () {
-    const tag = await infrastructure.locale.getLangTag()
+  async initLanguage (langTag) {
+    const tag = langTag || await infrastructure.locale.getLangTag()
 
     await $.getScript(`${basepath}/i18n/${tag}.js`)
 
