@@ -66,7 +66,7 @@ class UserRepository {
   settingsToObject (settings) {
     return {
       defaultChartId: settings.defaultChartId,
-      languageCode: settings.language.code
+      languageCode: settings.language ? settings.language.code : null
     }
   }
 
