@@ -46,7 +46,7 @@
     "bulbo": "^6.13.0",
     "bulma": "^0.4.1",
     "bundle-through": "^1.0.3",
-    "capsid": "^0.8.0",
+    "capsid": "^0.9.2",
     "chai": "^3.5.0",
     "chrome-console-debug-menu": "^1.1.0",
     "codecov": "^2.1.0",
