@@ -7,8 +7,5 @@ global.$ = require('jquery')
 const capsidJQuery = require('capsid/jquery.js')
 capsidJQuery(global.capsid, global.$)
 
-require('./organisms/header.js')
-
-const { modelHub } = require('../app/')
-
-global.modelHub = modelHub
+require('./organisms')
+require('../app/')
