@@ -2,7 +2,7 @@ const InitService = require('./init-service')
 const domain = require('../domain')
 const { User } = require('../domain')
 
-const { component, wire } = capsid
+const { on, component, wire } = capsid
 
 /**
  * The hub of the all models handled in this app.
@@ -24,12 +24,22 @@ class ModelHub {
     this.notifyUpdate()
   }
 
+  @on('switch-language') async onLanguageChange (e) {
+    const code = e.detail
+    const language = this.domain.Language.getByCode(code)
+
+    this.user.settings.language = language
+    await this.save()
+    location.reload()
+  }
+
   notifyUpdate () {
+    this.notifyEvent('model-update', { detail: this, bubbles: false })
+  }
+
+  notifyEvent (event, options) {
     this.observers.forEach(node => {
-      node.dispatchEvent(new CustomEvent('model-update', {
-        detail: this,
-        bubbles: false
-      }))
+      node.dispatchEvent(new CustomEvent(event, options))
     })
   }
 

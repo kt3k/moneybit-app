@@ -5,7 +5,7 @@ class UserSettingsFactory {
   createFromObject (obj) {
     return new UserSettings({
       defaultChartId: obj.defaultChartId,
-      language: obj.languageCode ? new Language({ code: obj.languageCode }) : null
+      language: Language.getByCode(obj.languageCode)
     })
   }
 }

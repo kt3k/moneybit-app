@@ -5,9 +5,19 @@ class Language {
   constructor ({ code }) {
     this.code = code
   }
+
+  static getByCode (code) {
+    if (code === EN.code) {
+      return EN
+    } else if (code === JA.code) {
+      return JA
+    }
+
+    return null
+  }
 }
 
-Language.EN = new Language({ code: 'en' })
-Language.JA = new Language({ code: 'ja' })
+const EN = Language.EN = new Language({ code: 'en' })
+const JA = Language.JA = new Language({ code: 'ja' })
 
 module.exports = Language
