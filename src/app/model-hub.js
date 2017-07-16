@@ -9,7 +9,6 @@ const { on, component, wire } = capsid
  */
 @component('js-model-hub')
 class ModelHub {
-
   @wire.elAll('.is-model-observer') get observers () {}
 
   constructor () {
@@ -38,9 +37,7 @@ class ModelHub {
   }
 
   notifyEvent (event, options) {
-    this.observers.forEach(node => {
-      node.dispatchEvent(new CustomEvent(event, options))
-    })
+    this.observers.forEach(node => node.dispatchEvent(new CustomEvent(event, options)))
   }
 
   async save () {

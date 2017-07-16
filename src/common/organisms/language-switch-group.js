@@ -2,7 +2,6 @@ const { component, on, emit, wire } = capsid
 
 @component('js-language-switch-group')
 class LanguageSwitchGroup {
-
   @wire.$el('button') get $buttons () {}
   @wire.$el('button[lang=""]') get $buttonAuto () {}
   @wire.$el('button[lang="en"]') get $buttonEn () {}
@@ -17,7 +16,7 @@ class LanguageSwitchGroup {
     return $(e.target).attr('lang')
   }
 
-  @on('model-update') update(e) {
+  @on('model-update') update (e) {
     const { EN, JA } = e.detail.domain.Language
     const language = e.detail.user.settings.language
 
