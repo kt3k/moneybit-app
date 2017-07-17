@@ -1,10 +1,11 @@
 /* hide untranslated contents */
-t, .t-text, .t-attr {
+t, .t-text, .t-attr, .t-hidden {
   opacity: 0;
   transition-duration: 500ms;
 }
 
-.t-text-done, .t-attr {
+/* hide untranslated contents */
+.t-text-done, .t-attr-done, .t-hidden-done {
   opacity: 1;
   transition-duration: 500ms;
 }

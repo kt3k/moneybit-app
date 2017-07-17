@@ -6,10 +6,10 @@ $danger: $bright-pink;
 @import "atoms/index";
 @import "organisms/index";
 @import "layout";
-@import "utils";
+@import "quarks/utils";
+@import "quarks/t10";
 @import "atoms/brand-stripe";
 @import "molecules/app-menu-dropdown";
-@import "t10";
 
 body {
   background: $white;

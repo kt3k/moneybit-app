@@ -33,6 +33,7 @@
   "domain.comma_period_style": "Comma Style",
   "domain.journal.start_date": "Start Date",
   "domain.journal.end_date": "End Date",
+  "domain.journal.title": "Journal Title",
   "ui.form.save": "Save",
   "ui.form.create": "Create",
   "ui.form.edit": "Edit",

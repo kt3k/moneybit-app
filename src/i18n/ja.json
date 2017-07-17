@@ -33,6 +33,7 @@
   "domain.comma_period_style": "コンマスタイル",
   "domain.journal.start_date": "開始日",
   "domain.journal.end_date": "終了日",
+  "domain.journal.title": "仕訳帳タイトル",
   "ui.form.save": "保存",
   "ui.form.create": "作成",
   "ui.form.edit": "編集",
