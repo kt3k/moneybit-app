@@ -1,6 +1,5 @@
 const InitService = require('./init-service')
 const domain = require('../domain')
-const { User } = require('../domain')
 
 const { on, component, wire, make } = capsid
 
@@ -34,7 +33,7 @@ class ModelHub {
     this.notifyUpdate()
   }
 
-  @on(MODEL_SAVE_AND_RELOAD) async onModelSave () {
+  @on(MODEL_SAVE_AND_RELOAD) async onModelSaveAndReload () {
     await this.save()
 
     window.location.reload()
