@@ -1,3 +1,5 @@
+/* global copy */
+
 console.log('__DEBUG_MODE__')
 
 const menu = require('chrome-console-debug-menu')
@@ -17,6 +19,12 @@ global.m = menu.create('m', {
         description: 'dump the data as JSON',
         func (message) {
           return serializeLocalStorage(message)
+        }
+      },
+      copy: {
+        description: 'copy the data to clipboard',
+        func (message) {
+          return copy(serializeLocalStorage(message))
         }
       },
       preset0: {
