@@ -1,0 +1,38 @@
+.misc-settings {
+  display: flex;
+  flex-direction: column;
+
+  &__row:first-child {
+    margin-top: 0;
+  }
+
+  &__row {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .field .select,
+    .field select {
+      width: 100%;
+    }
+
+    .field {
+      width: 140px;
+    }
+
+    &__right {
+      width: 140px;
+      text-align: center;
+      flex-grow: 0;
+      margin: 0 20px;
+    }
+
+    &__left {
+      flex-grow: 1;
+      text-align: center;
+    }
+  }
+}
+
