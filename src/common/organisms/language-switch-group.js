@@ -1,4 +1,6 @@
 const { component, on, emit, wire } = capsid
+const { SWITCH_LANGUAGE } = require('../../app/modules/language')
+const { MODEL_UPDATE } = require('../../app/model-hub')
 
 @component('js-language-switch-group')
 class LanguageSwitchGroup {
@@ -11,12 +13,12 @@ class LanguageSwitchGroup {
     this.el.classList.add('is-model-observer')
   }
 
-  @emit('switch-language')
+  @emit(SWITCH_LANGUAGE)
   @on.click onClick (e) {
     return $(e.target).attr('lang')
   }
 
-  @on('model-update') update (e) {
+  @on(MODEL_UPDATE) update (e) {
     const { EN, JA } = e.detail.domain.Language
     const language = e.detail.user.settings.language
 

@@ -2,7 +2,11 @@ const InitService = require('./init-service')
 const domain = require('../domain')
 const { User } = require('../domain')
 
-const { on, component, wire } = capsid
+const { on, component, wire, make } = capsid
+
+const MODEL_SAVE = 'mb/model/SAVE'
+const MODEL_SAVE_AND_RELOAD = 'mb/model/SAVE_AND_RELOAD'
+const MODEL_UPDATE = 'mb/model/UPDATE'
 
 /**
  * The hub of the all models handled in this app.
@@ -13,27 +17,31 @@ class ModelHub {
 
   constructor () {
     this.user = null
-    this.userRepository = new User.Repository()
     this.domain = domain
   }
 
   async __init__ () {
+    make('language-module', this.el)
+
     this.user = await new InitService().init()
 
     this.notifyUpdate()
   }
 
-  @on('switch-language') async onLanguageChange (e) {
-    const code = e.detail
-    const language = this.domain.Language.getByCode(code)
-
-    this.user.settings.language = language
+  @on(MODEL_SAVE) async onModelSave () {
     await this.save()
-    location.reload()
+
+    this.notifyUpdate()
+  }
+
+  @on(MODEL_SAVE_AND_RELOAD) async onModelSave () {
+    await this.save()
+
+    window.location.reload()
   }
 
   notifyUpdate () {
-    this.notifyEvent('model-update', { detail: this, bubbles: false })
+    this.notifyEvent(MODEL_UPDATE, { detail: this, bubbles: false })
   }
 
   notifyEvent (event, options) {
@@ -41,8 +49,15 @@ class ModelHub {
   }
 
   async save () {
-    await Promise.all([this.userRepository.save(this.user)])
+    const userRepository = new this.domain.User.Repository()
+
+    await Promise.all([
+      userRepository.save(this.user)
+    ])
   }
 }
 
 module.exports = ModelHub
+module.exports.MODEL_SAVE = MODEL_SAVE
+module.exports.MODEL_SAVE_AND_RELOAD = MODEL_SAVE_AND_RELOAD
+module.exports.MODEL_UPDATE = MODEL_UPDATE
