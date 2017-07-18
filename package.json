@@ -69,6 +69,7 @@
     "layout1": "^1.1.0",
     "moneybit-domain": "^0.5.0",
     "npm-run-all": "^4.0.2",
+    "pickadate": "^3.5.6",
     "rimraf": "^2.6.1",
     "standard": "^10.0.2",
     "t10": "^1.0.1",

@@ -38,5 +38,7 @@
   "ui.form.create": "作成",
   "ui.form.edit": "編集",
   "ui.form.finish_editing": "編集を終了",
-  "ui.form.delete": "削除"
+  "ui.form.delete": "削除",
+  "ui.form.select_date": "日付を選択",
+  "locale.date_format": "yyyy/mm/dd"
 }

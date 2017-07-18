@@ -1,5 +1,6 @@
 const USER_ID = '1'
 const { User } = require('../domain')
+const initPickadate = require('./pickadate')
 
 /**
  * The initialization service.
@@ -31,6 +32,7 @@ class InitService {
 
     await $.getScript(`${basepath}/i18n/${tag}.js`)
 
+    initPickadate()
     t10.scan() // translate
   }
 

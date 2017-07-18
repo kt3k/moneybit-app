@@ -38,5 +38,7 @@
   "ui.form.create": "Create",
   "ui.form.edit": "Edit",
   "ui.form.finish_editing": "Finish editing",
-  "ui.form.delete": "Delete"
+  "ui.form.delete": "Delete",
+  "ui.form.select_date": "Select date",
+  "locale.date_format": "d mmm, yyyy"
 }
