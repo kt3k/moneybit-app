@@ -3,14 +3,13 @@
 $primary: $lime-green;
 $danger: $bright-pink;
 @import "../../node_modules/bulma/bulma";
-
 @import "../../node_modules/pickadate/lib/themes/default";
 @import "../../node_modules/pickadate/lib/themes/default.date";
 
+@import "quarks/index";
 @import "atoms/index";
 @import "organisms/index";
 @import "layout";
-@import "quarks/index";
 @import "atoms/brand-stripe";
 @import "molecules/app-menu-dropdown";
 

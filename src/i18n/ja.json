@@ -36,6 +36,7 @@
   "domain.journal.title": "仕訳帳タイトル",
   "ui.form.save": "保存",
   "ui.form.create": "作成",
+  "ui.form.cancel": "キャンセル",
   "ui.form.edit": "編集",
   "ui.form.finish_editing": "編集を終了",
   "ui.form.delete": "削除",
