@@ -1223,9 +1223,9 @@ caniuse-lite@^1.0.30000670:
   version "1.0.30000679"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000679.tgz#0fb5bb3658d4d4448f8f86a1c48df15664aa05ef"
 
-capsid@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/capsid/-/capsid-0.12.0.tgz#0e3042cff4966c0a0c201a9250a433f76ab9b877"
+capsid@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/capsid/-/capsid-0.13.0.tgz#288e63127c8eeb069a37f1a31e481f55264abe9d"
 
 caseless@~0.11.0:
   version "0.11.0"
@@ -3872,6 +3872,10 @@ map-stream@~0.1.0:
 marked@~0.3.2:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.6.tgz#b2c6c618fccece4ef86c4fc6cb8a7cbf5aeda8d7"
+
+matango@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/matango/-/matango-1.0.0.tgz#3cc46a44f88ce783c04a01fc18a9c8fa47c66e0f"
 
 media-typer@0.3.0:
   version "0.3.0"

@@ -4,7 +4,10 @@
     <div class="field misc-settings__row__right">
       <p class="control">
         <span class="select">
-          <select class="js-currency-select">
+          <select
+            class="js-currency-select js-field"
+            data-validate="required"
+          >
             <option value=""></option>
           </select>
         </span>
@@ -16,7 +19,10 @@
     <div class="field misc-settings__row__right">
       <p class="control">
         <span class="select">
-          <select>
+          <select
+            class="js-field"
+            data-validate="required"
+          >
             <option value="comma-period">1,000.00</option>
             <option value="period-comma">1.000,00</option>
           </select>
@@ -28,7 +34,13 @@
     <div class="misc-settings__row__left t-text">domain.journal.start_date</div>
     <div class="field misc-settings__row__right">
       <p class="control">
-        <input class="input js-pickadate t-attr" type="text" value="" placeholder="t:ui.form.select_date" />
+        <input
+          class="input js-pickadate t-attr js-field"
+          data-validate="required"
+          type="text"
+          value=""
+          placeholder="t:ui.form.select_date"
+        />
       </p>
     </div>
   </div>
@@ -36,7 +48,13 @@
     <div class="misc-settings__row__left t-text">domain.journal.end_date</div>
     <div class="field misc-settings__row__right">
       <p class="control">
-        <input class="input js-pickadate t-attr" type="text" value="" placeholder="t:ui.form.select_date" />
+        <input
+          class="input js-pickadate t-attr js-field"
+          data-validate="required"
+          type="text"
+          value=""
+          placeholder="t:ui.form.select_date"
+        />
       </p>
     </div>
   </div>

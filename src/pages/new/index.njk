@@ -30,27 +30,34 @@ css: pages/new/index.css
 
 <main class="l-main">
   <div class="section">
-    <h2 class="title t-text">app.title</h2>
+    <form class="js-form">
+      <h2 class="title t-text">app.title</h2>
 
-    <div class="field">
-      <p class="control">
-        <input class="input t-attr" type="text" placeholder="t:domain.journal.title"/>
-      </p>
-    </div>
-
-    <hr />
-
-    {% include src + '/pages/new/misc-settings.njk' %}
-
-    <hr />
-
-    <div class="columns is-mobile">
-      <div class="column">
-        <button class="button is-danger is-wide t-text">ui.form.cancel</button>
+      <div class="field">
+        <p class="control">
+          <input
+            class="input t-attr js-field"
+            type="text"
+            data-validate="required"
+            placeholder="t:domain.journal.title"
+          />
+        </p>
       </div>
-      <div class="column">
-        <button class="button is-primary is-wide t-text">ui.form.create</button>
+
+      <hr />
+
+      {% include src + '/pages/new/misc-settings.njk' %}
+
+      <hr />
+
+      <div class="columns is-mobile">
+        <div class="column">
+          <button class="button is-danger is-wide t-text">ui.form.cancel</button>
+        </div>
+        <div class="column">
+          <button class="button is-primary is-wide t-text js-disable-on-error">ui.form.create</button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </main>
