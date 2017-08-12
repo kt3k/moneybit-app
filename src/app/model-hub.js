@@ -1,7 +1,7 @@
 const InitService = require('./init-service')
 const domain = require('../domain')
 
-const { on, component, wire, make } = capsid
+const { on, component, wire, make, pub } = capsid
 
 const MODEL_SAVE = 'mb/model/SAVE'
 const MODEL_SAVE_AND_RELOAD = 'mb/model/SAVE_AND_RELOAD'
@@ -12,8 +12,6 @@ const MODEL_UPDATE = 'mb/model/UPDATE'
  */
 @component('js-model-hub')
 class ModelHub {
-  @wire.elAll('.is-model-observer') get observers () {}
-
   constructor () {
     this.user = null
     this.domain = domain
@@ -39,12 +37,9 @@ class ModelHub {
     window.location.reload()
   }
 
+  @pub(MODEL_UPDATE, '.is-model-observer')
   notifyUpdate () {
-    this.notifyEvent(MODEL_UPDATE, { detail: this, bubbles: false })
-  }
-
-  notifyEvent (event, options) {
-    this.observers.forEach(node => node.dispatchEvent(new CustomEvent(event, options)))
+    return this
   }
 
   async save () {
