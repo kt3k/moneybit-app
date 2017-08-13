@@ -1,4 +1,6 @@
 require('./header')
 require('./language-switch-group')
+require('./start-date-input')
+require('./start-and-end-date-form')
 require('./currency-select')
 require('./validate')
