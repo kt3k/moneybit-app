@@ -13,14 +13,16 @@ class LanguageSwitchGroup {
     this.el.classList.add('is-model-observer')
   }
 
+  @on.click
   @emit(SWITCH_LANGUAGE)
-  @on.click onClick (e) {
+  onClick (e) {
     return $(e.target).attr('lang')
   }
 
   @on(MODEL_UPDATE) update (e) {
-    const { EN, JA } = e.detail.domain.Language
-    const language = e.detail.user.settings.language
+    const { domain, user } = e.detail
+    const { EN, JA } = domain.Language
+    const { language } = user.settings
 
     const isActive = 'is-primary'
     this.$buttons.removeClass(isActive)
