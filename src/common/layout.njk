@@ -14,6 +14,9 @@
     {% block body %}{% endblock %}
     <script src="{{ basepath }}/infrastructure/index.js"></script>
     <script src="{{ basepath }}/common/index.js"></script>
+    {% if file.fm.js %}
+    <script src="{{ basepath }}/{{ file.fm.js }}"></script>
+    {% endif %}
     {% if process.env.NODE_ENV !== 'production' %}
     <script src="{{ basepath }}/pages/debug/index.js"></script>
     {% endif %}

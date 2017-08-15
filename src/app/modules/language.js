@@ -1,13 +1,15 @@
-const { MODEL_SAVE_AND_RELOAD } = require('../model-hub')
-const SWITCH_LANGUAGE = 'mb/language/switch'
+const { SWITCH_LANGUAGE, MODEL_SAVE_AND_RELOAD } = require('../action-types')
+
 const { on, emit, wire, component } = capsid
 
 @component('language-module')
 class LanguageModule {
-  @wire('js-model-hub') get hub () {}
+  @wire('js-model-hub')
+  get hub () {}
 
+  @on(SWITCH_LANGUAGE)
   @emit(MODEL_SAVE_AND_RELOAD)
-  @on(SWITCH_LANGUAGE) onSwitchLanguage (e) {
+  onSwitchLanguage (e) {
     const code = e.detail
     const language = this.hub.domain.Language.getByCode(code)
 
@@ -16,4 +18,3 @@ class LanguageModule {
 }
 
 module.exports = LanguageModule
-module.exports.SWITCH_LANGUAGE = SWITCH_LANGUAGE

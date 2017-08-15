@@ -1,11 +1,12 @@
 const InitService = require('./init-service')
 const domain = require('../domain')
 
-const { on, component, wire, make, pub } = capsid
+const { MODEL_SAVE, MODEL_SAVE_AND_RELOAD, MODEL_UPDATE } = require('./action-types')
 
-const MODEL_SAVE = 'mb/model/SAVE'
-const MODEL_SAVE_AND_RELOAD = 'mb/model/SAVE_AND_RELOAD'
-const MODEL_UPDATE = 'mb/model/UPDATE'
+require('./modules/language')
+require('./modules/journal')
+
+const { on, component, wire, make, pub } = capsid
 
 /**
  * The hub of the all models handled in this app.
@@ -19,6 +20,7 @@ class ModelHub {
 
   async __init__ () {
     make('language-module', this.el)
+    make('journal-module', this.el)
 
     this.user = await new InitService().init()
 
