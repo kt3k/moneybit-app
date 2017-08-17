@@ -9,6 +9,7 @@ class JournalModule {
   @emit(MODEL_SAVE)
   createJournal (e) {
     console.log('creating journal in journal-module')
+    console.log(e.detail)
   }
 }
 

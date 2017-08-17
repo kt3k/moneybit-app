@@ -3,16 +3,18 @@ const { component, on, wire, pub } = capsid
 
 @component('js-start-and-end-date-form')
 class StartAndEndDateForm {
-  @wire.el('[name="end-date"]') get endDate () {}
+  @wire.el('[name="endDate"]') get endDate () {}
 
-  @pub('input', '[name="end-date"]')
+  @pub('input', '[name="endDate"]')
   @on('start-date-selected') onStartDateSelected (e) {
     if (!e.detail) {
       return
     }
 
-    console.log(moment(e.detail).add(1, 'year').add(-1, 'day'))
-    this.endDate.value = moment(e.detail).add(1, 'year').add(-1, 'day').format(t10.t('locale.date_format'))
+    const endDate = moment(e.detail).add(1, 'year').add(-1, 'day')
+
+    this.endDate.dataset.date = endDate.format()
+    this.endDate.value = endDate.format(t10.t('locale.date_format'))
   }
 }
 

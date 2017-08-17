@@ -1,3 +1,4 @@
+const moment = require('moment')
 require('pickadate/lib/picker')
 require('pickadate/lib/picker.date')
 
@@ -6,17 +7,21 @@ const { component, emit } = capsid
 @component('js-pickadate')
 class Pickadate {
   __init__ () {
-    this.$el.pickadate({
-      format: t10.t('locale.date_format').toLowerCase()
-    })
-    .pickadate('picker').on({
-      set: (val) => {
-        this.emitInputEvent()
-      }
-    })
+    this.$el.pickadate({ format: 'yyyy-mm-dd' })
+      .pickadate('picker').on({
+        set: d => this.pickDate(d)
+      })
   }
 
-  @emit('input') emitInputEvent () {}
+  /**
+   * @param {string} date The ISO 8601 date string
+   */
+  @emit('input') pickDate (d) {
+    const selected = moment(d.select)
+
+    this.el.dataset.date = selected.format()
+    this.el.value = selected.format(t10.t('locale.date_format'))
+  }
 }
 
 module.exports = Pickadate
