@@ -20,7 +20,7 @@ class ModelHub {
 
   async __init__ () {
     make('language-module', this.el)
-    make('journal-module', this.el)
+    make('journal-document-module', this.el)
 
     this.user = await new InitService().init()
 
