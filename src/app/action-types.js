@@ -1,5 +1,5 @@
 // journal
-exports.CREATE_JOURNAL = 'mb/journal/CREATE'
+exports.CREATE_JOURNAL_DOCUMENT = 'mb/journal-document/CREATE'
 // language
 exports.SWITCH_LANGUAGE = 'mb/language/switch'
 // models

@@ -1,5 +1,5 @@
-
-const { MODEL_SAVE, CREATE_JOURNAL } = require('../action-types')
+const { Journal, JournalDocument } = require('../../domain')
+const { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT } = require('../action-types')
 
 const { component, wire, on, emit } = capsid
 
@@ -10,12 +10,13 @@ class JournalDocumentModule {
   @on(CREATE_JOURNAL_DOCUMENT)
   @emit(MODEL_SAVE)
   createJournal (e) {
+    const journalFactory = Journal.Factory()
     const factory = new JournalDocument.Factory()
 
-    const document = factory.createFromParams(e.detail)
+    const document = factory.createFromObject(e.detail)
 
     // this.hub.user.add
   }
 }
 
-module.exports = JournalModule
+module.exports = JournalDocumentModule
