@@ -1,9 +1,9 @@
 class User {
   /**
    * @param {string} id The id
-   * @param {Document[]} documents The documents
+   * @param {JournalDocument[]} documents The documents
    * @param {UserSettings} settings The user settings
-   * @param {Document} currentDocument The current document
+   * @param {JournalDocument} currentDocument The current document
    */
   constructor ({ id, documents, settings, currentDocument }) {
     this.id = id

@@ -1,4 +1,4 @@
-const DocumentFactory = require('./document-factory')
+const DocumentFactory = require('./journal-document-factory')
 const UserSettingsFactory = require('./user-settings-factory')
 const User = require('./user')
 

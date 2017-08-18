@@ -4,7 +4,7 @@ const domain = require('../domain')
 const { MODEL_SAVE, MODEL_SAVE_AND_RELOAD, MODEL_UPDATE } = require('./action-types')
 
 require('./modules/language')
-require('./modules/journal')
+require('./modules/journal-document')
 
 const { on, component, wire, make, pub } = capsid
 

@@ -1,8 +1,8 @@
 ---
-name: Document
-desc: The document model
-src: https://github.com/kt3k/moneybit-app/blob/master/src/domain/document.js
-edit: https://github.com/kt3k/moneybit-app/blob/master/src/domain/document.md
+name: JournalDocument
+desc: The journal document model
+src: https://github.com/kt3k/moneybit-app/blob/master/src/domain/journal-document.js
+edit: https://github.com/kt3k/moneybit-app/blob/master/src/domain/journal-document.md
 props:
 - name: id
   type: string

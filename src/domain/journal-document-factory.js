@@ -1,15 +1,15 @@
 const moment = require('moment')
 const Currency = require('./currency')
 const CommaPeriodSetting = require('./comma-period-setting')
-const Document = require('./document')
+const JournalDocument = require('./journal-document')
 
-class DocumentFactory {
+class JournalDocumentFactory {
   /**
    * @param {Object} obj The object
-   * @return {Document}
+   * @return {JournalDocument}
    */
   createFromObject (obj) {
-    return new Document({
+    return new JournalDocument({
       id: obj.id,
       name: obj.name,
       journalId: obj.journalId,
@@ -23,7 +23,7 @@ class DocumentFactory {
 
   /**
    * @param {Array} array The array
-   * @return {Document[]}
+   * @return {JournalDocument[]}
    */
   createDocumentsFromArray (array) {
     if (!array) {
@@ -34,4 +34,4 @@ class DocumentFactory {
   }
 }
 
-module.exports = DocumentFactory
+module.exports = JournalDocumentFactory

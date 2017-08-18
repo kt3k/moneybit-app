@@ -1,10 +1,10 @@
-const Factory = require('./document-factory')
+const Factory = require('./journal-document-factory')
 
 const factory = new Factory()
 
-class DocumentRepository {
+class JournalDocumentRepository {
   /**
-   * @param {Document} document The document
+   * @param {JournalDocument} document The document
    */
   save (document) {
   }
@@ -28,4 +28,4 @@ class DocumentRepository {
   }
 }
 
-module.exports = DocumentRepository
+module.exports = JournalDocumentRepository

@@ -1,12 +1,9 @@
 /**
- * Document represents the accouting document.
+ * JournalDocument represents the accouting document.
  *
  * Document contains Journal and AccountTypeChart as basic accounting information.
  */
-class Document {
-  static get Factory () { return require('./document-factory') }
-  static get Repository () { return require('./document-repository') }
-
+class JournalDocument {
   /**
    * @param {string} id The id
    * @param {string} name The name
@@ -29,4 +26,4 @@ class Document {
   }
 }
 
-module.exports = Document
+module.exports = JournalDocument

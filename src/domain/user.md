@@ -8,13 +8,13 @@ props:
   type: string
   desc: The id of the user, randomly generated, maybe never used
 - name: documents
-  type: Document[]
+  type: JournalDocument[]
   desc: The documents of the user
 - name: settings
   type: UserSettings
   desc: The settings of the user
 - name: currentDocument
-  type: Document
+  type: JournalDocument
   desc: The current document id
 ---
 
