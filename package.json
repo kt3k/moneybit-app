@@ -68,7 +68,7 @@
     "langsheet": "^1.0.2",
     "layout1": "^1.1.0",
     "matango": "^1.0.0",
-    "moneybit-domain": "^0.5.0",
+    "moneybit-domain": "^0.5.3",
     "npm-run-all": "^4.0.2",
     "pickadate": "^3.5.6",
     "rimraf": "^2.6.1",
