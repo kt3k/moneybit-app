@@ -15,20 +15,20 @@ describe('UserRepository', () => {
   })
 
   describe('getById', () => {
-    it('gets the user by the id', () => {
+    it('gets the user by the id', async () => {
       td.replace(storage, 'get')
       td.when(storage.get('user-john', null)).thenResolve(userObj)
 
-      return repo.getById('john').then(user => {
-        expect(user).to.be.instanceof(User)
-        expect(user.id).to.equal('john')
-        expect(user.currentDocument.id).to.equal('2')
-      })
+      const user = await repo.getById('john')
+
+      expect(user).to.be.instanceof(User)
+      expect(user.id).to.equal('john')
+      expect(user.currentDocument.id).to.equal('2')
     })
   })
 
   describe('save', () => {
-    it('saves the user to infrastructure.storage', () => {
+    it('saves the user to infrastructure.storage', async () => {
       const captor = td.matchers.captor()
 
       const user = repo.deserialize(userObj)
@@ -37,11 +37,10 @@ describe('UserRepository', () => {
       td.when(infrastructure.storage.set('user-john', td.matchers.anything()))
         .thenResolve()
 
-      return repo.save(user).then(() => {
-        td.verify(infrastructure.storage.set('user-john', captor.capture()))
+      await repo.save(user)
 
-        expect(captor.value).to.eql(userObj)
-      })
+      td.verify(infrastructure.storage.set('user-john', captor.capture()))
+      expect(captor.value).to.eql(userObj)
     })
   })
 })
