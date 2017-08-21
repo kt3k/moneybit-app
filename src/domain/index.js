@@ -1,9 +1,11 @@
-const { Journal, Trade, AccountTypeChart } = require('moneybit-domain')
+const { Journal, Trade, AccountType, AccountTypeChart, MajorAccountType } = require('moneybit-domain')
 
 exports.Journal = Journal
 exports.Journal.Repository = require('./journal-repository')
+exports.AccountType = AccountType
 exports.AccountTypeChart = AccountTypeChart
 exports.AccountTypeChart.Repository = require('./account-type-chart-repository')
+exports.MajorAccountType = MajorAccountType
 exports.Trade = Trade
 exports.JournalDocument = require('./journal-document')
 exports.JournalDocument.Factory = require('./journal-document-factory')
