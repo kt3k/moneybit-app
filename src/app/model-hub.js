@@ -16,13 +16,14 @@ class ModelHub {
   constructor () {
     this.user = null
     this.domain = domain
+    this.initService = new InitService()
   }
 
   async __init__ () {
     make('language-module', this.el)
     make('journal-document-module', this.el)
 
-    this.user = await new InitService().init()
+    this.user = await this.initService.init()
 
     this.notifyUpdate()
   }
