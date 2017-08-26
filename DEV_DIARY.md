@@ -6,3 +6,9 @@
 
 - Creating journal-document module. This is a little hard.
 - Tried to use react-native's WebView as infrastructure of moneybit-app but it seems impossible to use it because of the lack of reliable local html/js/css asset support.
+
+# 2017-08-26
+
+- Need to set up the default account-type-chart for English and Japanese.
+  - In Japan, we have default chart of accounts for tax documents. That would be a good default of account-type-chart for Japanese users.
+  - It seems very difficult to choose sensible default for English users.
