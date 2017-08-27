@@ -5,6 +5,7 @@ exports.Journal.Repository = require('./journal-repository')
 exports.AccountType = AccountType
 exports.AccountTypeChart = AccountTypeChart
 exports.AccountTypeChart.Repository = require('./account-type-chart-repository')
+exports.AccountTypeChart.defaults = require('./default-account-type-charts')
 exports.MajorAccountType = MajorAccountType
 exports.Trade = Trade
 exports.JournalDocument = require('./journal-document')
