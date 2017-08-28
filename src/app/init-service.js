@@ -1,5 +1,5 @@
 const USER_ID = '1'
-const { User } = require('../domain')
+const { User, Language } = require('../domain')
 
 /**
  * The initialization service.
@@ -12,24 +12,32 @@ class InitService {
    * @resolve {User}
    */
   async init () {
-    const user = await this.initUser()
+    const language = await this.getDeviceLanguage()
 
-    const language = user.settings.language
+    const user = await this.initUser(language)
 
-    await this.initLanguage(language ? language.code : null)
+    await this.initUiLanguage(user.settings.language)
 
     return user
   }
 
   /**
-   * Initializes the language.
-   * @param {string} langTag The language tag
-   * @return {Promise}
+   * @return {Language}
    */
-  async initLanguage (langTag) {
-    const tag = langTag || await infrastructure.locale.getLangTag()
+  async getDeviceLanguage () {
+    const code = await infrastructure.locale.getLangTag()
 
-    await $.getScript(`${basepath}/i18n/${tag}.js`)
+    const language = Language.getByCode(code)
+
+    return language || Language.EN
+  }
+
+  /**
+   * Initializes the language on the ui.
+   * @param {Language} language The language
+   */
+  async initUiLanguage (language) {
+    await $.getScript(`${basepath}/i18n/${language.code}.js`)
 
     t10.scan() // translate
 
@@ -37,10 +45,11 @@ class InitService {
   }
 
   /**
-   * @return {Promise<User>}
+   * @param {Language} language
+   * @return {User}
    */
-  initUser () {
-    return new User.InitService().getOrCreate(USER_ID)
+  async initUser (language) {
+    return await new User.InitService().getOrCreate(USER_ID, language)
   }
 }
 
