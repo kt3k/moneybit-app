@@ -1,4 +1,4 @@
-const { User } = require('../')
+const { User, Language } = require('../')
 const { userObj } = require('../__mocks__')
 const { describe, afterEach, it } = require('kocha')
 
@@ -16,7 +16,7 @@ describe('UserInitService', () => {
 
   describe('getOrCreate', () => {
     it('creates the user when not available', () => {
-      return service.getOrCreate('jonathan').then(user => {
+      return service.getOrCreate('jonathan', Language.EN).then(user => {
         expect(user).to.be.instanceof(User)
         expect(user.id).to.equal('jonathan')
       })
