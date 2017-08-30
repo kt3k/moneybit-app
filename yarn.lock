@@ -1286,9 +1286,9 @@ chokidar@^1.0.0, chokidar@^1.4.1, chokidar@^1.4.2, chokidar@^1.6.0:
   optionalDependencies:
     fsevents "^1.0.0"
 
-chrome-console-debug-menu@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/chrome-console-debug-menu/-/chrome-console-debug-menu-1.1.0.tgz#3837fa627a0065c3a580cf371d67c862d05c452b"
+chrome-console-debug-menu@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/chrome-console-debug-menu/-/chrome-console-debug-menu-2.0.1.tgz#0064f3759a65d09a5c487ca1af7cc9d3878466d1"
 
 cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   version "1.0.4"
