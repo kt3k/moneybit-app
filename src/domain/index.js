@@ -10,7 +10,6 @@ exports.MajorAccountType = MajorAccountType
 exports.Trade = Trade
 exports.JournalDocument = require('./journal-document')
 exports.JournalDocument.Factory = require('./journal-document-factory')
-exports.JournalDocument.Repository = require('./journal-document-repository')
 exports.Currency = require('./currency')
 exports.CommaPeriodSetting = require('./comma-period-setting')
 exports.User = require('./user')
