@@ -1,5 +1,6 @@
-const USER_ID = '1'
-const { User, Language } = require('../domain')
+const { AppState, User, Language } = require('../domain')
+
+const repository = new AppState.Repository()
 
 /**
  * The initialization service.
@@ -12,24 +13,19 @@ class InitService {
    * @resolve {User}
    */
   async init () {
-    const language = await this.getDeviceLanguage()
+    const appState = await repository.get()
 
-    const user = await this.initUser(language)
+    if (!appState.hasUserId()) {
+      appState.initUserId()
+
+      await repository.save(appState)
+    }
+
+    const user = await this.initUser(appState)
 
     await this.initUiLanguage(user.settings.language)
 
     return user
-  }
-
-  /**
-   * @return {Language}
-   */
-  async getDeviceLanguage () {
-    const code = await infrastructure.locale.getLangTag()
-
-    const language = Language.getByCode(code)
-
-    return language || Language.EN
   }
 
   /**
@@ -45,11 +41,11 @@ class InitService {
   }
 
   /**
-   * @param {Language} language
+   * @param {AppState} appState
    * @return {User}
    */
-  async initUser (language) {
-    return new User.InitService().getOrCreate(USER_ID, language)
+  async initUser (appState) {
+    return new User.InitService().getOrCreate(appState.userId, appState.deviceLanguage)
   }
 }
 

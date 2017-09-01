@@ -1,3 +1,5 @@
+const uuid = require('uuid')
+
 class AppState {
   /**
    * @param {string} userId The user id
@@ -6,6 +8,14 @@ class AppState {
   constructor ({ userId, deviceLanguage }) {
     this.userId = userId
     this.deviceLanguage = deviceLanguage
+  }
+
+  hasUserId () {
+    return this.userId != null
+  }
+
+  initUserId () {
+    this.userId = uuid.v4()
   }
 }
 
