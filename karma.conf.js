@@ -9,7 +9,7 @@ module.exports = config => config.set({
   },
   browserify: {
     debug: true,
-    transform: [['babelify', { presets: ['env', 'decorators-legacy'], plugins: ['transform-runtime', 'istanbul'] }]]
+    transform: [['babelify', { presets: ['env', 'decorators-legacy'], plugins: ['transform-runtime', 'transform-object-rest-spread', 'istanbul'] }]]
   },
   reporters: ['progress', 'coverage'],
   coverageReporter: { reporters: [{ type: 'lcov' }] },

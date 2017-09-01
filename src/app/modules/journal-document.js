@@ -34,7 +34,7 @@ class JournalDocumentModule {
 
     const document = this.documentFactory.createFromObject(documentObj)
 
-    this.hub.user.setCurrentDocument(document)
+    user.setCurrentDocument(document)
   }
 
   /**

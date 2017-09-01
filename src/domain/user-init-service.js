@@ -18,7 +18,7 @@ class UserInitService {
       return user
     }
 
-    return await this.createUser(id, language)
+    return this.createUser(id, language)
   }
 
   /**
@@ -53,7 +53,7 @@ class UserInitService {
 
     return new UserSettings({
       defaultChartId: chart.id,
-      language,
+      language
     })
   }
 }

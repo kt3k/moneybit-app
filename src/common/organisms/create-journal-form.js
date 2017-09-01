@@ -11,7 +11,7 @@ class CreateJournalForm {
   @wire.el('[name="currencyCode"]') get currencyCode () {}
   @wire.el('[name="commaPeriodSetting"]') get commaPeriodSetting () {}
   @wire.el('[name="startDate"]') get startDate () {}
-  @wire.el('[name="endDate"]') get endDate() {}
+  @wire.el('[name="endDate"]') get endDate () {}
   @wire.el('button.is-primary') get primaryButton () {}
   @wire.el('button.is-danger') get cancelButton () {}
 

@@ -9,7 +9,7 @@ class AccountTypeChartRepository {
    * @param {AccountTypeChart} chart The chart
    */
   async save (chart) {
-    return await infrastructure.storage.set(this.generateKeyById(chart.id), this.chartToObject(chart))
+    return infrastructure.storage.set(this.generateKeyById(chart.id), this.chartToObject(chart))
   }
 
   /**

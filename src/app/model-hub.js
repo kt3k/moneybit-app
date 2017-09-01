@@ -6,7 +6,7 @@ const { MODEL_SAVE, MODEL_SAVE_AND_RELOAD, MODEL_UPDATE } = require('./action-ty
 require('./modules/language')
 require('./modules/journal-document')
 
-const { on, component, wire, make, pub } = capsid
+const { on, component, make, pub } = capsid
 
 /**
  * The hub of the all models handled in this app.

@@ -1,5 +1,8 @@
 const { Journal, Trade, AccountType, AccountTypeChart, MajorAccountType } = require('moneybit-domain')
 
+exports.AppState = require('./app-state')
+exports.AppState.Factory = require('./app-state-factory')
+exports.AppState.Repository = require('./app-state-repository')
 exports.Journal = Journal
 exports.Journal.Repository = require('./journal-repository')
 exports.AccountType = AccountType

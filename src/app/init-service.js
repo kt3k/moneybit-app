@@ -49,7 +49,7 @@ class InitService {
    * @return {User}
    */
   async initUser (language) {
-    return await new User.InitService().getOrCreate(USER_ID, language)
+    return new User.InitService().getOrCreate(USER_ID, language)
   }
 }
 
