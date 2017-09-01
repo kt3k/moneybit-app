@@ -1,5 +1,6 @@
 const InitService = require('./init-service')
 const domain = require('../domain')
+const { User } = domain
 
 const { MODEL_SAVE, MODEL_SAVE_AND_RELOAD, MODEL_UPDATE } = require('./action-types')
 
@@ -15,6 +16,7 @@ const { on, component, make, pub } = capsid
 class ModelHub {
   constructor () {
     this.user = null
+    this.userRepository = new User.Repository()
     this.domain = domain
     this.initService = new InitService()
   }
@@ -46,10 +48,8 @@ class ModelHub {
   }
 
   async save () {
-    const userRepository = new this.domain.User.Repository()
-
     await Promise.all([
-      userRepository.save(this.user)
+      this.userRepository.save(this.user)
     ])
   }
 }
