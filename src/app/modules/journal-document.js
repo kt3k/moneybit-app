@@ -1,34 +1,66 @@
 const uuid = require('uuid')
-const { Journal, JournalDocument } = require('../../domain')
+const { AccountTypeChart, Journal, JournalDocument } = require('../../domain')
 const { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT } = require('../action-types')
 
 const { component, wire, on, emit } = capsid
 
 @component('journal-document-module')
 class JournalDocumentModule {
+  constructor () {
+    this.journalFactory = new Journal.Factory()
+    this.journalRepository = new Journal.Repository()
+    this.chartRepository = new AccountTypeChart.Repository()
+    this.chartFactory = new AccountTypeChart.Factory()
+    this.documentFactory = new JournalDocument.Factory()
+  }
+
   @wire('js-model-hub') get hub () {}
 
   @on(CREATE_JOURNAL_DOCUMENT)
   @emit(MODEL_SAVE)
   async createJournal (e) {
-    const journalFactory = new Journal.Factory()
-    const journal = journalFactory.createFromIdAndArray(uuid.v4(), [])
+    const { user } = this.hub
 
-    await journalRepository.save(journal)
+    const journal = await this.createEmptyJournal()
+    const chart = await this.cloneFromDefaultChart()
 
-    const obj = Object.assign({}, e.detail)
-    obj.journalId = journal.id
+    const documentObj = Object.assign({}, e.detail)
 
-    const defaultChart = await accountTypeChartRepository
+    documentObj.id = uuid.v4()
+    documentObj.journalId = journal.id
+    documentObj.chartId = chart.id
 
-    const accountTypeChartFactory = new AccountTypeChart.Factory()
-    const accountTypeChart = accountTypeChartFactory.createFromIdAndChart(uuid.v4(), defatulChart)
+    console.log(documentObj)
 
-    const journalDocumentFactory = new JournalDocument.Factory()
+    const document = this.documentFactory.createFromObject(documentObj)
 
-    const document = journalDocumentFactory.createFromObject(e.detail)
+    this.hub.user.setCurrentDocument(document)
+  }
 
-    // this.hub.user.add
+  /**
+   * @return {Journal}
+   */
+  async createEmptyJournal () {
+    const journal = this.journalFactory.createFromIdAndArray(uuid.v4(), [])
+
+    await this.journalRepository.save(journal)
+
+    return journal
+  }
+
+  /**
+   * @return {AccountTypeChart}
+   */
+  async cloneFromDefaultChart () {
+    const { user } = this.hub
+
+    const defaultChart = await this.chartRepository.getById(user.settings.defaultChartId)
+
+    const newChart = defaultChart.clone(uuid.v4())
+
+    await this.chartRepository.save(newChart)
+
+    return newChart
   }
 }
 

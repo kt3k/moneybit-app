@@ -49,7 +49,7 @@ class UserRepository {
   documentToObject (document) {
     return {
       id: document.id,
-      name: document.name,
+      title: document.title,
       journalId: document.journalId,
       chartId: document.chartId,
       currencyCode: document.currency.code,

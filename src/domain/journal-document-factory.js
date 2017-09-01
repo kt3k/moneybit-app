@@ -11,7 +11,7 @@ class JournalDocumentFactory {
   createFromObject (obj) {
     return new JournalDocument({
       id: obj.id,
-      name: obj.name,
+      title: obj.title,
       journalId: obj.journalId,
       chartId: obj.chartId,
       currency: Currency[obj.currencyCode],

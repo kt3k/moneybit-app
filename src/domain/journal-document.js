@@ -6,7 +6,7 @@
 class JournalDocument {
   /**
    * @param {string} id The id
-   * @param {string} name The name
+   * @param {string} title The title
    * @param {string} journalId The id of the journal
    * @param {string} chartId The id of the account type chart
    * @param {Currency} currency The currency
@@ -14,9 +14,9 @@ class JournalDocument {
    * @param {moment} end The end date
    * @param {CommaPeriodSetting} commaPeriodSetting The setting of comma and period usage in number expression.
    */
-  constructor ({ id, name, journalId, chartId, currency, start, end, commaPeriodSetting }) {
+  constructor ({ id, title, journalId, chartId, currency, start, end, commaPeriodSetting }) {
     this.id = id
-    this.name = name
+    this.title = title
     this.journalId = journalId
     this.chartId = chartId
     this.currency = currency

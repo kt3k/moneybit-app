@@ -26,7 +26,7 @@ class CreateJournalForm {
     return {
       title: this.title.value,
       currencyCode: this.currencyCode.value,
-      commaPeriodSettings: this.commaPeriodSetting.value,
+      commaPeriodSetting: this.commaPeriodSetting.value,
       startDate: this.startDate.dataset.date,
       endDate: this.endDate.dataset.date
     }
