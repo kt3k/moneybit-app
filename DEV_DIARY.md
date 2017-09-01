@@ -12,3 +12,7 @@
 - Need to set up the default account-type-chart for English and Japanese.
   - In Japan, we have default chart of accounts for tax documents. That would be a good default of account-type-chart for Japanese users.
   - It seems very difficult to choose sensible default for English users.
+
+# 2017-09-01
+
+- Finally a new document has been created!
