@@ -1,12 +1,6 @@
 const matango = require('matango')
 const { component, on, emit, wire, pub } = capsid
 
-const TARGETS = [
-  'input',
-  'select',
-  'textarea'
-]
-
 const ERROR_CLASS = 'is-error'
 const EVENT_VALIDATION_UPDATE = 'validation-update'
 
@@ -28,7 +22,7 @@ export default class Form {
 }
 
 @component('js-disable-on-error')
-class DisableOnError {
+export class DisableOnError {
   @on(EVENT_VALIDATION_UPDATE)
   onValidationUpdate (e) {
     const { error } = e.detail
@@ -42,7 +36,7 @@ class DisableOnError {
 }
 
 @component('js-field')
-class Field {
+export class Field {
   @emit('input')
   __init__ () {
   }

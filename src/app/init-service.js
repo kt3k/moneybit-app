@@ -1,4 +1,4 @@
-const { AppState, User, Language } = require('../domain')
+const { AppState, User } = require('../domain')
 
 const repository = new AppState.Repository()
 

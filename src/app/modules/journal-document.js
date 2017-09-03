@@ -30,8 +30,6 @@ class JournalDocumentModule {
     documentObj.journalId = journal.id
     documentObj.chartId = chart.id
 
-    console.log(documentObj)
-
     const document = this.documentFactory.createFromObject(documentObj)
 
     user.setCurrentDocument(document)
