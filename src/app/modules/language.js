@@ -9,11 +9,8 @@ class LanguageModule {
 
   @on(SWITCH_LANGUAGE)
   @emit(MODEL_SAVE_AND_RELOAD)
-  onSwitchLanguage (e) {
-    const code = e.detail
-    const language = this.hub.domain.Language.getByCode(code)
-
-    this.hub.user.settings.language = language
+  onSwitchLanguage ({ detail: code }) {
+    this.hub.user.settings.language = this.hub.domain.Language.getByCode(code)
   }
 }
 
