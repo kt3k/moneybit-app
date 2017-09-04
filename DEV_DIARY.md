@@ -20,3 +20,7 @@
 # 2017-09-04
 
 - Next we are going to implement document selection feature.
+- Application Phases
+  - AppState ready
+  - User ready
+  - UI language ready = App ready

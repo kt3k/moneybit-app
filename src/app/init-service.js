@@ -23,7 +23,7 @@ class InitService {
 
     const user = await this.initUser(appState)
 
-    await this.initUiLanguage(user.settings.language)
+    await this.initUiLanguage(user.settings.language || appState.deviceLanguage)
 
     return user
   }
