@@ -16,3 +16,7 @@
 # 2017-09-01
 
 - Finally a new document has been created!
+
+# 2017-09-04
+
+- Next we are going to implement document selection feature.
