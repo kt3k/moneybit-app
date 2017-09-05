@@ -1,13 +1,14 @@
-const InitService = require('./init-service')
 const domain = require('../domain')
 const { User } = domain
 
-const { MODEL_SAVE, MODEL_UPDATE } = require('./action-types')
+const { HUB_READY, MODEL_SAVE, MODEL_UPDATE } = require('./action-types')
 
+require('./modules/app-state')
+require('./modules/user')
 require('./modules/language')
 require('./modules/journal-document')
 
-const { on, emit, component, make, pub } = capsid
+const { emit, on, component, make, pub } = capsid
 
 /**
  * The hub of the all models handled in this app.
@@ -18,15 +19,14 @@ class ModelHub {
     this.user = null
     this.userRepository = new User.Repository()
     this.domain = domain
-    this.initService = new InitService()
   }
 
-  @emit(MODEL_SAVE)
+  @emit(HUB_READY)
   async __init__ () {
+    make('app-state-module', this.el)
+    make('user-module', this.el)
     make('language-module', this.el)
     make('journal-document-module', this.el)
-
-    this.user = await this.initService.init()
   }
 
   @on(MODEL_SAVE) async onModelSave (e) {
