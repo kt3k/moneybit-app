@@ -3,7 +3,7 @@ const { User } = domain
 
 const { HUB_READY, MODEL_SAVE, MODEL_UPDATE } = require('./action-types')
 
-const { emit, on, component, mount, make, pub } = capsid
+const { emit, on, component, mount, pub } = capsid
 
 /**
  * The hub of the all models handled in this app.
