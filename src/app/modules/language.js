@@ -1,9 +1,8 @@
 const { SWITCH_LANGUAGE, USER_READY, MODEL_SAVE } = require('../action-types')
 
-const { on, emit, wire, component } = capsid
+const { on, emit, wire } = capsid
 
-@component('language-module')
-class LanguageModule {
+module.exports = class LanguageModule {
   @wire('js-model-hub')
   get hub () {}
 
@@ -36,5 +35,3 @@ class LanguageModule {
     return this.hub.user.settings.language || this.hub.appState.deviceLanguage
   }
 }
-
-module.exports = LanguageModule

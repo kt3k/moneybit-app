@@ -1,9 +1,8 @@
 const { HUB_READY, APP_STATE_READY } = require('../action-types')
 
-const { component, emit, on, wire } = capsid
+const { emit, on, wire } = capsid
 
-@component('app-state-module')
-class AppStateModule {
+module.exports = class AppStateModule {
   @wire('js-model-hub') get hub () {}
 
   @emit(APP_STATE_READY)
@@ -22,5 +21,3 @@ class AppStateModule {
     this.hub.appState = appState
   }
 }
-
-module.exports = AppStateModule

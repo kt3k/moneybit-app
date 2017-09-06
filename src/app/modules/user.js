@@ -1,9 +1,8 @@
 const { APP_STATE_READY, USER_READY } = require('../action-types')
 
-const { on, emit, component, wire } = capsid
+const { on, emit, wire } = capsid
 
-@component('user-module')
-class UserModule {
+module.exports = class UserModule {
   @wire('js-model-hub') get hub () {}
 
   @on(APP_STATE_READY)
@@ -20,5 +19,3 @@ class UserModule {
     return new this.hub.domain.User.InitService().getOrCreate(appState.userId, appState.deviceLanguage)
   }
 }
-
-module.exports = UserModule

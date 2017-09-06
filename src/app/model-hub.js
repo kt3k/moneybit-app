@@ -3,12 +3,7 @@ const { User } = domain
 
 const { HUB_READY, MODEL_SAVE, MODEL_UPDATE } = require('./action-types')
 
-require('./modules/app-state')
-require('./modules/user')
-require('./modules/language')
-require('./modules/journal-document')
-
-const { emit, on, component, make, pub } = capsid
+const { emit, on, component, mount, make, pub } = capsid
 
 /**
  * The hub of the all models handled in this app.
@@ -22,11 +17,11 @@ class ModelHub {
   }
 
   @emit(HUB_READY)
-  async __init__ () {
-    make('app-state-module', this.el)
-    make('user-module', this.el)
-    make('language-module', this.el)
-    make('journal-document-module', this.el)
+  __init__ () {
+    mount(require('./modules/app-state'), this.el)
+    mount(require('./modules/user'), this.el)
+    mount(require('./modules/language'), this.el)
+    mount(require('./modules/journal-document'), this.el)
   }
 
   @on(MODEL_SAVE) async onModelSave (e) {

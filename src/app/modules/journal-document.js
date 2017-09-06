@@ -2,10 +2,9 @@ const uuid = require('uuid')
 const { AccountTypeChart, Journal, JournalDocument } = require('../../domain')
 const { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT } = require('../action-types')
 
-const { component, wire, on, emit } = capsid
+const { wire, on, emit } = capsid
 
-@component('journal-document-module')
-class JournalDocumentModule {
+module.exports = class JournalDocumentModule {
   constructor () {
     this.journalFactory = new Journal.Factory()
     this.journalRepository = new Journal.Repository()
@@ -61,5 +60,3 @@ class JournalDocumentModule {
     return newChart
   }
 }
-
-module.exports = JournalDocumentModule
