@@ -24,3 +24,8 @@
   - AppState ready
   - User ready
   - UI language ready = App ready
+
+# 2017-09-16
+- Spent many days on capsid works. renamed some APIs. Updated capsid todomvc implementation (that was hard, but interesting work). Created tool to run todomvc e2e test. The tool name is `todomvc-test` and it had some feedbacks from todomvc authors.
+- In the course of renewing the implementation of capsid's todomvc, I felt that flux architecture really works for capsid. The ducks style modularization of the flux store seems working as well.
+- But finally come back here!
