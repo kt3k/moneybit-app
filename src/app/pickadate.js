@@ -2,7 +2,7 @@ const moment = require('moment')
 require('pickadate/lib/picker')
 require('pickadate/lib/picker.date')
 
-const { component, emit } = capsid
+const { component, emits } = capsid
 
 @component('js-pickadate')
 class Pickadate {
@@ -16,7 +16,7 @@ class Pickadate {
   /**
    * @param {string} date The ISO 8601 date string
    */
-  @emit('input') pickDate (d) {
+  @emits('input') pickDate (d) {
     const selected = moment(d.select)
 
     this.el.dataset.date = selected.format()

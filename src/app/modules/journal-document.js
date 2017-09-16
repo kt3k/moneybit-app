@@ -2,7 +2,7 @@ const uuid = require('uuid')
 const { AccountTypeChart, Journal, JournalDocument } = require('../../domain')
 const { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT } = require('../action-types')
 
-const { wire, on, emit } = capsid
+const { wire, on, emits } = capsid
 
 module.exports = class JournalDocumentModule {
   constructor () {
@@ -16,7 +16,7 @@ module.exports = class JournalDocumentModule {
   @wire('js-model-hub') get hub () {}
 
   @on(CREATE_JOURNAL_DOCUMENT)
-  @emit(MODEL_SAVE)
+  @emits(MODEL_SAVE)
   async createJournal (e) {
     const { user } = this.hub
 

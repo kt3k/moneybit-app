@@ -1,5 +1,5 @@
 const matango = require('matango')
-const { component, on, emit, wire, pub } = capsid
+const { component, on, emits, wire, pub } = capsid
 
 const ERROR_CLASS = 'is-error'
 const EVENT_VALIDATION_UPDATE = 'validation-update'
@@ -37,7 +37,7 @@ export class DisableOnError {
 
 @component('js-field')
 export class Field {
-  @emit('input')
+  @emits('input')
   __init__ () {
   }
 

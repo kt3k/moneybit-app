@@ -1,6 +1,6 @@
 const { CREATE_JOURNAL_DOCUMENT } = require('../../app/action-types')
 
-const { component, on, emit, wire } = capsid
+const { component, on, emits, wire } = capsid
 
 /**
  * The form component which creates journal with `.is-primary` button.
@@ -16,7 +16,7 @@ class CreateJournalForm {
   @wire.el('button.is-danger') get cancelButton () {}
 
   @on('click', { at: 'button.is-primary' })
-  @emit(CREATE_JOURNAL_DOCUMENT)
+  @emits(CREATE_JOURNAL_DOCUMENT)
   createJournal (e) {
     e.preventDefault()
 

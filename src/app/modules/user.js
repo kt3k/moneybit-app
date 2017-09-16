@@ -1,12 +1,12 @@
 const { APP_STATE_READY, USER_READY } = require('../action-types')
 
-const { on, emit, wire } = capsid
+const { on, emits, wire } = capsid
 
 module.exports = class UserModule {
   @wire('js-model-hub') get hub () {}
 
   @on(APP_STATE_READY)
-  @emit(USER_READY)
+  @emits(USER_READY)
   async init () {
     this.hub.user = await this.initUser(this.hub.appState)
   }

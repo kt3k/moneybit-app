@@ -3,7 +3,7 @@ const { User } = domain
 
 const { HUB_READY, MODEL_SAVE, MODEL_UPDATE } = require('./action-types')
 
-const { emit, on, component, mount, pub } = capsid
+const { emits, on, component, mount, notifies } = capsid
 
 /**
  * The hub of the all models handled in this app.
@@ -16,7 +16,7 @@ class ModelHub {
     this.domain = domain
   }
 
-  @emit(HUB_READY)
+  @emits(HUB_READY)
   __init__ () {
     mount(require('./modules/app-state'), this.el)
     mount(require('./modules/user'), this.el)
@@ -34,7 +34,7 @@ class ModelHub {
     }
   }
 
-  @pub(MODEL_UPDATE, '.is-model-observer')
+  @notifies(MODEL_UPDATE, '.is-model-observer')
   notifyUpdate () {
     return this
   }

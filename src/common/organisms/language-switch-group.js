@@ -1,4 +1,4 @@
-const { component, on, emit, wire } = capsid
+const { component, on, emits, wire } = capsid
 const { SWITCH_LANGUAGE, MODEL_UPDATE } = require('../../app/action-types')
 
 @component('js-language-switch-group')
@@ -13,7 +13,7 @@ class LanguageSwitchGroup {
   }
 
   @on.click
-  @emit(SWITCH_LANGUAGE)
+  @emits(SWITCH_LANGUAGE)
   onClick (e) {
     return $(e.target).attr('lang')
   }
