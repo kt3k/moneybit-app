@@ -1,4 +1,20 @@
-const { component, on } = capsid
+const { wire, component, on } = capsid
+const { MODEL_UPDATE } = require('../../app/action-types')
+
+@component('app-header')
+class AppHeader {
+  @wire.$el('.journal-document-select')
+  get $select () {}
+
+  @on(MODEL_UPDATE) onModelUpdate ({ detail: { user } }) {
+    this.$select.empty()
+
+    user.documents.forEach(document => {
+      this.$select.append(`<option value="${document.id}">${document.title}</option>`)
+    })
+  }
+}
+
 
 @component('app-menu-btn')
 class AppMenu {
@@ -25,7 +41,7 @@ class AppMenu {
       })
   }
 
-  @on('click') open (e) {
+  @on.click open (e) {
     if (this.transitioning) { return }
     if (this.$target.hasClass('is-visible')) { return }
     this.transitioning = true

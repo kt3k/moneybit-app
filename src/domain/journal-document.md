@@ -7,9 +7,9 @@ props:
 - name: id
   type: string
   desc: The id of the document
-- name: name
+- name: title
   type: string
-  desc: The name of the document
+  desc: The title of the document
 - name: journalId
   type: string
   desc: The id of the journal of the document
@@ -30,4 +30,4 @@ props:
   desc: The setting of comma and period for separating number
 ---
 
-Document is the unit of the accounting document in moneybit app.
+JournalDocument is the unit of the accounting document in moneybit app.
