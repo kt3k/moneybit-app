@@ -22,6 +22,7 @@ class ModelHub {
     mount(require('./modules/user'), this.el)
     mount(require('./modules/language'), this.el)
     mount(require('./modules/journal-document'), this.el)
+    mount(require('./modules/chart'), this.el)
   }
 
   @on(MODEL_SAVE) async onModelSave (e) {

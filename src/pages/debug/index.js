@@ -34,5 +34,16 @@ global.m = menu.create('m', {
         }
       }
     }
+  },
+  m: {
+    description: 'model controls',
+    methods: {
+      ls: {
+        desc: 'Show models',
+        func () {
+          return capsid.get('js-model-hub', document.querySelector('.js-model-hub'))
+        }
+      }
+    }
   }
 })

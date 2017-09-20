@@ -1,4 +1,4 @@
-const { SWITCH_LANGUAGE, USER_READY, MODEL_SAVE } = require('../action-types')
+const { SWITCH_LANGUAGE, USER_READY, MODEL_SAVE, UI_LANGUAGE_READY } = require('../action-types')
 
 const { on, emits, wire } = capsid
 
@@ -18,7 +18,7 @@ module.exports = class LanguageModule {
    * Initializes the language on the ui.
    */
   @on(USER_READY)
-  @emits(MODEL_SAVE)
+  @emits(UI_LANGUAGE_READY)
   async initUiLanguage () {
     await $.getScript(`${basepath}/i18n/${this.getLanguage().code}.js`)
 
