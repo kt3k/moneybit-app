@@ -22,7 +22,7 @@ const defaultAccountTypeCharts = {
       'Equipment',
       'Accumulated Depreciation Equipment'
     ],
-    liabilities: [
+    liability: [
       'Notes Payable',
       'Accounts Payable',
       'Unearned Service Revenue',
@@ -88,7 +88,7 @@ const defaultAccountTypeCharts = {
       '土地',
       '事業主貸'
     ],
-    liabilities: [
+    liability: [
       '支払手形',
       '買掛金',
       '借入金',

@@ -24,78 +24,12 @@ js: pages/settings/index.js
 
 <br />
 
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-diamond"></i>&nbsp;<t>domain.assets</t></p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <ul>
-        <li>Cash
-        <li>Accounts Payable
-        <li>Land
-        <li>Equipment
-      </ul>
-    </div>
-  </div>
-</div>
-<br />
+{% from src + '/pages/settings/chart-card.njk' import chartCard %}
 
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-bank"></i>&nbsp;<t>domain.liabilities</t></p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <ul>
-        <li><a class="nav-itme" href="#">Loans Payable</a>
-        <li><a class="nav-itme" href="#">Accounts Payable</a>
-        <li><a class="nav-itme" href="#">Bonds Payable</a>
-      </ul>
-    </div>
-  </div>
-</div>
-<br />
+{{ chartCard('ASSET', 'diamond', '<t>domain.assets</t>') }}<br />
+{{ chartCard('LIABILITY', 'bank', '<t>domain.liabilities</t>') }}<br />
+{{ chartCard('EQUITY', 'gift', '<t>domain.equity</t>') }}<br />
+{{ chartCard('REVENUE', 'thumbs-o-up', '<t>domain.revenues</t>') }}<br />
+{{ chartCard('EXPENSE', 'fire', '<t>domain.expenses</t>') }}<br />
 
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-gift"></i>&nbsp;<t>domain.equity</t></p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <ul>
-        <li><a class="nav-itme" href="#">Common Stock</a>
-        <li><a class="nav-itme" href="#">Retained Earnings</a>
-      </ul>
-    </div>
-  </div>
-</div>
-<br />
-
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-thumbs-o-up"></i>&nbsp;<t>domain.revenues</t></p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <ul>
-        <li><a class="nav-itme" href="#">Sales</a>
-      </ul>
-    </div>
-  </div>
-</div>
-<br />
-
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-fire"></i>&nbsp;<t>domain.expenses</t></p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <ul>
-        <li><a class="nav-itme" href="#">Travel Expenses</a>
-      </ul>
-    </div>
-  </div>
-</div>
 <br />

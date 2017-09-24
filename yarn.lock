@@ -2518,6 +2518,10 @@ gaze@^1.0.0:
   dependencies:
     globule "^1.0.0"
 
+genel@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/genel/-/genel-1.0.0.tgz#123b34ae00589a6510a75050253dc5c09896d6da"
+
 generate-function@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/generate-function/-/generate-function-2.0.0.tgz#6858fe7c0969b7d4e9093337647ac79f60dfbe74"
@@ -4082,9 +4086,9 @@ moment@^2.15.1:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
-moneybit-domain@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/moneybit-domain/-/moneybit-domain-0.6.0.tgz#02f7459da518c71f0445abee11fa0fb20aacfd9d"
+moneybit-domain@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/moneybit-domain/-/moneybit-domain-0.7.0.tgz#ae84559948e692938448c80e77559b4a802b3347"
   dependencies:
     js-yaml "^3.8.2"
 
