@@ -4,7 +4,7 @@ const genel = require('genel')
 
 @component
 class ChartCard {
-  @wire.el('ul') get list () {}
+  @wire.el('table') get table () {}
 
   @on(MODEL_UPDATE)
   onModelUpdate ({ detail: { currentChart, domain: { MajorAccountType } } }) {
@@ -14,11 +14,10 @@ class ChartCard {
       throw new Error(`no such type: "${this.el.getAttribute('type')}"`)
     }
 
-    this.list.innerHTML = ''
+    this.table.innerHTML = ''
 
     currentChart.getAccountTypesByMajorType(majorType).forEach(type => {
-      const li = genel.li`<a href="#">${type.name}</a>`
-      this.list.appendChild(li)
+      this.table.appendChild(genel.tr`<td><a href="#">${type.name}</a></td>`)
     })
   }
 }
