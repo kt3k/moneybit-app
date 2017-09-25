@@ -25,7 +25,8 @@ class ModelHub {
     mount(require('./modules/chart'), this.el)
   }
 
-  @on(MODEL_SAVE) async onModelSave (e) {
+  @on(MODEL_SAVE)
+  async onModelSave (e) {
     await this.save()
 
     if (e.detail && e.detail.reload) {
