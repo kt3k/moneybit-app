@@ -35,6 +35,10 @@
 - Started implementing model and view connections!
 - Feeling the need of some model inspection tool. Currently I use a query like `capsid.get('js-model-hub', $('.js-model-hub')[0]).user` in dev console, but this is a little bit too inconvenient.
 
-# 2017-09-26
+# 2017-09-25
 
 - Created [genel](https://npm.im/genel) utility for generating dom elements.
+
+# 2017-09-26
+
+- Changed sidux action/event naming policy.
