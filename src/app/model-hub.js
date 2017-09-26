@@ -1,7 +1,18 @@
 const domain = require('../domain')
 const { User } = domain
 
-const { HUB_READY, MODEL_SAVE, MODEL_UPDATE } = require('./action-types')
+const {
+  HUB_READY,
+  MODEL_SAVE,
+  MODEL_UPDATE,
+  INIT_APP_STATE,
+  APP_STATE_READY,
+  INIT_USER,
+  USER_READY,
+  INIT_LANGUAGE,
+  INIT_CHART,
+  CHART_READY
+} = require('./action-types')
 
 const { emits, on, component, mount, notifies } = capsid
 
@@ -36,16 +47,33 @@ class ModelHub {
     }
   }
 
-  @notifies(MODEL_UPDATE, '.is-model-observer')
-  notifyUpdate () {
-    return this
-  }
-
   async save () {
     await Promise.all([
       this.userRepository.save(this.user)
     ])
   }
+
+  @notifies(MODEL_UPDATE, '.is-model-observer')
+  notifyUpdate () {
+    return this
+  }
+
+  @on(HUB_READY)
+  @emits(INIT_APP_STATE)
+  hubReadyToInitAppState () {}
+
+  @on(APP_STATE_READY)
+  @emits(INIT_USER)
+  appStateReadyToInitUser () {}
+
+  @on(USER_READY)
+  @emits(INIT_CHART)
+  @emits(INIT_LANGUAGE)
+  userReadyToInitChart () {}
+
+  @on(CHART_READY)
+  @emits(MODEL_SAVE)
+  chartsReadyToModelSave () {}
 }
 
 module.exports = ModelHub

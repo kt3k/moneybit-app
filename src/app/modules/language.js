@@ -1,8 +1,8 @@
-const { SWITCH_LANGUAGE, USER_READY, MODEL_SAVE, UI_LANGUAGE_READY } = require('../action-types')
+const { SWITCH_LANGUAGE, INIT_LANGUAGE, MODEL_SAVE, UI_LANGUAGE_READY } = require('../action-types')
 
 const { on, emits, wire } = capsid
 
-module.exports = class LanguageModule {
+class LanguageModule {
   @wire('js-model-hub')
   get hub () {}
 
@@ -17,7 +17,7 @@ module.exports = class LanguageModule {
   /**
    * Initializes the language on the ui.
    */
-  @on(USER_READY)
+  @on(INIT_LANGUAGE)
   @emits(UI_LANGUAGE_READY)
   async initUiLanguage () {
     await $.getScript(`${basepath}/i18n/${this.getLanguage().code}.js`)
@@ -35,3 +35,5 @@ module.exports = class LanguageModule {
     return this.hub.user.settings.language || this.hub.appState.deviceLanguage
   }
 }
+
+module.exports = LanguageModule

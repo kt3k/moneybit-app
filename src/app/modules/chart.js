@@ -1,6 +1,6 @@
 const { AccountTypeChart } = require('../../domain')
 const { on, wire, emits } = capsid
-const { MODEL_SAVE, USER_READY } = require('../action-types')
+const { INIT_CHART, CHART_READY } = require('../action-types')
 
 class ChartModule {
   @wire('js-model-hub') get hub () {}
@@ -9,13 +9,16 @@ class ChartModule {
     this.repository = new AccountTypeChart.Repository()
   }
 
-  @on(USER_READY)
-  @emits(MODEL_SAVE)
+  @on(INIT_CHART)
+  @emits(CHART_READY)
   async loadCharts () {
-    const [defaultChart, currentChart] = await Promise.all([
-      this.repository.getById(this.hub.user.settings.defaultChartId),
-      this.repository.getById(this.hub.user.currentDocument.chartId)
-    ])
+    const promises = [this.repository.getById(this.hub.user.settings.defaultChartId)]
+
+    if (this.hub.user.currentDocument) {
+      promises.push(this.repository.getById(this.hub.user.currentDocument.chartId))
+    }
+
+    const [defaultChart, currentChart] = await Promise.all(promises)
 
     this.hub.defaultChart = defaultChart
     this.hub.currentChart = currentChart
