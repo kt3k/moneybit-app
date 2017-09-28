@@ -5,6 +5,10 @@ exports.UI_READY = 'mb/ui/READY'
 // app state
 exports.INIT_APP_STATE = 'mb/app-state/INIT'
 exports.APP_STATE_READY = 'mb/app-state/READY'
+// location
+exports.CHECK_LOCATION = 'mb/location/CHECK'
+exports.LOCATION_OK = 'mb/location/OK'
+exports.LOCATION_NG = 'mb/location/NG'
 // user
 exports.INIT_USER = 'mb/user/INIT'
 exports.USER_READY = 'mb/user/READY'

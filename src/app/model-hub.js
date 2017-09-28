@@ -1,5 +1,6 @@
 const domain = require('../domain')
 const { User } = domain
+const { Page } = require('../const')
 
 const {
   HUB_READY,
@@ -11,7 +12,10 @@ const {
   USER_READY,
   INIT_LANGUAGE,
   INIT_CHART,
-  CHART_READY
+  CHART_READY,
+  CHECK_LOCATION,
+  LOCATION_OK,
+  LOCATION_NG
 } = require('./action-types')
 
 const { emits, on, component, mount, notifies } = capsid
@@ -34,14 +38,17 @@ class ModelHub {
     mount(require('./modules/language'), this.el)
     mount(require('./modules/journal-document'), this.el)
     mount(require('./modules/chart'), this.el)
+    mount(require('./modules/location'), this.el)
   }
 
   @on(MODEL_SAVE)
-  async onModelSave (e) {
+  async onModelSave ({ detail }) {
     await this.save()
 
-    if (e.detail && e.detail.reload) {
+    if (detail && detail.reload) {
       window.location.reload()
+    } else if (detail && detail.replace) {
+      window.location.replace(detail.replace)
     } else {
       this.notifyUpdate()
     }
@@ -72,8 +79,18 @@ class ModelHub {
   userReadyToInitChart () {}
 
   @on(CHART_READY)
+  @emits(CHECK_LOCATION)
+  chartsReadyToCheckLocation () {}
+
+  @on(LOCATION_OK)
   @emits(MODEL_SAVE)
-  chartsReadyToModelSave () {}
+  locationOkToModelSave () {}
+
+  @on(LOCATION_NG)
+  @emits(MODEL_SAVE)
+  locationNgToModelSave () {
+    return { replace: Page.APP_SETTINGS }
+  }
 }
 
 module.exports = ModelHub
