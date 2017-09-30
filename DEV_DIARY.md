@@ -42,3 +42,7 @@
 # 2017-09-26
 
 - Changed sidux action/event naming policy.
+
+# 2017-09-28
+
+- Needing event debugger for capsid.
