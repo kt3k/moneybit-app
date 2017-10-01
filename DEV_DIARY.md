@@ -45,4 +45,4 @@
 
 # 2017-09-28
 
-- Needing event debugger for capsid.
+- Needing event debugger for capsid. -> done!
