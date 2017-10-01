@@ -1,5 +1,6 @@
 ---
 layout: simple-layout
+js: pages/app-settings/index.js
 ---
 <header class="app-header-wrapper">
   {% include src + '/common/atoms/brand-stripe.njk' %}
@@ -69,38 +70,13 @@ layout: simple-layout
     </div>
     <br />
 
-    <div class="card">
-      <header class="card-header">
-        <p class="card-header-title"><i class="fa fa-diamond"></i>&nbsp;<t>domain.assets</t></p>
-      </header>
-      <div class="card-content">
-        <div class="content">
-          <ul>
-            <li>Cash
-            <li>Accounts Payable
-            <li>Land
-            <li>Equipment
-          </ul>
-        </div>
-      </div>
-    </div>
-    <br />
+    {% from src + '/pages/app-settings/chart-card.njk' import chartCard %}
 
-    <div class="card">
-      <header class="card-header">
-        <p class="card-header-title"><i class="fa fa-bank"></i>&nbsp;<t>domain.liabilities</t></p>  </header>
-      <div class="card-content">
-        <div class="content">
-          <ul>
-            <li><a class="nav-itme" href="#">Loans Payable</a>
-            <li><a class="nav-itme" href="#">Accounts Payable</a>
-            <li><a class="nav-itme" href="#">Bonds Payable</a>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <br />
-
+    {{ chartCard('ASSET', 'diamond', '<t>domain.asset</t>') }} <br />
+    {{ chartCard('LIABILITY', 'bank', '<t>domain.asset</t>') }} <br />
+    {{ chartCard('EQUITY', 'gift', '<t>domain.asset</t>') }} <br />
+    {{ chartCard('REVENUE', 'thumbs-o-up', '<t>domain.asset</t>') }} <br />
+    {{ chartCard('EXPENSE', 'fire', '<t>domain.asset</t>') }} <br />
 
   </div>
 </main>
