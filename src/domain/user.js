@@ -12,6 +12,10 @@ class User {
     this.currentDocument = currentDocument
   }
 
+  hasDocument () {
+    return this.documents.length > 0
+  }
+
   /**
    * Sets the current document.
    * @param {Document} document The document to set
