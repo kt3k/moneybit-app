@@ -10,11 +10,13 @@ const MAIN_PAGES = [
   Page.EDIT_CHART_OF_ACCOUNTS
 ]
 
+/*
 // These pages work without current document set.
 const LANDING_PAGES = [
   Page.NEW,
   Page.APP_SETTINGS
 ]
+*/
 
 class LocationModule {
   @wire('js-model-hub') get hub () {}

@@ -15,7 +15,6 @@ class AppHeader {
   }
 }
 
-
 @component('app-menu-btn')
 class AppMenu {
   __init__ () {
@@ -62,3 +61,4 @@ class AppMenu {
 }
 
 module.exports = AppMenu
+module.exports.AppHeader = AppHeader
