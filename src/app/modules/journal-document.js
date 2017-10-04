@@ -1,6 +1,7 @@
 const uuid = require('uuid')
+const moment = require('moment')
 const { AccountTypeChart, Journal, JournalDocument } = require('../../domain')
-const { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT, CHANGE_CURRENT_DOCUMENT } = require('../action-types')
+const { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT, CHANGE_CURRENT_DOCUMENT, UPDATE_CURRENT_DOCUMENT } = require('../action-types')
 
 const { wire, on, emits } = capsid
 
@@ -90,7 +91,7 @@ module.exports = class JournalDocumentModule {
     if (title) {
       currentDocument.title = title
     }
-    if (commaStyleSetting) {
+    if (commaPeriodSetting) {
       currentDocument.commaPeriodSetting = CommaPeriodSetting[commaPeriodSetting]
     }
     if (start) {
