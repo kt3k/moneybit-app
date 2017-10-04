@@ -15,6 +15,7 @@ exports.USER_READY = 'mb/user/READY'
 // journal document
 exports.CREATE_JOURNAL_DOCUMENT = 'mb/journal-document/CREATE'
 exports.CHANGE_CURRENT_DOCUMENT = 'mb/journal-document/CHANGE'
+exports.UPDATE_CURRENT_DOCUMENT = 'mb/journal-document/UPDATE'
 // language
 exports.SWITCH_LANGUAGE = 'mb/language/SWITCH'
 exports.INIT_LANGUAGE = 'mb/language/INIT'

@@ -78,4 +78,26 @@ module.exports = class JournalDocumentModule {
 
     return { reload: true }
   }
+
+  /**
+   * Updates the current document's properties.
+   */
+  @on(UPDATE_CURRENT_DOCUMENT)
+  @emits(MODEL_SAVE)
+  updateCurrentDocument ({ detail: { title, commaPeriodSetting, start, end } }) {
+    const { user: { currentDocument }, domain: { CommaPeriodSetting } } = this.hub
+
+    if (title) {
+      currentDocument.title = title
+    }
+    if (commaStyleSetting) {
+      currentDocument.commaPeriodSetting = CommaPeriodSetting[commaPeriodSetting]
+    }
+    if (start) {
+      currentDocument.start = moment(start)
+    }
+    if (end) {
+      currentDocument.end = moment(end)
+    }
+  }
 }
