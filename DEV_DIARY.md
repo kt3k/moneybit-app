@@ -46,3 +46,7 @@
 # 2017-09-28
 
 - Needing event debugger for capsid. -> done!
+
+# 2017-10-04
+
+- Needing big modals for small inputs
