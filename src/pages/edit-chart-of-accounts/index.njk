@@ -1,6 +1,7 @@
 ---
 layout: simple-layout
 css: pages/edit-chart-of-accounts/index.css
+js: pages/edit-chart-of-accounts/index.js
 ---
 
 <header class="app-header-wrapper">
@@ -33,81 +34,13 @@ css: pages/edit-chart-of-accounts/index.css
 
 <h2 class="title t-text">domain.chart_of_accounts</h2>
 
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-diamond"></i>&nbsp;<t>domain.assets</t></p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <table>
-        <tr><td>Cash
-        <tr><td>Accounts Payable
-        <tr><td>Land
-        <tr><td>Equipment
-      </table>
-    </div>
-  </div>
-</div>
-<br />
+{% from src + '/pages/edit-chart-of-accounts/chart-card.njk' import chartCard %}
 
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-bank"></i>&nbsp;<t>domain.liabilities</t></p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <table>
-        <tr><td><a class="nav-itme" href="#">Loans Payable</a>
-        <tr><td><a class="nav-itme" href="#">Accounts Payable</a>
-        <tr><td><a class="nav-itme" href="#">Bonds Payable</a>
-      </table>
-    </div>
-  </div>
-</div>
-<br />
-
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-gift"></i>&nbsp;<t>domain.equity</t></p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <table>
-        <tr><td><a class="nav-itme" href="#">Common Stock</a>
-        <tr><td><a class="nav-itme" href="#">Retained Earnings</a>
-      </table>
-    </div>
-  </div>
-</div>
-<br />
-
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-thumbs-o-up"></i>&nbsp;<t>domain.revenues</t></p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <table>
-        <tr><td><a class="nav-itme" href="#">Sales</a>
-      </table>
-    </div>
-  </div>
-</div>
-<br />
-
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-fire"></i>&nbsp;<t>domain.expenses</t></p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <table>
-        <tr><td><a class="nav-itme" href="#">Travel Expenses</a>
-      </table>
-    </div>
-  </div>
-</div>
-<br />
+{{ chartCard('ASSET', 'diamond', '<t>domain.assets</t>') }}<br />
+{{ chartCard('LIABILITY', 'bank', '<t>domain.liabilities</t>') }}<br />
+{{ chartCard('EQUITY', 'gift', '<t>domain.equity</t>') }}<br />
+{{ chartCard('REVENUE', 'thumbs-o-up', '<t>domain.revenues</t>') }}<br />
+{{ chartCard('EXPENSE', 'fire', '<t>domain.expenses</t>') }}<br />
 
 <div class="section">
   <a href="../edit-chart-of-accounts/index.html" class="button is-primary is-wide">
