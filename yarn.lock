@@ -2518,9 +2518,9 @@ gaze@^1.0.0:
   dependencies:
     globule "^1.0.0"
 
-genel@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/genel/-/genel-1.0.0.tgz#123b34ae00589a6510a75050253dc5c09896d6da"
+genel@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/genel/-/genel-1.1.1.tgz#76f2096cf479d201e562a6c9def248694ececa0c"
 
 generate-function@^2.0.0:
   version "2.0.0"
