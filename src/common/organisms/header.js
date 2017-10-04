@@ -1,17 +1,26 @@
-const { wire, component, on } = capsid
-const { MODEL_UPDATE } = require('../../app/action-types')
+const { wire, component, on, emits } = capsid
+const { MODEL_UPDATE, CHANGE_CURRENT_DOCUMENT } = require('../../app/action-types')
+const genel = require('genel')
 
 @component('app-header')
 class AppHeader {
-  @wire.$el('.journal-document-select')
-  get $select () {}
+  @wire.el('.journal-document-select')
+  get select () {}
 
   @on(MODEL_UPDATE) onModelUpdate ({ detail: { user } }) {
-    this.$select.empty()
+    this.select.innerHTML = ``
 
     user.documents.forEach(document => {
-      this.$select.append(`<option value="${document.id}">${document.title}</option>`)
+      this.select.appendChild(genel`<option value="${document.id}">${document.title}</option>`)
     })
+
+    this.select.value = user.currentDocument.id
+  }
+
+  @on('change')
+  @emits(CHANGE_CURRENT_DOCUMENT)
+  onDocumentChange ({ target: { value: selectedId } }) {
+    return selectedId
   }
 }
 

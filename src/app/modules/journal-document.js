@@ -1,6 +1,6 @@
 const uuid = require('uuid')
 const { AccountTypeChart, Journal, JournalDocument } = require('../../domain')
-const { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT } = require('../action-types')
+const { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT, CHANGE_CURRENT_DOCUMENT } = require('../action-types')
 
 const { wire, on, emits } = capsid
 
@@ -58,5 +58,24 @@ module.exports = class JournalDocumentModule {
     await this.chartRepository.save(newChart)
 
     return newChart
+  }
+
+  /**
+   * Changes the current document.
+   */
+  @on(CHANGE_CURRENT_DOCUMENT)
+  @emits(MODEL_SAVE)
+  changeCurrentDocument ({ detail: id }) {
+    const { user } = this.hub
+
+    const selectedDocument = user.documents.find(doc => doc.id === id)
+
+    if (!selectedDocument) {
+      throw new Error(`Invalid document id selected: ${id}`)
+    }
+
+    user.currentDocument = selectedDocument
+
+    return { reload: true }
   }
 }

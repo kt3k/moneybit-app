@@ -12,8 +12,9 @@ exports.LOCATION_NG = 'mb/location/NG'
 // user
 exports.INIT_USER = 'mb/user/INIT'
 exports.USER_READY = 'mb/user/READY'
-// journal
+// journal document
 exports.CREATE_JOURNAL_DOCUMENT = 'mb/journal-document/CREATE'
+exports.CHANGE_CURRENT_DOCUMENT = 'mb/journal-document/CHANGE'
 // language
 exports.SWITCH_LANGUAGE = 'mb/language/SWITCH'
 exports.INIT_LANGUAGE = 'mb/language/INIT'
