@@ -27,8 +27,8 @@ class CreateJournalForm {
       title: this.title.value,
       currencyCode: this.currencyCode.value,
       commaPeriodSetting: this.commaPeriodSetting.value,
-      startDate: this.startDate.dataset.date,
-      endDate: this.endDate.dataset.date
+      start: this.startDate.dataset.date,
+      end: this.endDate.dataset.date
     }
   }
 
