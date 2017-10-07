@@ -8,10 +8,9 @@ $danger: $bright-pink;
 
 @import "quarks/index";
 @import "atoms/index";
+@import "molecules/index";
 @import "organisms/index";
 @import "layout";
-@import "atoms/brand-stripe";
-@import "molecules/app-menu-dropdown";
 
 body {
   background: $white;

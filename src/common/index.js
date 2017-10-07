@@ -10,5 +10,6 @@ global.$ = require('jquery')
 require('capsid/jquery.js')(capsid, $)
 
 require('./quarks')
+require('./molecules')
 require('./organisms')
 require('../app/')
