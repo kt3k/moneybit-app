@@ -50,3 +50,7 @@
 # 2017-10-04
 
 - Needing big modals for small inputs
+
+# 2017-10-08
+
+- Modal is far harder than I expected. Lifecyclea and Data flow control of it are not trivial.
