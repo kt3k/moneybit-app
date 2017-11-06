@@ -1,4 +1,5 @@
 const moment = require('moment')
+
 require('pickadate/lib/picker')
 require('pickadate/lib/picker.date')
 
@@ -16,7 +17,8 @@ class Pickadate {
   /**
    * @param {string} date The ISO 8601 date string
    */
-  @emits('input') pickDate (d) {
+  @emits('input')
+  pickDate (d) {
     const selected = moment(d.select)
 
     this.el.dataset.date = selected.format()

@@ -23,8 +23,6 @@ class LanguageModule {
     await $.getScript(`${basepath}/i18n/${this.getLanguage().code}.js`)
 
     t10.scan() // translate
-
-    require('../pickadate') // init pickadate component
   }
 
   /**
