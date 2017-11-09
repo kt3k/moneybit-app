@@ -1,5 +1,5 @@
 const matango = require('matango')
-const { component, on, emits, wire, pub } = capsid
+const { component, on, emits, wire, notifies } = capsid
 
 const ERROR_CLASS = 'is-error'
 const EVENT_VALIDATION_UPDATE = 'validation-update'
@@ -15,7 +15,7 @@ export default class Form {
 
   @on('input')
   @on('change')
-  @pub(EVENT_VALIDATION_UPDATE, 'button, input[type="submit"], input[type="image"]')
+  @notifies(EVENT_VALIDATION_UPDATE, 'button, input[type="submit"], input[type="image"]')
   onInput () {
     return { error: this.hasError() }
   }

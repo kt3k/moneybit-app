@@ -11,6 +11,7 @@ require('capsid/jquery')(capsid, $)
 require('capsid/outside-events')(capsid)
 
 require('./quarks')
+require('./atoms')
 require('./molecules')
 require('./organisms')
 require('../app/')

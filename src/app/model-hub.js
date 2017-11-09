@@ -11,6 +11,7 @@ const {
   INIT_USER,
   USER_READY,
   INIT_LANGUAGE,
+  UI_LANGUAGE_READY,
   INIT_CHART,
   CHART_READY,
   CHECK_LOCATION,
@@ -29,6 +30,7 @@ class ModelHub {
     this.user = null
     this.userRepository = new User.Repository()
     this.domain = domain
+    this.languageReady = new Promise(resolve => { this.resolveLanguageReady = resolve })
   }
 
   @emits(HUB_READY)
@@ -61,7 +63,9 @@ class ModelHub {
   }
 
   @notifies(MODEL_UPDATE, '.is-model-observer')
-  notifyUpdate () {
+  async notifyUpdate () {
+    await this.languageReady // wait until i18n resource ready
+
     return this
   }
 
@@ -78,13 +82,19 @@ class ModelHub {
   @emits(INIT_LANGUAGE)
   userReadyToInitChart () {}
 
+  @on(UI_LANGUAGE_READY)
+  onLanguageReady () {
+    this.resolveLanguageReady()
+  }
+
   @on(CHART_READY)
   @emits(CHECK_LOCATION)
   chartsReadyToCheckLocation () {}
 
   @on(LOCATION_OK)
   @emits(MODEL_SAVE)
-  locationOkToModelSave () {}
+  locationOkToModelSave () {
+  }
 
   @on(LOCATION_NG)
   @emits(MODEL_SAVE)

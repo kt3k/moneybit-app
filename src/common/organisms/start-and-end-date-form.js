@@ -1,11 +1,11 @@
 const moment = require('moment')
-const { component, on, wire, pub } = capsid
+const { component, on, wire, notifies } = capsid
 
 @component('js-start-and-end-date-form')
 class StartAndEndDateForm {
   @wire.el('[name="endDate"]') get endDate () {}
 
-  @pub('input', '[name="endDate"]')
+  @notifies('input', '[name="endDate"]')
   @on('start-date-selected') onStartDateSelected (e) {
     if (!e.detail) {
       return

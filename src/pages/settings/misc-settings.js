@@ -1,5 +1,5 @@
-const { wire, on, component } = capsid
-const { MODEL_UPDATE } = require('../../app/action-types')
+const { wire, on, emits, component } = capsid
+const { MODEL_UPDATE, UPDATE_CURRENT_DOCUMENT } = require('../../app/action-types')
 
 @component
 class MiscSettings {
@@ -14,8 +14,32 @@ class MiscSettings {
 
     this.currencyLabel.textContent = `${currency.symbol} - ${currency.code}`
     this.commaStyleSelectBox.value = commaPeriodSetting.name
-    this.startDateInput.value = start.format('YYYY-MM-DD')
-    this.endDateInput.value = end.format('YYYY-MM-DD')
+    this.startDateInput.value = start.format(t10.t('locale.date_format'))
+    this.endDateInput.value = end.format(t10.t('locale.date_format'))
+  }
+
+  @on('change', { at: '.misc-settings__comma-style' })
+  @emits(UPDATE_CURRENT_DOCUMENT)
+  onCommaStyleChange (e) {
+    return {
+      commaPeriodSetting: e.target.value
+    }
+  }
+
+  @on('input', { at: '.misc-settings__start-date' })
+  @emits(UPDATE_CURRENT_DOCUMENT)
+  onStartDateChange (e) {
+    return {
+      start: e.target.dataset.date
+    }
+  }
+
+  @on('input', { at: '.misc-settings__end-date' })
+  @emits(UPDATE_CURRENT_DOCUMENT)
+  onEndDateChange (e) {
+    return {
+      end: e.target.dataset.date
+    }
   }
 }
 
