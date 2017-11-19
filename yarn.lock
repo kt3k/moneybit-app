@@ -5901,6 +5901,10 @@ watchify@^3.9.0:
     through2 "^2.0.0"
     xtend "^4.0.0"
 
+wavy@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/wavy/-/wavy-1.0.4.tgz#a28b1f071c231e1b66d1cafcac6038cc0384083c"
+
 weak-map@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/weak-map/-/weak-map-1.0.0.tgz#b66e56a9df0bd25a76bbf1b514db129080614a37"
