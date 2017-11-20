@@ -45,5 +45,21 @@ global.m = menu.create('m', {
         }
       }
     }
+  },
+  c: {
+    description: 'capsid debug menus',
+    methods: {
+      ls: {
+        desc: 'list capsid components',
+        func () {
+          const obj = {}
+
+          Object.keys(capsid.__ccc__).forEach(key => {
+            obj[key] = document.querySelectorAll(`.${key}.${key}-initialized`).length
+          })
+          return console.table(obj)
+        }
+      }
+    }
   }
 })
