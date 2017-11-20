@@ -1,5 +1,11 @@
 const { wire, component, on, emits } = capsid
-const { MODEL_UPDATE, CHANGE_CURRENT_DOCUMENT } = require('../../app/action-types')
+const {
+  actions: {
+    MODEL_UPDATE,
+    CHANGE_CURRENT_DOCUMENT
+  }
+} = require('~')
+
 const genel = require('genel')
 
 @component('app-header')

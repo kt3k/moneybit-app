@@ -1,4 +1,8 @@
-const { MODEL_UPDATE } = require('../../app/action-types')
+const {
+  actions: {
+    MODEL_UPDATE
+  }
+} = require('~')
 const { component, wire, on } = capsid
 const genel = require('genel')
 

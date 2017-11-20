@@ -1,7 +1,14 @@
 const uuid = require('uuid')
 const moment = require('moment')
 const { AccountTypeChart, Journal, JournalDocument } = require('../../domain')
-const { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT, CHANGE_CURRENT_DOCUMENT, UPDATE_CURRENT_DOCUMENT } = require('../action-types')
+const {
+  actions: {
+    MODEL_SAVE,
+    CREATE_JOURNAL_DOCUMENT,
+    CHANGE_CURRENT_DOCUMENT,
+    UPDATE_CURRENT_DOCUMENT
+  }
+} = require('~')
 
 const { wire, on, emits } = capsid
 

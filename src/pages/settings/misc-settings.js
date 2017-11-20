@@ -1,5 +1,10 @@
 const { wire, on, emits, component } = capsid
-const { MODEL_UPDATE, UPDATE_CURRENT_DOCUMENT } = require('../../app/action-types')
+const {
+  actions: {
+    MODEL_UPDATE,
+    UPDATE_CURRENT_DOCUMENT
+  }
+} = require('~')
 
 @component
 class MiscSettings {

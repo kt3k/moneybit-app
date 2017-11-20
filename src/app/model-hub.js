@@ -3,21 +3,23 @@ const { User } = domain
 const { Page } = require('../const')
 
 const {
-  HUB_READY,
-  MODEL_SAVE,
-  MODEL_UPDATE,
-  INIT_APP_STATE,
-  APP_STATE_READY,
-  INIT_USER,
-  USER_READY,
-  INIT_LANGUAGE,
-  UI_LANGUAGE_READY,
-  INIT_CHART,
-  CHART_READY,
-  CHECK_LOCATION,
-  LOCATION_OK,
-  LOCATION_NG
-} = require('./action-types')
+  actions: {
+    HUB_READY,
+    MODEL_SAVE,
+    MODEL_UPDATE,
+    INIT_APP_STATE,
+    APP_STATE_READY,
+    INIT_USER,
+    USER_READY,
+    INIT_LANGUAGE,
+    UI_LANGUAGE_READY,
+      INIT_CHART,
+    CHART_READY,
+    CHECK_LOCATION,
+    LOCATION_OK,
+    LOCATION_NG
+  }
+} = require('~')
 
 const { emits, on, component, mount, notifies } = capsid
 

@@ -1,5 +1,10 @@
 const { component, on, emits, wire } = capsid
-const { SWITCH_LANGUAGE, MODEL_UPDATE } = require('../../app/action-types')
+const {
+  actions: {
+    SWITCH_LANGUAGE,
+    MODEL_UPDATE
+  }
+} = require('~')
 
 @component('js-language-switch-group')
 class LanguageSwitchGroup {

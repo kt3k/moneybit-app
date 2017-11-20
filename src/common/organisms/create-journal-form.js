@@ -1,4 +1,8 @@
-const { CREATE_JOURNAL_DOCUMENT } = require('../../app/action-types')
+const {
+  actions: {
+    CREATE_JOURNAL_DOCUMENT
+  }
+} = require('~')
 
 const { component, on, emits, wire } = capsid
 

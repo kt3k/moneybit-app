@@ -1,5 +1,11 @@
 const { wire, on, emits } = capsid
-const { CHECK_LOCATION, LOCATION_OK, LOCATION_NG } = require('../action-types')
+const {
+  actions: {
+    CHECK_LOCATION,
+    LOCATION_OK,
+    LOCATION_NG
+  }
+} = require('~')
 const { Page } = require('../../const')
 
 // These pages don't work without current document set.

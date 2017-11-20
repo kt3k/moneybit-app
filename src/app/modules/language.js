@@ -1,4 +1,11 @@
-const { SWITCH_LANGUAGE, INIT_LANGUAGE, MODEL_SAVE, UI_LANGUAGE_READY } = require('../action-types')
+const {
+  actions: {
+    SWITCH_LANGUAGE,
+    INIT_LANGUAGE,
+    MODEL_SAVE,
+    UI_LANGUAGE_READY
+  }
+} = require('~')
 
 const { on, emits, wire } = capsid
 

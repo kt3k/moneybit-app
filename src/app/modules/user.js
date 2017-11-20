@@ -1,4 +1,9 @@
-const { INIT_USER, USER_READY } = require('../action-types')
+const {
+  actions: {
+    INIT_USER,
+    USER_READY
+  }
+} = require('~')
 
 const { on, emits, wire } = capsid
 

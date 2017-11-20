@@ -1,6 +1,11 @@
 const { AccountTypeChart } = require('../../domain')
 const { on, wire, emits } = capsid
-const { INIT_CHART, CHART_READY } = require('../action-types')
+const {
+  actions: {
+    INIT_CHART,
+    CHART_READY
+  }
+} = require('~')
 
 class ChartModule {
   @wire('js-model-hub') get hub () {}
