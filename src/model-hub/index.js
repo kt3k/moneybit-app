@@ -13,7 +13,7 @@ const {
     USER_READY,
     INIT_LANGUAGE,
     UI_LANGUAGE_READY,
-      INIT_CHART,
+    INIT_CHART,
     CHART_READY,
     CHECK_LOCATION,
     LOCATION_OK,
@@ -37,12 +37,13 @@ class ModelHub {
 
   @emits(HUB_READY)
   __init__ () {
-    mount(require('./modules/app-state'), this.el)
-    mount(require('./modules/user'), this.el)
-    mount(require('./modules/language'), this.el)
-    mount(require('./modules/journal-document'), this.el)
-    mount(require('./modules/chart'), this.el)
-    mount(require('./modules/location'), this.el)
+    mount(require('./app-state'), this.el)
+    mount(require('./user'), this.el)
+    mount(require('./language'), this.el)
+    mount(require('./journal-document'), this.el)
+    mount(require('./chart'), this.el)
+    mount(require('./location'), this.el)
+    mount(require('./trade'), this.el)
   }
 
   @on(MODEL_SAVE)

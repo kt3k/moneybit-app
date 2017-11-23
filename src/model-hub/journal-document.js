@@ -1,6 +1,6 @@
 const uuid = require('uuid')
 const moment = require('moment')
-const { AccountTypeChart, Journal, JournalDocument } = require('../../domain')
+const { AccountTypeChart, Journal, JournalDocument } = require('../domain')
 const {
   actions: {
     MODEL_SAVE,

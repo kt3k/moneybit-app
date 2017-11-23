@@ -1,4 +1,4 @@
-const { AccountTypeChart } = require('../../domain')
+const { AccountTypeChart } = require('../domain')
 const { on, wire, emits } = capsid
 const {
   actions: {

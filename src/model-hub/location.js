@@ -6,7 +6,7 @@ const {
     LOCATION_NG
   }
 } = require('~')
-const { Page } = require('../../const')
+const { Page } = require('../const')
 
 // These pages don't work without current document set.
 const MAIN_PAGES = [
