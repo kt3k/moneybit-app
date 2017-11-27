@@ -1,3 +1,6 @@
+---
+js: pages/journal/index.js
+---
 <button class="button is-primary is-large is-wide">
   <span class="icon"><i class="fa fa-plus-square-o"></i></span>
   <span class="t-text">app.journal.add_an_entry</span>
@@ -9,57 +12,10 @@
 <h1 class="title">May 2016</h1>
 
 <div class="columns">
-
   <div class="column">
-    <div class="card">
-      <div class="card-header">
-        <p class="card-header-title">
-          No.16
-        </p>
-        <div class="card-header-icon">
-          <p class="control">
-            <input class="input" value="2016/04/05">
-          </p>
-        </div>
-      </div>
-      <div class="card-content">
-        <div class="content">
-          <p class="control"><input class="input" value="期首"></p>
-          <table>
-            <tr>
-              <th><t>domain.debit</t>
-              <th>
-            <tr>
-              <td>
-                <p class="control"><input class="input" value="普通預金"/>
-              <td>
-                <p class="control"><input class="input" value="¥3,128,097"/>
-            <tr>
-              <td>
-                <p class="control"><input class="input" value="売掛金"/>
-              <td>
-                <p class="control"><input class="input" value="¥1,069,200"/>
-            <tr>
-              <th><t>domain.credit</t>
-              <th>
-            <tr>
-              <td>
-                <p class="control"><input class="input" value="元入金"/>
-              <td>
-                <p class="control"><input class="input" value="¥4,197,297"/>
-          </table>
-        </div>
-      </div>
-      <div class="card-footer">
-        <p class="card-footer-item">
-          <a class="button is-danger t-text" href="#">ui.form.delete</a>
-        </p>
-        <p class="card-footer-item">
-          <a class="button is-primary t-text" href="#">ui.form.save</a>
-        </p>
-      </div>
-    </div>
+    {% include src + '/pages/journal/new-item-card.njk' %}
   </div>
+
   <div class="column">
     <div class="card">
       <div class="card-header">

@@ -1,5 +1,5 @@
 const {
-  actions: {
+  Action: {
     SWITCH_LANGUAGE,
     INIT_LANGUAGE,
     MODEL_SAVE,

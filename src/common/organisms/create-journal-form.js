@@ -1,5 +1,5 @@
 const {
-  actions: {
+  Action: {
     CREATE_JOURNAL_DOCUMENT
   }
 } = require('~')

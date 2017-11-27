@@ -1,9 +1,10 @@
-const domain = require('../domain')
-const { User } = domain
-const { Page } = require('../const')
-
 const {
-  actions: {
+  domain,
+  domain: {
+    User
+  },
+  Page,
+  Action: {
     HUB_READY,
     MODEL_SAVE,
     MODEL_UPDATE,

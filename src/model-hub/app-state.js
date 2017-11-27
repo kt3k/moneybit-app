@@ -1,4 +1,4 @@
-const { actions: { INIT_APP_STATE, APP_STATE_READY } } = require('~')
+const { Action: { INIT_APP_STATE, APP_STATE_READY } } = require('~')
 
 const { emits, on, wire } = capsid
 

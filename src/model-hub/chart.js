@@ -1,7 +1,10 @@
-const { AccountTypeChart } = require('../domain')
 const { on, wire, emits } = capsid
+
 const {
-  actions: {
+  domain: {
+    AccountTypeChart
+  },
+  Action: {
     INIT_CHART,
     CHART_READY
   }

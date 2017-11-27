@@ -1,4 +1,4 @@
-const { Action: { MODEL_UPDATE } } = require('../../const')
+const { Action: { MODEL_UPDATE } } = require('~')
 const { component, on } = capsid
 
 @component('is-visible-when-user-has-document')

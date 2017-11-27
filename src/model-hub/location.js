@@ -1,12 +1,12 @@
 const { wire, on, emits } = capsid
 const {
-  actions: {
+  Page,
+  Action: {
     CHECK_LOCATION,
     LOCATION_OK,
     LOCATION_NG
   }
 } = require('~')
-const { Page } = require('../const')
 
 // These pages don't work without current document set.
 const MAIN_PAGES = [

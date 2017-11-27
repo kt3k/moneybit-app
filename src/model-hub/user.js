@@ -1,5 +1,5 @@
 const {
-  actions: {
+  Action: {
     INIT_USER,
     USER_READY
   }
