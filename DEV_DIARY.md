@@ -54,3 +54,7 @@
 # 2017-10-08
 
 - Modal is far harder than I expected. Lifecyclea and Data flow control of it are not trivial.
+
+# 2017-12-12
+
+- I don't burn the flag.
