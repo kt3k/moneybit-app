@@ -13,7 +13,7 @@
     "serve": "bulbo serve",
     "build": "bulbo build",
     "doc": "domaindoc",
-    "gh-pages": "npm run clean && npm run build && domaindoc build && gh-pages -d build",
+    "gh-pages": "npm run clean && npm run build && domaindoc build && langsheet build && gh-pages -d build",
     "lint": "standard",
     "fix": "standard --fix",
     "test": "karma start",
