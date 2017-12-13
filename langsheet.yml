@@ -1,3 +1,4 @@
 source: src/i18n/*.json
+dest: build/langsheet
 port: 17111
 title: MoneyBit App Language Data Table
