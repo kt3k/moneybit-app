@@ -68,7 +68,7 @@
     "karma-coverage": "^1.1.1",
     "karma-kocha": "^1.3.0",
     "kocha": "^1.3.0",
-    "langsheet": "^1.0.2",
+    "langsheet": "^1.1.1",
     "layout1": "^1.1.0",
     "matango": "^1.0.0",
     "moneybit-domain": "^0.7.0",
