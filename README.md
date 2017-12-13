@@ -36,6 +36,12 @@
 - Can manage multiple journals. Can switch journals.
 - Can set up/modify period of each journal.
 
+# Docs
+
+## [Domain Models](https://kt3k.github.io/moneybit-app/domaindoc/)
+
+## [Translation Data](https://kt3k.github.io/moneybit-app/langsheet/)
+
 # License
 
 MIT
