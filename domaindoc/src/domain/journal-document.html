@@ -1,0 +1,167 @@
+
+
+
+<html>
+  <head>
+    <title>JournalDocument | MoneyBit App Domain Models</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../asset/fontawesome/css/font-awesome.css" />
+<link rel="stylesheet" href="../../asset/bulma.css" />
+<link rel="shortcut icon" href="../../asset/favicon.png" type="image/png">
+
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-center">
+        <div class="nav-item">
+          <a href="../../index.html">MoneyBit App Domain Models</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="section">
+      <div class="container">
+
+<div class="columns">
+<div class="column is-3">
+
+<aside class="menu">
+
+    <p class="menu-label">App</p>
+    <ul class="menu-list">
+
+      <li><span class="nav-item"><a href="../../src/domain/app-state.html">AppState</a></span>
+
+      <li><span class="nav-item"><a href="../../src/domain/comma-period-setting.html">CommaPeriodSetting</a></span>
+
+      <li><span class="nav-item"><a href="../../src/domain/currency.html">Currency</a></span>
+
+      <li><span class="nav-item"><a href="../../src/domain/journal-document.html">JournalDocument</a></span>
+
+      <li><span class="nav-item"><a href="../../src/domain/language.html">Language</a></span>
+
+      <li><span class="nav-item"><a href="../../src/domain/user.html">User</a></span>
+
+      <li><span class="nav-item"><a href="../../src/domain/user-settings.html">UserSettings</a></span>
+
+    </ul>
+
+    <p class="menu-label">Core</p>
+    <ul class="menu-list">
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/account.html">Account</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/account-type.html">AccountType</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/account-type-chart.html">AccountTypeChart</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/credit.html">Credit</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/debit.html">Debit</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/journal.html">Journal</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/ledger.html">Ledger</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/major-account-type.html">MajorAccountType</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/money.html">Money</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/subledger.html">Subledger</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/trade.html">Trade</a></span>
+
+      <li><span class="nav-item"><a href="../../node_modules/moneybit-domain/trade-side.html">TradeSide</a></span>
+
+    </ul>
+
+</aside>
+
+</div>
+
+<div class="column">
+
+<div class="section">
+
+<div class="card">
+
+    <header class="card-header" style="background-color: #d1fff8">
+      <p class="card-header-title">
+        App
+      </p>
+    </header>
+
+  <header class="card-header">
+    <div class="card-header-title">
+      JournalDocument
+    </div>
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/journal-document.md" target="_blank">
+      <span class="icon"><i class="fa fa-pencil"></i></span>
+    </a>
+
+
+
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/journal-document.js" target="_blank">
+      <span class="icon"><i class="fa fa-code"></i></span>
+    </a>
+
+  </header>
+
+  <div class="card-content">
+    <div class="content">
+      <p>The journal document model</p>
+
+
+        <table class="table">
+          <tr><th>property<th>type<th>description
+
+            <tr><td>id<td>string<td>The id of the document
+
+            <tr><td>title<td>string<td>The title of the document
+
+            <tr><td>journalId<td>string<td>The id of the journal of the document
+
+            <tr><td>chartId<td>string<td>The id of the chart of the account types
+
+            <tr><td>currency<td><a href="../../src/domain/currency.html">Currency</a><td>The currency of the document
+
+            <tr><td>start<td>moment<td>The start date of the document
+
+            <tr><td>end<td>moment<td>The end date of the document
+
+            <tr><td>commaPeriodSetting<td><a href="../../src/domain/comma-period-setting.html">CommaPeriodSetting</a><td>The setting of comma and period for separating number
+
+        </table>
+
+    </div>
+  </div>
+
+
+    <footer class="card-footer">
+      <div class="card-footer-item">
+        <div class="content">
+          <p>JournalDocument is the unit of the accounting document in moneybit app.</p>
+
+	</div>
+      </div>
+    </footer>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+        <hr>
+<footer>
+<p>Generated by <a href="https://npm.im/domaindoc">domaindoc</a>@v2.7.4
+</footer>
+
+      </div>
+    </div>
+  </body>
+</html>

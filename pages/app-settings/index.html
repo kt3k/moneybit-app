@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/vendor/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/common/index.css" />
+    
+  </head>
+  <body class="js-model-hub">
+    
+<header class="app-header-wrapper">
+  <div class="c-brand-stripe"></div>
+
+  <nav class="nav app-header">
+    <div class="nav-left">
+      <div class="nav-item is-visible-when-user-has-document" style="visibility: hidden;">
+        <a href="../settings/index.html">
+          <i class="fa fa-chevron-left"></i>
+        </a>
+      </div>
+    </div>
+    <div class="nav-center">
+      <div class="nav-item">
+        <h1><strong class="t-text">app.menu.app_settings</strong></h1>
+      </div>
+    </div>
+    <div class="nav-right">
+      <p class="nav-item app-menu-btn">
+        <span class="icon">
+          <i class="fa fa-reorder"></i>
+        </span>
+      </p>
+    </div>
+  </nav>
+  <div class="app-menu-dropdown">
+  <ul>
+    <li>
+      <a class="button" href="/pages/app-settings/index.html">
+        <span class="icon"><i class="fa fa-cog"></i></span>
+        <span><t>app.menu.app_settings</t></span>
+      </a>
+    </li>
+    <li>
+      <a class="button" href="https://example.com/">
+        <span class="icon"><i class="fa fa-thumbs-o-up"></i></span>
+        <span><t>app.menu.review_app</t></span>
+      </a>
+    </li>
+    <li>
+      <a class="button" href="/pages/new/index.html">
+        <span class="icon"><i class="fa fa-plus"></i></span>
+        <span><t>app.menu.create_new_journal</t></span>
+      </a>
+    </li>
+    <li>
+      <a class="button" href="/pages/export/index.html">
+        <span class="icon"><i class="fa fa-download"></i></span>
+        <span><t>app.menu.export</t></span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+</header>
+
+<main class="l-main">
+  <div class="section">
+    <div class="box">
+      <h2 class="title t-text">app.journal.create_new</h2>
+      <p class="t-text">app.lets_create_new_journal</p>
+      <hr />
+      <a class="button is-primary t-text is-wide" href="../new/index.html">ui.form.create</a>
+    </div>
+
+    <hr />
+
+    <h2 class="title t-text">app.title.language</h2>
+
+    <div class="field has-addons js-language-switch-group">
+      <p class="control">
+        <button class="button t-text" lang="">
+          app.language.auto
+        </button>
+      </p>
+      <p class="control">
+        <button class="button" href="#" lang="en">
+          English
+        </button>
+      </p>
+      <p class="control">
+        <button class="button" href="#" lang="ja">
+          日本語
+        </button>
+      </p>
+    </div>
+
+    <hr />
+
+    <h2 class="title t-text">domain.chart_of_accounts</h2>
+
+    <p><t>app.this_chart_of_accounts_is_used_as_default</t></p>
+
+    <div class="short-section">
+      <a class="button is-primary is-wide t-text" href="../edit-chart-of-accounts/index.html">app.edit_chart_of_accounts</a>
+    </div>
+    <br />
+
+    
+
+    
+<div class="card chart-card is-model-observer" type="ASSET">
+  <header class="card-header">
+    <p class="card-header-title"><i class="fa fa-diamond"></i>&nbsp;<t>domain.asset</t></p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+ <br />
+    
+<div class="card chart-card is-model-observer" type="LIABILITY">
+  <header class="card-header">
+    <p class="card-header-title"><i class="fa fa-bank"></i>&nbsp;<t>domain.asset</t></p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+ <br />
+    
+<div class="card chart-card is-model-observer" type="EQUITY">
+  <header class="card-header">
+    <p class="card-header-title"><i class="fa fa-gift"></i>&nbsp;<t>domain.asset</t></p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+ <br />
+    
+<div class="card chart-card is-model-observer" type="REVENUE">
+  <header class="card-header">
+    <p class="card-header-title"><i class="fa fa-thumbs-o-up"></i>&nbsp;<t>domain.asset</t></p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+ <br />
+    
+<div class="card chart-card is-model-observer" type="EXPENSE">
+  <header class="card-header">
+    <p class="card-header-title"><i class="fa fa-fire"></i>&nbsp;<t>domain.asset</t></p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+ <br />
+
+  </div>
+</main>
+
+
+    <script src="/infrastructure/index.js"></script>
+    <script src="/common/index.js"></script>
+    
+    <script src="/pages/app-settings/index.js"></script>
+    
+    
+    <script src="/pages/debug/index.js"></script>
+    
+  </body>
+</html>

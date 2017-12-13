@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/vendor/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/common/index.css" />
+    
+    <link rel="stylesheet" href="/pages/edit-chart-of-accounts/index.css" />
+    
+  </head>
+  <body class="js-model-hub">
+    
+
+<header class="app-header-wrapper">
+  <div class="c-brand-stripe"></div>
+
+  <nav class="nav app-header">
+    <div class="nav-left">
+      <div class="nav-item">
+        <a href="../settings/index.html">
+          <i class="fa fa-chevron-left"></i>
+        </a>
+      </div>
+    </div>
+    <div class="nav-center">
+      <div class="nav-item">
+        <h1><strong class="t-text">app.edit_chart_of_accounts</strong></h1>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="nav-item app-menu-btn">
+        <i class="fa fa-reorder"></i>
+      </div>
+    </div>
+  </nav>
+  <div class="app-menu-dropdown">
+  <ul>
+    <li>
+      <a class="button" href="/pages/app-settings/index.html">
+        <span class="icon"><i class="fa fa-cog"></i></span>
+        <span><t>app.menu.app_settings</t></span>
+      </a>
+    </li>
+    <li>
+      <a class="button" href="https://example.com/">
+        <span class="icon"><i class="fa fa-thumbs-o-up"></i></span>
+        <span><t>app.menu.review_app</t></span>
+      </a>
+    </li>
+    <li>
+      <a class="button" href="/pages/new/index.html">
+        <span class="icon"><i class="fa fa-plus"></i></span>
+        <span><t>app.menu.create_new_journal</t></span>
+      </a>
+    </li>
+    <li>
+      <a class="button" href="/pages/export/index.html">
+        <span class="icon"><i class="fa fa-download"></i></span>
+        <span><t>app.menu.export</t></span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+</header>
+
+<main class="l-main">
+  <div class="section">
+    <div class="container">
+
+<h2 class="title t-text">domain.chart_of_accounts</h2>
+
+
+
+
+<div class="card chart-card is-model-observer" type="ASSET">
+  <header class="card-header">
+    <p class="card-header-title"><i class="fa fa-diamond"></i>&nbsp;<t>domain.assets</t></p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="card chart-card is-model-observer" type="LIABILITY">
+  <header class="card-header">
+    <p class="card-header-title"><i class="fa fa-bank"></i>&nbsp;<t>domain.liabilities</t></p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="card chart-card is-model-observer" type="EQUITY">
+  <header class="card-header">
+    <p class="card-header-title"><i class="fa fa-gift"></i>&nbsp;<t>domain.equity</t></p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="card chart-card is-model-observer" type="REVENUE">
+  <header class="card-header">
+    <p class="card-header-title"><i class="fa fa-thumbs-o-up"></i>&nbsp;<t>domain.revenues</t></p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="card chart-card is-model-observer" type="EXPENSE">
+  <header class="card-header">
+    <p class="card-header-title"><i class="fa fa-fire"></i>&nbsp;<t>domain.expenses</t></p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <table>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="section">
+  <a href="../edit-chart-of-accounts/index.html" class="button is-primary is-wide">
+    <i class="fa fa-check"></i>&nbsp;
+    <t>ui.form.finish_editing</t>
+  </a>
+</div>
+
+<div class="box">
+  <t>app.save_this_chart_as_the_default_chart</t>
+  <hr />
+  <a href="../edit-chart-of-accounts/index.html" class="button is-primary is-wide">
+    <i class="fa fa-copy"></i>&nbsp;
+    <t>ui.form.save</t>
+  </a>
+</div>
+
+    </div>
+  </div>
+</main>
+
+
+
+    <script src="/infrastructure/index.js"></script>
+    <script src="/common/index.js"></script>
+    
+    <script src="/pages/edit-chart-of-accounts/index.js"></script>
+    
+    
+    <script src="/pages/debug/index.js"></script>
+    
+  </body>
+</html>

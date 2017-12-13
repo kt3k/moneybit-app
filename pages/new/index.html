@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/vendor/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/common/index.css" />
+    
+    <link rel="stylesheet" href="/pages/new/index.css" />
+    
+  </head>
+  <body class="js-model-hub">
+    
+<header class="app-header-wrapper">
+  <div class="c-brand-stripe"></div>
+
+  <nav class="nav app-header">
+    <div class="nav-left">
+      <div class="nav-item">
+        <a href="../settings/index.html">
+          <i class="fa fa-chevron-left"></i>
+        </a>
+      </div>
+    </div>
+    <div class="nav-center">
+      <div class="nav-item">
+        <h1><strong class="t-text">app.journal.create_new</strong></h1>
+      </div>
+    </div>
+    <div class="nav-right">
+      <p class="nav-item app-menu-btn">
+        <span class="icon">
+          <i class="fa fa-reorder"></i>
+        </span>
+      </p>
+    </div>
+  </nav>
+  <div class="app-menu-dropdown">
+  <ul>
+    <li>
+      <a class="button" href="/pages/app-settings/index.html">
+        <span class="icon"><i class="fa fa-cog"></i></span>
+        <span><t>app.menu.app_settings</t></span>
+      </a>
+    </li>
+    <li>
+      <a class="button" href="https://example.com/">
+        <span class="icon"><i class="fa fa-thumbs-o-up"></i></span>
+        <span><t>app.menu.review_app</t></span>
+      </a>
+    </li>
+    <li>
+      <a class="button" href="/pages/new/index.html">
+        <span class="icon"><i class="fa fa-plus"></i></span>
+        <span><t>app.menu.create_new_journal</t></span>
+      </a>
+    </li>
+    <li>
+      <a class="button" href="/pages/export/index.html">
+        <span class="icon"><i class="fa fa-download"></i></span>
+        <span><t>app.menu.export</t></span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+</header>
+
+<main class="l-main">
+  <div class="section">
+    <form class="js-form js-start-and-end-date-form js-create-journal-form">
+      <h2 class="title t-text">app.title</h2>
+
+      <div class="field">
+        <p class="control">
+          <input
+            class="input t-attr js-field"
+            name="title"
+            type="text"
+            data-validate="required"
+            placeholder="t:domain.journal.title"
+          />
+        </p>
+      </div>
+
+      <hr />
+
+      <div class="misc-settings">
+  <div class="misc-settings__row">
+    <div class="misc-settings__row__left t-text">domain.currency</div>
+    <div class="field misc-settings__row__right">
+      <p class="control">
+        <span class="select">
+          <select
+            class="js-currency-select js-field"
+            name="currencyCode"
+            data-validate="required"
+          >
+            <option value=""></option>
+          </select>
+        </span>
+      </p>
+    </div>
+  </div>
+  <div class="misc-settings__row">
+    <div class="misc-settings__row__left t-text">domain.comma_period_style</div>
+    <div class="field misc-settings__row__right">
+      <p class="control">
+        <span class="select">
+          <select
+            class="js-field"
+            name="commaPeriodSetting"
+            data-validate="required"
+          >
+            <option value="comma-period">1,000.00</option>
+            <option value="period-comma">1.000,00</option>
+          </select>
+        </span>
+      </p>
+    </div>
+  </div>
+  <div class="misc-settings__row">
+    <div class="misc-settings__row__left t-text">domain.journal.start_date</div>
+    <div class="field misc-settings__row__right">
+      <p class="control">
+        <input
+          class="input js-pickadate t-attr js-field js-start-date-input"
+          name="startDate"
+          data-validate="required"
+          type="text"
+          value=""
+          placeholder="t:ui.form.select_date"
+        />
+      </p>
+    </div>
+  </div>
+  <div class="misc-settings__row">
+    <div class="misc-settings__row__left t-text">domain.journal.end_date</div>
+    <div class="field misc-settings__row__right">
+      <p class="control">
+        <input
+          class="input js-pickadate t-attr js-field"
+          name="endDate"
+          data-validate="required"
+          type="text"
+          value=""
+          placeholder="t:ui.form.select_date"
+        />
+      </p>
+    </div>
+  </div>
+</div>
+
+
+      <hr />
+
+      <div class="columns is-mobile">
+        <div class="column">
+          <button class="button is-danger is-wide t-text">ui.form.cancel</button>
+        </div>
+        <div class="column">
+          <button class="button is-primary is-wide t-text js-disable-on-error">ui.form.create</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+
+
+    <script src="/infrastructure/index.js"></script>
+    <script src="/common/index.js"></script>
+    
+    
+    <script src="/pages/debug/index.js"></script>
+    
+  </body>
+</html>

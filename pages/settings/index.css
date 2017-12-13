@@ -1,0 +1,31 @@
+.settings-title-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .settings-title-area .journal-title {
+    margin-right: 15px; }
+
+.misc-settings {
+  display: flex;
+  flex-direction: column; }
+  .misc-settings__row:first-child {
+    margin-top: 0; }
+  .misc-settings__row {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+    .misc-settings__row .field .select,
+    .misc-settings__row .field select {
+      width: 100%; }
+    .misc-settings__row .field {
+      width: 140px; }
+    .misc-settings__row__right {
+      width: 140px;
+      text-align: center;
+      flex-grow: 0;
+      margin: 0 20px; }
+    .misc-settings__row__left {
+      flex-grow: 1;
+      text-align: center; }
