@@ -24,6 +24,10 @@ class JournalDocument {
     this.end = end
     this.commaPeriodSetting = commaPeriodSetting
   }
+
+  async getJournal () {
+    return await new Journal.Repository().getById(this.journalId)
+  }
 }
 
 module.exports = JournalDocument

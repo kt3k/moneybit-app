@@ -12,7 +12,7 @@ const {
 
 const { wire, on, emits } = capsid
 
-module.exports = class JournalDocumentModule {
+class JournalDocumentModule {
   constructor () {
     this.journalFactory = new Journal.Factory()
     this.journalRepository = new Journal.Repository()
@@ -109,3 +109,4 @@ module.exports = class JournalDocumentModule {
     }
   }
 }
+module.exports = JournalDocumentModule

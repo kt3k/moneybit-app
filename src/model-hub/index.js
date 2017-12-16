@@ -1,8 +1,5 @@
 const {
   domain,
-  domain: {
-    User
-  },
   Page,
   Action: {
     HUB_READY,
@@ -31,8 +28,9 @@ const { emits, on, component, mount, notifies } = capsid
 class ModelHub {
   constructor () {
     this.user = null
-    this.userRepository = new User.Repository()
     this.domain = domain
+    this.userRepository = new this.domain.User.Repository()
+    this.journalRepository = new this.domain.Journal.Repository()
     this.languageReady = new Promise(resolve => { this.resolveLanguageReady = resolve })
   }
 
@@ -61,9 +59,15 @@ class ModelHub {
   }
 
   async save () {
-    await Promise.all([
+    const promises =  [
       this.userRepository.save(this.user)
-    ])
+    ]
+
+    if (this.currentJournal) {
+      promises.push(this.journalRepository.save(this.currentJournal))
+    }
+
+    await Promise.all(promises)
   }
 
   @notifies(MODEL_UPDATE, '.is-model-observer')

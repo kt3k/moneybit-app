@@ -1,9 +1,6 @@
 const { on, wire, emits } = capsid
 
 const {
-  domain: {
-    AccountTypeChart
-  },
   Action: {
     INIT_CHART,
     CHART_READY
@@ -13,23 +10,25 @@ const {
 class ChartModule {
   @wire('js-model-hub') get hub () {}
 
-  constructor () {
-    this.repository = new AccountTypeChart.Repository()
-  }
-
   @on(INIT_CHART)
   @emits(CHART_READY)
   async loadCharts () {
-    const promises = [this.repository.getById(this.hub.user.settings.defaultChartId)]
+    const { domain } = this.hub
+    const chartRepository = new domain.AccountTypeChart.Repository()
+    const journalRepository = new domain.Journal.Repository()
+
+    const promises = [chartRepository.getById(this.hub.user.settings.defaultChartId)]
 
     if (this.hub.user.currentDocument) {
-      promises.push(this.repository.getById(this.hub.user.currentDocument.chartId))
+      promises.push(chartRepository.getById(this.hub.user.currentDocument.chartId))
+      promises.push(journalRepository.getById(this.hub.user.currentDocument.journalId))
     }
 
-    const [defaultChart, currentChart] = await Promise.all(promises)
+    const [defaultChart, currentChart, currentJournal] = await Promise.all(promises)
 
     this.hub.defaultChart = defaultChart
     this.hub.currentChart = currentChart
+    this.hub.currentJournal = currentJournal
   }
 }
 
