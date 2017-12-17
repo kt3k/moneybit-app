@@ -1,5 +1,4 @@
 const { describe, it } = require('kocha')
-const ModelHub = require('../')
 const genel = require('genel')
 const { expect } = require('chai')
 const { Action } = require('~')

@@ -19,7 +19,7 @@ const {
   }
 } = require('~')
 
-const { emits, component, notifies } = capsid
+const { component, notifies } = capsid
 const { store, dispatches, action } = require('evex')
 
 /**
@@ -69,7 +69,7 @@ class ModelHub {
   }
 
   async save () {
-    const promises =  [
+    const promises = [
       this.userRepository.save(this.user)
     ]
 

@@ -26,7 +26,8 @@ class JournalDocument {
   }
 
   async getJournal () {
-    return await new Journal.Repository().getById(this.journalId)
+    const { Journal } = require('./')
+    return new Journal.Repository().getById(this.journalId)
   }
 }
 

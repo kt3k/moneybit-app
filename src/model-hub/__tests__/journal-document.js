@@ -1,6 +1,4 @@
-const { make, mount } = capsid
 const { describe, it, beforeEach } = require('kocha')
-const genel = require('genel')
 const once = require('once')
 const { Action } = require('~')
 const ModelHub = require('../')
