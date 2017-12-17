@@ -10,7 +10,7 @@ const {
   }
 } = require('~')
 
-const { wire, on, emits } = capsid
+const { action, dispatches } = require('evex')
 
 class JournalDocumentModule {
   constructor () {
@@ -21,15 +21,13 @@ class JournalDocumentModule {
     this.documentFactory = new JournalDocument.Factory()
   }
 
-  @wire('js-model-hub') get hub () {}
-
-  @on(CREATE_JOURNAL_DOCUMENT)
-  @emits(MODEL_SAVE)
-  async createJournal (e) {
-    const { user } = this.hub
+  @action(CREATE_JOURNAL_DOCUMENT)
+  @dispatches(MODEL_SAVE)
+  async createJournal (hub, e) {
+    const { user } = hub
 
     const journal = await this.createEmptyJournal()
-    const chart = await this.cloneFromDefaultChart()
+    const chart = await this.cloneFromDefaultChart(hub)
 
     const documentObj = Object.assign({}, e.detail)
 
@@ -56,8 +54,8 @@ class JournalDocumentModule {
   /**
    * @return {AccountTypeChart}
    */
-  async cloneFromDefaultChart () {
-    const { user } = this.hub
+  async cloneFromDefaultChart (hub) {
+    const { user } = hub
 
     const defaultChart = await this.chartRepository.getById(user.settings.defaultChartId)
 
@@ -71,10 +69,10 @@ class JournalDocumentModule {
   /**
    * Changes the current document.
    */
-  @on(CHANGE_CURRENT_DOCUMENT)
-  @emits(MODEL_SAVE)
-  changeCurrentDocument ({ detail: id }) {
-    const { user } = this.hub
+  @action(CHANGE_CURRENT_DOCUMENT)
+  @dispatches(MODEL_SAVE)
+  async changeCurrentDocument (hub, { detail: id }) {
+    const { user } = hub
 
     const selectedDocument = user.documents.find(doc => doc.id === id)
 
@@ -90,10 +88,10 @@ class JournalDocumentModule {
   /**
    * Updates the current document's properties.
    */
-  @on(UPDATE_CURRENT_DOCUMENT)
-  @emits(MODEL_SAVE)
-  updateCurrentDocument ({ detail: { title, commaPeriodSetting, start, end } }) {
-    const { user: { currentDocument }, domain: { CommaPeriodSetting } } = this.hub
+  @action(UPDATE_CURRENT_DOCUMENT)
+  @dispatches(MODEL_SAVE)
+  async updateCurrentDocument (hub, { detail: { title, commaPeriodSetting, start, end } }) {
+    const { user: { currentDocument }, domain: { CommaPeriodSetting } } = hub
 
     if (title) {
       currentDocument.title = title

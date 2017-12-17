@@ -7,16 +7,13 @@ const {
   }
 } = require('~')
 
-const { on, emits, wire } = capsid
+const { action, dispatches } = require('evex')
 
 class LanguageModule {
-  @wire('js-model-hub')
-  get hub () {}
-
-  @on(SWITCH_LANGUAGE)
-  @emits(MODEL_SAVE)
-  onSwitchLanguage ({ detail: code }) {
-    this.hub.user.settings.language = this.hub.domain.Language.getByCode(code)
+  @action(SWITCH_LANGUAGE)
+  @dispatches(MODEL_SAVE)
+  onSwitchLanguage (hub, { detail: code }) {
+    hub.user.settings.language = hub.domain.Language.getByCode(code)
 
     return { reload: true }
   }
@@ -24,10 +21,10 @@ class LanguageModule {
   /**
    * Initializes the language on the ui.
    */
-  @on(INIT_LANGUAGE)
-  @emits(UI_LANGUAGE_READY)
-  async initUiLanguage () {
-    await $.getScript(`${basepath}/i18n/${this.getLanguage().code}.js`)
+  @action(INIT_LANGUAGE)
+  @dispatches(UI_LANGUAGE_READY)
+  async initUiLanguage (hub) {
+    await $.getScript(`${basepath}/i18n/${this.getLanguage(hub).code}.js`)
 
     t10.scan() // translate
   }
@@ -36,8 +33,8 @@ class LanguageModule {
    * Gets the language.
    * @return {Language}
    */
-  getLanguage () {
-    return this.hub.user.settings.language || this.hub.appState.deviceLanguage
+  getLanguage (hub) {
+    return hub.user.settings.language || hub.appState.deviceLanguage
   }
 }
 

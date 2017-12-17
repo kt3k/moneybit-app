@@ -1,4 +1,3 @@
-const { wire, on, emits } = capsid
 const {
   Page,
   Action: {
@@ -7,6 +6,8 @@ const {
     LOCATION_NG
   }
 } = require('~')
+
+const { action, dispatches } = require('evex')
 
 // These pages don't work without current document set.
 const MAIN_PAGES = [
@@ -25,17 +26,15 @@ const LANDING_PAGES = [
 */
 
 class LocationModule {
-  @wire('js-model-hub') get hub () {}
-
   isMainPage (pathname) {
     return MAIN_PAGES.indexOf(pathname) >= 0
   }
 
-  @on(CHECK_LOCATION)
-  checkLocation () {
+  @action(CHECK_LOCATION)
+  checkLocation (hub) {
     const { pathname } = window.location
 
-    if (this.hub.user.currentDocument) {
+    if (hub.user.currentDocument) {
       // If current document exists, then all pages are accesible
       return this.locationOk()
     }
@@ -48,10 +47,10 @@ class LocationModule {
     this.locationNg()
   }
 
-  @emits(LOCATION_OK)
+  @dispatches(LOCATION_OK)
   locationOk () {}
 
-  @emits(LOCATION_NG)
+  @dispatches(LOCATION_NG)
   locationNg () {}
 }
 

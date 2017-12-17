@@ -55,6 +55,7 @@
     "cross-env": "^5.0.0",
     "dirty-chai": "^1.2.2",
     "domaindoc": "^2.7.4",
+    "evex": "^1.3.2",
     "genel": "^1.1.0",
     "get-js": "^0.0.4-0",
     "gh-pages": "^0.12.0",

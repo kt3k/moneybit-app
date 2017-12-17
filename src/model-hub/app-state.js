@@ -1,14 +1,12 @@
 const { Action: { INIT_APP_STATE, APP_STATE_READY } } = require('~')
 
-const { emits, on, wire } = capsid
+const { action, dispatches } = require('evex')
 
 module.exports = class AppStateModule {
-  @wire('js-model-hub') get hub () {}
-
-  @on(INIT_APP_STATE)
-  @emits(APP_STATE_READY)
-  async onInit () {
-    const repository = new this.hub.domain.AppState.Repository()
+  @action(INIT_APP_STATE)
+  @dispatches(APP_STATE_READY)
+  async onInit (hub) {
+    const repository = new hub.domain.AppState.Repository()
 
     const appState = await repository.get()
 
@@ -18,6 +16,6 @@ module.exports = class AppStateModule {
       await repository.save(appState)
     }
 
-    this.hub.appState = appState
+    hub.appState = appState
   }
 }

@@ -1,5 +1,3 @@
-const { on, wire, emits } = capsid
-
 const {
   Action: {
     INIT_CHART,
@@ -7,28 +5,28 @@ const {
   }
 } = require('~')
 
-class ChartModule {
-  @wire('js-model-hub') get hub () {}
+const { action, dispatches } = require('evex')
 
-  @on(INIT_CHART)
-  @emits(CHART_READY)
-  async loadCharts () {
-    const { domain } = this.hub
+class ChartModule {
+  @action(INIT_CHART)
+  @dispatches(CHART_READY)
+  async loadCharts (hub) {
+    const { domain } = hub
     const chartRepository = new domain.AccountTypeChart.Repository()
     const journalRepository = new domain.Journal.Repository()
 
-    const promises = [chartRepository.getById(this.hub.user.settings.defaultChartId)]
+    const promises = [chartRepository.getById(hub.user.settings.defaultChartId)]
 
-    if (this.hub.user.currentDocument) {
-      promises.push(chartRepository.getById(this.hub.user.currentDocument.chartId))
-      promises.push(journalRepository.getById(this.hub.user.currentDocument.journalId))
+    if (hub.user.currentDocument) {
+      promises.push(chartRepository.getById(hub.user.currentDocument.chartId))
+      promises.push(journalRepository.getById(hub.user.currentDocument.journalId))
     }
 
     const [defaultChart, currentChart, currentJournal] = await Promise.all(promises)
 
-    this.hub.defaultChart = defaultChart
-    this.hub.currentChart = currentChart
-    this.hub.currentJournal = currentJournal
+    hub.defaultChart = defaultChart
+    hub.currentChart = currentChart
+    hub.currentJournal = currentJournal
   }
 }
 

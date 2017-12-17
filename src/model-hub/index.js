@@ -19,12 +19,22 @@ const {
   }
 } = require('~')
 
-const { emits, on, component, mount, notifies } = capsid
+const { emits, component, notifies } = capsid
+const { store, dispatches, action } = require('evex')
 
 /**
  * The hub of the all models handled in this app.
  */
 @component('js-model-hub')
+@store({ modules: [
+  require('./app-state'),
+  require('./user'),
+  require('./language'),
+  require('./journal-document'),
+  require('./chart'),
+  require('./location'),
+  require('./trade')
+] })
 class ModelHub {
   constructor () {
     this.user = null
@@ -34,28 +44,28 @@ class ModelHub {
     this.languageReady = new Promise(resolve => { this.resolveLanguageReady = resolve })
   }
 
-  @emits(HUB_READY)
-  __init__ () {
-    mount(require('./app-state'), this.el)
-    mount(require('./user'), this.el)
-    mount(require('./language'), this.el)
-    mount(require('./journal-document'), this.el)
-    mount(require('./chart'), this.el)
-    mount(require('./location'), this.el)
-    mount(require('./trade'), this.el)
-  }
+  @dispatches(HUB_READY)
+  async __init__ () {}
 
-  @on(MODEL_SAVE)
-  async onModelSave ({ detail }) {
+  @action(MODEL_SAVE)
+  async onModelSave (hub, { detail }) {
     await this.save()
 
     if (detail && detail.reload) {
-      window.location.reload()
+      this.locationReload()
     } else if (detail && detail.replace) {
-      window.location.replace(detail.replace)
+      this.locationReplace(detail.replace)
     } else {
       this.notifyUpdate()
     }
+  }
+
+  locationReload () {
+    window.location.reload()
+  }
+
+  locationReplace (path) {
+    window.location.replace(path)
   }
 
   async save () {
@@ -77,35 +87,35 @@ class ModelHub {
     return this
   }
 
-  @on(HUB_READY)
-  @emits(INIT_APP_STATE)
+  @action(HUB_READY)
+  @dispatches(INIT_APP_STATE)
   hubReadyToInitAppState () {}
 
-  @on(APP_STATE_READY)
-  @emits(INIT_USER)
+  @action(APP_STATE_READY)
+  @dispatches(INIT_USER)
   appStateReadyToInitUser () {}
 
-  @on(USER_READY)
-  @emits(INIT_CHART)
-  @emits(INIT_LANGUAGE)
+  @action(USER_READY)
+  @dispatches(INIT_CHART)
+  @dispatches(INIT_LANGUAGE)
   userReadyToInitChart () {}
 
-  @on(UI_LANGUAGE_READY)
+  @action(UI_LANGUAGE_READY)
   onLanguageReady () {
     this.resolveLanguageReady()
   }
 
-  @on(CHART_READY)
-  @emits(CHECK_LOCATION)
+  @action(CHART_READY)
+  @dispatches(CHECK_LOCATION)
   chartsReadyToCheckLocation () {}
 
-  @on(LOCATION_OK)
-  @emits(MODEL_SAVE)
+  @action(LOCATION_OK)
+  @dispatches(MODEL_SAVE)
   locationOkToModelSave () {
   }
 
-  @on(LOCATION_NG)
-  @emits(MODEL_SAVE)
+  @action(LOCATION_NG)
+  @dispatches(MODEL_SAVE)
   locationNgToModelSave () {
     return { replace: Page.APP_SETTINGS }
   }

@@ -1,17 +1,16 @@
 const { Action } = require('~')
 const uuid = require('uuid')
-const { on, emits, wire } = capsid
+
+const { action, dispatches } = require('evex')
 
 class TradeModule {
-  @wire('js-model-hub') get hub () {}
-
   /**
    * Creates an trade
    */
-  @on(Action.CREATE_TRADE)
-  @emits(Action.MODEL_SAVE)
-  createTrade ({ detail: { date, desc, dr, cr } }) {
-    const trade = new this.hub.domain.Trade.Factory().createFromObject({
+  @action(Action.CREATE_TRADE)
+  @dispatches(Action.MODEL_SAVE)
+  createTrade (hub, { detail: { date, desc, dr, cr } }) {
+    const trade = new hub.domain.Trade.Factory().createFromObject({
       id: uuid.v4(),
       date,
       desc,
@@ -19,7 +18,7 @@ class TradeModule {
       cr
     })
 
-    this.hub.currentJournal.addTrade(trade)
+    hub.currentJournal.addTrade(trade)
   }
 }
 

@@ -1,72 +1,75 @@
 const { make, mount } = capsid
 const { describe, it, beforeEach } = require('kocha')
 const genel = require('genel')
-const { Action } = require('~')
-const JournalDocumentModule = require('../journal-document')
 const once = require('once')
+const { Action } = require('~')
+const ModelHub = require('../')
+const AppStateModule = require('../app-state')
+const UserModule = require('../user')
+const LanguageModule = require('../language')
+const JournalDocumentModule = require('../journal-document')
+const ChartModule = require('../chart')
+const LocationModule = require('../location')
 const { expect } = require('chai')
 
 describe('JournalModule', () => {
-  let hub
+  let store
+  let module
 
   beforeEach(done => {
-    const el = genel.div``
-    el.addEventListener(Action.MODEL_SAVE, once(() => done()))
-    hub = make('js-model-hub', el)
+    store = new ModelHub()
+
+    store.save = once(() => done())
+    store.locationReload = () => {}
+    store.locationReplace = () => {}
+    store.installModules([
+      module = new JournalDocumentModule(),
+      new AppStateModule(),
+      new UserModule(),
+      new LanguageModule(),
+      new ChartModule(),
+      new LocationModule()
+    ])
+
+    store[':evex:store:handleAction']({ type: Action.HUB_READY })
   })
 
-  describe('CREATE_JORUNAL_DOCUMENT', () => {
-    it('creates the new document and set it to the user', done => {
-      hub.el.addEventListener(Action.MODEL_SAVE, once(() => {
-        expect(hub.currentDocument).not.to.equal(null)
-        done()
-      }))
+  describe('createJournal', () => {
+    it('creates the new document and set it to the user', async () => {
+      await module.createJournal(store, { detail: {} })
 
-      hub.el.dispatchEvent(new CustomEvent(Action.CREATE_JOURNAL_DOCUMENT))
+      expect(store.user.currentDocument).to.be.instanceof(store.domain.JournalDocument)
     })
   })
 
   describe('CHANGE_CURRENT_DOCUMENT', () => {
-    it('changes the current document by the id', done => {
-      hub.el.addEventListener(Action.MODEL_SAVE, once(() => {
-        const id0 = hub.user.currentDocument.id
+    it('changes the current document by the id', async () => {
+      await module.createJournal(store, { detail: {} })
 
-        hub.el.addEventListener(Action.MODEL_SAVE, once(() => {
-          hub.el.addEventListener(Action.MODEL_SAVE, once(() => {
-            expect(hub.user.currentDocument.id).to.equal(id0)
-            done()
-          }))
+      const id0 = store.user.currentDocument.id
 
-          hub.el.dispatchEvent(new CustomEvent(Action.CHANGE_CURRENT_DOCUMENT, {
-            detail: id0
-          }))
-        }))
+      await module.createJournal(store, { detail: {} })
 
-        hub.el.dispatchEvent(new CustomEvent(Action.CREATE_JOURNAL_DOCUMENT))
-      }))
+      await module.changeCurrentDocument(store, { detail: id0 })
 
-      hub.el.dispatchEvent(new CustomEvent(Action.CREATE_JOURNAL_DOCUMENT))
+      expect(store.user.currentDocument.id).to.equal(id0)
     })
   })
 
   describe('UPDATE_CURRENT_DOCUMENT', () => {
-    it('updates the current document', done => {
-      hub.el.addEventListener(Action.MODEL_SAVE, once(() => {
-        hub.el.addEventListener(Action.MODEL_SAVE, once(() => {
-          expect(hub.user.currentDocument.title).to.equal('foo')
-          done()
-        }))
+    it('updates the current document', async () => {
+      await module.createJournal(store, { detail: {} })
 
-        hub.el.dispatchEvent(new CustomEvent(Action.UPDATE_CURRENT_DOCUMENT, {
-          detail: {
-            title: 'foo',
-            commaPeriodSetting: 'period-comma',
-            start: '2017-01-01',
-            end: '2017-12-31'
-          }
-        }))
-      }))
-      hub.el.dispatchEvent(new CustomEvent(Action.CREATE_JOURNAL_DOCUMENT))
+      await module.updateCurrentDocument(store, {
+        detail: {
+          title: 'foo',
+          commaPeriodSetting: 'period-comma',
+          start: '2017-01-01',
+          end: '2017-12-31'
+        }
+      })
+
+      expect(store.user.currentDocument.title).to.equal('foo')
     })
   })
 })
