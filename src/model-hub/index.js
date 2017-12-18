@@ -1,22 +1,7 @@
 const {
   domain,
   Page,
-  Action: {
-    HUB_READY,
-    MODEL_SAVE,
-    MODEL_UPDATE,
-    INIT_APP_STATE,
-    APP_STATE_READY,
-    INIT_USER,
-    USER_READY,
-    INIT_LANGUAGE,
-    UI_LANGUAGE_READY,
-    INIT_CHART,
-    CHART_READY,
-    CHECK_LOCATION,
-    LOCATION_OK,
-    LOCATION_NG
-  }
+  Action
 } = require('~')
 
 const { component, notifies } = capsid
@@ -44,10 +29,10 @@ class ModelHub {
     this.languageReady = new Promise(resolve => { this.resolveLanguageReady = resolve })
   }
 
-  @dispatches(HUB_READY)
+  @dispatches(Action.HUB_READY)
   async __init__ () {}
 
-  @action(MODEL_SAVE)
+  @action(Action.MODEL_SAVE)
   async onModelSave (hub, { detail }) {
     await this.save()
 
@@ -80,42 +65,42 @@ class ModelHub {
     await Promise.all(promises)
   }
 
-  @notifies(MODEL_UPDATE, '.is-model-observer')
+  @notifies(Action.MODEL_UPDATE, '.is-model-observer')
   async notifyUpdate () {
     await this.languageReady // wait until i18n resource ready
 
     return this
   }
 
-  @action(HUB_READY)
-  @dispatches(INIT_APP_STATE)
+  @action(Action.HUB_READY)
+  @dispatches(Action.INIT_APP_STATE)
   hubReadyToInitAppState () {}
 
-  @action(APP_STATE_READY)
-  @dispatches(INIT_USER)
+  @action(Action.APP_STATE_READY)
+  @dispatches(Action.INIT_USER)
   appStateReadyToInitUser () {}
 
-  @action(USER_READY)
-  @dispatches(INIT_CHART)
-  @dispatches(INIT_LANGUAGE)
+  @action(Action.USER_READY)
+  @dispatches(Action.INIT_CHART)
+  @dispatches(Action.INIT_LANGUAGE)
   userReadyToInitChart () {}
 
-  @action(UI_LANGUAGE_READY)
+  @action(Action.UI_LANGUAGE_READY)
   onLanguageReady () {
     this.resolveLanguageReady()
   }
 
-  @action(CHART_READY)
-  @dispatches(CHECK_LOCATION)
+  @action(Action.CHART_READY)
+  @dispatches(Action.CHECK_LOCATION)
   chartsReadyToCheckLocation () {}
 
-  @action(LOCATION_OK)
-  @dispatches(MODEL_SAVE)
+  @action(Action.LOCATION_OK)
+  @dispatches(Action.MODEL_SAVE)
   locationOkToModelSave () {
   }
 
-  @action(LOCATION_NG)
-  @dispatches(MODEL_SAVE)
+  @action(Action.LOCATION_NG)
+  @dispatches(Action.MODEL_SAVE)
   locationNgToModelSave () {
     return { replace: Page.APP_SETTINGS }
   }

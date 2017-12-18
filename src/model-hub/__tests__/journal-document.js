@@ -2,17 +2,10 @@ const { describe, it, beforeEach } = require('kocha')
 const once = require('once')
 const { Action } = require('~')
 const ModelHub = require('../')
-const AppStateModule = require('../app-state')
-const UserModule = require('../user')
-const LanguageModule = require('../language')
-const JournalDocumentModule = require('../journal-document')
-const ChartModule = require('../chart')
-const LocationModule = require('../location')
 const { expect } = require('chai')
 
 describe('JournalModule', () => {
   let store
-  let module
 
   beforeEach(done => {
     store = new ModelHub()
@@ -20,21 +13,14 @@ describe('JournalModule', () => {
     store.save = once(() => done())
     store.locationReload = () => {}
     store.locationReplace = () => {}
-    store.installModules([
-      module = new JournalDocumentModule(),
-      new AppStateModule(),
-      new UserModule(),
-      new LanguageModule(),
-      new ChartModule(),
-      new LocationModule()
-    ])
+    store.installDefaultModules()
 
-    store[':evex:store:handleAction']({ type: Action.HUB_READY })
+    store.dispatch({ type: Action.HUB_READY })
   })
 
-  describe('createJournal', () => {
+  describe('Action.CREATE_JOURNAL_DOCUMENT', () => {
     it('creates the new document and set it to the user', async () => {
-      await module.createJournal(store, { detail: {} })
+      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
 
       expect(store.user.currentDocument).to.be.instanceof(store.domain.JournalDocument)
     })
@@ -42,13 +28,16 @@ describe('JournalModule', () => {
 
   describe('CHANGE_CURRENT_DOCUMENT', () => {
     it('changes the current document by the id', async () => {
-      await module.createJournal(store, { detail: {} })
+      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
 
       const id0 = store.user.currentDocument.id
 
-      await module.createJournal(store, { detail: {} })
+      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
 
-      await module.changeCurrentDocument(store, { detail: id0 })
+      await store.dispatch({
+        type: Action.CHANGE_CURRENT_DOCUMENT,
+        detail: id0
+      })
 
       expect(store.user.currentDocument.id).to.equal(id0)
     })
@@ -56,9 +45,10 @@ describe('JournalModule', () => {
 
   describe('UPDATE_CURRENT_DOCUMENT', () => {
     it('updates the current document', async () => {
-      await module.createJournal(store, { detail: {} })
+      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
 
-      await module.updateCurrentDocument(store, {
+      await store.dispatch({
+        type: Action.UPDATE_CURRENT_DOCUMENT,
         detail: {
           title: 'foo',
           commaPeriodSetting: 'period-comma',
