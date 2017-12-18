@@ -10,7 +10,7 @@ const { store, dispatches, action } = require('evex')
 /**
  * The hub of the all models handled in this app.
  */
-@component('js-model-hub')
+@component('js-store')
 @store({ modules: [
   require('./app-state'),
   require('./user'),
@@ -20,7 +20,7 @@ const { store, dispatches, action } = require('evex')
   require('./location'),
   require('./trade')
 ] })
-class ModelHub {
+class Store {
   constructor () {
     this.user = null
     this.domain = domain
@@ -106,4 +106,4 @@ class ModelHub {
   }
 }
 
-module.exports = ModelHub
+module.exports = Store

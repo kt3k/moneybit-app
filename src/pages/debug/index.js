@@ -41,7 +41,7 @@ global.m = menu.create('m', {
       ls: {
         desc: 'Show models',
         func () {
-          return capsid.get('js-model-hub', document.querySelector('.js-model-hub'))
+          return capsid.get('js-store', document.querySelector('.js-store'))
         }
       }
     }
