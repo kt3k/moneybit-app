@@ -1,21 +1,13 @@
 const { describe, it, beforeEach } = require('kocha')
-const once = require('once')
 const { Action } = require('~')
-const ModelHub = require('../')
 const { expect } = require('chai')
+const { createStore } = require('./helper')
 
 describe('JournalModule', () => {
   let store
 
   beforeEach(done => {
-    store = new ModelHub()
-
-    store.save = once(() => done())
-    store.locationReload = () => {}
-    store.locationReplace = () => {}
-    store.installDefaultModules()
-
-    store.dispatch({ type: Action.HUB_READY })
+    store = createStore(done)
   })
 
   describe('Action.CREATE_JOURNAL_DOCUMENT', () => {
