@@ -5,23 +5,17 @@ const { Action } = require('~')
 
 const { make } = capsid
 
-describe('ModelHub', () => {
-  describe('onModelSave', () => {
-  })
-
-  describe('save', () => {
-  })
-
+describe('Store', () => {
   describe('notifyUpdate', () => {
     it('notifies the model update', async () => {
-      const hub = make('js-model-hub', genel.div`<p class="is-model-observer">hello</p>`)
-      hub.languageReady = Promise.resolve()
+      const store = make('js-store', genel.div`<p class="is-model-observer">hello</p>`)
+      store.languageReady = Promise.resolve()
 
       const p = new Promise(resolve => {
-        hub.el.firstChild.addEventListener(Action.MODEL_UPDATE, () => resolve())
+        store.el.firstChild.addEventListener(Action.MODEL_UPDATE, () => resolve())
       })
 
-      expect(await hub.notifyUpdate()).to.equal(hub)
+      expect(await store.notifyUpdate()).to.equal(store)
 
       return p
     })
