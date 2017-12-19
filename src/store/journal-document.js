@@ -71,7 +71,7 @@ class JournalDocumentModule {
    */
   @action(CHANGE_CURRENT_DOCUMENT)
   @dispatches(MODEL_SAVE)
-  async changeCurrentDocument (hub, { detail: id }) {
+  changeCurrentDocument (hub, { detail: id }) {
     const { user } = hub
 
     const selectedDocument = user.documents.find(doc => doc.id === id)
@@ -90,7 +90,7 @@ class JournalDocumentModule {
    */
   @action(UPDATE_CURRENT_DOCUMENT)
   @dispatches(MODEL_SAVE)
-  async updateCurrentDocument (hub, { detail: { title, commaPeriodSetting, start, end } }) {
+  updateCurrentDocument (hub, { detail: { title, commaPeriodSetting, start, end } }) {
     const { user: { currentDocument }, domain: { CommaPeriodSetting } } = hub
 
     if (title) {

@@ -1,4 +1,4 @@
-const { describe, it, beforeEach } = require('kocha')
+const { describe, it, context, beforeEach } = require('kocha')
 const { Action } = require('~')
 const { expect } = require('chai')
 const { createStore } = require('./helper')
@@ -32,6 +32,19 @@ describe('JournalModule', () => {
       })
 
       expect(store.user.currentDocument.id).to.equal(id0)
+    })
+
+    context('when the id is invalid', () => {
+      it('throws', async () => {
+        await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+        await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+        expect(() => {
+          store.dispatch({
+            type: Action.CHANGE_CURRENT_DOCUMENT,
+            detail: 'dummy-id'
+          })
+        }).to.throw()
+      })
     })
   })
 
