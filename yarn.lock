@@ -2233,9 +2233,9 @@ events@~1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
 
-evex@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/evex/-/evex-1.4.0.tgz#ae4d0c70b5b86d624d82093bf60c4130d83cb80a"
+evex@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/evex/-/evex-1.4.1.tgz#14249c591c503eb0c5856933e1bc182ced6cea38"
 
 evp_bytestokey@^1.0.0:
   version "1.0.0"
