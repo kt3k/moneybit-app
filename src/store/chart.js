@@ -1,32 +1,32 @@
-const {
-  Action: {
-    INIT_CHART,
-    CHART_READY
-  }
-} = require('~')
+const { Action } = require('~')
 
 const { action, dispatches } = require('evex')
 
 class ChartModule {
-  @action(INIT_CHART)
-  @dispatches(CHART_READY)
-  async loadCharts (hub) {
-    const { domain } = hub
+  @action(Action.INIT_CHART)
+  @dispatches(Action.CHART_READY)
+  async initCharts (store) {
+    await this.loadCharts(store)
+  }
+
+  @action(Action.LOAD_CHART)
+  async loadCharts (store) {
+    const { domain, user } = store
     const chartRepository = new domain.AccountTypeChart.Repository()
     const journalRepository = new domain.Journal.Repository()
 
-    const promises = [chartRepository.getById(hub.user.settings.defaultChartId)]
+    const promises = [chartRepository.getById(user.settings.defaultChartId)]
 
-    if (hub.user.currentDocument) {
-      promises.push(chartRepository.getById(hub.user.currentDocument.chartId))
-      promises.push(journalRepository.getById(hub.user.currentDocument.journalId))
+    if (user.currentDocument) {
+      promises.push(chartRepository.getById(user.currentDocument.chartId))
+      promises.push(journalRepository.getById(user.currentDocument.journalId))
     }
 
     const [defaultChart, currentChart, currentJournal] = await Promise.all(promises)
 
-    hub.defaultChart = defaultChart
-    hub.currentChart = currentChart
-    hub.currentJournal = currentJournal
+    store.defaultChart = defaultChart
+    store.currentChart = currentChart
+    store.currentJournal = currentJournal
   }
 }
 

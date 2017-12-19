@@ -9,8 +9,8 @@ class TradeModule {
    */
   @action(Action.CREATE_TRADE)
   @dispatches(Action.MODEL_SAVE)
-  createTrade (hub, { detail: { date, desc, dr, cr } }) {
-    const trade = new hub.domain.Trade.Factory().createFromObject({
+  createTrade (store, { detail: { date, desc, dr, cr } }) {
+    const trade = new store.domain.Trade.Factory().createFromObject({
       id: uuid.v4(),
       date,
       desc,
@@ -18,7 +18,7 @@ class TradeModule {
       cr
     })
 
-    hub.currentJournal.addTrade(trade)
+    store.currentJournal.addTrade(trade)
   }
 }
 

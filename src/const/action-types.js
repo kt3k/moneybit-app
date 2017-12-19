@@ -25,7 +25,8 @@ exports.SWITCH_LANGUAGE = 'mb/language/SWITCH'
 exports.INIT_LANGUAGE = 'mb/language/INIT'
 exports.UI_LANGUAGE_READY = 'mb/language/READY'
 // chart
-exports.INIT_CHART = 'mb/chart/LOAD'
+exports.INIT_CHART = 'mb/chart/INIT'
+exports.LOAD_CHART = 'mb/chart/LOAD'
 exports.CHART_READY = 'mb/chart/READY'
 // models
 exports.MODEL_SAVE = 'mb/model/SAVE'

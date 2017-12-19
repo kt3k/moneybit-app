@@ -3,7 +3,7 @@ const { Action } = require('~')
 const { expect } = require('chai')
 const { createStore } = require('./helper')
 
-describe('JournalModule', () => {
+describe('JournalDocumentModule', () => {
   let store
 
   beforeEach(done => {
