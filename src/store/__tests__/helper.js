@@ -1,18 +1,19 @@
 const { Action } = require('~')
 const Store = require('../')
-const once = require('once')
 
 /**
  * Creats a store for testing
  */
-const createStore = done => {
+const createStore = async () => {
   const store = new Store()
 
-  store.save = once(() => done())
+  const saved = new Promise(resolve => { store.save = resolve })
   store.locationReload = () => {}
   store.locationReplace = () => {}
   store.installDefaultModules()
   store.dispatch({ type: Action.HUB_READY })
+
+  await saved
 
   return store
 }

@@ -6,8 +6,8 @@ const { createStore } = require('./helper')
 describe('JournalDocumentModule', () => {
   let store
 
-  beforeEach(done => {
-    store = createStore(done)
+  beforeEach(async () => {
+    store = await createStore()
   })
 
   describe('Action.CREATE_JOURNAL_DOCUMENT', () => {

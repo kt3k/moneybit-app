@@ -6,14 +6,14 @@ const { expect } = require('chai')
 let store
 
 describe('TradeModule', () => {
-  beforeEach(done => {
-    store = createStore(done)
+  beforeEach(async () => {
+    store = await createStore()
+    await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+    await store.dispatch({ type: Action.LOAD_CHART })
   })
 
   describe('Action.CREATE_TRADE', () => {
     it('creates a trade', async () => {
-      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
-      await store.dispatch({ type: Action.LOAD_CHART })
       await store.dispatch({
         type: Action.CREATE_TRADE,
         detail: {
