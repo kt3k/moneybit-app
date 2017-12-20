@@ -27,6 +27,7 @@ class Store {
     this.userRepository = new this.domain.User.Repository()
     this.journalRepository = new this.domain.Journal.Repository()
     this.languageReady = new Promise(resolve => { this.resolveLanguageReady = resolve })
+    this.location = window.location
   }
 
   @dispatches(Action.HUB_READY)

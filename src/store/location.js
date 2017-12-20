@@ -1,11 +1,4 @@
-const {
-  Page,
-  Action: {
-    CHECK_LOCATION,
-    LOCATION_OK,
-    LOCATION_NG
-  }
-} = require('~')
+const { Page, Action } = require('~')
 
 const { action, dispatches } = require('evex')
 
@@ -30,11 +23,14 @@ class LocationModule {
     return MAIN_PAGES.indexOf(pathname) >= 0
   }
 
-  @action(CHECK_LOCATION)
-  checkLocation (hub) {
-    const { pathname } = window.location
+  /**
+   * @param {domain.User} user The user
+   */
+  @action(Action.CHECK_LOCATION)
+  checkLocation ({ user, location }) {
+    const { pathname } = location
 
-    if (hub.user.currentDocument) {
+    if (user.currentDocument) {
       // If current document exists, then all pages are accesible
       return this.locationOk()
     }
@@ -47,10 +43,10 @@ class LocationModule {
     this.locationNg()
   }
 
-  @dispatches(LOCATION_OK)
+  @dispatches(Action.LOCATION_OK)
   locationOk () {}
 
-  @dispatches(LOCATION_NG)
+  @dispatches(Action.LOCATION_NG)
   locationNg () {}
 }
 
