@@ -1,7 +1,7 @@
 const { describe, it, context, beforeEach } = require('kocha')
 const { Action } = require('~')
 const { expect } = require('chai')
-const { createStore } = require('./helper')
+const { createStore, documentObject } = require('./helper')
 
 describe('JournalDocumentModule', () => {
   let store
@@ -12,7 +12,7 @@ describe('JournalDocumentModule', () => {
 
   describe('Action.CREATE_JOURNAL_DOCUMENT', () => {
     it('creates the new document and set it to the user', async () => {
-      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT, detail: documentObject })
 
       expect(store.user.currentDocument).to.be.instanceof(store.domain.JournalDocument)
     })
@@ -20,11 +20,11 @@ describe('JournalDocumentModule', () => {
 
   describe('CHANGE_CURRENT_DOCUMENT', () => {
     it('changes the current document by the id', async () => {
-      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT, detail: documentObject })
 
       const id0 = store.user.currentDocument.id
 
-      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT, detail: documentObject })
 
       await store.dispatch({
         type: Action.CHANGE_CURRENT_DOCUMENT,
@@ -36,8 +36,8 @@ describe('JournalDocumentModule', () => {
 
     context('when the id is invalid', () => {
       it('throws', async () => {
-        await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
-        await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+        await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT, detail: documentObject })
+        await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT, detail: documentObject })
         expect(() => {
           store.dispatch({
             type: Action.CHANGE_CURRENT_DOCUMENT,
@@ -50,7 +50,7 @@ describe('JournalDocumentModule', () => {
 
   describe('UPDATE_CURRENT_DOCUMENT', () => {
     it('updates the current document', async () => {
-      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT, detail: documentObject })
 
       await store.dispatch({
         type: Action.UPDATE_CURRENT_DOCUMENT,

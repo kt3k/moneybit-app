@@ -1,5 +1,5 @@
 const { describe, it, beforeEach } = require('kocha')
-const { createStore } = require('./helper')
+const { createStore, documentObject } = require('./helper')
 const genel = require('genel')
 const { expect } = require('chai')
 const { Action } = require('~')
@@ -13,11 +13,10 @@ describe('Store', () => {
     store = await createStore()
   })
 
-  describe.skip('save', () => {
+  describe('save', () => {
     it('saves the user object', done => {
       store.userRepository = {
         save (user) {
-          console.log('userRepository.save')
           expect(user).to.equal(store.user)
           done()
         }
@@ -27,7 +26,10 @@ describe('Store', () => {
     })
 
     it('saves the currentJournal if exists', async () => {
-      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+      await store.dispatch({
+        type: Action.CREATE_JOURNAL_DOCUMENT,
+        detail: documentObject
+      })
       await store.dispatch({ type: Action.LOAD_CHART })
 
       const journalSaved = new Promise(resolve => {
@@ -39,7 +41,7 @@ describe('Store', () => {
         }
       })
 
-      store.save()
+      await store.save()
 
       return journalSaved
     })

@@ -1,5 +1,5 @@
 const { describe, it, beforeEach } = require('kocha')
-const { createStore } = require('./helper')
+const { createStore, documentObject } = require('./helper')
 const { Action, Page } = require('~')
 
 let store
@@ -11,7 +11,10 @@ describe('LocationModule', () => {
 
   describe('Action.CHECK_LOCATION', () => {
     it('dispatches LOCATION_OK when the user has current document', async () => {
-      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+      await store.dispatch({
+        type: Action.CREATE_JOURNAL_DOCUMENT,
+        detail: documentObject
+      })
 
       const done = new Promise(resolve => {
         store.on(Action.LOCATION_OK, () => resolve())
