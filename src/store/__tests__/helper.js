@@ -1,4 +1,4 @@
-const { Action } = require('~')
+const { Action, Page } = require('~')
 const Store = require('../')
 const td = require('testdouble')
 
@@ -17,8 +17,11 @@ const createStore = async () => {
 
   await saved
 
-  store.locationReload = td.func()
-  store.locationReplace = td.func()
+  store.location = {
+    reload: td.func(),
+    replace: td.func(),
+    pathname: Page.APP_SETTINGS
+  }
 
   return store
 }

@@ -1,11 +1,50 @@
-const { describe, it } = require('kocha')
+const { describe, it, beforeEach } = require('kocha')
+const { createStore } = require('./helper')
 const genel = require('genel')
 const { expect } = require('chai')
 const { Action } = require('~')
 
 const { make } = capsid
 
+let store
+
 describe('Store', () => {
+  beforeEach(async () => {
+    store = await createStore()
+  })
+
+  describe.skip('save', () => {
+    it('saves the user object', done => {
+      store.userRepository = {
+        save (user) {
+          console.log('userRepository.save')
+          expect(user).to.equal(store.user)
+          done()
+        }
+      }
+
+      store.save()
+    })
+
+    it('saves the currentJournal if exists', async () => {
+      await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT })
+      await store.dispatch({ type: Action.LOAD_CHART })
+
+      const journalSaved = new Promise(resolve => {
+        store.journalRepository = {
+          save (journal) {
+            expect(journal).to.equal(store.currentJournal)
+            resolve()
+          }
+        }
+      })
+
+      store.save()
+
+      return journalSaved
+    })
+  })
+
   describe('notifyUpdate', () => {
     it('notifies the model update', async () => {
       const store = make('js-store', genel.div`<p class="is-model-observer">hello</p>`)

@@ -38,20 +38,12 @@ class Store {
     await this.save()
 
     if (detail && detail.reload) {
-      this.locationReload()
+      this.location.reload()
     } else if (detail && detail.replace) {
-      this.locationReplace(detail.replace)
+      this.location.replace(detail.replace)
     } else {
       this.notifyUpdate()
     }
-  }
-
-  locationReload () {
-    window.location.reload()
-  }
-
-  locationReplace (path) {
-    window.location.replace(path)
   }
 
   async save () {
