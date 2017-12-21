@@ -24,7 +24,9 @@ describe('LocationModule', () => {
 
     it('dispatches LOCATION_OK when pathname is not one of main pages', () => {
       store.location = {
-        pathname: '/foo/index.html'
+        pathname: '/foo/index.html',
+        reload: () => {},
+        replace: () => {}
       }
 
       const done = new Promise(resolve => {
@@ -38,7 +40,9 @@ describe('LocationModule', () => {
 
     it('dispatches LOCATION_NG when pathname is one of main pages and the user does not have current document', () => {
       store.location = {
-        pathname: Page.BS
+        pathname: Page.BS,
+        reload: () => {},
+        replace: () => {}
       }
 
       const done = new Promise(resolve => {
