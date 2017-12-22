@@ -18,14 +18,10 @@ const createStore = async () => {
 
   const store = new Store()
 
-  const save = store.save
-  const saved = new Promise(resolve => {
-    store.save = function () {
-      resolve()
-      return save.apply(this, arguments)
-    }
-  })
+  const saved = new Promise(resolve => store.on(Action.MODEL_SAVE, resolve))
+
   store.installDefaultModules()
+
   store.dispatch({ type: Action.HUB_READY })
 
   td.replace($, 'getScript')
