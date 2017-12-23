@@ -5818,9 +5818,9 @@ syntax-error@^1.1.1:
   dependencies:
     acorn "^4.0.3"
 
-t10@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/t10/-/t10-1.0.1.tgz#0fbf04d927190905c3854db71a5f3451357a2900"
+t10@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/t10/-/t10-1.0.2.tgz#92d25b0351f605dea4d654cad83567ea71d2905e"
 
 table@^3.7.8:
   version "3.8.3"
