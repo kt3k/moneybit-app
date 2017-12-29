@@ -29,6 +29,32 @@ class JournalDocument {
     const { Journal } = require('./')
     return new Journal.Repository().getById(this.journalId)
   }
+
+  /**
+   * Formats the given money.
+   */
+  format (money) {
+    return `${this.currency.symbol}${this.commaPeriodSetting.format(Math.floor(money.amount))}${this.formatMoneyFractionPart(money)}`
+  }
+
+  /**
+   * Formats the given money's fraction part.
+   */
+  formatMoneyFractionPart (money) {
+    if (this.currency.ratioToMinimumCurrency <= 1) {
+      // If the minimum currency ratio is less than or equal to 1
+      // Then the fraction part does not exist. e.g. JPY, KRW
+      return ''
+    }
+
+    const digits = Math.log10(this.currency.ratioToMinimumCurrency)
+
+    let fraction = money.amount - Math.floor(money.amount)
+    fraction = Math.floor(this.currency.ratioToMinimumCurrency * fraction)
+    fraction = (Array(digits).join('0') + fraction).substr(-digits, digits)
+
+    return `${this.commaPeriodSetting.decimalPoint}${fraction}`
+  }
 }
 
 module.exports = JournalDocument
