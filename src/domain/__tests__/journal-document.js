@@ -1,6 +1,6 @@
 const { describe, it } = require('kocha')
 const { expect } = require('chai')
-const { Currency, CommaPeriodSetting, JournalDocument } = require('../')
+const { JournalDocument } = require('../')
 const { Money } = require('moneybit-domain')
 
 const factory = new JournalDocument.Factory()

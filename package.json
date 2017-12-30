@@ -89,7 +89,6 @@
   "standard": {
     "parser": "babel-eslint",
     "env": [
-      "mocha",
       "browser"
     ],
     "globals": [

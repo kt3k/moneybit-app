@@ -1,4 +1,4 @@
-const { component, emits, on, make } = capsid
+const { component, on, make } = capsid
 const { Action } = require('~')
 const genel = require('genel')
 
