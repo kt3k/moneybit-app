@@ -58,3 +58,7 @@
 # 2017-12-12
 
 - I don't burn the flag.
+
+# 2017-12-30
+
+- Creating the journal page.
