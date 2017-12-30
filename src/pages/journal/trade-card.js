@@ -7,6 +7,15 @@ class TradeCard {
   @wire.el('.trade-card__date-label')
   get dateLabel () {}
 
+  @wire.el('.trade-card__desc-label')
+  get descLabel () {}
+
+  @wire.el('.trade-card__debit-title-row')
+  get debitTitleRow () {}
+
+  @wire.el('.trade-card__credit-title-row')
+  get creditTitleRow () {}
+
   __init__ () {
     this.el.classList.add('column')
     this.el.appendChild(genel`
@@ -16,7 +25,7 @@ class TradeCard {
             No.16
           </p>
           <div class="card-header-icon">
-            <span class=""><strong class="trade-card__date-label">2016/04/05</strong></span>
+            <span class=""><strong class="trade-card__date-label"></strong></span>
           </div>
           <div class="card-header-icon">
             <a class="button is-primary is-outlined t-text" href="">ui.form.edit</a>
@@ -24,23 +33,17 @@ class TradeCard {
         </div>
         <div class="card-content">
           <div class="content">
-            <p>期首
+            <p class="trade-card__desc-label"></p>
             <table>
-              <tr>
-                <th><t>domain.debit</t>
+              <tr class="trade-card__debit-title-row">
+                <th><t>domain.debit</t></th>
+                <th></th>
+              </tr>
+              <tr class="trade-card__credit-title-row">
                 <th>
-              <tr>
-                <td>普通預金
-                <td>¥3,128,097
-              <tr>
-                <td>売掛金
-                <td>¥1,069,200
-              <tr>
-                <th><t>domain.credit</t>
+                  <t>domain.credit</t>
                 <th>
-              <tr>
-                <td>元入金
-                <td>¥4,197,297
+              </tr>
             </table>
             </div>
         </div>
@@ -49,9 +52,21 @@ class TradeCard {
   }
 
   @on(Action.UPDATE_TRADE)
-  update ({ detail: trade }) {
+  update ({ detail: { journalDocument: doc, trade } }) {
     console.log(trade)
     this.dateLabel.textContent = trade.date.format('YYYY/MM/DD')
+    this.descLabel.textContent = trade.description
+
+    const table = this.debitTitleRow.parentElement
+
+    trade.debits.forEach(debit => {
+      console.log(debit)
+      table.insertBefore(genel.tr`<td>${debit.type.name}</td><td>${doc.format(debit.amount)}</td>`, this.creditTitleRow)
+    })
+    trade.credits.forEach(credit => {
+      console.log(credit)
+      table.insertBefore(genel.tr`<td>${credit.type.name}</td><td>${doc.format(credit.amount)}</td>`, null)
+    })
   }
 }
 
