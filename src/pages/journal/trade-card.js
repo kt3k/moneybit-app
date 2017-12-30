@@ -58,7 +58,7 @@ class TradeCard {
   }
 
   serializeTrade (trade) {
-    return `${trade.date.format('YYYY/MM/DD')}|${trade.description}|${this.serializeAccounts(trade.debits)}|${this.serializeAccounts(trade.credits)}`
+    return `${trade.date.format(t10.t('locale.date_format'))}|${trade.description}|${this.serializeAccounts(trade.debits)}|${this.serializeAccounts(trade.credits)}`
   }
 
   @on(Action.UPDATE_TRADE)
@@ -71,7 +71,7 @@ class TradeCard {
     }
 
     this.el.dataset.tradeId = trade.id
-    this.dateLabel.textContent = trade.date.format('YYYY/MM/DD')
+    this.dateLabel.textContent = trade.date.format(t10.t('locale.date_format'))
     this.descLabel.textContent = trade.description
 
     const table = this.debitTitleRow.parentElement
