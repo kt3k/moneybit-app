@@ -35,11 +35,11 @@ class TradeCard {
           <div class="content">
             <p class="trade-card__desc-label"></p>
             <table>
-              <tr class="trade-card__debit-title-row">
+              <tr class="trade-card__debit-title-row u-text-uc">
                 <th><t>domain.debit</t></th>
                 <th></th>
               </tr>
-              <tr class="trade-card__credit-title-row">
+              <tr class="trade-card__credit-title-row u-text-uc">
                 <th>
                   <t>domain.credit</t>
                 <th>
@@ -51,22 +51,53 @@ class TradeCard {
     `)
   }
 
+  serializeAccounts (accounts) {
+    return accounts.map(account => {
+      return account.type.name + account.amount.amount
+    }).join('|')
+  }
+
+  serializeTrade (trade) {
+    return `${trade.date.format('YYYY/MM/DD')}|${trade.description}|${this.serializeAccounts(trade.debits)}|${this.serializeAccounts(trade.credits)}`
+  }
+
   @on(Action.UPDATE_TRADE)
   update ({ detail: { journalDocument: doc, trade } }) {
-    console.log(trade)
+    const serialized = this.serializeTrade(trade)
+
+    if (this.lastTradeSerialized === serialized) {
+      // not updated
+      return
+    }
+
+    this.el.dataset.tradeId = trade.id
     this.dateLabel.textContent = trade.date.format('YYYY/MM/DD')
     this.descLabel.textContent = trade.description
 
     const table = this.debitTitleRow.parentElement
 
+    table.querySelectorAll('.trade-card__account-row').forEach(el => {
+      table.removeChild(el)
+    })
+
     trade.debits.forEach(debit => {
-      console.log(debit)
-      table.insertBefore(genel.tr`<td>${debit.type.name}</td><td>${doc.format(debit.amount)}</td>`, this.creditTitleRow)
+      const tr = genel.tr`
+        <td>${debit.type.name}</td>
+        <td>${doc.format(debit.amount)}</td>
+      `
+      tr.classList.add('trade-card__account-row')
+      table.insertBefore(tr, this.creditTitleRow)
     })
     trade.credits.forEach(credit => {
-      console.log(credit)
-      table.insertBefore(genel.tr`<td>${credit.type.name}</td><td>${doc.format(credit.amount)}</td>`, null)
+      const tr = genel.tr`
+        <td>${credit.type.name}</td>
+        <td>${doc.format(credit.amount)}</td>
+      `
+      tr.classList.add('trade-card__account-row')
+      table.insertBefore(tr, null)
     })
+
+    this.lastTradeSerialized = serialized
   }
 }
 
