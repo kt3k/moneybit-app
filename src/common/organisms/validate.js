@@ -1,12 +1,12 @@
 const matango = require('matango')
-const { component, on, emits, wire, notifies } = capsid
+const { component, on, emits, wired, notifies } = capsid
 
 const ERROR_CLASS = 'is-error'
 const EVENT_VALIDATION_UPDATE = 'validation-update'
 
 @component('js-form')
 export default class Form {
-  @wire.elAll(`.${ERROR_CLASS}`)
+  @wired.all(`.${ERROR_CLASS}`)
   get errors () {}
 
   hasError () {
