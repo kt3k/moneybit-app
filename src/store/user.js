@@ -1,10 +1,10 @@
-const { Action: { INIT_USER, USER_READY } } = require('~')
+const { Action } = require('~')
 
 const { action, dispatches } = require('evex')
 
 class UserModule {
-  @action(INIT_USER)
-  @dispatches(USER_READY)
+  @action(Action.INIT_USER)
+  @dispatches(Action.USER_READY)
   async init (hub) {
     hub.user = await this.initUser(hub, hub.appState)
   }

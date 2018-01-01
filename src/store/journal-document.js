@@ -1,6 +1,6 @@
 const uuid = require('uuid')
 const moment = require('moment')
-const { domain: { AccountTypeChart, Journal, JournalDocument }, Action: { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT, CHANGE_CURRENT_DOCUMENT, UPDATE_CURRENT_DOCUMENT } } = require('~')
+const { domain: { AccountTypeChart, Journal, JournalDocument }, Action } = require('~')
 
 const { action, dispatches } = require('evex')
 
@@ -13,8 +13,8 @@ class JournalDocumentModule {
     this.documentFactory = new JournalDocument.Factory()
   }
 
-  @action(CREATE_JOURNAL_DOCUMENT)
-  @dispatches(MODEL_SAVE)
+  @action(Action.CREATE_JOURNAL_DOCUMENT)
+  @dispatches(Action.MODEL_SAVE)
   async createJournal (hub, e) {
     const { user } = hub
 
@@ -61,8 +61,8 @@ class JournalDocumentModule {
   /**
    * Changes the current document.
    */
-  @action(CHANGE_CURRENT_DOCUMENT)
-  @dispatches(MODEL_SAVE)
+  @action(Action.CHANGE_CURRENT_DOCUMENT)
+  @dispatches(Action.MODEL_SAVE)
   changeCurrentDocument (hub, { detail: id }) {
     const { user } = hub
 
@@ -80,8 +80,8 @@ class JournalDocumentModule {
   /**
    * Updates the current document's properties.
    */
-  @action(UPDATE_CURRENT_DOCUMENT)
-  @dispatches(MODEL_SAVE)
+  @action(Action.UPDATE_CURRENT_DOCUMENT)
+  @dispatches(Action.MODEL_SAVE)
   updateCurrentDocument (hub, { detail: { title, commaPeriodSetting, start, end } }) {
     const { user: { currentDocument }, domain: { CommaPeriodSetting } } = hub
 
