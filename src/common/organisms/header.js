@@ -1,10 +1,5 @@
 const { wire, component, on, emits } = capsid
-const {
-  actions: {
-    MODEL_UPDATE,
-    CHANGE_CURRENT_DOCUMENT
-  }
-} = require('~')
+const { actions: { MODEL_UPDATE, CHANGE_CURRENT_DOCUMENT } } = require('~')
 
 const genel = require('genel')
 
@@ -13,7 +8,8 @@ class AppHeader {
   @wire.el('.journal-document-select')
   get select () {}
 
-  @on(MODEL_UPDATE) onModelUpdate ({ detail: { user } }) {
+  @on(MODEL_UPDATE)
+  onModelUpdate ({ detail: { user } }) {
     this.select.innerHTML = ``
 
     user.documents.forEach(document => {
@@ -41,23 +37,27 @@ class AppMenu {
 
     this.transitioning = false
 
-    this.$target = $('.app-menu-dropdown')
-      .on('transitionend', e => {
-        if (e.originalEvent.propertyName !== 'opacity') {
-          return
-        }
+    this.$target = $('.app-menu-dropdown').on('transitionend', e => {
+      if (e.originalEvent.propertyName !== 'opacity') {
+        return
+      }
 
-        this.transitioning = false
+      this.transitioning = false
 
-        if (!this.$target.hasClass('is-visible')) {
-          this.$target.css('display', 'none')
-        }
-      })
+      if (!this.$target.hasClass('is-visible')) {
+        this.$target.css('display', 'none')
+      }
+    })
   }
 
-  @on.click open (e) {
-    if (this.transitioning) { return }
-    if (this.$target.hasClass('is-visible')) { return }
+  @on.click
+  open (e) {
+    if (this.transitioning) {
+      return
+    }
+    if (this.$target.hasClass('is-visible')) {
+      return
+    }
     this.transitioning = true
 
     e.stopPropagation()
@@ -67,8 +67,12 @@ class AppMenu {
   }
 
   close () {
-    if (this.transitioning) { return }
-    if (!this.$target.hasClass('is-visible')) { return }
+    if (this.transitioning) {
+      return
+    }
+    if (!this.$target.hasClass('is-visible')) {
+      return
+    }
     this.transitioning = true
 
     this.$target.removeClass('is-visible')

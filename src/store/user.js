@@ -1,9 +1,4 @@
-const {
-  Action: {
-    INIT_USER,
-    USER_READY
-  }
-} = require('~')
+const { Action: { INIT_USER, USER_READY } } = require('~')
 
 const { action, dispatches } = require('evex')
 

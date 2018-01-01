@@ -15,7 +15,7 @@
     "doc": "domaindoc",
     "gh-pages": "npm run clean && npm run build && domaindoc build && langsheet build && gh-pages -d build",
     "lint": "standard",
-    "fix": "standard --fix",
+    "fix": "prettier --write --no-semi --single-quote --print-width 200 *.js 'src/**/*.js' && standard --fix",
     "test": "karma start",
     "codecov": "codecov",
     "lang": "langsheet"
@@ -97,6 +97,13 @@
       "capsid",
       "basepath",
       "t10"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --no-semi --single-quote --print-width 200",
+      "standard --fix",
+      "git add"
     ]
   }
 }

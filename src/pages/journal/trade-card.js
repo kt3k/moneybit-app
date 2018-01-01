@@ -52,9 +52,11 @@ class TradeCard {
   }
 
   serializeAccounts (accounts) {
-    return accounts.map(account => {
-      return account.type.name + account.amount.amount
-    }).join('|')
+    return accounts
+      .map(account => {
+        return account.type.name + account.amount.amount
+      })
+      .join('|')
   }
 
   serializeTrade (trade) {

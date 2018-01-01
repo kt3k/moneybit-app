@@ -1,14 +1,6 @@
 const uuid = require('uuid')
 const moment = require('moment')
-const {
-  domain: { AccountTypeChart, Journal, JournalDocument },
-  Action: {
-    MODEL_SAVE,
-    CREATE_JOURNAL_DOCUMENT,
-    CHANGE_CURRENT_DOCUMENT,
-    UPDATE_CURRENT_DOCUMENT
-  }
-} = require('~')
+const { domain: { AccountTypeChart, Journal, JournalDocument }, Action: { MODEL_SAVE, CREATE_JOURNAL_DOCUMENT, CHANGE_CURRENT_DOCUMENT, UPDATE_CURRENT_DOCUMENT } } = require('~')
 
 const { action, dispatches } = require('evex')
 

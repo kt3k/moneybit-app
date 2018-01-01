@@ -17,7 +17,7 @@ class Language {
   }
 }
 
-const EN = Language.EN = new Language({ code: 'en' })
-const JA = Language.JA = new Language({ code: 'ja' })
+const EN = (Language.EN = new Language({ code: 'en' }))
+const JA = (Language.JA = new Language({ code: 'ja' }))
 
 module.exports = Language

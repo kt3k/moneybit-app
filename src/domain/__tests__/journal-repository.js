@@ -19,8 +19,7 @@ describe('JournalRepository', () => {
   describe('getById', () => {
     it('gets the journal by the id', () => {
       td.replace(infrastructure.storage, 'get')
-      td.when(infrastructure.storage.get('journal-foo', null))
-        .thenResolve(journalObj)
+      td.when(infrastructure.storage.get('journal-foo', null)).thenResolve(journalObj)
 
       return repo.getById('foo').then(journal => {
         expect(journal).to.be.instanceof(Journal)

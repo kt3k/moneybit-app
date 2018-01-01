@@ -1,4 +1,3 @@
-
 class UserSettings {
   /**
    * @param {string?} defaultChartId

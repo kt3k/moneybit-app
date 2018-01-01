@@ -2,10 +2,14 @@ const { capsid: { component, on, emits, wired }, Action } = require('~')
 
 @component('js-new-item-card')
 export default class NewItemCard {
-  @wired('.new-item-card__date') get date () {}
-  @wired('.new-item-card__desc') get desc () {}
-  @wired.all('.new-item-card__debit') get debits () {}
-  @wired.all('.new-item-card__credit') get credits () {}
+  @wired('.new-item-card__date')
+  get date () {}
+  @wired('.new-item-card__desc')
+  get desc () {}
+  @wired.all('.new-item-card__debit')
+  get debits () {}
+  @wired.all('.new-item-card__credit')
+  get credits () {}
 
   @on('click', { at: '.new-item-save-button' })
   @emits(Action.CREATE_TRADE)
@@ -24,7 +28,6 @@ export default class NewItemCard {
 
   createDebitObject () {
     const dr = {}
-
     ;[].forEach.call(this.debits, row => {
       const type = row.querySelector('.new-item-card__debit-type').value
       const amount = +row.querySelector('.new-item-card__debit-amount').value
@@ -36,7 +39,6 @@ export default class NewItemCard {
 
   createCreditObject () {
     const dr = {}
-
     ;[].forEach.call(this.credits, row => {
       const type = row.querySelector('.new-item-card__credit-type').value
       const amount = +row.querySelector('.new-item-card__credit-amount').value

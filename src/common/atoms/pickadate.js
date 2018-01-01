@@ -8,8 +8,10 @@ const { component, emits } = capsid
 @component('js-pickadate')
 class Pickadate {
   __init__ () {
-    this.$el.pickadate({ format: 'yyyy-mm-dd' })
-      .pickadate('picker').on({
+    this.$el
+      .pickadate({ format: 'yyyy-mm-dd' })
+      .pickadate('picker')
+      .on({
         set: d => this.pickDate(d)
       })
   }

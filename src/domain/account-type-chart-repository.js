@@ -42,7 +42,9 @@ class AccountTypeChartRepository {
   chartToObject (chart) {
     const accountTypes = {}
 
-    ALL_TYPES.forEach(majorType => { accountTypes[majorType.name] = [] })
+    ALL_TYPES.forEach(majorType => {
+      accountTypes[majorType.name] = []
+    })
 
     chart.majorTypes.forEach((majorType, accountTypeName) => {
       accountTypes[majorType.name].push(accountTypeName)

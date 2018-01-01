@@ -1,4 +1,3 @@
-
 const { domain: { Currency } } = require('~')
 const { component } = capsid
 
@@ -8,7 +7,11 @@ class CurrencySelect {
     Currency.CURRENCIES.forEach(currency => {
       const label = `${currency.symbol} - ${currency.code}`
 
-      this.$el.append($('<option/>').attr('value', currency.code).text(label))
+      this.$el.append(
+        $('<option/>')
+          .attr('value', currency.code)
+          .text(label)
+      )
     })
   }
 }

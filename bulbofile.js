@@ -50,9 +50,7 @@ asset(paths.src.njk.pages)
   .watch(paths.src.njk.all)
   .pipe(frontMatter({ property: 'fm' }))
   .pipe(nunjucks({ data }))
-  .pipe(layout1.nunjucks(file => (
-    `${paths.src.njk.layoutRoot}/${file.fm.layout || 'tab-layout'}.njk`
-  ), { data }))
+  .pipe(layout1.nunjucks(file => `${paths.src.njk.layoutRoot}/${file.fm.layout || 'tab-layout'}.njk`, { data }))
 
 // js
 asset(paths.src.js.pages, paths.src.js.common, paths.src.js.infrastructure, paths.src.js.i18n)

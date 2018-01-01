@@ -1,14 +1,11 @@
-const {
-  actions: {
-    MODEL_UPDATE
-  }
-} = require('~')
+const { actions: { MODEL_UPDATE } } = require('~')
 const { component, wire, on } = capsid
 const genel = require('genel')
 
 @component
 class ChartCard {
-  @wire.el('tbody') get tbody () {}
+  @wire.el('tbody')
+  get tbody () {}
 
   @on(MODEL_UPDATE)
   onModelUpdate ({ detail: { currentChart, domain: { MajorAccountType } } }) {

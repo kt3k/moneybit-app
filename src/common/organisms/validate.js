@@ -38,8 +38,7 @@ export class DisableOnError {
 @component('js-field')
 export class Field {
   @emits('input')
-  __init__ () {
-  }
+  __init__ () {}
 
   @on('input')
   @on('change')
@@ -103,10 +102,7 @@ class Rule {
   }
 }
 
-Rule.required = Rule.generate(
-  ({ value }) => value !== '',
-  () => 'This field is required.'
-)
+Rule.required = Rule.generate(({ value }) => value !== '', () => 'This field is required.')
 
 class ValidationError {
   /**

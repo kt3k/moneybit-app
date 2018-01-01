@@ -9,8 +9,7 @@ class UserRepository {
    * @return {User}
    */
   getById (id) {
-    return infrastructure.storage.get(this.createKey(id), null)
-      .then(data => this.deserialize(data))
+    return infrastructure.storage.get(this.createKey(id), null).then(data => this.deserialize(data))
   }
 
   /**
@@ -75,7 +74,9 @@ class UserRepository {
    * @return {User}
    */
   deserialize (obj) {
-    if (!obj) { return null }
+    if (!obj) {
+      return null
+    }
 
     const documentFactory = new DocumentFactory()
     const userSettingsFactory = new UserSettingsFactory()

@@ -1,17 +1,16 @@
 const { wire, on, emits, component } = capsid
-const {
-  actions: {
-    MODEL_UPDATE,
-    UPDATE_CURRENT_DOCUMENT
-  }
-} = require('~')
+const { actions: { MODEL_UPDATE, UPDATE_CURRENT_DOCUMENT } } = require('~')
 
 @component
 class MiscSettings {
-  @wire.el('.misc-settings__currency') get currencyLabel () {}
-  @wire.el('.misc-settings__comma-style select') get commaStyleSelectBox () {}
-  @wire.el('.misc-settings__start-date input') get startDateInput () {}
-  @wire.el('.misc-settings__end-date input') get endDateInput () {}
+  @wire.el('.misc-settings__currency')
+  get currencyLabel () {}
+  @wire.el('.misc-settings__comma-style select')
+  get commaStyleSelectBox () {}
+  @wire.el('.misc-settings__start-date input')
+  get startDateInput () {}
+  @wire.el('.misc-settings__end-date input')
+  get endDateInput () {}
 
   @on(MODEL_UPDATE)
   onModelUpdate ({ detail: { user: { currentDocument } } }) {

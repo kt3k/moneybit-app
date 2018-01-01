@@ -1,8 +1,4 @@
-const {
-  domain,
-  Page,
-  Action
-} = require('~')
+const { domain, Page, Action } = require('~')
 
 const { component, notifies } = capsid
 const { store, dispatches, action } = require('evex')
@@ -11,22 +7,18 @@ const { store, dispatches, action } = require('evex')
  * The hub of the all models handled in this app.
  */
 @component('js-store')
-@store({ modules: [
-  require('./app-state'),
-  require('./user'),
-  require('./language'),
-  require('./journal-document'),
-  require('./chart'),
-  require('./location'),
-  require('./trade')
-] })
+@store({
+  modules: [require('./app-state'), require('./user'), require('./language'), require('./journal-document'), require('./chart'), require('./location'), require('./trade')]
+})
 class Store {
   constructor () {
     this.user = null
     this.domain = domain
     this.userRepository = new this.domain.User.Repository()
     this.journalRepository = new this.domain.Journal.Repository()
-    this.languageReady = new Promise(resolve => { this.resolveLanguageReady = resolve })
+    this.languageReady = new Promise(resolve => {
+      this.resolveLanguageReady = resolve
+    })
     this.location = window.location
   }
 
@@ -47,9 +39,7 @@ class Store {
   }
 
   async save () {
-    const promises = [
-      this.userRepository.save(this.user)
-    ]
+    const promises = [this.userRepository.save(this.user)]
 
     if (this.currentJournal) {
       promises.push(this.journalRepository.save(this.currentJournal))
@@ -89,8 +79,7 @@ class Store {
 
   @action(Action.LOCATION_OK)
   @dispatches(Action.MODEL_SAVE)
-  locationOkToModelSave () {
-  }
+  locationOkToModelSave () {}
 
   @action(Action.LOCATION_NG)
   @dispatches(Action.MODEL_SAVE)

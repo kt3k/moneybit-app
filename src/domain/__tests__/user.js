@@ -55,7 +55,7 @@ describe('User', () => {
       expect(user.has(baz)).to.equal(true)
     })
 
-    it('removes currentDocument if the id is currentDocument\'s', () => {
+    it("removes currentDocument if the id is currentDocument's", () => {
       const user = new User({ id: 'john', documents: [] })
 
       const foo = documentFactory.createFromObject({ id: 'foo' })

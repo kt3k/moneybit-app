@@ -1,4 +1,3 @@
-
 /**
  * Gets the lang tag which the user use.
  * @return {string}

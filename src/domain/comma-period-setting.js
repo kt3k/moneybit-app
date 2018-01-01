@@ -11,7 +11,10 @@ class CommaPeriodSetting {
    * @return {string}
    */
   format (num) {
-    return num.toString().split(/(?=(?:\d{3})+$)/).join(this.delimiter)
+    return num
+      .toString()
+      .split(/(?=(?:\d{3})+$)/)
+      .join(this.delimiter)
   }
 }
 

@@ -4,7 +4,7 @@ const td = require('testdouble')
 const domain = require('../../domain')
 
 const documentObject = {
-  title: 'Some Company\'s Journal 2017',
+  title: "Some Company's Journal 2017",
   start: '2017-01-01',
   end: '2017-12-31',
   currencyCode: domain.Currency.USD.code,

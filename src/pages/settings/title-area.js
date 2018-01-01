@@ -1,16 +1,13 @@
 const { emits, on, notifies, wire, component } = capsid
-const {
-  actions: {
-    MODEL_UPDATE,
-    UPDATE_CURRENT_DOCUMENT
-  }
-} = require('~')
+const { actions: { MODEL_UPDATE, UPDATE_CURRENT_DOCUMENT } } = require('~')
 const { OPEN, CLOSE, INPUT } = require('../../common/molecules/input-modal')
 
 @component('settings-title-area')
 class TitleArea {
-  @wire.el('.journal-title') get title () {}
-  @wire.el('.input-modal') get inputModal () {}
+  @wire.el('.journal-title')
+  get title () {}
+  @wire.el('.input-modal')
+  get inputModal () {}
 
   @on(MODEL_UPDATE)
   @notifies(CLOSE, '.input-modal')

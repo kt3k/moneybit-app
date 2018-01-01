@@ -7,8 +7,7 @@ class JournalRepository {
    * @return {Promise<Journal>}
    */
   getById (id) {
-    return infrastructure.storage.get(this.createKey(id), null)
-      .then(data => this.deserialize(data))
+    return infrastructure.storage.get(this.createKey(id), null).then(data => this.deserialize(data))
   }
 
   /**
@@ -61,7 +60,9 @@ class JournalRepository {
   accountsToObject (accounts) {
     const obj = {}
 
-    accounts.forEach(account => { obj[account.type.name] = account.amount.amount })
+    accounts.forEach(account => {
+      obj[account.type.name] = account.amount.amount
+    })
 
     return obj
   }

@@ -7,7 +7,8 @@ const INPUT = 'mb/input-modal/INPUT'
 
 @component('input-modal')
 class InputModal {
-  @wire.el('input') get input () {}
+  @wire.el('input')
+  get input () {}
 
   @on(OPEN)
   @nextTick

@@ -1,17 +1,16 @@
 const { component, on, emits, wire } = capsid
-const {
-  actions: {
-    SWITCH_LANGUAGE,
-    MODEL_UPDATE
-  }
-} = require('~')
+const { actions: { SWITCH_LANGUAGE, MODEL_UPDATE } } = require('~')
 
 @component('js-language-switch-group')
 class LanguageSwitchGroup {
-  @wire.$el('button') get $buttons () {}
-  @wire.$el('button[lang=""]') get $buttonAuto () {}
-  @wire.$el('button[lang="en"]') get $buttonEn () {}
-  @wire.$el('button[lang="ja"]') get $buttonJa () {}
+  @wire.$el('button')
+  get $buttons () {}
+  @wire.$el('button[lang=""]')
+  get $buttonAuto () {}
+  @wire.$el('button[lang="en"]')
+  get $buttonEn () {}
+  @wire.$el('button[lang="ja"]')
+  get $buttonJa () {}
 
   __init__ () {
     this.el.classList.add('is-model-observer')
@@ -23,7 +22,8 @@ class LanguageSwitchGroup {
     return $(e.target).attr('lang')
   }
 
-  @on(MODEL_UPDATE) update (e) {
+  @on(MODEL_UPDATE)
+  update (e) {
     const { domain, user } = e.detail
     const { EN, JA } = domain.Language
     const { language } = user.settings
