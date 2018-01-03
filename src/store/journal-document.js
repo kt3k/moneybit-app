@@ -1,6 +1,7 @@
 const uuid = require('uuid')
 const moment = require('moment')
 const { domain: { AccountTypeChart, Journal, JournalDocument }, Action } = require('~')
+const { Money } = require('moneybit-domain')
 
 const { action, dispatches } = require('evex')
 
@@ -97,6 +98,11 @@ class JournalDocumentModule {
     if (end) {
       currentDocument.end = moment(end)
     }
+  }
+
+  @action(Action.REQUEST_MONEY_FORMAT)
+  formatMoney (hub, { detail: { send, amount } }) {
+    send(hub.user.currentDocument.format(new Money(amount)))
   }
 }
 module.exports = JournalDocumentModule
