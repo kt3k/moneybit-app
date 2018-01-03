@@ -30,7 +30,7 @@ export default class NewItemCard {
     const dr = {}
     ;[].forEach.call(this.debits, row => {
       const type = row.querySelector('.new-item-card__debit-type').value
-      const amount = +row.querySelector('.new-item-card__debit-amount').value
+      const amount = +row.querySelector('.new-item-card__debit-amount').dataset.amount
       dr[type] = amount
     })
 
@@ -41,7 +41,7 @@ export default class NewItemCard {
     const dr = {}
     ;[].forEach.call(this.credits, row => {
       const type = row.querySelector('.new-item-card__credit-type').value
-      const amount = +row.querySelector('.new-item-card__credit-amount').value
+      const amount = +row.querySelector('.new-item-card__credit-amount').dataset.amount
       dr[type] = amount
     })
 
