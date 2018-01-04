@@ -50,7 +50,7 @@ class JournalDocument {
     const digits = Math.log10(this.currency.ratioToMinimumCurrency)
 
     let fraction = money.amount - Math.floor(money.amount)
-    fraction = Math.floor(this.currency.ratioToMinimumCurrency * fraction)
+    fraction = Math.round(this.currency.ratioToMinimumCurrency * fraction)
     fraction = (Array(digits).join('0') + fraction).substr(-digits, digits)
 
     return `${this.commaPeriodSetting.decimalPoint}${fraction}`

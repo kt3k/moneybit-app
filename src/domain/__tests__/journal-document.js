@@ -42,6 +42,7 @@ describe('JournalDocument', () => {
       expect(docEur.format(new Money(0.15))).to.equal('€0,15')
       expect(docEur.format(new Money(1))).to.equal('€1,00')
       expect(docEur.format(new Money(2))).to.equal('€2,00')
+      expect(docEur.format(new Money(2.01))).to.equal('€2,01')
       expect(docEur.format(new Money(15))).to.equal('€15,00')
       expect(docEur.format(new Money(100.75))).to.equal('€100,75')
       expect(docEur.format(new Money(10000.75))).to.equal('€10.000,75')
