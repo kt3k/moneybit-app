@@ -10,11 +10,15 @@ class NumberInput {
     }
   }
 
+  @on('input')
+  onInput () {
+    this.el.dataset.amount = this.el.value || 0
+  }
+
   @on('blur')
   @emits(Action.REQUEST_MONEY_FORMAT)
   onBlur () {
-    const amount = this.el.value || 0
-    this.el.dataset.amount = amount
+    const amount = this.el.dataset.amount = this.el.dataset.amount || 0
 
     return {
       amount,

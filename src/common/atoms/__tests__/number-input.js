@@ -31,9 +31,17 @@ describe('number-input', () => {
     })
   })
 
+  context('on input', () => {
+    it('assigns el.value to el.dataset.amount', () => {
+      ni.el.value = '1234'
+      ni.el.dispatchEvent(new CustomEvent('input'))
+      expect(ni.el.dataset.amount).to.equal('1234')
+    })
+  })
+
   context('on blur', () => {
-    it('sets el.value to dataset.amount', done => {
-      ni.el.value = '123'
+    it('dispatches REQUEST_MONEY_FIRMAT with dataset.amount', done => {
+      ni.el.dataset.amount = '123'
 
       ni.el.addEventListener(Action.REQUEST_MONEY_FORMAT, ({ detail }) => {
         expect(detail.amount).to.equal('123')
@@ -43,7 +51,6 @@ describe('number-input', () => {
       })
 
       ni.el.dispatchEvent(new CustomEvent('blur', {}))
-      ni.el.dataset.amount = '123'
     })
   })
 })
