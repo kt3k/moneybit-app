@@ -81,6 +81,14 @@ export default class NewItemCard {
     prep(null, this.el)
   }
 
+  @on('click', { at: '.add-debit-button' })
+  addDebitRow () {
+  }
+
+  @on('click', { at: '.add-credit-button' })
+  addCreditRow () {
+  }
+
   @on('click', { at: '.new-item-save-button' })
   @emits(Action.CREATE_TRADE)
   onCreateNewTrade () {
@@ -96,25 +104,28 @@ export default class NewItemCard {
     console.log('TODO: validate')
   }
 
-  createDebitObject () {
-    const dr = {}
-    ;[].forEach.call(this.debits, row => {
-      const type = row.querySelector('.new-item-card__debit-type').value
-      const amount = +row.querySelector('.new-item-card__debit-amount').dataset.amount
-      dr[type] = amount
+  /**
+   * @param {NodeList} accountRows
+   * @param {string} typeSelector
+   * @param {string} amountSelector
+   */
+  createAccountMap (accountRows, typeSelector, amountSelector) {
+    const accountMap = {}
+
+    ;[].forEach.call(accountRows, row => {
+      const type = row.querySelector(typeSelector).value
+      const amount = +row.querySelector(amountSelector).dataset.amount
+      accountMap[type] = amount
     })
 
-    return dr
+    return accountMap
+  }
+
+  createDebitObject () {
+    return this.createAccountMap(this.debits, '.new-item-card__debit-type', '.new-item-card__debit-amount')
   }
 
   createCreditObject () {
-    const dr = {}
-    ;[].forEach.call(this.credits, row => {
-      const type = row.querySelector('.new-item-card__credit-type').value
-      const amount = +row.querySelector('.new-item-card__credit-amount').dataset.amount
-      dr[type] = amount
-    })
-
-    return dr
+    return this.createAccountMap(this.credits, '.new-item-card__credit-type', '.new-item-card__credit-amount')
   }
 }
