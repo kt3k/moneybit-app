@@ -7,19 +7,7 @@
     "last 3 versions"
   ],
   "scripts": {
-    "clean": "rimraf build",
-    "start": "run-p serve doc lang index",
-    "start-ja": "cross-env LANG_TAG=ja npm start",
-    "serve": "bulbo serve",
-    "build": "bulbo build",
-    "doc": "domaindoc",
-    "index": "opener http://localhost:9000 && wsindex",
-    "gh-pages": "npm run clean && npm run build && domaindoc build && langsheet build && gh-pages -d build",
-    "lint": "standard",
-    "fix": "prettier --write --no-semi --single-quote --print-width 200 *.js 'src/**/*.js' && standard --fix",
-    "test": "karma start",
-    "codecov": "codecov",
-    "lang": "langsheet"
+    "test": "npx saku test"
   },
   "wsindex": {
     "pages": [
@@ -103,6 +91,7 @@
     "pickadate": "^3.5.6",
     "prettier": "^1.9.2",
     "rimraf": "^2.6.1",
+    "saku": "^0.11.0",
     "standard": "^10.0.2",
     "t10": "^1.0.2",
     "testdouble": "^2.1.2",
