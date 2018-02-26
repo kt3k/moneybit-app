@@ -7,7 +7,8 @@
     "last 3 versions"
   ],
   "scripts": {
-    "test": "saku test"
+    "test": "saku test",
+    "codecov": "saku codecov"
   },
   "wsindex": {
     "pages": [
