@@ -43,6 +43,7 @@ const data = { src, basepath, reviewUrl }
 
 bulbo.debugPagePath('__moneybit__')
 bulbo.base(src)
+bulbo.dest('build/app')
 bulbo.port(4000)
 
 // html

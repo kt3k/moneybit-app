@@ -22,6 +22,9 @@
 > Builds the assets
 
     npx bulbo build
+    npx domaindoc build
+    npx langsheet build
+    npx wsindex build
 
 # doc
 > Serves the domain document
@@ -38,9 +41,7 @@
 > Updates the gh-pages branch
 
     saku clean
-    saku build
-    npx domaindoc build
-    npx langsheet build
+    npx cross-env BASEPATH=../.. saku build
     npx gh-pages -d build
 
 # lint
