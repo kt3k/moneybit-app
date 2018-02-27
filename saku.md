@@ -1,3 +1,7 @@
+# hello
+
+    echo hello $NAME
+
 # clean
 > Cleans the built files
 
@@ -41,7 +45,10 @@
 > Updates the gh-pages branch
 
     saku clean
-    npx cross-env BASEPATH=../.. saku build
+    npx cross-env BASEPATH=../.. npx bulbo build
+    npx domaindoc build
+    npx langsheet build
+    npx wsindex build
     npx gh-pages -d build
 
 # lint
