@@ -5541,12 +5541,11 @@ label.panel-block {
 body {
   font-family: 'Avenir Next', 'Hiragino Kaku Gothic ProN', sans-serif; }
 
-.placeholder450 {
-  width: 1px;
-  height: 4.50rem; }
-
 .short-section {
   padding: 1rem 1.5rem 1rem; }
+
+.u-text-uc {
+  text-transform: uppercase; }
 
 /* hide untranslated contents */
 t, .t-text, .t-attr, .t-hidden {
