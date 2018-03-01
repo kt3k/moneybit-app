@@ -1,12 +1,14 @@
 # moneybit-app WIP
 
-> バランスシート作成アプリ
+> オープンソースの会計処理アプリ (フリーランサー向け)
 
 [![CircleCI](https://circleci.com/gh/kt3k/moneybit-app.svg?style=svg)](https://circleci.com/gh/kt3k/moneybit-app)
 [![codecov](https://codecov.io/gh/kt3k/moneybit-app/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/moneybit-app)
 
 
-- フリーランスエンジニア/デザイナ/コンサルタント向け
+- 経理アプリ
+- 100% オープンソース
+- フリーランス非小売業向け
 - 年次取引数1000未満の個人事業主がメインターゲット
 
 # High level architecture

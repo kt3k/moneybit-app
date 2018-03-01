@@ -1,6 +1,6 @@
 {
   "name": "moneybit-app",
-  "description": "バランスシート作成アプリ",
+  "description": "Open Source Mobile App for Accounting of Freelancers",
   "version": "0.1.0",
   "main": "index.js",
   "browserslist": [
