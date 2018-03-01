@@ -1,16 +1,27 @@
 const { capsid: { prep, component, on, emits, wired }, Action } = require('~')
+const genel = require('genel')
 
 @component('js-new-item-card')
 export default class NewItemCard {
   @wired('.new-item-card__date')
   get date () {}
+
   @wired('.new-item-card__desc')
   get desc () {}
+
   @wired.all('.new-item-card__debit')
   get debits () {}
+
   @wired.all('.new-item-card__credit')
   get credits () {}
 
+  lastDebit () {
+    return this.debits[this.debits.length - 1]
+  }
+
+  lastCredit () {
+    return this.credits[this.credits.length - 1]
+  }
 
   __init__ () {
     this.el.classList.add('card')
@@ -41,9 +52,9 @@ export default class NewItemCard {
                 <p class="control"><input class="input new-item-card__debit-type" value="普通預金"/>
               <td>
                 <p class="control"><input class="input js-number-input new-item-card__debit-amount" />
-            <tr>
+            <tr class="new-item-card__add-debit-row">
               <td>
-                <button class="button is-primary is-outlined">
+                <button class="button is-primary is-outlined add-debit-button">
                   <span class="icon">
                     <i class="fa fa-plus"></i>
                   </span>
@@ -57,9 +68,9 @@ export default class NewItemCard {
                 <p class="control"><input class="input new-item-card__credit-type" value="元入金"/>
               <td>
                 <p class="control"><input class="input js-number-input new-item-card__credit-amount" />
-            <tr>
+            <tr class="new-item-card__add-credit-row">
               <td>
-                <button class="button is-primary is-outlined">
+                <button class="button is-primary is-outlined add-credit-button">
                   <span class="icon">
                     <i class="fa fa-plus"></i>
                   </span>
@@ -83,10 +94,38 @@ export default class NewItemCard {
 
   @on('click', { at: '.add-debit-button' })
   addDebitRow () {
+    const last = this.lastDebit()
+
+    const tr = genel.tr`
+      <td>
+        <p class="control"><input class="input new-item-card__debit-type" value=""/>
+      <td>
+        <p class="control"><input class="input js-number-input new-item-card__debit-amount" />
+    `
+
+    tr.classList.add('new-item-card__debit')
+
+    last.parentElement.insertBefore(tr, last.nextSibling)
+
+    prep()
   }
 
   @on('click', { at: '.add-credit-button' })
   addCreditRow () {
+    const last = this.lastCredit()
+
+    const tr = genel.tr`
+      <td>
+        <p class="control"><input class="input new-item-card__credit-type" value=""/>
+      <td>
+        <p class="control"><input class="input js-number-input new-item-card__credit-amount" />
+    `
+
+    tr.classList.add('new-item-card__credit')
+
+    last.parentElement.insertBefore(tr, last.nextSibling)
+
+    prep()
   }
 
   @on('click', { at: '.new-item-save-button' })
