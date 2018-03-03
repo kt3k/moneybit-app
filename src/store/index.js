@@ -28,11 +28,14 @@ class Store {
   @action(Action.MODEL_SAVE)
   async onModelSave (hub, { detail }) {
     await this.save()
+    console.log(detail)
 
     if (detail && detail.reload) {
       this.location.reload()
     } else if (detail && detail.replace) {
       this.location.replace(detail.replace)
+    } else if (detail && detail.to) {
+      this.location.href = detail.to
     } else {
       this.notifyUpdate()
     }

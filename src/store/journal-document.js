@@ -1,6 +1,6 @@
 const uuid = require('uuid')
 const moment = require('moment')
-const { domain: { AccountTypeChart, Journal, JournalDocument }, Action } = require('~')
+const { domain: { AccountTypeChart, Journal, JournalDocument }, Action, Page } = require('~')
 const { Money } = require('moneybit-domain')
 
 const { action, dispatches } = require('evex')
@@ -31,6 +31,8 @@ class JournalDocumentModule {
     const document = this.documentFactory.createFromObject(documentObj)
 
     user.setCurrentDocument(document)
+
+    return { to: Page.JOURNAL }
   }
 
   /**
