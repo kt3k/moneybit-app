@@ -22,7 +22,7 @@ class CreateJournalForm {
   @wire.el('button.is-danger')
   get cancelButton () {}
 
-  @on('click', { at: 'button.is-primary' })
+  @on('click', { at: '.create-journal-form__create-button' })
   @emits(CREATE_JOURNAL_DOCUMENT)
   createJournal (e) {
     e.preventDefault()
@@ -39,7 +39,7 @@ class CreateJournalForm {
     }
   }
 
-  @on('click', { at: 'button.is-danger' })
+  @on('click', { at: '.create-journal-form__cancel-button' })
   cancel (e) {
     e.preventDefault()
     history.back()
