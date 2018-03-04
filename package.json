@@ -120,5 +120,8 @@
       "standard --fix",
       "git add"
     ]
+  },
+  "dependencies": {
+    "popper.js": "^1.12.9"
   }
 }
