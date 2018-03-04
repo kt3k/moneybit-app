@@ -18,11 +18,13 @@ class NumberInput {
   @on('blur')
   @emits(Action.REQUEST_MONEY_FORMAT)
   onBlur () {
-    const amount = this.el.dataset.amount = this.el.dataset.amount || 0
+    const amount = (this.el.dataset.amount = this.el.dataset.amount || 0)
 
     return {
       amount,
-      send: label => { this.el.value = label }
+      send: label => {
+        this.el.value = label
+      }
     }
   }
 }

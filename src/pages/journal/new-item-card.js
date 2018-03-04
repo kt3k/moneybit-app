@@ -150,7 +150,6 @@ export default class NewItemCard {
    */
   createAccountMap (accountRows, typeSelector, amountSelector) {
     const accountMap = {}
-
     ;[].forEach.call(accountRows, row => {
       const type = row.querySelector(typeSelector).value
       const amount = +row.querySelector(amountSelector).dataset.amount
