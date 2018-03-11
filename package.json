@@ -60,7 +60,8 @@
     "bulbo": "^6.13.0",
     "bulma": "^0.4.1",
     "bundle-through": "^1.0.3",
-    "capsid": "^0.19.0",
+    "capsid": "^0.20.2",
+    "capsid-popper": "^1.1.0",
     "chai": "^3.5.0",
     "chrome-console-debug-menu": "^2.0.1",
     "codecov": "^2.1.0",
@@ -90,6 +91,7 @@
     "once": "^1.4.0",
     "opener": "^1.4.3",
     "pickadate": "^3.5.6",
+    "popper.js": "^1.12.9",
     "prettier": "^1.9.2",
     "rimraf": "^2.6.1",
     "saku": "^0.11.0",
@@ -120,8 +122,5 @@
       "standard --fix",
       "git add"
     ]
-  },
-  "dependencies": {
-    "popper.js": "^1.12.9"
   }
 }

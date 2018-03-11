@@ -10,6 +10,7 @@ global.$ = require('jquery')
 global.domain = require('../domain')
 require('capsid/jquery')(capsid, $)
 require('capsid/outside-events')(capsid)
+capsid.install(require('capsid-popper'))
 
 require('./quarks')
 require('./atoms')
