@@ -28,7 +28,6 @@ class Store {
   @action(Action.MODEL_SAVE)
   async onModelSave (hub, { detail }) {
     await this.save()
-    console.log(detail)
 
     if (detail && detail.reload) {
       this.location.reload()
