@@ -1,8 +1,10 @@
 const matango = require('matango')
+const genel = require('genel')
 const { component, on, emits, wired, notifies } = capsid
 
 const ERROR_CLASS = 'is-error'
 const EVENT_VALIDATION_UPDATE = 'validation-update'
+const CLASS_DISABLE_ON_ERROR = 'js-disable-on-error'
 
 @component('js-form')
 export default class Form {
@@ -13,15 +15,14 @@ export default class Form {
     return this.errors.length > 0
   }
 
-  @on('input')
-  @on('change')
-  @notifies(EVENT_VALIDATION_UPDATE, 'button, input[type="submit"], input[type="image"]')
+  @on('field-error')
+  @notifies(EVENT_VALIDATION_UPDATE, `.${CLASS_DISABLE_ON_ERROR}`)
   onInput () {
     return { error: this.hasError() }
   }
 }
 
-@component('js-disable-on-error')
+@component(CLASS_DISABLE_ON_ERROR)
 export class DisableOnError {
   @on(EVENT_VALIDATION_UPDATE)
   onValidationUpdate (e) {
@@ -35,17 +36,52 @@ export class DisableOnError {
   }
 }
 
+@component('error-tooltip')
+export class ErrorTooltip {
+  @on('field-error')
+  onFieldError ({ detail: { errors } }) {
+    this.el.innerHTML = ''
+
+    errors.forEach(error => {
+      this.el.appendChild(genel.p`${error.message}`)
+    })
+  }
+}
+
+@component('js-field-wrapper')
+export class FieldWrapper {
+  @on('field-error')
+  @notifies('field-error', '.error-tooltip')
+  onFieldError ({ detail: { errors } }) {
+    this.el.classList.toggle(ERROR_CLASS, errors.length > 0)
+    return { errors }
+  }
+}
+
+@component('purity-aware')
+export class PurityAware {
+  @on('input')
+  @on('change')
+  onInput () {
+    this.el.classList.remove('pure')
+  }
+}
+
 @component('js-field')
 export class Field {
-  @emits('input')
-  __init__ () {}
+  __init__ () {
+    this.onInput()
+  }
 
   @on('input')
   @on('change')
+  @emits('field-error')
   onInput () {
     const errors = this.getValidationErrors()
 
     this.el.classList.toggle(ERROR_CLASS, errors.length > 0)
+
+    return { errors }
   }
 
   /**
@@ -65,6 +101,7 @@ export class Field {
   }
 
   /**
+   * Parse data-validate attribute by https://github.com/kt3k/matango rule.
    * @return {Object[]}
    */
   getValidationArgs () {
@@ -84,6 +121,10 @@ class Rule {
     this.arg = arg
   }
 
+  /**
+   * Returns validation error from the give value and element. Returns null if it doesn't have an error.
+   * @return {ValidationError?}
+   */
   getError (value, el) {
     const params = { value, arg: this.arg, el }
     if (!this.condition(params)) {
@@ -102,7 +143,7 @@ class Rule {
   }
 }
 
-Rule.required = Rule.generate(({ value }) => value !== '', () => 'This field is required.')
+Rule.required = Rule.generate(({ value }) => value !== '', () => 'This field is required')
 
 class ValidationError {
   /**
