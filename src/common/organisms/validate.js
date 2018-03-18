@@ -2,12 +2,12 @@ const matango = require('matango')
 const genel = require('genel')
 const { component, on, emits, wired, notifies } = capsid
 
-const ERROR_CLASS = 'is-error'
-const EVENT_VALIDATION_UPDATE = 'validation-update'
-const CLASS_DISABLE_ON_ERROR = 'js-disable-on-error'
+export const ERROR_CLASS = 'is-error'
+export const EVENT_VALIDATION_UPDATE = 'validation-update'
+export const CLASS_DISABLE_ON_ERROR = 'js-disable-on-error'
 
 @component('js-form')
-export default class Form {
+export class Form {
   @wired.all(`.${ERROR_CLASS}`)
   get errors () {}
 
