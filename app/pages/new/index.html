@@ -72,7 +72,7 @@
     <form class="js-form js-start-and-end-date-form js-create-journal-form">
       <h2 class="title t-text">app.title</h2>
 
-      <div class="field">
+      <div class="field js-field-wrapper purity-aware pure">
         <p class="control">
           <input
             class="input t-attr js-field"
@@ -82,6 +82,14 @@
             placeholder="t:domain.journal.title"
           />
         </p>
+        <div
+          class="popper error-tooltip"
+          data-popper-ref=".input"
+          data-popper-placement="top-end"
+          style="display: none;"
+        >
+          This field is required
+        </div>
       </div>
 
       <hr />
@@ -89,7 +97,7 @@
       <div class="misc-settings">
   <div class="misc-settings__row">
     <div class="misc-settings__row__left t-text">domain.currency</div>
-    <div class="field misc-settings__row__right">
+    <div class="field js-field-wrapper purity-aware pure misc-settings__row__right">
       <p class="control">
         <span class="select">
           <select
@@ -101,6 +109,12 @@
           </select>
         </span>
       </p>
+      <div
+        class="popper error-tooltip"
+        data-popper-ref=".js-field"
+        data-popper-placement="top-end"
+        style="display: none;"
+      ></div>
     </div>
   </div>
   <div class="misc-settings__row">
@@ -133,6 +147,12 @@
           placeholder="t:ui.form.select_date"
         />
       </p>
+      <div
+        class="popper error-tooltip"
+        data-popper-ref=".js-field"
+        data-popper-placement="top-end"
+        style="display: none;"
+      ></div>
     </div>
   </div>
   <div class="misc-settings__row">
@@ -148,6 +168,12 @@
           placeholder="t:ui.form.select_date"
         />
       </p>
+      <div
+        class="popper error-tooltip"
+        data-popper-ref=".js-field"
+        data-popper-placement="top-end"
+        style="display: none;"
+      ></div>
     </div>
   </div>
 </div>
@@ -157,10 +183,10 @@
 
       <div class="columns is-mobile">
         <div class="column">
-          <button class="button is-danger is-wide t-text">ui.form.cancel</button>
+          <button class="button is-danger is-wide t-text create-journal-form__cancel-button">ui.form.cancel</button>
         </div>
         <div class="column">
-          <button class="button is-primary is-wide t-text js-disable-on-error">ui.form.create</button>
+          <button class="button is-primary is-wide t-text js-disable-on-error create-journal-form__create-button">ui.form.create</button>
         </div>
       </div>
     </form>

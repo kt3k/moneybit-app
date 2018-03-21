@@ -77,6 +77,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class, _desc, _value, _class2;
 
+var _templateObject = _taggedTemplateLiteral(['\n      <td>\n        <p class="control"><input class="input new-item-card__debit-type" value=""/>\n      <td>\n        <p class="control"><input class="input js-number-input new-item-card__debit-amount" />\n    '], ['\n      <td>\n        <p class="control"><input class="input new-item-card__debit-type" value=""/>\n      <td>\n        <p class="control"><input class="input js-number-input new-item-card__debit-amount" />\n    ']),
+    _templateObject2 = _taggedTemplateLiteral(['\n      <td>\n        <p class="control"><input class="input new-item-card__credit-type" value=""/>\n      <td>\n        <p class="control"><input class="input js-number-input new-item-card__credit-amount" />\n    '], ['\n      <td>\n        <p class="control"><input class="input new-item-card__credit-type" value=""/>\n      <td>\n        <p class="control"><input class="input js-number-input new-item-card__credit-amount" />\n    ']);
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
@@ -117,27 +122,57 @@ var _require = require('~'),
     wired = _require$capsid.wired,
     Action = _require.Action;
 
+var genel = require('genel');
+
 var NewItemCard = (_dec = component('js-new-item-card'), _dec2 = wired('.new-item-card__date'), _dec3 = wired('.new-item-card__desc'), _dec4 = wired.all('.new-item-card__debit'), _dec5 = wired.all('.new-item-card__credit'), _dec6 = on('click', { at: '.add-debit-button' }), _dec7 = on('click', { at: '.add-credit-button' }), _dec8 = on('click', { at: '.new-item-save-button' }), _dec9 = emits(Action.CREATE_TRADE), _dec(_class = (_class2 = function () {
   function NewItemCard() {
     _classCallCheck(this, NewItemCard);
   }
 
   _createClass(NewItemCard, [{
+    key: 'lastDebit',
+    value: function lastDebit() {
+      return this.debits[this.debits.length - 1];
+    }
+  }, {
+    key: 'lastCredit',
+    value: function lastCredit() {
+      return this.credits[this.credits.length - 1];
+    }
+  }, {
     key: '__init__',
     value: function __init__() {
       this.el.classList.add('card');
-      this.el.innerHTML = '\n      <div class="card-header">\n        <p class="card-header-title">\n          Date\n        </p>\n        <div class="card-header-icon">\n          <p class="control">\n            <input\n              class="input js-pickadate new-item-card__date"\n              value=""\n            />\n          </p>\n        </div>\n      </div>\n      <div class="card-content">\n        <div class="content">\n          <p class="t-text">app.description</p>\n          <p class="control"><input class="input new-item-card__desc" value=""></p>\n          <table>\n            <tr>\n              <th><t>domain.debit</t>\n              <th>\n            <tr class="new-item-card__debit">\n              <td>\n                <p class="control"><input class="input new-item-card__debit-type" value="\u666E\u901A\u9810\u91D1"/>\n              <td>\n                <p class="control"><input class="input js-number-input new-item-card__debit-amount" />\n            <tr>\n              <td>\n                <button class="button is-primary is-outlined add-debit-button">\n                  <span class="icon">\n                    <i class="fa fa-plus"></i>\n                  </span>\n                </button>\n              <td>\n            <tr>\n              <th><t>domain.credit</t>\n              <th>\n            <tr class="new-item-card__credit">\n              <td>\n                <p class="control"><input class="input new-item-card__credit-type" value="\u5143\u5165\u91D1"/>\n              <td>\n                <p class="control"><input class="input js-number-input new-item-card__credit-amount" />\n            <tr>\n              <td>\n                <button class="button is-primary is-outlined add-credit-button">\n                  <span class="icon">\n                    <i class="fa fa-plus"></i>\n                  </span>\n                </button>\n              <td>\n          </table>\n        </div>\n      </div>\n      <div class="card-footer">\n        <p class="card-footer-item">\n          <a class="button is-danger t-text" href="#">ui.form.cancel</a>\n        </p>\n        <p class="card-footer-item">\n          <button class="button is-primary t-text new-item-save-button">ui.form.save</button>\n        </p>\n      </div>\n    ';
+      this.el.innerHTML = '\n      <div class="card-header">\n        <p class="card-header-title">\n          Date\n        </p>\n        <div class="card-header-icon">\n          <p class="control">\n            <input\n              class="input js-pickadate new-item-card__date"\n              value=""\n            />\n          </p>\n        </div>\n      </div>\n      <div class="card-content">\n        <div class="content">\n          <p class="t-text">app.description</p>\n          <p class="control"><input class="input new-item-card__desc" value=""></p>\n          <table>\n            <tr>\n              <th><t>domain.debit</t>\n              <th>\n            <tr class="new-item-card__debit">\n              <td>\n                <p class="control"><input class="input new-item-card__debit-type" value="\u666E\u901A\u9810\u91D1"/>\n              <td>\n                <p class="control"><input class="input js-number-input new-item-card__debit-amount" />\n            <tr class="new-item-card__add-debit-row">\n              <td>\n                <button class="button is-primary is-outlined add-debit-button">\n                  <span class="icon">\n                    <i class="fa fa-plus"></i>\n                  </span>\n                </button>\n              <td>\n            <tr>\n              <th><t>domain.credit</t>\n              <th>\n            <tr class="new-item-card__credit">\n              <td>\n                <p class="control"><input class="input new-item-card__credit-type" value="\u5143\u5165\u91D1"/>\n              <td>\n                <p class="control"><input class="input js-number-input new-item-card__credit-amount" />\n            <tr class="new-item-card__add-credit-row">\n              <td>\n                <button class="button is-primary is-outlined add-credit-button">\n                  <span class="icon">\n                    <i class="fa fa-plus"></i>\n                  </span>\n                </button>\n              <td>\n          </table>\n        </div>\n      </div>\n      <div class="card-footer">\n        <p class="card-footer-item">\n          <a class="button is-danger t-text" href="#">ui.form.cancel</a>\n        </p>\n        <p class="card-footer-item">\n          <button class="button is-primary t-text new-item-save-button">ui.form.save</button>\n        </p>\n      </div>\n    ';
 
       prep(null, this.el);
     }
   }, {
     key: 'addDebitRow',
     value: function addDebitRow() {
-      alert('addDebitRow');
+      var last = this.lastDebit();
+
+      var tr = genel.tr(_templateObject);
+
+      tr.classList.add('new-item-card__debit');
+
+      last.parentElement.insertBefore(tr, last.nextSibling);
+
+      prep();
     }
   }, {
     key: 'addCreditRow',
-    value: function addCreditRow() {}
+    value: function addCreditRow() {
+      var last = this.lastCredit();
+
+      var tr = genel.tr(_templateObject2);
+
+      tr.classList.add('new-item-card__credit');
+
+      last.parentElement.insertBefore(tr, last.nextSibling);
+
+      prep();
+    }
   }, {
     key: 'onCreateNewTrade',
     value: function onCreateNewTrade() {
@@ -199,7 +234,7 @@ var NewItemCard = (_dec = component('js-new-item-card'), _dec2 = wired('.new-ite
 }(), (_applyDecoratedDescriptor(_class2.prototype, 'date', [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, 'date'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'desc', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'desc'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'debits', [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, 'debits'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'credits', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'credits'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'addDebitRow', [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, 'addDebitRow'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'addCreditRow', [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, 'addCreditRow'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'onCreateNewTrade', [_dec8, _dec9], Object.getOwnPropertyDescriptor(_class2.prototype, 'onCreateNewTrade'), _class2.prototype)), _class2)) || _class);
 exports.default = NewItemCard;
 
-},{"~":1}],8:[function(require,module,exports){
+},{"genel":2,"~":1}],8:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
