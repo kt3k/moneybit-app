@@ -7,6 +7,7 @@
     "last 3 versions"
   ],
   "scripts": {
+    "start": "saku start",
     "test": "saku test",
     "codecov": "saku codecov"
   },
