@@ -81,7 +81,7 @@ export default class NewItemCard {
       </div>
       <div class="card-footer">
         <p class="card-footer-item">
-          <a class="button is-danger t-text" href="#">ui.form.cancel</a>
+          <a class="button is-danger t-text new-item-cancel-button" href="#">ui.form.cancel</a>
         </p>
         <p class="card-footer-item">
           <button class="button is-primary t-text new-item-save-button">ui.form.save</button>
@@ -130,13 +130,29 @@ export default class NewItemCard {
 
   @on('click', { at: '.new-item-save-button' })
   @emits(Action.CREATE_TRADE)
-  onCreateNewTrade () {
+  onCreate () {
     const date = this.date.dataset.date
     const desc = this.desc.value
     const dr = this.createDebitObject()
     const cr = this.createCreditObject()
 
+    this.remove()
+
     return { date, desc, dr, cr }
+  }
+
+  @on('click', { at: '.new-item-cancel-button' })
+  onCancel () {
+    this.remove()
+  }
+
+  /**
+   * Removes the component at the next tick.
+   */
+  async remove () {
+    await Promise.resolve()
+
+    this.el.parentElement.removeChild(this.el)
   }
 
   validate () {
