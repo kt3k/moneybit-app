@@ -1,15 +1,17 @@
 ---
 js: pages/journal/index.js
+body:
+  class: js-journal-page
 ---
-<button class="button is-primary is-large is-wide">
+<button class="add-entry-button button is-primary is-large is-wide">
   <span class="icon"><i class="fa fa-plus-square-o"></i></span>
   <span class="t-text">app.journal.add_an_entry</span>
 </button>
 
-<hr />
 
-<div class="columns">
+<div class="columns js-new-item-card-wrapper" style="display: none">
   <div class="column">
+    <hr />
     <div class="js-new-item-card"></div>
   </div>
 </div>

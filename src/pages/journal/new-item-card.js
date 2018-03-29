@@ -1,6 +1,22 @@
 const { capsid: { prep, component, on, emits, wired }, Action } = require('~')
 const genel = require('genel')
 
+export const SHOW = 'js-new-item-card/SHOW'
+export const HIDE = 'js-new-item-card/HIDE'
+
+@component('js-new-item-card-wrapper')
+export class NewItemCardWrapper {
+  @on(SHOW)
+  show () {
+    this.el.style.display = ''
+  }
+
+  @on(HIDE)
+  hide () {
+    this.el.style.display = 'none'
+  }
+}
+
 @component('js-new-item-card')
 export default class NewItemCard {
   @wired('.new-item-card__date')
@@ -25,6 +41,10 @@ export default class NewItemCard {
 
   __init__ () {
     this.el.classList.add('card')
+    this.resetHtml()
+  }
+
+  resetHtml () {
     this.el.innerHTML = `
       <div class="card-header">
         <p class="card-header-title">
@@ -136,23 +156,22 @@ export default class NewItemCard {
     const dr = this.createDebitObject()
     const cr = this.createCreditObject()
 
-    this.remove()
+    this.hide()
 
     return { date, desc, dr, cr }
   }
 
   @on('click', { at: '.new-item-cancel-button' })
   onCancel () {
-    this.remove()
+    this.hide()
   }
 
   /**
    * Removes the component at the next tick.
    */
-  async remove () {
+  @emits(HIDE)
+  async hide () {
     await Promise.resolve()
-
-    this.el.parentElement.removeChild(this.el)
   }
 
   validate () {

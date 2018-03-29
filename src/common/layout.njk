@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ basepath }}/{{ file.fm.css }}" />
     {% endif %}
   </head>
-  <body class="js-store">
+  <body class="js-store{% if file.fm.body and file.fm.body.class %} {{file.fm.body.class}}{% endif %}">
     {% block body %}{% endblock %}
     <script src="{{ basepath }}/infrastructure/index.js"></script>
     <script src="{{ basepath }}/common/index.js"></script>
