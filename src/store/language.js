@@ -22,6 +22,11 @@ class LanguageModule {
     t10.scan() // translate
   }
 
+  @action(Action.SCAN_LANGUAGE)
+  scanLanguage () {
+    t10.scan() // translate
+  }
+
   /**
    * Gets the language.
    * @param {Store}

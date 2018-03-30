@@ -6,9 +6,13 @@ export const HIDE = 'js-new-item-card/HIDE'
 
 @component('js-new-item-card-wrapper')
 export class NewItemCardWrapper {
+  @wired.component('js-new-item-card')
+  get card () {}
+
   @on(SHOW)
   show () {
     this.el.style.display = ''
+    this.card.resetHtml()
   }
 
   @on(HIDE)
@@ -39,11 +43,7 @@ export default class NewItemCard {
     return this.credits[this.credits.length - 1]
   }
 
-  __init__ () {
-    this.el.classList.add('card')
-    this.resetHtml()
-  }
-
+  @emits(Action.SCAN_LANGUAGE)
   resetHtml () {
     this.el.innerHTML = `
       <div class="card-header">

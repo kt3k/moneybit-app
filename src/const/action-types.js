@@ -23,6 +23,7 @@ exports.DELETE_TRADE = 'mb/trade/DELETE'
 // language
 exports.SWITCH_LANGUAGE = 'mb/language/SWITCH'
 exports.INIT_LANGUAGE = 'mb/language/INIT'
+exports.SCAN_LANGUAGE = 'mb/language/SCAN'
 exports.UI_LANGUAGE_READY = 'mb/language/READY'
 // chart
 exports.INIT_CHART = 'mb/chart/INIT'
