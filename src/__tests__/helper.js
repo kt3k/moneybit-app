@@ -5,6 +5,6 @@ global.t10 = require('t10')
 global.basepath = '/'
 global.capsid = require('capsid')
 global.capsidJquery = require('capsid/jquery')
-capsidJquery(capsid, $)
+global.capsidJquery(capsid, $)
 global.domain = require('../domain')
 require('../common/atoms')
