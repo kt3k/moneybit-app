@@ -4,7 +4,7 @@ const { component, on, emits, wired, notifies } = capsid
 
 export const ERROR_CLASS = 'is-error'
 export const EVENT_VALIDATION_UPDATE = 'validation-update'
-export const CLASS_DISABLE_ON_ERROR = 'js-disable-on-error'
+export const CLASS_DISABLE_ON_ERROR = 'disable-on-error'
 
 @component('js-form')
 export class Form {
@@ -58,8 +58,8 @@ export class FieldWrapper {
   }
 }
 
-@component('purity-aware')
-export class PurityAware {
+@component('pure')
+export class Pure {
   @on('input')
   @on('change')
   onInput () {

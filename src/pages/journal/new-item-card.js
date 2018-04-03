@@ -46,67 +46,90 @@ export default class NewItemCard {
   @emits(Action.SCAN_LANGUAGE)
   resetHtml () {
     this.el.innerHTML = `
-      <div class="card-header">
-        <p class="card-header-title">
-          Date
-        </p>
-        <div class="card-header-icon">
-          <p class="control">
-            <input
-              class="input js-pickadate new-item-card__date"
-              value=""
-            />
+      <form class="js-form">
+        <div class="card-header">
+          <p class="card-header-title">
+            Date
+          </p>
+          <div class="card-header-icon js-field-wrapper pure">
+            <p class="control">
+              <input
+                class="input js-field js-pickadate new-item-card__date"
+                data-validate="required"
+                value=""
+              />
+            </p>
+            <div
+              class="popper error-tooltip"
+              data-popper-ref=".new-item-card__date"
+              data-popper-placement="top-end"
+              style="display: none"
+            ></div>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="content">
+            <p class="t-text">app.description</p>
+            <div class="js-field-wrapper pure">
+              <p class="control js-field-wrapper pure">
+                <input
+                  class="js-field input new-item-card__desc"
+                  value=""
+                  data-validate="required"
+                />
+              </p>
+              <div
+                class="popper error-tooltip"
+                data-popper-ref=".input"
+                data-popper-placement="top-end"
+                style="display: none"
+              ></div>
+            </div>
+            <table>
+              <tr>
+                <th><t>domain.debit</t>
+                <th>
+              <tr class="new-item-card__debit">
+                <td>
+                  <p class="control"><input class="input new-item-card__debit-type" value="普通預金"/>
+                <td>
+                  <p class="control"><input class="input js-number-input new-item-card__debit-amount" />
+              <tr class="new-item-card__add-debit-row">
+                <td>
+                  <button class="button is-primary is-outlined add-debit-button">
+                    <span class="icon">
+                      <i class="fa fa-plus"></i>
+                    </span>
+                  </button>
+                <td>
+              <tr>
+                <th><t>domain.credit</t>
+                <th>
+              <tr class="new-item-card__credit">
+                <td>
+                  <p class="control"><input class="input new-item-card__credit-type" value="元入金"/>
+                <td>
+                  <p class="control"><input class="input js-number-input new-item-card__credit-amount" />
+              <tr class="new-item-card__add-credit-row">
+                <td>
+                  <button class="button is-primary is-outlined add-credit-button">
+                    <span class="icon">
+                      <i class="fa fa-plus"></i>
+                    </span>
+                  </button>
+                <td>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer">
+          <p class="card-footer-item">
+            <a class="button is-danger t-text new-item-cancel-button" href="#">ui.form.cancel</a>
+          </p>
+          <p class="card-footer-item">
+            <button class="button is-primary t-text new-item-save-button disable-on-error">ui.form.save</button>
           </p>
         </div>
-      </div>
-      <div class="card-content">
-        <div class="content">
-          <p class="t-text">app.description</p>
-          <p class="control"><input class="input new-item-card__desc" value=""></p>
-          <table>
-            <tr>
-              <th><t>domain.debit</t>
-              <th>
-            <tr class="new-item-card__debit">
-              <td>
-                <p class="control"><input class="input new-item-card__debit-type" value="普通預金"/>
-              <td>
-                <p class="control"><input class="input js-number-input new-item-card__debit-amount" />
-            <tr class="new-item-card__add-debit-row">
-              <td>
-                <button class="button is-primary is-outlined add-debit-button">
-                  <span class="icon">
-                    <i class="fa fa-plus"></i>
-                  </span>
-                </button>
-              <td>
-            <tr>
-              <th><t>domain.credit</t>
-              <th>
-            <tr class="new-item-card__credit">
-              <td>
-                <p class="control"><input class="input new-item-card__credit-type" value="元入金"/>
-              <td>
-                <p class="control"><input class="input js-number-input new-item-card__credit-amount" />
-            <tr class="new-item-card__add-credit-row">
-              <td>
-                <button class="button is-primary is-outlined add-credit-button">
-                  <span class="icon">
-                    <i class="fa fa-plus"></i>
-                  </span>
-                </button>
-              <td>
-          </table>
-        </div>
-      </div>
-      <div class="card-footer">
-        <p class="card-footer-item">
-          <a class="button is-danger t-text new-item-cancel-button" href="#">ui.form.cancel</a>
-        </p>
-        <p class="card-footer-item">
-          <button class="button is-primary t-text new-item-save-button">ui.form.save</button>
-        </p>
-      </div>
+      </form>
     `
 
     prep(null, this.el)
