@@ -1280,9 +1280,9 @@ capsid-popper@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/capsid-popper/-/capsid-popper-1.2.1.tgz#8435b23fa7ad4b9c81b3286103aa0386b9b224b1"
 
-capsid@^0.20.2:
-  version "0.20.2"
-  resolved "https://registry.yarnpkg.com/capsid/-/capsid-0.20.2.tgz#a71ad2d07d70d2fbdaf9088ceabbcf24940c61ac"
+capsid@^0.20.3:
+  version "0.20.3"
+  resolved "https://registry.yarnpkg.com/capsid/-/capsid-0.20.3.tgz#c3a89b183f424f05aa73e196068f64ee64eb58b0"
 
 caseless@~0.12.0:
   version "0.12.0"

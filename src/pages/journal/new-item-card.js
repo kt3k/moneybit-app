@@ -3,25 +3,26 @@ const genel = require('genel')
 
 export const SHOW = 'js-new-item-card/SHOW'
 export const HIDE = 'js-new-item-card/HIDE'
+const CLASS_VISIBLE = 'is-visible'
 
-@component('js-new-item-card-wrapper')
+@component('new-item-card-wrapper')
 export class NewItemCardWrapper {
-  @wired.component('js-new-item-card')
+  @wired.component('new-item-card')
   get card () {}
 
   @on(SHOW)
   show () {
-    this.el.style.display = ''
+    this.el.classList.add(CLASS_VISIBLE)
     this.card.resetHtml()
   }
 
   @on(HIDE)
   hide () {
-    this.el.style.display = 'none'
+    this.el.classList.remove(CLASS_VISIBLE)
   }
 }
 
-@component('js-new-item-card')
+@component('new-item-card')
 export default class NewItemCard {
   @wired('.new-item-card__date')
   get date () {}
@@ -91,7 +92,14 @@ export default class NewItemCard {
                 <th>
               <tr class="new-item-card__debit">
                 <td>
-                  <p class="control"><input class="input new-item-card__debit-type" value="普通預金"/>
+                  <div class="control">
+                    <div class="select">
+                      <select class="input new-item-card__debit-type">
+                        <option>Select</option>
+                        <option value="A">B</option>
+                        <option value="B">B</option>
+                      </select>
+                    </div>
                 <td>
                   <p class="control"><input class="input js-number-input new-item-card__debit-amount" />
               <tr class="new-item-card__add-debit-row">
@@ -107,7 +115,14 @@ export default class NewItemCard {
                 <th>
               <tr class="new-item-card__credit">
                 <td>
-                  <p class="control"><input class="input new-item-card__credit-type" value="元入金"/>
+                  <div class="control">
+                    <div class="select">
+                      <select class="input new-item-card__credit-type">
+                        <option>Select</option>
+                        <option value="A">Account Payable</option>
+                        <option value="B">B</option>
+                      </select>
+                    </div>
                 <td>
                   <p class="control"><input class="input js-number-input new-item-card__credit-amount" />
               <tr class="new-item-card__add-credit-row">

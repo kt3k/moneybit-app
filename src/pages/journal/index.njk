@@ -1,20 +1,13 @@
 ---
 js: pages/journal/index.js
+css: pages/journal/index.css
 body:
-  class: js-journal-page
+  class: journal-page
 ---
 <button class="add-entry-button button is-primary is-large is-wide">
   <span class="icon"><i class="fa fa-plus-square-o"></i></span>
   <span class="t-text">app.journal.add_an_entry</span>
 </button>
-
-
-<div class="columns js-new-item-card-wrapper" style="display: none">
-  <div class="column">
-    <hr />
-    <div class="card js-new-item-card"></div>
-  </div>
-</div>
 
 <hr />
 
@@ -24,3 +17,7 @@ body:
 <div class="columns js-trade-list is-model-observer"></div>
 
 <br />
+
+<div class="new-item-card-wrapper">
+  <div class="card new-item-card"></div>
+</div>
