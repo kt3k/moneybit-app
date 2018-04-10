@@ -3,6 +3,9 @@ const genel = require('genel')
 
 export const SHOW = 'js-new-item-card/SHOW'
 export const HIDE = 'js-new-item-card/HIDE'
+
+const { LOCK, UNLOCK } = global.capsidScrollLock
+
 const CLASS_VISIBLE = 'is-visible'
 
 @component('new-item-card-wrapper')
@@ -11,12 +14,14 @@ export class NewItemCardWrapper {
   get card () {}
 
   @on(SHOW)
+  @emits(LOCK)
   show () {
     this.el.classList.add(CLASS_VISIBLE)
     this.card.resetHtml()
   }
 
   @on(HIDE)
+  @emits(UNLOCK)
   hide () {
     this.el.classList.remove(CLASS_VISIBLE)
   }
@@ -200,7 +205,8 @@ export default class NewItemCard {
   }
 
   @on('click', { at: '.new-item-cancel-button' })
-  onCancel () {
+  onCancel (e) {
+    e.preventDefault()
     this.hide()
   }
 

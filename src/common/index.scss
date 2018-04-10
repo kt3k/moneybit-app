@@ -18,4 +18,6 @@ body {
 
 html {
   background: $very-light-gray;
+  overflow-y: visible; /* revert minireset */
+  overflow-x: visible; /* revert minireset */
 }

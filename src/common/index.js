@@ -10,9 +10,10 @@ global.$ = require('jquery')
 global.domain = require('../domain')
 require('capsid/jquery')(capsid, $)
 require('capsid/outside-events')(capsid)
-const capsidPopper = require('capsid-popper')
-capsid.install(capsidPopper)
-global.capsidPopper = capsidPopper
+global.capsidPopper = require('capsid-popper')
+capsid.install(global.capsidPopper)
+global.capsidScrollLock = require('capsid-scroll-lock')
+capsid.install(global.capsidScrollLock)
 
 require('./quarks')
 require('./atoms')
