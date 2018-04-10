@@ -1,6 +1,6 @@
 const matango = require('matango')
 const genel = require('genel')
-const { component, on, emits, wired, notifies } = capsid
+const { component, on, emits, unmount, wired, notifies } = capsid
 
 export const ERROR_CLASS = 'is-error'
 export const EVENT_VALIDATION_UPDATE = 'validation-update'
@@ -63,7 +63,7 @@ export class Pure {
   @on('input')
   @on('change')
   onInput () {
-    this.el.classList.remove('pure')
+    unmount('pure', this.el)
   }
 }
 
