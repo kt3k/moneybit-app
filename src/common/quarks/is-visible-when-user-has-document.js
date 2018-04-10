@@ -3,7 +3,7 @@ const { component, on } = capsid
 
 @component('is-visible-when-user-has-document')
 class IsVisibleWhenUserHasDocument {
-  __init__ () {
+  __mount__ () {
     this.el.classList.add('is-model-observer')
   }
 

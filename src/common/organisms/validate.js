@@ -69,7 +69,7 @@ export class Pure {
 
 @component('js-field')
 export class Field {
-  __init__ () {
+  __mount__ () {
     this.onInput()
   }
 

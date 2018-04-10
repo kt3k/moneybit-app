@@ -28,7 +28,7 @@ class AppHeader {
 
 @component('app-menu-btn')
 class AppMenu {
-  __init__ () {
+  __mount__ () {
     $('body').on('click', e => {
       if ($(e.target).closest('.app-menu-dropdown').length === 0) {
         this.close()

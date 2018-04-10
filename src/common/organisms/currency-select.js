@@ -3,7 +3,7 @@ const { component } = capsid
 
 @component('js-currency-select')
 class CurrencySelect {
-  __init__ () {
+  __mount__ () {
     Currency.CURRENCIES.forEach(currency => {
       const label = `${currency.symbol} - ${currency.code}`
 

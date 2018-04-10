@@ -16,7 +16,7 @@ class TradeCard {
   @wire.el('.trade-card__credit-title-row')
   get creditTitleRow () {}
 
-  __init__ () {
+  __mount__ () {
     this.el.classList.add('column')
     this.el.appendChild(genel`
       <div class="card">

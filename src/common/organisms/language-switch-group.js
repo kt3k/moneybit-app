@@ -12,7 +12,7 @@ class LanguageSwitchGroup {
   @wire.$el('button[lang="ja"]')
   get $buttonJa () {}
 
-  __init__ () {
+  __mount__ () {
     this.el.classList.add('is-model-observer')
   }
 

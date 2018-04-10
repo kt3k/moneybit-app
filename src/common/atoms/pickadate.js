@@ -7,7 +7,7 @@ const { component, emits } = capsid
 
 @component('js-pickadate')
 class Pickadate {
-  __init__ () {
+  __mount__ () {
     this.$el
       .pickadate({ format: 'yyyy-mm-dd' })
       .pickadate('picker')
