@@ -18,6 +18,10 @@ export class NewItemCardWrapper {
   show () {
     this.el.classList.add(CLASS_VISIBLE)
     this.card.resetHtml()
+
+    setTimeout(() => {
+      capsidPopper.updateAll()
+    }, 500)
   }
 
   @on(HIDE)
@@ -77,7 +81,7 @@ export default class NewItemCard {
           <div class="content">
             <p class="t-text">app.description</p>
             <div class="js-field-wrapper pure">
-              <p class="control js-field-wrapper pure">
+              <p class="control">
                 <input
                   class="js-field input new-item-card__desc"
                   value=""
