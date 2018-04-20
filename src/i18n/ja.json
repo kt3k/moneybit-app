@@ -19,6 +19,7 @@
   "domain.balancesheet": "貸借対照表",
   "domain.asset": "資産",
   "domain.assets": "資産",
+  "domain.amount": "金額",
   "domain.liability": "負債",
   "domain.liabilities": "負債",
   "domain.equity": "純資産",
@@ -44,5 +45,6 @@
   "ui.form.finish_editing": "編集を終了",
   "ui.form.delete": "削除",
   "ui.form.select_date": "日付を選択",
+  "ui.form.select_account_title": "勘定科目を選択",
   "locale.date_format": "YYYY/MM/DD"
 }

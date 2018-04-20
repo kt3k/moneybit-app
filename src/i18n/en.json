@@ -19,6 +19,7 @@
   "domain.balancesheet": "Balance Sheet",
   "domain.asset": "Asset",
   "domain.assets": "Assets",
+  "domain.amount": "Amount",
   "domain.liability": "Liability",
   "domain.liabilities": "Liabilities",
   "domain.equity": "Equity",
@@ -44,5 +45,6 @@
   "ui.form.finish_editing": "Finish editing",
   "ui.form.delete": "Delete",
   "ui.form.select_date": "Select date",
+  "ui.form.select_account_title": "Select account title",
   "locale.date_format": "D MMM, YYYY"
 }

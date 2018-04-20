@@ -95,54 +95,56 @@ export default class NewItemCard {
                 style="display: none"
               ></div>
             </div>
-            <table>
-              <tr>
-                <th><t>domain.debit</t>
-                <th>
-              <tr class="new-item-card__debit">
-                <td>
-                  <div class="control">
-                    <div class="select">
-                      <select class="input new-item-card__debit-type">
-                        <option>Select</option>
-                        <option value="A">B</option>
-                        <option value="B">B</option>
-                      </select>
-                    </div>
-                <td>
-                  <p class="control"><input class="input js-number-input new-item-card__debit-amount" />
-              <tr class="new-item-card__add-debit-row">
-                <td>
-                  <button class="button is-primary is-outlined add-debit-button">
-                    <span class="icon">
-                      <i class="fa fa-plus"></i>
-                    </span>
-                  </button>
-                <td>
-              <tr>
-                <th><t>domain.credit</t>
-                <th>
-              <tr class="new-item-card__credit">
-                <td>
-                  <div class="control">
-                    <div class="select">
-                      <select class="input new-item-card__credit-type">
-                        <option>Select</option>
-                        <option value="A">Account Payable</option>
-                        <option value="B">B</option>
-                      </select>
-                    </div>
-                <td>
-                  <p class="control"><input class="input js-number-input new-item-card__credit-amount" />
-              <tr class="new-item-card__add-credit-row">
-                <td>
-                  <button class="button is-primary is-outlined add-credit-button">
-                    <span class="icon">
-                      <i class="fa fa-plus"></i>
-                    </span>
-                  </button>
-                <td>
-            </table>
+            <h2>
+              <t>domain.debits</t>
+            </h2>
+            <div class="field">
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select class="input new-item-card__debit-type">
+                    <option class="t-text">ui.form.select_account_title</option>
+                    <option value="A">B</option>
+                    <option value="B">B</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <p class="control">
+                <input class="input js-number-input t-attr new-item-card__debit-amount" placeholder="t:domain.amount"/>
+              </p>
+            </div>
+            <hr />
+            <button class="button is-primary is-outlined add-debit-button">
+              <span class="icon">
+                <i class="fa fa-plus"></i>
+              </span>
+            </button>
+            <h2>
+              <t>domain.credits</t>
+            </h2>
+            <div class="field">
+              <div class="control is-expanded">
+                <div class="select is-fullwidth">
+                  <select class="input new-item-card__credit-type">
+                    <option class="t-text">ui.form.select_account_title</option>
+                    <option value="A">Account Payable</option>
+                    <option value="B">B</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <p class="control">
+                <input class="input js-number-input new-item-card__credit-amount" />
+              </p>
+            </div>
+            <hr />
+            <button class="button is-primary is-outlined add-credit-button">
+              <span class="icon">
+                <i class="fa fa-plus"></i>
+              </span>
+            </button>
           </div>
         </div>
         <div class="card-footer">
