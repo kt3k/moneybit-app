@@ -10,7 +10,7 @@
 # start
 > Starts everything
 
-    saku -p serve doc lang index
+    saku -p serve doc lang index open-later
 
 # start-ja
 > Starts everything in japanese mode
@@ -38,8 +38,13 @@
 # index
 > Serves and opens the dev index page
 
-    npx opener http://localhost:9000
     npx wsindex
+
+# open-later
+> Opens index page after 1 sec.
+
+    sleep 1
+    npx opener http://localhost:9000
 
 # gh-pages
 > Updates the gh-pages branch
