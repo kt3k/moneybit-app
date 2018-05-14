@@ -1,7 +1,3 @@
-# hello
-
-    echo hello $NAME
-
 # clean
 > Cleans the built files
 
