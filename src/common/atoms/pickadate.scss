@@ -5,3 +5,8 @@
     }
   }
 }
+
+// Remove picker__holder when hidden
+.picker__holder {
+  transform: translateX(100%);
+}
