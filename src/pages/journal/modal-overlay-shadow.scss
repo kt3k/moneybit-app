@@ -1,0 +1,16 @@
+.modal-overlay-shadow {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: calc(100vh - 60px - 56.5px);
+  width: 100%;
+  background-color: black;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 500ms;
+
+  &.is-visible {
+    opacity: 0.2;
+    visibility: visible;
+  }
+}

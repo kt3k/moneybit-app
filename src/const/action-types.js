@@ -33,3 +33,7 @@ exports.CHART_READY = 'mb/chart/READY'
 exports.MODEL_SAVE = 'mb/model/SAVE'
 exports.MODEL_SAVE_AND_RELOAD = 'mb/model/SAVE_AND_RELOAD'
 exports.MODEL_UPDATE = 'mb/model/UPDATE'
+
+// ui
+exports.UI_SHOW = 'mb/ui/SHOW'
+exports.UI_HIDE = 'mb/ui/HIDE'
