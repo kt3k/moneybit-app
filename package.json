@@ -113,7 +113,10 @@
     "globals": [
       "infrastructure",
       "$",
+      "util",
+      "Action",
       "capsid",
+      "capsidPopper",
       "basepath",
       "t10"
     ]

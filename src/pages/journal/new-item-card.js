@@ -46,11 +46,11 @@ export default class NewItemCard {
   get credits () {}
 
   lastDebit () {
-    return this.debits[this.debits.length - 1]
+    return util.last(this.debits)
   }
 
   lastCredit () {
-    return this.credits[this.credits.length - 1]
+    return util.last(this.credits)
   }
 
   @emits(Action.SCAN_LANGUAGE)
@@ -98,23 +98,30 @@ export default class NewItemCard {
             <h2>
               <t>domain.debits</t>
             </h2>
-            <div class="field">
-              <div class="control is-expanded">
-                <div class="select is-fullwidth">
-                  <select class="input new-item-card__debit-type">
-                    <option class="t-text">ui.form.select_account_title</option>
-                    <option value="A">B</option>
-                    <option value="B">B</option>
-                  </select>
+            <div class="new-item-card__debit">
+              <div class="field">
+                <div class="control is-expanded">
+                  <div class="select is-fullwidth">
+                    <select class="input new-item-card__debit-type">
+                      <option class="t-text">ui.form.select_account_title</option>
+                      <option value="A">A (Asset)</option>
+                      <option value="A1">A1 (Asset)</option>
+                      <option value="C">C (Owner's Equity)</option>
+                      <option value="L">L (Liability)</option>
+                      <option value="L1">L1 (Liability)</option>
+                      <option value="R">R (Revenue)</option>
+                      <option value="E">E (Expense)</option>
+                    </select>
+                  </div>
                 </div>
               </div>
+              <div class="field">
+                <p class="control">
+                  <input class="input js-number-input t-attr new-item-card__debit-amount" placeholder="t:domain.amount"/>
+                </p>
+              </div>
+              <hr />
             </div>
-            <div class="field">
-              <p class="control">
-                <input class="input js-number-input t-attr new-item-card__debit-amount" placeholder="t:domain.amount"/>
-              </p>
-            </div>
-            <hr />
             <button class="button is-primary is-outlined add-debit-button">
               <span class="icon">
                 <i class="fa fa-plus"></i>
@@ -123,23 +130,25 @@ export default class NewItemCard {
             <h2>
               <t>domain.credits</t>
             </h2>
-            <div class="field">
-              <div class="control is-expanded">
-                <div class="select is-fullwidth">
-                  <select class="input new-item-card__credit-type">
-                    <option class="t-text">ui.form.select_account_title</option>
-                    <option value="A">Account Payable</option>
-                    <option value="B">B</option>
-                  </select>
+            <div class="new-item-card__credit">
+              <div class="field">
+                <div class="control is-expanded">
+                  <div class="select is-fullwidth">
+                    <select class="input new-item-card__credit-type">
+                      <option class="t-text">ui.form.select_account_title</option>
+                      <option value="A">Account Payable</option>
+                      <option value="B">B</option>
+                    </select>
+                  </div>
                 </div>
               </div>
+              <div class="field">
+                <p class="control">
+                  <input class="input js-number-input new-item-card__credit-amount" />
+                </p>
+              </div>
+              <hr />
             </div>
-            <div class="field">
-              <p class="control">
-                <input class="input js-number-input new-item-card__credit-amount" />
-              </p>
-            </div>
-            <hr />
             <button class="button is-primary is-outlined add-credit-button">
               <span class="icon">
                 <i class="fa fa-plus"></i>
@@ -162,38 +171,78 @@ export default class NewItemCard {
   }
 
   @on('click', { at: '.add-debit-button' })
-  addDebitRow () {
+  addDebitRow (e) {
+    e.preventDefault()
+
     const last = this.lastDebit()
 
-    const tr = genel.tr`
-      <td>
-        <p class="control"><input class="input new-item-card__debit-type" value=""/>
-      <td>
-        <p class="control"><input class="input js-number-input new-item-card__debit-amount" />
+    const div = genel.div`
+      <div class="field">
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select class="input new-item-card__debit-type">
+              <option class="t-text">ui.form.select_account_title</option>
+              <option value="A">A (Asset)</option>
+              <option value="A1">A1 (Asset)</option>
+              <option value="C">C (Owner's Equity)</option>
+              <option value="L">L (Liability)</option>
+              <option value="L1">L1 (Liability)</option>
+              <option value="R">R (Revenue)</option>
+              <option value="E">E (Expense)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <p class="control">
+          <input class="input js-number-input t-attr new-item-card__debit-amount" placeholder="t:domain.amount"/>
+        </p>
+      </div>
+      <hr />
     `
 
-    tr.classList.add('new-item-card__debit')
+    div.classList.add('new-item-card__debit')
 
-    last.parentElement.insertBefore(tr, last.nextSibling)
+    last.parentElement.insertBefore(div, last.nextSibling)
 
-    prep()
+    this.prep()
   }
 
   @on('click', { at: '.add-credit-button' })
-  addCreditRow () {
+  addCreditRow (e) {
+    e.preventDefault()
+
     const last = this.lastCredit()
 
-    const tr = genel.tr`
-      <td>
-        <p class="control"><input class="input new-item-card__credit-type" value=""/>
-      <td>
-        <p class="control"><input class="input js-number-input new-item-card__credit-amount" />
+    const div = genel.div`
+      <div class="field">
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <select class="input new-item-card__credit-type">
+              <option class="t-text">ui.form.select_account_title</option>
+              <option value="A">Account Payable</option>
+              <option value="B">B</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <p class="control">
+          <input class="input js-number-input new-item-card__credit-amount" />
+        </p>
+      </div>
+      <hr />
     `
 
-    tr.classList.add('new-item-card__credit')
+    div.classList.add('new-item-card__credit')
 
-    last.parentElement.insertBefore(tr, last.nextSibling)
+    last.parentElement.insertBefore(div, last.nextSibling)
 
+    this.prep()
+  }
+
+  prep () {
+    t10.scan()
     prep()
   }
 
