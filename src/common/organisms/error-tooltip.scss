@@ -7,6 +7,8 @@
   background-color: white;
   visibility: hidden;
 
+  z-index: 10; /* to make this above trigger of select box of bulma */
+
   .is-error:not(.pure) & {
     visibility: visible;
   }

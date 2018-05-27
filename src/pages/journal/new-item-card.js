@@ -7,21 +7,23 @@ export const HIDE = 'js-new-item-card/HIDE'
 const { LOCK, UNLOCK } = global.capsidScrollLock
 
 const CLASS_VISIBLE = 'is-visible'
+const RESET_SCROLL = 'mb/new-item-card-wrapper/RESET_SCROLL'
 
 @component('new-item-card-wrapper')
 export class NewItemCardWrapper {
   @wired.component('new-item-card')
   get card () {}
 
+  @on(RESET_SCROLL)
+  resetScroll () {
+    this.el.scrollTop = 0
+  }
+
   @on(SHOW)
   @emits(LOCK)
   show () {
     this.el.classList.add(CLASS_VISIBLE)
     this.card.resetHtml()
-
-    setTimeout(() => {
-      capsidPopper.updateAll()
-    }, 500)
   }
 
   @on(HIDE)
@@ -53,6 +55,7 @@ export default class NewItemCard {
     return util.last(this.credits)
   }
 
+  @emits(RESET_SCROLL)
   resetHtml () {
     this.el.innerHTML = `
       <form class="js-form">
@@ -114,10 +117,20 @@ export default class NewItemCard {
                   </div>
                 </div>
               </div>
-              <div class="field">
+              <div class="field js-field-wrapper">
                 <p class="control">
-                  <input class="input js-number-input t-attr new-item-card__debit-amount" placeholder="t:domain.amount"/>
+                  <input
+                    class="input js-field js-number-input t-attr new-item-card__debit-amount"
+                    data-validate="number"
+                    placeholder="t:domain.amount"
+                  />
                 </p>
+                <div
+                  class="popper error-tooltip"
+                  data-popper-ref=".input"
+                  data-popper-placement="top-end"
+                  style="display: none"
+                ></div>
               </div>
               <hr />
             </div>
@@ -143,7 +156,10 @@ export default class NewItemCard {
               </div>
               <div class="field">
                 <p class="control">
-                  <input class="input js-number-input new-item-card__credit-amount" />
+                  <input
+                    class="input js-field js-number-input t-attr new-item-card__credit-amount"
+                    placeholder="t:domain.amount"
+                  />
                 </p>
               </div>
               <hr />
@@ -270,6 +286,20 @@ export default class NewItemCard {
   @emits(HIDE)
   async hide () {
     await Promise.resolve()
+  }
+
+  @on('input')
+  adjustPopper () {
+    capsidPopper.updateAll()
+    console.log('update all')
+  }
+
+  @on('change', { at: '.new-item-card__debit-type' })
+  @on('change', { at: '.new-item-card__debit-amount' })
+  @on('change', { at: '.new-item-card__credit-type' })
+  @on('change', { at: '.new-item-card__credit-amount' })
+  onAccountChange (e) {
+    this.validate()
   }
 
   validate () {

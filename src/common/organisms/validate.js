@@ -143,7 +143,20 @@ class Rule {
   }
 }
 
-Rule.required = Rule.generate(({ value }) => value !== '', () => 'This field is required')
+Rule.required = Rule.generate(({ value }) => value !== '', () => 'This field is required') // TODO: i18n
+Rule.number = Rule.generate(({ value }) => {
+  if (!value) {
+    return true
+  }
+
+  const number = +value
+
+  if (-Infinity < number && number < Infinity) {
+    return true
+  }
+
+  return false
+}, () => 'Not a valid number') // TODO: i18n
 
 class ValidationError {
   /**
