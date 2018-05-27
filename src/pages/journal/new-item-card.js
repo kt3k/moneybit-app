@@ -1,4 +1,4 @@
-const { capsid: { prep, component, on, emits, wired }, Action } = require('~')
+const { prep, component, on, emits, wired } = capsid
 const genel = require('genel')
 
 export const SHOW = 'js-new-item-card/SHOW'
@@ -53,7 +53,6 @@ export default class NewItemCard {
     return util.last(this.credits)
   }
 
-  @emits(Action.SCAN_LANGUAGE)
   resetHtml () {
     this.el.innerHTML = `
       <form class="js-form">
@@ -167,7 +166,7 @@ export default class NewItemCard {
       </form>
     `
 
-    prep(null, this.el)
+    this.prep()
   }
 
   @on('click', { at: '.add-debit-button' })
@@ -241,9 +240,9 @@ export default class NewItemCard {
     this.prep()
   }
 
+  @emits(Action.SCAN_LANGUAGE)
   prep () {
-    t10.scan()
-    prep()
+    prep(null, this.el)
   }
 
   @on('click', { at: '.new-item-save-button' })
