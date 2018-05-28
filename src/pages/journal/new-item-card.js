@@ -47,6 +47,12 @@ export default class NewItemCard {
   @wired.all('.new-item-card__credit')
   get credits () {}
 
+  @wired('.add-debit-button')
+  get addDebitButton () {}
+
+  @wired('.add-credit-button')
+  get addCreditButton () {}
+
   lastDebit () {
     return util.last(this.debits)
   }
@@ -100,40 +106,6 @@ export default class NewItemCard {
             <h2>
               <t>domain.debits</t>
             </h2>
-            <div class="new-item-card__debit">
-              <div class="field">
-                <div class="control is-expanded">
-                  <div class="select is-fullwidth">
-                    <select class="input new-item-card__debit-type">
-                      <option class="t-text">ui.form.select_account_title</option>
-                      <option value="A">A (Asset)</option>
-                      <option value="A1">A1 (Asset)</option>
-                      <option value="C">C (Owner's Equity)</option>
-                      <option value="L">L (Liability)</option>
-                      <option value="L1">L1 (Liability)</option>
-                      <option value="R">R (Revenue)</option>
-                      <option value="E">E (Expense)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="field js-field-wrapper">
-                <p class="control">
-                  <input
-                    class="input js-field js-number-input t-attr new-item-card__debit-amount"
-                    data-validate="number"
-                    placeholder="t:domain.amount"
-                  />
-                </p>
-                <div
-                  class="popper error-tooltip"
-                  data-popper-ref=".input"
-                  data-popper-placement="top-end"
-                  style="display: none"
-                ></div>
-              </div>
-              <hr />
-            </div>
             <button class="button is-primary is-outlined add-debit-button">
               <span class="icon">
                 <i class="fa fa-plus"></i>
@@ -142,28 +114,6 @@ export default class NewItemCard {
             <h2>
               <t>domain.credits</t>
             </h2>
-            <div class="new-item-card__credit">
-              <div class="field">
-                <div class="control is-expanded">
-                  <div class="select is-fullwidth">
-                    <select class="input new-item-card__credit-type">
-                      <option class="t-text">ui.form.select_account_title</option>
-                      <option value="A">Account Payable</option>
-                      <option value="B">B</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="field">
-                <p class="control">
-                  <input
-                    class="input js-field js-number-input t-attr new-item-card__credit-amount"
-                    placeholder="t:domain.amount"
-                  />
-                </p>
-              </div>
-              <hr />
-            </div>
             <button class="button is-primary is-outlined add-credit-button">
               <span class="icon">
                 <i class="fa fa-plus"></i>
@@ -182,15 +132,22 @@ export default class NewItemCard {
       </form>
     `
 
+    this.addDebitRow()
+    this.addCreditRow()
+
     this.prep()
   }
 
   @on('click', { at: '.add-debit-button' })
-  addDebitRow (e) {
+  onClickAddDebitButton (e) {
     e.preventDefault()
 
-    const last = this.lastDebit()
+    this.addDebitRow()
 
+    this.prep()
+  }
+
+  addDebitRow () {
     const div = genel.div`
       <div class="field">
         <div class="control is-expanded">
@@ -208,27 +165,39 @@ export default class NewItemCard {
           </div>
         </div>
       </div>
-      <div class="field">
+      <div class="field js-field-wrapper">
         <p class="control">
-          <input class="input js-number-input t-attr new-item-card__debit-amount" placeholder="t:domain.amount"/>
+          <input
+            class="input js-field js-number-input t-attr new-item-card__debit-amount"
+            data-validate="number"
+            placeholder="t:domain.amount"
+          />
         </p>
+        <div
+          class="popper error-tooltip"
+          data-popper-ref=".input"
+          data-popper-placement="top-end"
+          style="display: none"
+        ></div>
       </div>
       <hr />
     `
 
     div.classList.add('new-item-card__debit')
 
-    last.parentElement.insertBefore(div, last.nextSibling)
+    this.addDebitButton.parentElement.insertBefore(div, this.addDebitButton)
+  }
+
+  @on('click', { at: '.add-credit-button' })
+  onClickCreditButton (e) {
+    e.preventDefault()
+
+    this.addCreditRow()
 
     this.prep()
   }
 
-  @on('click', { at: '.add-credit-button' })
-  addCreditRow (e) {
-    e.preventDefault()
-
-    const last = this.lastCredit()
-
+  addCreditRow () {
     const div = genel.div`
       <div class="field">
         <div class="control is-expanded">
@@ -243,7 +212,10 @@ export default class NewItemCard {
       </div>
       <div class="field">
         <p class="control">
-          <input class="input js-number-input new-item-card__credit-amount" />
+          <input
+            class="input js-field js-number-input t-attr new-item-card__credit-amount"
+            placeholder="t:domain.amount"
+          />
         </p>
       </div>
       <hr />
@@ -251,9 +223,7 @@ export default class NewItemCard {
 
     div.classList.add('new-item-card__credit')
 
-    last.parentElement.insertBefore(div, last.nextSibling)
-
-    this.prep()
+    this.addCreditButton.parentElement.insertBefore(div, this.addCreditButton)
   }
 
   @emits(Action.SCAN_LANGUAGE)
@@ -295,12 +265,16 @@ export default class NewItemCard {
   }
 
   @on('change', { at: '.new-item-card__debit-type' })
-  @on('change', { at: '.new-item-card__debit-amount' })
+  @on('input', { at: '.new-item-card__debit-amount' })
   @on('change', { at: '.new-item-card__credit-type' })
-  @on('change', { at: '.new-item-card__credit-amount' })
+  @on('input', { at: '.new-item-card__credit-amount' })
   onAccountChange (e) {
     this.validate()
   }
+
+  debitTotal () {}
+
+  creditTotal () {}
 
   validate () {
     console.log('TODO: validate')
