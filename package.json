@@ -3,7 +3,9 @@
   "description": "Open Source Mobile App for Accounting of Freelancers",
   "version": "0.1.0",
   "main": "index.js",
-  "browserslist": ["last 3 versions"],
+  "browserslist": [
+    "last 3 versions"
+  ],
   "scripts": {
     "start": "saku start",
     "test": "saku test",
@@ -36,7 +38,10 @@
     "type": "git",
     "url": "git+https://github.com/kt3k/moneybit-app.git"
   },
-  "keywords": ["accounting", "app"],
+  "keywords": [
+    "accounting",
+    "app"
+  ],
   "author": "Yoshiya Hinosawa",
   "license": "MIT",
   "bugs": {
@@ -103,12 +108,30 @@
   },
   "standard": {
     "parser": "babel-eslint",
-    "env": ["browser"],
-    "globals": ["infrastructure", "$", "util", "Action", "capsid", "capsidPopper", "basepath", "t10"]
+    "env": [
+      "browser"
+    ],
+    "globals": [
+      "infrastructure",
+      "$",
+      "util",
+      "Action",
+      "capsid",
+      "capsidPopper",
+      "basepath",
+      "t10"
+    ]
   },
   "lint-staged": {
-    "*.js": ["prettier --write --no-semi --single-quote --print-width 200", "standard --fix", "git add"],
-    "*.{scss,json}": ["prettier --write --no-semi --single-quote --print-width 120", "git add"]
+    "*.js": [
+      "prettier --write --no-semi --single-quote --print-width 200",
+      "standard --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "prettier --write --no-semi --single-quote --print-width 120",
+      "git add"
+    ]
   },
   "dependencies": {
     "husky": "^0.14.3"
