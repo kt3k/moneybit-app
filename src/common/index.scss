@@ -1,16 +1,14 @@
-@import "../../node_modules/bulma/sass/utilities/initial-variables";
-@import "vars";
-$primary: $lime-green;
-$danger: $bright-pink;
-@import "../../node_modules/bulma/bulma";
-@import "../../node_modules/pickadate/lib/themes/default";
-@import "../../node_modules/pickadate/lib/themes/default.date";
+@import '../../node_modules/bulma/sass/utilities/initial-variables';
+@import 'vars';
+@import '../../node_modules/bulma/bulma';
+@import '../../node_modules/pickadate/lib/themes/default';
+@import '../../node_modules/pickadate/lib/themes/default.date';
 
-@import "quarks/index";
-@import "atoms/index";
-@import "molecules/index";
-@import "organisms/index";
-@import "layout";
+@import 'quarks/index';
+@import 'atoms/index';
+@import 'molecules/index';
+@import 'organisms/index';
+@import 'layout';
 
 body {
   background: $white;

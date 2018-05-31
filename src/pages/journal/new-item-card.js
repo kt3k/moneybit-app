@@ -47,6 +47,18 @@ export default class NewItemCard {
   @wired.all('.new-item-card__credit')
   get credits () {}
 
+  @wired('.new-item-card__debit-total')
+  get debitTotalLabel () {}
+
+  @wired('.new-item-card__credit-total')
+  get creditTotalLabel () {}
+
+  @wired('.new-item-card__debit-total-diff')
+  get debitTotalDiffLabel () {}
+
+  @wired('.new-item-card__credit-total-diff')
+  get creditTotalDiffLabel () {}
+
   @wired('.add-debit-button')
   get addDebitButton () {}
 
@@ -105,6 +117,8 @@ export default class NewItemCard {
             </div>
             <h2>
               <t>domain.debits</t>
+              <span class="new-item-card__debit-total"></span>
+              <span class="new-item-card__debit-total-diff"></span>
             </h2>
             <button class="button is-primary is-outlined add-debit-button">
               <span class="icon">
@@ -113,6 +127,8 @@ export default class NewItemCard {
             </button>
             <h2>
               <t>domain.credits</t>
+              <span class="new-item-card__credit-total"></span>
+              <span class="new-item-card__credit-total-diff"></span>
             </h2>
             <button class="button is-primary is-outlined add-credit-button">
               <span class="icon">
@@ -153,7 +169,7 @@ export default class NewItemCard {
         <div class="control is-expanded">
           <div class="select is-fullwidth">
             <select class="input new-item-card__debit-type">
-              <option class="t-text">ui.form.select_account_title</option>
+              <option value="" class="t-text">ui.form.select_account_title</option>
               <option value="A">A (Asset)</option>
               <option value="A1">A1 (Asset)</option>
               <option value="C">C (Owner's Equity)</option>
@@ -203,7 +219,7 @@ export default class NewItemCard {
         <div class="control is-expanded">
           <div class="select is-fullwidth">
             <select class="input new-item-card__credit-type">
-              <option class="t-text">ui.form.select_account_title</option>
+              <option value="" class="t-text">ui.form.select_account_title</option>
               <option value="A">Account Payable</option>
               <option value="B">B</option>
             </select>
@@ -261,7 +277,6 @@ export default class NewItemCard {
   @on('input')
   adjustPopper () {
     capsidPopper.updateAll()
-    console.log('update all')
   }
 
   @on('change', { at: '.new-item-card__debit-type' })
@@ -269,38 +284,115 @@ export default class NewItemCard {
   @on('change', { at: '.new-item-card__credit-type' })
   @on('input', { at: '.new-item-card__credit-amount' })
   onAccountChange (e) {
+    console.log(`debitTotal=${this.debitTotal()}`)
+    console.log(`creditTotal=${this.creditTotal()}`)
+
+    this.fillAccountTotalLabels()
     this.validate()
   }
 
-  debitTotal () {}
+  fillAccountTotalLabels () {
+    const dt = this.debitTotal()
+    const ct = this.creditTotal()
 
-  creditTotal () {}
+    this.setAccountLabel(this.debitTotalLabel, dt)
+    this.setAccountLabel(this.creditTotalLabel, ct)
+
+    const diff = Math.abs(dt - ct)
+
+    if (diff === 0) {
+      this.setAccountLabel(this.debitTotalDiffLabel, diff, () => '')
+      this.setAccountLabel(this.creditTotalDiffLabel, diff, () => '')
+    } else if (dt > ct) {
+      this.setAccountLabel(this.debitTotalDiffLabel, diff, label => `(+${label})`)
+      this.setAccountLabel(this.creditTotalDiffLabel, diff, label => `(-${label})`)
+    } else {
+      this.setAccountLabel(this.debitTotalDiffLabel, diff, label => `(-${label})`)
+      this.setAccountLabel(this.creditTotalDiffLabel, diff, label => `(+${label})`)
+    }
+  }
+
+  @emits(Action.REQUEST_MONEY_FORMAT)
+  setAccountLabel (el, amount, format = x => x) {
+    return {
+      amount,
+      send: label => {
+        el.textContent = format(label)
+      }
+    }
+  }
 
   validate () {
     console.log('TODO: validate')
   }
 
   /**
-   * @param {NodeList} accountRows
-   * @param {string} typeSelector
-   * @param {string} amountSelector
+   * @return {number}
    */
-  createAccountMap (accountRows, typeSelector, amountSelector) {
+  debitTotal () {
+    const arr = this.createDebitArray()
+    console.log(arr)
+    return this.accountTotal(arr)
+  }
+
+  /**
+   * @return {number}
+   */
+  creditTotal () {
+    const arr = this.createCreditArray()
+    console.log(arr)
+    return this.accountTotal(arr)
+  }
+
+  /**
+   * @param {Object[]}
+   * @return {number}
+   */
+  accountTotal (accountArray) {
+    return accountArray.reduce((sum, account) => sum + account.amount, 0)
+  }
+
+  /**
+   * @param {Object[]} accountArray
+   */
+  createAccountMap (accountArray) {
     const accountMap = {}
-    ;[].forEach.call(accountRows, row => {
-      const type = row.querySelector(typeSelector).value
-      const amount = +row.querySelector(amountSelector).dataset.amount
-      accountMap[type] = amount
+
+    accountArray.map(item => {
+      accountMap[item.type] = item.amount
     })
 
     return accountMap
   }
 
+  /**
+   * @param {NodeList} accountRows
+   * @param {string} typeSelector
+   * @param {string} amountSelector
+   * @return {Object[]}
+   */
+  createAccountArray (accountRows, typeSelector, amountSelector) {
+    return [].map
+      .call(accountRows, row => ({
+        type: row.querySelector(typeSelector).value,
+        amount: +row.querySelector(amountSelector).dataset.amount
+      }))
+      .filter(account => !!account.type && account.amount > 0 && account.amount < Infinity)
+  }
+
+  createDebitArray () {
+    return this.createAccountArray(this.debits, '.new-item-card__debit-type', '.new-item-card__debit-amount')
+  }
+
+  createCreditArray () {
+    return this.createAccountArray(this.credits, '.new-item-card__credit-type', '.new-item-card__credit-amount')
+  }
+
   createDebitObject () {
-    return this.createAccountMap(this.debits, '.new-item-card__debit-type', '.new-item-card__debit-amount')
+    return this.createAccountMap(this.createDebitArray())
   }
 
   createCreditObject () {
-    return this.createAccountMap(this.credits, '.new-item-card__credit-type', '.new-item-card__credit-amount')
+    return this.createAccountMap(this.createCreditArray())
   }
 }
