@@ -2,7 +2,7 @@ const matango = require('matango')
 const genel = require('genel')
 const { component, on, emits, unmount, wired, notifies } = capsid
 
-export const ERROR_CLASS = 'is-error'
+export const ERROR_CLASS = 'has-error'
 export const EVENT_VALIDATION_UPDATE = 'validation-update'
 export const CLASS_DISABLE_ON_ERROR = 'disable-on-error'
 

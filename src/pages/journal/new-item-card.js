@@ -1,4 +1,4 @@
-const { prep, component, on, emits, wired } = capsid
+const { prep, component, on, emits, wired, notifies } = capsid
 const genel = require('genel')
 
 export const SHOW = 'js-new-item-card/SHOW'
@@ -64,6 +64,9 @@ export default class NewItemCard {
 
   @wired('.add-credit-button')
   get addCreditButton () {}
+
+  @wired('.account-error-holder')
+  get accountErrorHolder () {}
 
   lastDebit () {
     return util.last(this.debits)
@@ -145,6 +148,7 @@ export default class NewItemCard {
             <button class="button is-primary t-text new-item-save-button disable-on-error">ui.form.save</button>
           </p>
         </div>
+        <div class="account-error-holder"></div>
       </form>
     `
 
@@ -283,32 +287,34 @@ export default class NewItemCard {
   @on('input', { at: '.new-item-card__debit-amount' })
   @on('change', { at: '.new-item-card__credit-type' })
   @on('input', { at: '.new-item-card__credit-amount' })
+  @notifies('field-error', '.js-form')
   onAccountChange (e) {
-    console.log(`debitTotal=${this.debitTotal()}`)
-    console.log(`creditTotal=${this.creditTotal()}`)
-
-    this.fillAccountTotalLabels()
-    this.validate()
-  }
-
-  fillAccountTotalLabels () {
     const dt = this.debitTotal()
     const ct = this.creditTotal()
 
+    this.fillAccountTotalLabels(dt, ct)
+    this.validate(dt, ct)
+  }
+
+  /**
+   * @param {number} dt The debit total
+   * @param {number} ct The credit total
+   */
+  fillAccountTotalLabels (dt, ct) {
     this.setAccountLabel(this.debitTotalLabel, dt)
     this.setAccountLabel(this.creditTotalLabel, ct)
 
     const diff = Math.abs(dt - ct)
 
     if (diff === 0) {
-      this.setAccountLabel(this.debitTotalDiffLabel, diff, () => '')
-      this.setAccountLabel(this.creditTotalDiffLabel, diff, () => '')
+      this.debitTotalDiffLabel.textContent = ''
+      this.creditTotalDiffLabel.textContent = ''
     } else if (dt > ct) {
-      this.setAccountLabel(this.debitTotalDiffLabel, diff, label => `(+${label})`)
+      this.debitTotalDiffLabel.textContent = ''
       this.setAccountLabel(this.creditTotalDiffLabel, diff, label => `(-${label})`)
     } else {
       this.setAccountLabel(this.debitTotalDiffLabel, diff, label => `(-${label})`)
-      this.setAccountLabel(this.creditTotalDiffLabel, diff, label => `(+${label})`)
+      this.creditTotalDiffLabel.textContent = ''
     }
   }
 
@@ -322,8 +328,32 @@ export default class NewItemCard {
     }
   }
 
-  validate () {
-    console.log('TODO: validate')
+  /**
+   * @param {number} dt The debit total
+   * @param {number} ct The credit total
+   */
+  validate (dt, ct) {
+    if (dt > 0 && ct > 0 && dt === ct) {
+      this.clearAccountError()
+
+      return
+    }
+
+    this.setAccountError()
+  }
+
+  /**
+   * Sets the account validation state error.
+   */
+  setAccountError () {
+    this.accountErrorHolder.classList.add('has-error')
+  }
+
+  /**
+   * Clears the account validation error state.
+   */
+  clearAccountError () {
+    this.accountErrorHolder.classList.remove('has-error')
   }
 
   /**
@@ -331,7 +361,6 @@ export default class NewItemCard {
    */
   debitTotal () {
     const arr = this.createDebitArray()
-    console.log(arr)
     return this.accountTotal(arr)
   }
 
@@ -340,7 +369,6 @@ export default class NewItemCard {
    */
   creditTotal () {
     const arr = this.createCreditArray()
-    console.log(arr)
     return this.accountTotal(arr)
   }
 
