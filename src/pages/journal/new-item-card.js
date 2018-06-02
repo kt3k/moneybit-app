@@ -68,12 +68,13 @@ export default class NewItemCard {
   @wired('.account-error-holder')
   get accountErrorHolder () {}
 
-  lastDebit () {
-    return util.last(this.debits)
-  }
-
-  lastCredit () {
-    return util.last(this.credits)
+  @on(Action.MODEL_UPDATE)
+  update ({ detail: { currentChart } }) {
+    this.currentChart = currentChart
+    this.accountTypes = []
+    for (let item of currentChart.majorTypes.entries()) {
+      this.accountTypes.push(item)
+    }
   }
 
   @emits(RESET_SCROLL)
@@ -174,13 +175,7 @@ export default class NewItemCard {
           <div class="select is-fullwidth">
             <select class="input new-item-card__debit-type">
               <option value="" class="t-text">ui.form.select_account_title</option>
-              <option value="A">A (Asset)</option>
-              <option value="A1">A1 (Asset)</option>
-              <option value="C">C (Owner's Equity)</option>
-              <option value="L">L (Liability)</option>
-              <option value="L1">L1 (Liability)</option>
-              <option value="R">R (Revenue)</option>
-              <option value="E">E (Expense)</option>
+              ${this.options()}
             </select>
           </div>
         </div>
@@ -217,6 +212,10 @@ export default class NewItemCard {
     this.prep()
   }
 
+  options () {
+    return this.accountTypes.map(([type, majorType]) => `<option value="${type}">${type} (${t10.t(`domain.${majorType.name}`)})</option>`).join('')
+  }
+
   addCreditRow () {
     const div = genel.div`
       <div class="field">
@@ -224,8 +223,7 @@ export default class NewItemCard {
           <div class="select is-fullwidth">
             <select class="input new-item-card__credit-type">
               <option value="" class="t-text">ui.form.select_account_title</option>
-              <option value="A">Account Payable</option>
-              <option value="B">B</option>
+              ${this.options()}
             </select>
           </div>
         </div>
