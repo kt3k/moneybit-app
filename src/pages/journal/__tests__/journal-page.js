@@ -8,13 +8,13 @@ require('../journal-page')
 let el
 let comp
 
-describe('js-journal-page component', () => {
+describe('journal-page component', () => {
   beforeEach(() => {
     el = genel.div`
-      <div class="js-new-item-card-wrapper"></div>
+      <div class="new-item-card-wrapper"></div>
       <button class="add-entry-button"></button>
     `
-    comp = make('js-journal-page', el)
+    comp = make('journal-page', el)
   })
 
   describe('onClick', () => {
