@@ -13,8 +13,9 @@ class JournalDocument {
    * @param {moment} start The start date
    * @param {moment} end The end date
    * @param {CommaPeriodSetting} commaPeriodSetting The setting of comma and period usage in number expression.
+   * @param {AccountTypeRecentList} accountTypeRecentList The recently used account types
    */
-  constructor ({ id, title, journalId, chartId, currency, start, end, commaPeriodSetting }) {
+  constructor ({ id, title, journalId, chartId, currency, start, end, commaPeriodSetting, accountTypeRecentList }) {
     this.id = id
     this.title = title
     this.journalId = journalId
@@ -23,6 +24,7 @@ class JournalDocument {
     this.start = start
     this.end = end
     this.commaPeriodSetting = commaPeriodSetting
+    this.accountTypeRecentList = accountTypeRecentList
   }
 
   async getJournal () {

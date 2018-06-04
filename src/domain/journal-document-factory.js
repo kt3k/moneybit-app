@@ -2,6 +2,8 @@ const moment = require('moment')
 const Currency = require('./currency')
 const CommaPeriodSetting = require('./comma-period-setting')
 const JournalDocument = require('./journal-document')
+const { AccountType } = require('moneybit-domain')
+const AccountTypeRecentList = require('./account-type-recent-list')
 
 class JournalDocumentFactory {
   /**
@@ -17,7 +19,8 @@ class JournalDocumentFactory {
       currency: Currency[obj.currencyCode],
       start: moment(obj.start),
       end: moment(obj.end),
-      commaPeriodSetting: CommaPeriodSetting[obj.commaPeriodSetting]
+      commaPeriodSetting: CommaPeriodSetting[obj.commaPeriodSetting],
+      accountTypeRecentList: new AccountTypeRecentList(obj.accountTypeRecentList ? obj.accountTypeRecentList.map(name => new AccountType(name)) : null)
     })
   }
 

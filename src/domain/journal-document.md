@@ -28,6 +28,9 @@ props:
 - name: commaPeriodSetting
   type: CommaPeriodSetting
   desc: The setting of comma and period for separating number
+- name: accountTypeRecentList
+  type: AccountTypeRecentList
+  desc: The recently used account types
 ---
 
 JournalDocument is the unit of the accounting document in moneybit app.
