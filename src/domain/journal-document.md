@@ -11,10 +11,10 @@ props:
   type: string
   desc: The title of the document
 - name: journalId
-  type: string
+  type: Id<Journal>
   desc: The id of the journal of the document
 - name: chartId
-  type: string
+  type: Id<AccountTypeChart>
   desc: The id of the chart of the account types
 - name: currency
   type: Currency
