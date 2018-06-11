@@ -5632,6 +5632,10 @@ posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
 
+post-wavy@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/post-wavy/-/post-wavy-1.0.0.tgz#c06cf68bed8cebb765b0fc653688400d6f927f4d"
+
 postinstall-build@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/postinstall-build/-/postinstall-build-5.0.1.tgz#b917a9079b26178d9a24af5a5cd8cb4a991d11b9"
@@ -7469,10 +7473,6 @@ watchify@^3.9.0:
     outpipe "^1.1.0"
     through2 "^2.0.0"
     xtend "^4.0.0"
-
-wavy@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/wavy/-/wavy-1.0.4.tgz#a28b1f071c231e1b66d1cafcac6038cc0384083c"
 
 weak-map@1.0.0:
   version "1.0.0"

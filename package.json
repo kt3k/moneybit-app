@@ -10,7 +10,8 @@
     "start": "saku start",
     "test": "saku test",
     "codecov": "saku codecov",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "postinstall": "wavy"
   },
   "wsindex": {
     "pages": [
@@ -101,6 +102,7 @@
     "opener": "^1.4.3",
     "pickadate": "^3.5.6",
     "popper.js": "^1.12.9",
+    "post-wavy": "^1.0.0",
     "prettier": "^1.9.2",
     "rimraf": "^2.6.1",
     "saku": "^0.11.0",
@@ -109,7 +111,6 @@
     "testdouble": "^2.1.2",
     "uuid": "^3.1.0",
     "watchify": "^3.9.0",
-    "wavy": "^1.0.4",
     "wsindex": "^1.1.1"
   },
   "standard": {
