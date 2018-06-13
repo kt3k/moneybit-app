@@ -2180,9 +2180,9 @@ domain-browser@~1.1.0:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
-domaindoc@^2.8.2:
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-2.8.2.tgz#c2fe2fc1b4ff0bfdc21ea33ad27829ba5440fea2"
+domaindoc@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/domaindoc/-/domaindoc-3.0.1.tgz#9cac39518d86cb6ed03433daa239eee9e31ef123"
   dependencies:
     berber "^1.1.1"
     branch-pipe "^1.0.1"

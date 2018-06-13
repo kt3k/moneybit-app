@@ -1,5 +1,6 @@
 ---
 name: AccountTypeRecentList
+type: ValueObject
 desc: The recently used list of the account types.
 src: https://github.com/kt3k/moneybit-app/blob/master/src/domain/language.js
 edit: https://github.com/kt3k/moneybit-app/blob/master/src/domain/language.md

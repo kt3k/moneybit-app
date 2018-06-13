@@ -1,6 +1,7 @@
 ---
 name: User
 desc: The user
+type: Entity
 src: https://github.com/kt3k/moneybit-app/blob/master/src/domain/user.js
 edit: https://github.com/kt3k/moneybit-app/blob/master/src/domain/user.md
 props:

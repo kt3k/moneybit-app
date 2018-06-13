@@ -1,5 +1,6 @@
 ---
 name: UserSettings
+type: ValueObject
 desc: The miscellaneous settings of the user
 src: https://github.com/kt3k/moneybit-app/blob/master/src/domain/user-settings.js
 edit: https://github.com/kt3k/moneybit-app/blob/master/src/domain/user-settings.md

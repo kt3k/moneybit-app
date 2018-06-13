@@ -1,5 +1,6 @@
 ---
 name: JournalDocument
+type: Entity
 desc: The journal document model
 src: https://github.com/kt3k/moneybit-app/blob/master/src/domain/journal-document.js
 edit: https://github.com/kt3k/moneybit-app/blob/master/src/domain/journal-document.md
