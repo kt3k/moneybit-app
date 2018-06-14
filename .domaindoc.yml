@@ -3,8 +3,10 @@ source:
   src/domain:
     label: App
     color: '#d1fff8'
+    index: 1
   node_modules/moneybit-domain:
     label: Core
     color: '#ffe1d1'
+    index: 0
 dest: build/domaindoc
 port: 50000
