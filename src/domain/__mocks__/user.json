@@ -9,7 +9,9 @@
       "currencyCode": "JPY",
       "start": "2016-01-01",
       "end": "2016-12-31",
-      "commaPeriodSetting": "comma-period"
+      "commaPeriodSetting": "comma-period",
+      "debitTypeRecentList": [],
+      "creditTypeRecentList": []
     },
     {
       "id": "2",
@@ -19,7 +21,9 @@
       "currencyCode": "JPY",
       "start": "2017-01-01",
       "end": "2017-12-31",
-      "commaPeriodSetting": "period-comma"
+      "commaPeriodSetting": "period-comma",
+      "debitTypeRecentList": [],
+      "creditTypeRecentList": []
     }
   ],
   "settings": {
