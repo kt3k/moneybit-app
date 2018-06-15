@@ -20,7 +20,16 @@ class JournalDocumentFactory {
       start: moment(obj.start),
       end: moment(obj.end),
       commaPeriodSetting: CommaPeriodSetting[obj.commaPeriodSetting],
-      accountTypeRecentList: new AccountTypeRecentList(obj.accountTypeRecentList ? obj.accountTypeRecentList.map(name => new AccountType(name)) : null)
+      debitTypeRecentList: new AccountTypeRecentList(
+        obj.debitTypeRecentList
+          ? obj.debitTypeRecentList.map(name => new AccountType(name))
+          : null
+      ),
+      creditTypeRecentList: new AccountTypeRecentList(
+        obj.creditTypeRecentList
+          ? obj.creditTypeRecentList.map(name => new AccountType(name))
+          : null
+      )
     })
   }
 

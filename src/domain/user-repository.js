@@ -9,7 +9,9 @@ class UserRepository {
    * @return {User}
    */
   getById (id) {
-    return infrastructure.storage.get(this.createKey(id), null).then(data => this.deserialize(data))
+    return infrastructure.storage
+      .get(this.createKey(id), null)
+      .then(data => this.deserialize(data))
   }
 
   /**
@@ -17,7 +19,10 @@ class UserRepository {
    * @return {Promise}
    */
   save (user) {
-    return infrastructure.storage.set(this.createKey(user.id), this.serialize(user))
+    return infrastructure.storage.set(
+      this.createKey(user.id),
+      this.serialize(user)
+    )
   }
 
   /**
@@ -55,7 +60,12 @@ class UserRepository {
       start: document.start.format('YYYY-MM-DD'),
       end: document.end.format('YYYY-MM-DD'),
       commaPeriodSetting: document.commaPeriodSetting.name,
-      accountTypeRecentList: document.accountTypeRecentList.accountTypes.map(type => type.name)
+      debitTypeRecentList: document.debitTypeRecentList.accountTypes.map(
+        type => type.name
+      ),
+      creditTypeRecentList: document.creditTypeRecentList.accountTypes.map(
+        type => type.name
+      )
     }
   }
 
@@ -83,7 +93,9 @@ class UserRepository {
     const userSettingsFactory = new UserSettingsFactory()
     const documents = documentFactory.createDocumentsFromArray(obj.documents)
 
-    const currentDocument = documents.filter(document => document.id === obj.currentDocumentId)[0]
+    const currentDocument = documents.filter(
+      document => document.id === obj.currentDocumentId
+    )[0]
 
     return new User({
       id: obj.id,

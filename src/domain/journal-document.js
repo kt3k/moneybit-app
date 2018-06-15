@@ -13,9 +13,21 @@ class JournalDocument {
    * @param {moment} start The start date
    * @param {moment} end The end date
    * @param {CommaPeriodSetting} commaPeriodSetting The setting of comma and period usage in number expression.
-   * @param {AccountTypeRecentList} accountTypeRecentList The recently used account types
+   * @param {AccountTypeRecentList} debitTypeRecentList The recently used debit types
+   * @param {AccountTypeRecentList} creditTypeRecentList The recently used credit types
    */
-  constructor ({ id, title, journalId, chartId, currency, start, end, commaPeriodSetting, accountTypeRecentList }) {
+  constructor ({
+    id,
+    title,
+    journalId,
+    chartId,
+    currency,
+    start,
+    end,
+    commaPeriodSetting,
+    debitTypeRecentList,
+    creditTypeRecentList
+  }) {
     this.id = id
     this.title = title
     this.journalId = journalId
@@ -24,7 +36,8 @@ class JournalDocument {
     this.start = start
     this.end = end
     this.commaPeriodSetting = commaPeriodSetting
-    this.accountTypeRecentList = accountTypeRecentList
+    this.debitTypeRecentList = debitTypeRecentList
+    this.creditTypeRecentList = creditTypeRecentList
   }
 
   async getJournal () {
@@ -36,7 +49,9 @@ class JournalDocument {
    * Formats the given money.
    */
   format (money) {
-    return `${this.currency.symbol}${this.commaPeriodSetting.format(Math.floor(money.amount))}${this.formatMoneyFractionPart(money)}`
+    return `${this.currency.symbol}${this.commaPeriodSetting.format(
+      Math.floor(money.amount)
+    )}${this.formatMoneyFractionPart(money)}`
   }
 
   /**
@@ -56,6 +71,20 @@ class JournalDocument {
     fraction = (Array(digits).join('0') + fraction).substr(-digits, digits)
 
     return `${this.commaPeriodSetting.decimalPoint}${fraction}`
+  }
+
+  /**
+   * @param {AccountType[]} types
+   */
+  updateRecentDebit (...types) {
+    this.debitTypeRecentList.update(...types)
+  }
+
+  /**
+   * @param {AccountType[]} types
+   */
+  updateRecentCredit (...types) {
+    this.creditTypeRecentList.update(...types)
   }
 }
 
