@@ -86,6 +86,22 @@ class JournalDocument {
   updateRecentCredit (...types) {
     this.creditTypeRecentList.update(...types)
   }
+
+  /**
+   * @param {AccountTypeChart}
+   * @return {AccountType[]}
+   */
+  recentDebitTypes (chart) {
+    return this.debitTypeRecentList.sortChartKeys(chart)
+  }
+
+  /**
+   * @param {AccountTypeChart}
+   * @return {AccountType[]}
+   */
+  recentCreditTypes (chart) {
+    return this.creditTypeRecentList.sortChartKeys(chart)
+  }
 }
 
 module.exports = JournalDocument

@@ -1,3 +1,5 @@
+const { AccountType } = require('moneybit-domain')
+
 /**
  * List of account types which are recently used.
  */
@@ -7,6 +9,14 @@ class AccountTypeRecentList {
    */
   constructor (accountTypes) {
     this.accountTypes = accountTypes || []
+    this.nameMap = {}
+    this.updateNameMap()
+  }
+
+  updateNameMap () {
+    this.accountTypes.forEach(type => {
+      this.nameMap[type.name] = true
+    })
   }
 
   /**
@@ -27,7 +37,25 @@ class AccountTypeRecentList {
       filteredName[type.name] = true
     })
 
-    this.accountTypes = this.accountTypes.filter(type => !filteredName[type.name])
+    this.accountTypes = this.accountTypes.filter(
+      type => !filteredName[type.name]
+    )
+  }
+
+  /**
+   * @param {AccountTypeChart} chart
+   * @return {AccountType[]}
+   */
+  sortChartKeys (chart) {
+    const types = []
+
+    for (const [name] of chart.majorTypes.entries()) {
+      if (!this.nameMap[name]) {
+        types.push(new AccountType(name))
+      }
+    }
+
+    return [].concat(this.accountTypes, types)
   }
 }
 

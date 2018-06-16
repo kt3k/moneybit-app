@@ -69,12 +69,10 @@ export default class NewItemCard {
   get accountErrorHolder () {}
 
   @on(Action.MODEL_UPDATE)
-  update ({ detail: { currentChart } }) {
+  update ({ detail: { user, currentChart } }) {
     this.currentChart = currentChart
-    this.accountTypes = []
-    for (let item of currentChart.majorTypes.entries()) {
-      this.accountTypes.push(item)
-    }
+    this.debitTypes = user.currentDocument.recentDebitTypes(this.currentChart)
+    this.creditTypes = user.currentDocument.recentCreditTypes(this.currentChart)
   }
 
   @emits(RESET_SCROLL)
@@ -175,7 +173,7 @@ export default class NewItemCard {
           <div class="select is-fullwidth">
             <select class="input new-item-card__debit-type">
               <option value="" class="t-text">ui.form.select_account_title</option>
-              ${this.options()}
+              ${this.options(this.debitTypes)}
             </select>
           </div>
         </div>
@@ -212,8 +210,15 @@ export default class NewItemCard {
     this.prep()
   }
 
-  options () {
-    return this.accountTypes.map(([type, majorType]) => `<option value="${type}">${type} (${t10.t(`domain.${majorType.name}`)})</option>`).join('')
+  options (accountTypes) {
+    return accountTypes
+      .map(
+        type =>
+          `<option value="${type.name}">${type.name} (${t10.t(
+            `domain.${this.currentChart.getMajorTypeByAccountType(type).name}`
+          )})</option>`
+      )
+      .join('')
   }
 
   addCreditRow () {
@@ -223,7 +228,7 @@ export default class NewItemCard {
           <div class="select is-fullwidth">
             <select class="input new-item-card__credit-type">
               <option value="" class="t-text">ui.form.select_account_title</option>
-              ${this.options()}
+              ${this.options(this.creditTypes)}
             </select>
           </div>
         </div>
@@ -251,7 +256,9 @@ export default class NewItemCard {
 
   @on('click', { at: '.new-item-save-button' })
   @emits(Action.CREATE_TRADE)
-  onCreate () {
+  onCreate (e) {
+    e.preventDefault()
+
     const date = this.date.dataset.date
     const desc = this.desc.value
     const dr = this.createDebitObject()
@@ -309,9 +316,17 @@ export default class NewItemCard {
       this.creditTotalDiffLabel.textContent = ''
     } else if (dt > ct) {
       this.debitTotalDiffLabel.textContent = ''
-      this.setAccountLabel(this.creditTotalDiffLabel, diff, label => `(-${label})`)
+      this.setAccountLabel(
+        this.creditTotalDiffLabel,
+        diff,
+        label => `(-${label})`
+      )
     } else {
-      this.setAccountLabel(this.debitTotalDiffLabel, diff, label => `(-${label})`)
+      this.setAccountLabel(
+        this.debitTotalDiffLabel,
+        diff,
+        label => `(-${label})`
+      )
       this.creditTotalDiffLabel.textContent = ''
     }
   }
@@ -403,15 +418,26 @@ export default class NewItemCard {
         type: row.querySelector(typeSelector).value,
         amount: +row.querySelector(amountSelector).dataset.amount
       }))
-      .filter(account => !!account.type && account.amount > 0 && account.amount < Infinity)
+      .filter(
+        account =>
+          !!account.type && account.amount > 0 && account.amount < Infinity
+      )
   }
 
   createDebitArray () {
-    return this.createAccountArray(this.debits, '.new-item-card__debit-type', '.new-item-card__debit-amount')
+    return this.createAccountArray(
+      this.debits,
+      '.new-item-card__debit-type',
+      '.new-item-card__debit-amount'
+    )
   }
 
   createCreditArray () {
-    return this.createAccountArray(this.credits, '.new-item-card__credit-type', '.new-item-card__credit-amount')
+    return this.createAccountArray(
+      this.credits,
+      '.new-item-card__credit-type',
+      '.new-item-card__credit-amount'
+    )
   }
 
   createDebitObject () {
