@@ -5699,7 +5699,7 @@ t, .t-text, .t-attr, .t-hidden {
   visibility: hidden;
   z-index: 10;
   /* to make this above trigger of select box of bulma */ }
-  .is-error:not(.pure) .error-tooltip {
+  .has-error:not(.pure) .error-tooltip {
     visibility: visible; }
   .error-tooltip::before {
     content: '';

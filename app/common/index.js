@@ -38995,6 +38995,9 @@ var LocationModule = (_dec = action(Action.CHECK_LOCATION), _dec2 = dispatches(A
   _createClass(LocationModule, [{
     key: 'isMainPage',
     value: function isMainPage(pathname) {
+      if (/\/$/.test(pathname)) {
+        pathname = pathname + 'index.html';
+      }
       return MAIN_PAGES.indexOf(pathname) >= 0;
     }
 
