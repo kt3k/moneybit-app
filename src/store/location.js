@@ -3,7 +3,12 @@ const { Page, Action } = require('~')
 const { action, dispatches } = require('evex')
 
 // These pages don't work without current document set.
-const MAIN_PAGES = [Page.BS, Page.JOURNAL, Page.SETTINGS, Page.EDIT_CHART_OF_ACCOUNTS]
+const MAIN_PAGES = [
+  Page.BS,
+  Page.JOURNAL,
+  Page.SETTINGS,
+  Page.EDIT_CHART_OF_ACCOUNTS
+]
 
 /*
 // These pages work without current document set.
@@ -15,6 +20,9 @@ const LANDING_PAGES = [
 
 class LocationModule {
   isMainPage (pathname) {
+    if (/\/$/.test(pathname)) {
+      pathname = pathname + 'index.html'
+    }
     return MAIN_PAGES.indexOf(pathname) >= 0
   }
 
