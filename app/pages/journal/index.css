@@ -1,0 +1,38 @@
+/* customize bulma */
+.new-item-card-wrapper {
+  position: fixed;
+  left: 0;
+  top: 60px;
+  height: calc(100vh - 60px - 56.5px);
+  width: 100%;
+  transition-duration: 500ms;
+  transform: scale(0.8);
+  opacity: 0;
+  visibility: hidden;
+  overflow: scroll;
+  padding: 10px; }
+  .new-item-card-wrapper.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1); }
+
+.new-item-card__debit-total, .new-item-card__credit-total {
+  font-size: 20px; }
+
+.new-item-card__debit-total-diff, .new-item-card__credit-total-diff {
+  font-size: 16px;
+  color: #e0407b; }
+
+.modal-overlay-shadow {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: calc(100vh - 60px - 56.5px);
+  width: 100%;
+  background-color: black;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 500ms; }
+  .modal-overlay-shadow.is-visible {
+    opacity: 0.2;
+    visibility: visible; }

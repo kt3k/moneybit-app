@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="../../vendor/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="../../common/index.css" />
     
+    <link rel="stylesheet" href="../../pages/journal/index.css" />
+    
   </head>
-  <body class="js-store">
+  <body class="js-store scroll-lock journal-page">
     
 <header class="app-header-wrapper">
   <div class="c-brand-stripe"></div>
@@ -63,18 +65,10 @@
 <main class="l-main">
   <div class="section">
     <div class="container">
-      <button class="button is-primary is-large is-wide">
+      <button class="add-entry-button button is-primary is-large is-wide">
   <span class="icon"><i class="fa fa-plus-square-o"></i></span>
   <span class="t-text">app.journal.add_an_entry</span>
 </button>
-
-<hr />
-
-<div class="columns">
-  <div class="column">
-    <div class="js-new-item-card"></div>
-  </div>
-</div>
 
 <hr />
 
@@ -84,6 +78,11 @@
 <div class="columns js-trade-list is-model-observer"></div>
 
 <br />
+
+<div class="overlay-shadow modal-overlay-shadow"></div>
+<div class="new-item-card-wrapper">
+  <div class="card new-item-card is-model-observer"></div>
+</div>
 
     </div>
   </div>

@@ -1,3 +1,4 @@
+/* customize bulma */
 .misc-settings {
   display: flex;
   flex-direction: column; }
@@ -22,34 +23,3 @@
     .misc-settings__row__left {
       flex-grow: 1;
       text-align: center; }
-
-.error-tooltip {
-  color: #e0407b;
-  border-radius: 5px;
-  border: solid 1px #e0407b;
-  padding: 2px 7px;
-  margin-bottom: 8px;
-  background-color: white;
-  visibility: hidden; }
-  .is-error:not(.pure) .error-tooltip {
-    visibility: visible; }
-  .error-tooltip::before {
-    content: '';
-    position: absolute;
-    right: 10px;
-    bottom: -5px;
-    width: 0;
-    height: 0;
-    border-width: 5px 5px 0 5px;
-    border-color: #e0407b transparent;
-    border-style: solid; }
-  .error-tooltip::after {
-    content: '';
-    position: absolute;
-    right: 11px;
-    bottom: -4px;
-    width: 0;
-    height: 0;
-    border-width: 4px 4px 0 4px;
-    border-color: white transparent;
-    border-style: solid; }

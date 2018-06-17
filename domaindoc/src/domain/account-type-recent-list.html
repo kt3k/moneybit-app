@@ -4,7 +4,7 @@
 
 <html>
   <head>
-    <title>User | MoneyBit App Domain Models</title>
+    <title>AccountTypeRecentList | MoneyBit App Domain Models</title>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="../../asset/fontawesome/css/font-awesome.css" />
@@ -93,17 +93,17 @@
 <div class="card">
   <header class="card-header">
     <div class="card-header-title">
-      User
+      AccountTypeRecentList
     </div>
 
 
-    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/user.md" target="_blank">
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/language.md" target="_blank">
       <span class="icon"><i class="fa fa-pencil"></i></span>
     </a>
 
 
 
-    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/user.js" target="_blank">
+    <a class="card-header-icon" href="https://github.com/kt3k/moneybit-app/blob/master/src/domain/language.js" target="_blank">
       <span class="icon"><i class="fa fa-code"></i></span>
     </a>
 
@@ -123,7 +123,7 @@
   <div class="control">
     <div class="tags has-addons">
       <span class="tag is-dark">Type</span>
-      <span class="tag is-info">Entity</span>
+      <span class="tag is-info">ValueObject</span>
     </div>
   </div>
 
@@ -132,32 +132,26 @@
 </div>
     <div class="content">
       </div>
-      <p>The user</p>
+      <p>The recently used list of the account types.</p>
 
 
         <table class="table">
           <tr><th>property<th>type<th>description
 
-            <tr><td>id<td>string<td>The id of the user, randomly generated, maybe never used
-
-            <tr><td>documents<td><a href="../../src/domain/journal-document.html">JournalDocument</a>[]<td>The documents of the user
-
-            <tr><td>settings<td><a href="../../src/domain/user-settings.html">UserSettings</a><td>The settings of the user
-
-            <tr><td>currentDocument<td><a href="../../src/domain/journal-document.html">JournalDocument</a><td>The current document id
+            <tr><td>accountTypes<td><a href="../../node_modules/moneybit-domain/account-type.html">AccountType</a>[]<td>The account types in the recent order
 
         </table>
 
 
         <hr />
-        <p>The user model.</p>
+        <p>AccountTypeRecentList the list of AccountTypes which is oredered in recently used order.</p>
 
 
       <hr />
 
         This model is owned by 1 model(s):
 
-        <a href="../../src/domain/app-state.html">AppState</a>.
+        <a href="../../src/domain/journal-document.html">JournalDocument</a>.
 
 
     </div>
