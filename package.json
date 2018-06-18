@@ -1,7 +1,7 @@
 {
   "name": "moneybit-app",
   "description": "Open Source Mobile App for Accounting of Freelancers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "browserslist": [
     "last 3 versions"
@@ -11,7 +11,7 @@
     "test": "saku test",
     "codecov": "saku codecov",
     "precommit": "lint-staged",
-    "postinstall": "wavy"
+    "postinstall": "post-wavy"
   },
   "wsindex": {
     "pages": [
