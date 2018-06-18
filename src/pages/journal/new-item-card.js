@@ -88,14 +88,12 @@ export default class NewItemCard {
               <input
                 class="input js-field js-pickadate new-item-card__date"
                 data-validate="required"
-                value=""
               />
             </p>
             <div
               class="popper error-tooltip"
               data-popper-ref=".new-item-card__date"
               data-popper-placement="top-end"
-              style="display: none"
             ></div>
           </div>
         </div>
@@ -106,7 +104,6 @@ export default class NewItemCard {
               <p class="control">
                 <input
                   class="js-field input new-item-card__desc"
-                  value=""
                   data-validate="required"
                 />
               </p>
@@ -114,7 +111,6 @@ export default class NewItemCard {
                 class="popper error-tooltip"
                 data-popper-ref=".input"
                 data-popper-placement="top-end"
-                style="display: none"
               ></div>
             </div>
             <h2>
@@ -190,7 +186,6 @@ export default class NewItemCard {
           class="popper error-tooltip"
           data-popper-ref=".input"
           data-popper-placement="top-end"
-          style="display: none"
         ></div>
       </div>
       <hr />
@@ -233,13 +228,19 @@ export default class NewItemCard {
           </div>
         </div>
       </div>
-      <div class="field">
+      <div class="field js-field-wrapper">
         <p class="control">
           <input
             class="input js-field js-number-input t-attr new-item-card__credit-amount"
+            data-validate="number"
             placeholder="t:domain.amount"
           />
         </p>
+        <div
+          class="popper error-tooltip"
+          data-popper-ref=".input"
+          data-popper-placement="top-end"
+        ></div>
       </div>
       <hr />
     `
