@@ -35,7 +35,7 @@ describe('new-item-card', () => {
         done()
       })
 
-      card.onCreate()
+      card.onCreate(new UIEvent('click'))
     })
   })
 

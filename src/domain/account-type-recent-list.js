@@ -25,6 +25,7 @@ class AccountTypeRecentList {
   update (...accountTypes) {
     this.filter(...accountTypes)
     this.accountTypes.unshift(...accountTypes)
+    this.updateNameMap()
   }
 
   /**
