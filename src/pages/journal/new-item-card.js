@@ -162,22 +162,41 @@ export default class NewItemCard {
     this.prep()
   }
 
-  addDebitRow () {
+  @on('click', { at: '.add-credit-button' })
+  onClickCreditButton (e) {
+    e.preventDefault()
+
+    this.addCreditRow()
+
+    this.prep()
+  }
+
+  /**
+   * @param {string} side debit or credit
+   * @param {AccountType[]} accountTypes
+   * @param {HTMLElement} insertBefore
+   */
+  addAccountInput (side, accountTypes, insertBefore) {
     const div = genel.div`
-      <div class="field">
+      <div class="field js-field-wrapper">
         <div class="control is-expanded">
           <div class="select is-fullwidth">
-            <select class="input new-item-card__debit-type">
+            <select class="input new-item-card__${side}-type">
               <option value="" class="t-text">ui.form.select_account_title</option>
-              ${this.options(this.debitTypes)}
+              ${this.options(accountTypes)}
             </select>
           </div>
         </div>
+        <div
+          class="popper error-tooltip"
+          data-popper-ref=".control"
+          data-popper-placement="top-end"
+        ></div>
       </div>
       <div class="field js-field-wrapper">
         <p class="control">
           <input
-            class="input js-field js-number-input t-attr new-item-card__debit-amount"
+            class="input js-field js-number-input t-attr new-item-card__${side}-amount"
             data-validate="number"
             placeholder="t:domain.amount"
           />
@@ -191,18 +210,17 @@ export default class NewItemCard {
       <hr />
     `
 
-    div.classList.add('new-item-card__debit')
+    div.classList.add(`new-item-card__${side}`, 'account-type-select')
 
-    this.addDebitButton.parentElement.insertBefore(div, this.addDebitButton)
+    insertBefore.parentElement.insertBefore(div, insertBefore)
   }
 
-  @on('click', { at: '.add-credit-button' })
-  onClickCreditButton (e) {
-    e.preventDefault()
+  addDebitRow () {
+    this.addAccountInput('debit', this.debitTypes, this.addDebitButton)
+  }
 
-    this.addCreditRow()
-
-    this.prep()
+  addCreditRow () {
+    this.addAccountInput('credit', this.creditTypes, this.addCreditButton)
   }
 
   options (accountTypes) {
@@ -214,40 +232,6 @@ export default class NewItemCard {
           )})</option>`
       )
       .join('')
-  }
-
-  addCreditRow () {
-    const div = genel.div`
-      <div class="field">
-        <div class="control is-expanded">
-          <div class="select is-fullwidth">
-            <select class="input new-item-card__credit-type">
-              <option value="" class="t-text">ui.form.select_account_title</option>
-              ${this.options(this.creditTypes)}
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="field js-field-wrapper">
-        <p class="control">
-          <input
-            class="input js-field js-number-input t-attr new-item-card__credit-amount"
-            data-validate="number"
-            placeholder="t:domain.amount"
-          />
-        </p>
-        <div
-          class="popper error-tooltip"
-          data-popper-ref=".input"
-          data-popper-placement="top-end"
-        ></div>
-      </div>
-      <hr />
-    `
-
-    div.classList.add('new-item-card__credit')
-
-    this.addCreditButton.parentElement.insertBefore(div, this.addCreditButton)
   }
 
   @emits(Action.SCAN_LANGUAGE)
