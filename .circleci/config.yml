@@ -7,11 +7,11 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-      - run: npm i
+            - v1-{{ checksum "package.json" }}
+      - run: yarn
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm test
-      - run: npm run codecov
+          key: v1-{{ checksum "package.json" }}
+      - run: yarn test
+      - run: yarn codecov
