@@ -35386,7 +35386,7 @@ require('babel-polyfill');
 if (undefined !== 'production') {
   require('capsid/debug');
 }
-global.basepath = '../..' || '';
+global.basepath = '/moneybit-app/app' || '';
 global.t10 = require('t10');
 global.capsid = require('capsid');
 global.Action = require('../const/action-types.js');
@@ -36503,16 +36503,20 @@ exports.UI_SHOW = 'mb/ui/SHOW';
 exports.UI_HIDE = 'mb/ui/HIDE';
 
 },{}],430:[function(require,module,exports){
+(function (process){
+const basepath = process.env.BASEPATH || ''
+
 module.exports = {
-  BS: '/pages/bs/index.html',
-  JOURNAL: '/pages/journal/index.html',
-  SETTINGS: '/pages/settings/index.html',
-  APP_SETTINGS: '/pages/app-settings/index.html',
-  NEW: '/pages/new/index.html',
-  EDIT_CHART_OF_ACCOUNTS: '/pages/edit-chart-of-accounts/index.html'
+  BS: `${basepath}/pages/bs/index.html`,
+  JOURNAL: `${basepath}/pages/journal/index.html`,
+  SETTINGS: `${basepath}/pages/settings/index.html`,
+  APP_SETTINGS: `${basepath}/pages/app-settings/index.html`,
+  NEW: `${basepath}/pages/new/index.html`,
+  EDIT_CHART_OF_ACCOUNTS: `${basepath}/pages/edit-chart-of-accounts/index.html`
 }
 
-},{}],431:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"_process":402}],431:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -38999,6 +39003,7 @@ var LocationModule = (_dec = action(Action.CHECK_LOCATION), _dec2 = dispatches(A
       if (/\/$/.test(pathname)) {
         pathname = pathname + 'index.html';
       }
+      console.log(MAIN_PAGES);
       return MAIN_PAGES.find(function (page) {
         return pathname.includes(page);
       });
