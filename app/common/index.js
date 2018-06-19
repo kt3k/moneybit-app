@@ -36506,6 +36506,8 @@ exports.UI_HIDE = 'mb/ui/HIDE';
 (function (process){
 const basepath = process.env.BASEPATH || ''
 
+console.log(`basepath=${basepath}`)
+
 module.exports = {
   BS: `${basepath}/pages/bs/index.html`,
   JOURNAL: `${basepath}/pages/journal/index.html`,
