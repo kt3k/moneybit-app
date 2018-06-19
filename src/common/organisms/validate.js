@@ -90,7 +90,9 @@ export class Field {
   getValidationErrors () {
     const rules = this.getValidationRules()
 
-    return rules.map(rule => rule.getError(this.el.value, this.el)).filter(Boolean)
+    return rules
+      .map(rule => rule.getError(this.el.value, this.el))
+      .filter(Boolean)
   }
 
   /**
@@ -143,20 +145,26 @@ class Rule {
   }
 }
 
-Rule.required = Rule.generate(({ value }) => value !== '', () => 'This field is required') // TODO: i18n
-Rule.number = Rule.generate(({ value }) => {
-  if (!value) {
-    return true
-  }
+Rule.required = Rule.generate(
+  ({ value }) => value !== '',
+  () => t10.t('error.form.field_required')
+)
+Rule.number = Rule.generate(
+  ({ value }) => {
+    if (!value) {
+      return true
+    }
 
-  const number = +value
+    const number = +value
 
-  if (-Infinity < number && number < Infinity) {
-    return true
-  }
+    if (-Infinity < number && number < Infinity) {
+      return true
+    }
 
-  return false
-}, () => 'Not a valid number') // TODO: i18n
+    return false
+  },
+  () => t10.t('error.form.not_valid_number')
+)
 
 class ValidationError {
   /**

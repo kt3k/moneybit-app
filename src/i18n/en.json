@@ -46,5 +46,8 @@
   "ui.form.delete": "Delete",
   "ui.form.select_date": "Select date",
   "ui.form.select_account_title": "Select account title",
+  "error.form.field_required": "This field is required 😥",
+  "error.form.not_valid_number": "Not a valid number 😥",
+  "error.form.account_type_not_selected": "The account type is not selected 😥",
   "locale.date_format": "D MMM, YYYY"
 }

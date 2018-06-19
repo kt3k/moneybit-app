@@ -7,6 +7,7 @@ export const HIDE = 'js-new-item-card/HIDE'
 const { LOCK, UNLOCK } = global.capsidScrollLock
 
 const CLASS_VISIBLE = 'is-visible'
+const CLASS_ERROR = 'has-error'
 const RESET_SCROLL = 'mb/new-item-card-wrapper/RESET_SCROLL'
 
 @component('new-item-card-wrapper')
@@ -67,6 +68,9 @@ export default class NewItemCard {
 
   @wired('.account-error-holder')
   get accountErrorHolder () {}
+
+  @wired.all('.new-item-card__account-input')
+  get accountInputs () {}
 
   @on(Action.MODEL_UPDATE)
   update ({ detail: { user, currentChart } }) {
@@ -178,10 +182,10 @@ export default class NewItemCard {
    */
   addAccountInput (side, accountTypes, insertBefore) {
     const div = genel.div`
-      <div class="field js-field-wrapper">
+      <div class="field js-field-wrapper new-item-card__account-type-wrapper">
         <div class="control is-expanded">
           <div class="select is-fullwidth">
-            <select class="input new-item-card__${side}-type">
+            <select class="input new-item-card__account-type">
               <option value="" class="t-text">ui.form.select_account_title</option>
               ${this.options(accountTypes)}
             </select>
@@ -191,12 +195,12 @@ export default class NewItemCard {
           class="popper error-tooltip"
           data-popper-ref=".control"
           data-popper-placement="top-end"
-        ></div>
+        ><t>error.form.account_type_not_selected</t></div>
       </div>
       <div class="field js-field-wrapper">
         <p class="control">
           <input
-            class="input js-field js-number-input t-attr new-item-card__${side}-amount"
+            class="input js-field js-number-input t-attr new-item-card__account-amount"
             data-validate="number"
             placeholder="t:domain.amount"
           />
@@ -210,7 +214,7 @@ export default class NewItemCard {
       <hr />
     `
 
-    div.classList.add(`new-item-card__${side}`, 'account-type-select')
+    div.classList.add(`new-item-card__${side}`, 'new-item-card__account-input')
 
     insertBefore.parentElement.insertBefore(div, insertBefore)
   }
@@ -273,17 +277,42 @@ export default class NewItemCard {
     capsidPopper.updateAll()
   }
 
-  @on('change', { at: '.new-item-card__debit-type' })
-  @on('input', { at: '.new-item-card__debit-amount' })
-  @on('change', { at: '.new-item-card__credit-type' })
-  @on('input', { at: '.new-item-card__credit-amount' })
+  @on('change', { at: '.new-item-card__account-type' })
+  @on('input', { at: '.new-item-card__account-amount' })
   @notifies('field-error', '.js-form')
   onAccountChange (e) {
     const dt = this.debitTotal()
     const ct = this.creditTotal()
 
     this.fillAccountTotalLabels(dt, ct)
-    this.validate(dt, ct)
+    ;[].forEach.call(this.accountInputs, el => {
+      this.validateAccountInput(el)
+    })
+
+    this.validateTotal(dt, ct)
+  }
+
+  /**
+   * @param {HTMLElement} el
+   */
+  validateAccountInput (el) {
+    const { type, amount } = this.getAccountObject(el)
+
+    el.querySelector('.new-item-card__account-type-wrapper').classList.toggle(
+      CLASS_ERROR,
+      this.isValidAmount(amount) && type === ''
+    )
+  }
+
+  /**
+   * @param {number} dt The debit total
+   * @param {number} ct The credit total
+   */
+  validateTotal (dt, ct) {
+    this.accountErrorHolder.classList.toggle(
+      CLASS_ERROR,
+      !(dt > 0 && ct > 0 && dt === ct)
+    )
   }
 
   /**
@@ -327,47 +356,17 @@ export default class NewItemCard {
   }
 
   /**
-   * @param {number} dt The debit total
-   * @param {number} ct The credit total
-   */
-  validate (dt, ct) {
-    if (dt > 0 && ct > 0 && dt === ct) {
-      this.clearAccountError()
-
-      return
-    }
-
-    this.setAccountError()
-  }
-
-  /**
-   * Sets the account validation state error.
-   */
-  setAccountError () {
-    this.accountErrorHolder.classList.add('has-error')
-  }
-
-  /**
-   * Clears the account validation error state.
-   */
-  clearAccountError () {
-    this.accountErrorHolder.classList.remove('has-error')
-  }
-
-  /**
    * @return {number}
    */
   debitTotal () {
-    const arr = this.createDebitArray()
-    return this.accountTotal(arr)
+    return this.accountTotal(this.createDebitArray())
   }
 
   /**
    * @return {number}
    */
   creditTotal () {
-    const arr = this.createCreditArray()
-    return this.accountTotal(arr)
+    return this.accountTotal(this.createCreditArray())
   }
 
   /**
@@ -393,36 +392,40 @@ export default class NewItemCard {
 
   /**
    * @param {NodeList} accountRows
-   * @param {string} typeSelector
-   * @param {string} amountSelector
+   * @param {string} side debit or credit
    * @return {Object[]}
    */
-  createAccountArray (accountRows, typeSelector, amountSelector) {
+  createAccountArray (accountRows) {
     return [].map
-      .call(accountRows, row => ({
-        type: row.querySelector(typeSelector).value,
-        amount: +row.querySelector(amountSelector).dataset.amount
-      }))
-      .filter(
-        account =>
-          !!account.type && account.amount > 0 && account.amount < Infinity
-      )
+      .call(accountRows, row => this.getAccountObject(row))
+      .filter(account => !!account.type && this.isValidAmount(account.amount))
+  }
+
+  /**
+   * @param {number} amount
+   * @returns {boolean}
+   */
+  isValidAmount (amount) {
+    return amount > 0 && amount < Infinity
+  }
+
+  /**
+   * @param {HTMLElement} el
+   * @returns {{type: string, amount: number}}
+   */
+  getAccountObject (el) {
+    return {
+      type: el.querySelector('.new-item-card__account-type').value,
+      amount: +el.querySelector('.new-item-card__account-amount').dataset.amount
+    }
   }
 
   createDebitArray () {
-    return this.createAccountArray(
-      this.debits,
-      '.new-item-card__debit-type',
-      '.new-item-card__debit-amount'
-    )
+    return this.createAccountArray(this.debits)
   }
 
   createCreditArray () {
-    return this.createAccountArray(
-      this.credits,
-      '.new-item-card__credit-type',
-      '.new-item-card__credit-amount'
-    )
+    return this.createAccountArray(this.credits)
   }
 
   createDebitObject () {

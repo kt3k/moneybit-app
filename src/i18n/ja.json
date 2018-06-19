@@ -46,5 +46,8 @@
   "ui.form.delete": "削除",
   "ui.form.select_date": "日付を選択",
   "ui.form.select_account_title": "勘定科目を選択",
+  "error.form.field_required": "必須項目です💦",
+  "error.form.not_valid_number": "数値の形式が正しくありません💦",
+  "error.form.account_type_not_selected": "勘定科目が選択されていません💦",
   "locale.date_format": "YYYY/MM/DD"
 }
