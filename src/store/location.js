@@ -23,7 +23,7 @@ class LocationModule {
     if (/\/$/.test(pathname)) {
       pathname = pathname + 'index.html'
     }
-    return MAIN_PAGES.indexOf(pathname) >= 0
+    return MAIN_PAGES.find(page => pathname.includes(page))
   }
 
   /**
