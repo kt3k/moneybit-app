@@ -36325,8 +36325,8 @@ Rule.required = Rule.generate(function (_ref3) {
   var value = _ref3.value;
   return value !== '';
 }, function () {
-  return 'This field is required';
-}); // TODO: i18n
+  return t10.t('error.form.field_required');
+});
 Rule.number = Rule.generate(function (_ref4) {
   var value = _ref4.value;
 
@@ -36342,8 +36342,8 @@ Rule.number = Rule.generate(function (_ref4) {
 
   return false;
 }, function () {
-  return 'Not a valid number';
-}); // TODO: i18n
+  return t10.t('error.form.not_valid_number');
+});
 
 var ValidationError =
 /**
@@ -36699,6 +36699,7 @@ var AccountTypeRecentList = function () {
 
       this.filter.apply(this, arguments);
       (_accountTypes = this.accountTypes).unshift.apply(_accountTypes, arguments);
+      this.updateNameMap();
     }
 
     /**
