@@ -23,7 +23,6 @@ class LocationModule {
     if (/\/$/.test(pathname)) {
       pathname = pathname + 'index.html'
     }
-    console.log(MAIN_PAGES)
     return MAIN_PAGES.find(page => pathname.includes(page))
   }
 
