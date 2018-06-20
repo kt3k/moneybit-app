@@ -35378,15 +35378,15 @@ var Pickadate = (_dec = component('js-pickadate'), _dec2 = emits('input'), _dec(
 module.exports = Pickadate;
 
 },{"moment":376,"pickadate/lib/picker":400,"pickadate/lib/picker.date":399}],414:[function(require,module,exports){
-(function (global){
+(function (process,global){
 'use strict';
 
 require('babel-polyfill');
 
-if (undefined !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   require('capsid/debug');
 }
-global.basepath = '/moneybit-app/app' || '';
+global.basepath = "/moneybit-app/app" || '';
 global.t10 = require('t10');
 global.capsid = require('capsid');
 global.Action = require('../const/action-types.js');
@@ -35406,8 +35406,8 @@ require('./molecules');
 require('./organisms');
 require('../store');
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../const/action-types.js":429,"../domain":439,"../store":452,"./atoms":410,"./molecules":415,"./organisms":420,"./quarks":425,"./util":428,"babel-polyfill":2,"capsid":13,"capsid-popper":4,"capsid-scroll-lock":5,"capsid/debug":6,"capsid/jquery":14,"capsid/outside-events":15,"jquery":344,"t10":404}],415:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../const/action-types.js":429,"../domain":439,"../store":452,"./atoms":410,"./molecules":415,"./organisms":420,"./quarks":425,"./util":428,"_process":402,"babel-polyfill":2,"capsid":13,"capsid-popper":4,"capsid-scroll-lock":5,"capsid/debug":6,"capsid/jquery":14,"capsid/outside-events":15,"jquery":344,"t10":404}],415:[function(require,module,exports){
 'use strict';
 
 require('./input-modal');
