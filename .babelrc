@@ -4,7 +4,6 @@
     "decorators-legacy"
   ],
   "plugins": [
-    "transform-inline-environment-variables",
     "transform-object-rest-spread"
   ]
 }

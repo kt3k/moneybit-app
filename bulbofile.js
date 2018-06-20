@@ -51,12 +51,23 @@ asset(paths.src.njk.pages)
   .watch(paths.src.njk.all)
   .pipe(frontMatter({ property: 'fm' }))
   .pipe(nunjucks({ data }))
-  .pipe(layout1.nunjucks(file => `${paths.src.njk.layoutRoot}/${file.fm.layout || 'tab-layout'}.njk`, { data }))
+  .pipe(
+    layout1.nunjucks(
+      file =>
+        `${paths.src.njk.layoutRoot}/${file.fm.layout || 'tab-layout'}.njk`,
+      { data }
+    )
+  )
 
 // js
-asset(paths.src.js.pages, paths.src.js.common, paths.src.js.infrastructure, paths.src.js.i18n)
+asset(
+  paths.src.js.pages,
+  paths.src.js.common,
+  paths.src.js.infrastructure,
+  paths.src.js.i18n
+)
   .watch(paths.src.js.all)
-  .pipe(bundle({ transform: 'babelify' }))
+  .pipe(bundle({ transform: ['envify', 'babelify'] }))
 
 // css
 asset(paths.src.scss.pages, paths.src.scss.common)
