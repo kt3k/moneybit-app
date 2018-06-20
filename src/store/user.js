@@ -15,7 +15,10 @@ class UserModule {
    * @return {User}
    */
   async initUser (hub, appState) {
-    return new hub.domain.User.InitService().getOrCreate(appState.userId, appState.deviceLanguage)
+    return new hub.domain.User.InitService().getOrCreate(
+      appState.userId,
+      appState.deviceLanguage
+    )
   }
 }
 

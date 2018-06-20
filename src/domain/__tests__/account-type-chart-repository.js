@@ -56,7 +56,9 @@ describe('AccountTypeChartRepository', () => {
       const chart = await repository.getById('abcdef')
 
       expect(chart).to.be.instanceof(AccountTypeChart)
-      expect(chart.getMajorTypeByAccountType(new AccountType('Cash'))).to.equal(MajorAccountType.ASSET)
+      expect(chart.getMajorTypeByAccountType(new AccountType('Cash'))).to.equal(
+        MajorAccountType.ASSET
+      )
     })
 
     it('gets null if the object does not exist', async () => {

@@ -55,7 +55,9 @@ global.m = menu.create('m', {
           const obj = {}
 
           Object.keys(capsid.__ccc__).forEach(key => {
-            obj[key] = document.querySelectorAll(`.${key}.${key}-initialized`).length
+            obj[key] = document.querySelectorAll(
+              `.${key}.${key}-initialized`
+            ).length
           })
           return console.table(obj)
         }

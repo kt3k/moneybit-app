@@ -7,7 +7,9 @@ class JournalRepository {
    * @return {Promise<Journal>}
    */
   getById (id) {
-    return infrastructure.storage.get(this.createKey(id), null).then(data => this.deserialize(data))
+    return infrastructure.storage
+      .get(this.createKey(id), null)
+      .then(data => this.deserialize(data))
   }
 
   /**
@@ -25,7 +27,10 @@ class JournalRepository {
    * @return {Promise}
    */
   save (journal) {
-    return infrastructure.storage.set(this.createKey(journal.id), this.serialize(journal))
+    return infrastructure.storage.set(
+      this.createKey(journal.id),
+      this.serialize(journal)
+    )
   }
 
   /**

@@ -60,7 +60,11 @@ class TradeCard {
   }
 
   serializeTrade (trade) {
-    return `${trade.date.format(t10.t('locale.date_format'))}|${trade.description}|${this.serializeAccounts(trade.debits)}|${this.serializeAccounts(trade.credits)}`
+    return `${trade.date.format(t10.t('locale.date_format'))}|${
+      trade.description
+    }|${this.serializeAccounts(trade.debits)}|${this.serializeAccounts(
+      trade.credits
+    )}`
   }
 
   @on(Action.UPDATE_TRADE)

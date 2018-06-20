@@ -11,7 +11,9 @@ class TradeList {
     }
 
     currentJournal.trades.forEach(trade => {
-      const el = this.el.querySelector(`[data-trade-id="${trade.id}"]`) || make('js-trade-card', genel.div``).el
+      const el =
+        this.el.querySelector(`[data-trade-id="${trade.id}"]`) ||
+        make('js-trade-card', genel.div``).el
 
       el.dispatchEvent(
         new CustomEvent(Action.UPDATE_TRADE, {

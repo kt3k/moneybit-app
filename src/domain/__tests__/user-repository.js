@@ -34,7 +34,9 @@ describe('UserRepository', () => {
       const user = repo.deserialize(userObj)
 
       td.replace(infrastructure.storage, 'set')
-      td.when(infrastructure.storage.set('user-john', td.matchers.anything())).thenResolve()
+      td.when(
+        infrastructure.storage.set('user-john', td.matchers.anything())
+      ).thenResolve()
 
       await repo.save(user)
 

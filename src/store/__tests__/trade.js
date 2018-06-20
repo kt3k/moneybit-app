@@ -8,7 +8,10 @@ let store
 describe('TradeModule', () => {
   beforeEach(async () => {
     store = await createStore()
-    await store.dispatch({ type: Action.CREATE_JOURNAL_DOCUMENT, detail: documentObject })
+    await store.dispatch({
+      type: Action.CREATE_JOURNAL_DOCUMENT,
+      detail: documentObject
+    })
     await store.dispatch({ type: Action.LOAD_CHART })
   })
 

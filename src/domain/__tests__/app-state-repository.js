@@ -16,14 +16,21 @@ describe('AppState.Repository', () => {
 
       await repository.save(appState)
 
-      td.verify(infrastructure.storage.set('mb-app-state', td.matchers.contains({ userId: 'foo' })))
+      td.verify(
+        infrastructure.storage.set(
+          'mb-app-state',
+          td.matchers.contains({ userId: 'foo' })
+        )
+      )
     })
   })
 
   describe('get', () => {
     it('gets the app state', async () => {
       td.replace(infrastructure.storage, 'get')
-      td.when(infrastructure.storage.get('mb-app-state', td.matchers.isA(Object))).thenResolve({ userId: 'foo' })
+      td.when(
+        infrastructure.storage.get('mb-app-state', td.matchers.isA(Object))
+      ).thenResolve({ userId: 'foo' })
 
       const appState = await repository.get()
 

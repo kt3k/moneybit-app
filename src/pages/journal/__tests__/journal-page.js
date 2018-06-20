@@ -1,4 +1,6 @@
-const { capsid: { make } } = require('~')
+const {
+  capsid: { make }
+} = require('~')
 const { describe, it, beforeEach } = require('kocha')
 const genel = require('genel')
 const assert = require('assert')

@@ -1,4 +1,6 @@
-const { Action: { CREATE_JOURNAL_DOCUMENT } } = require('~')
+const {
+  Action: { CREATE_JOURNAL_DOCUMENT }
+} = require('~')
 
 const { component, on, emits, wire } = capsid
 

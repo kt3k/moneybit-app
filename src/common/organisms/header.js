@@ -1,5 +1,7 @@
 const { wire, component, on, emits } = capsid
-const { actions: { MODEL_UPDATE, CHANGE_CURRENT_DOCUMENT } } = require('~')
+const {
+  actions: { MODEL_UPDATE, CHANGE_CURRENT_DOCUMENT }
+} = require('~')
 
 const genel = require('genel')
 
@@ -13,7 +15,9 @@ class AppHeader {
     this.select.innerHTML = ``
 
     user.documents.forEach(document => {
-      this.select.appendChild(genel`<option value="${document.id}">${document.title}</option>`)
+      this.select.appendChild(
+        genel`<option value="${document.id}">${document.title}</option>`
+      )
     })
 
     this.select.value = user.currentDocument.id

@@ -1,5 +1,7 @@
 const { emits, on, notifies, wire, component } = capsid
-const { actions: { MODEL_UPDATE, UPDATE_CURRENT_DOCUMENT } } = require('~')
+const {
+  actions: { MODEL_UPDATE, UPDATE_CURRENT_DOCUMENT }
+} = require('~')
 const { OPEN, CLOSE, INPUT } = require('../../common/molecules/input-modal')
 
 @component('settings-title-area')

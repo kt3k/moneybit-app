@@ -1,5 +1,7 @@
 const { wire, on, emits, component } = capsid
-const { actions: { MODEL_UPDATE, UPDATE_CURRENT_DOCUMENT } } = require('~')
+const {
+  actions: { MODEL_UPDATE, UPDATE_CURRENT_DOCUMENT }
+} = require('~')
 
 @component
 class MiscSettings {
@@ -13,7 +15,11 @@ class MiscSettings {
   get endDateInput () {}
 
   @on(MODEL_UPDATE)
-  onModelUpdate ({ detail: { user: { currentDocument } } }) {
+  onModelUpdate ({
+    detail: {
+      user: { currentDocument }
+    }
+  }) {
     const { currency, commaPeriodSetting, start, end } = currentDocument
 
     this.currencyLabel.textContent = `${currency.symbol} - ${currency.code}`

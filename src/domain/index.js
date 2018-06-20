@@ -1,4 +1,10 @@
-const { Journal, Trade, AccountType, AccountTypeChart, MajorAccountType } = require('moneybit-domain')
+const {
+  Journal,
+  Trade,
+  AccountType,
+  AccountTypeChart,
+  MajorAccountType
+} = require('moneybit-domain')
 
 exports.AppState = require('./app-state')
 exports.AppState.Factory = require('./app-state-factory')

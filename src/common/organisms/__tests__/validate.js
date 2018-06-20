@@ -1,4 +1,7 @@
-const { CLASS_DISABLE_ON_ERROR, EVENT_VALIDATION_UPDATE } = require('../validate')
+const {
+  CLASS_DISABLE_ON_ERROR,
+  EVENT_VALIDATION_UPDATE
+} = require('../validate')
 const genel = require('genel')
 const assert = require('assert')
 const { make } = require('capsid')
@@ -15,10 +18,13 @@ describe('js-form', () => {
         <button class="${CLASS_DISABLE_ON_ERROR}">button</button>
       `
 
-      el.querySelector(`.${CLASS_DISABLE_ON_ERROR}`).addEventListener(EVENT_VALIDATION_UPDATE, e => {
-        assert(!e.detail.error)
-        done()
-      })
+      el.querySelector(`.${CLASS_DISABLE_ON_ERROR}`).addEventListener(
+        EVENT_VALIDATION_UPDATE,
+        e => {
+          assert(!e.detail.error)
+          done()
+        }
+      )
 
       document.body.appendChild(el)
 

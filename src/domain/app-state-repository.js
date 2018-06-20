@@ -15,7 +15,10 @@ class AppStateRepository {
   }
 
   async get () {
-    const [deviceLanguage, data] = await Promise.all([this.getDeviceLanguage(), infrastructure.storage.get(APP_STATE_KEY, {})])
+    const [deviceLanguage, data] = await Promise.all([
+      this.getDeviceLanguage(),
+      infrastructure.storage.get(APP_STATE_KEY, {})
+    ])
 
     return factory.createFromObject({ ...data, deviceLanguage })
   }

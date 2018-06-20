@@ -1,4 +1,6 @@
-const { domain: { Currency } } = require('~')
+const {
+  domain: { Currency }
+} = require('~')
 const { component } = capsid
 
 @component('js-currency-select')

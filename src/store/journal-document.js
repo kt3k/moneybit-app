@@ -1,6 +1,10 @@
 const uuid = require('uuid')
 const moment = require('moment')
-const { domain: { AccountTypeChart, Journal, JournalDocument }, Action, Page } = require('~')
+const {
+  domain: { AccountTypeChart, Journal, JournalDocument },
+  Action,
+  Page
+} = require('~')
 const { Money } = require('moneybit-domain')
 
 const { action, dispatches } = require('evex')
@@ -52,7 +56,9 @@ class JournalDocumentModule {
   async cloneFromDefaultChart (hub) {
     const { user } = hub
 
-    const defaultChart = await this.chartRepository.getById(user.settings.defaultChartId)
+    const defaultChart = await this.chartRepository.getById(
+      user.settings.defaultChartId
+    )
 
     const newChart = defaultChart.clone(uuid.v4())
 
@@ -85,14 +91,23 @@ class JournalDocumentModule {
    */
   @action(Action.UPDATE_CURRENT_DOCUMENT)
   @dispatches(Action.MODEL_SAVE)
-  updateCurrentDocument (hub, { detail: { title, commaPeriodSetting, start, end } }) {
-    const { user: { currentDocument }, domain: { CommaPeriodSetting } } = hub
+  updateCurrentDocument (
+    hub,
+    {
+      detail: { title, commaPeriodSetting, start, end }
+    }
+  ) {
+    const {
+      user: { currentDocument },
+      domain: { CommaPeriodSetting }
+    } = hub
 
     if (title) {
       currentDocument.title = title
     }
     if (commaPeriodSetting) {
-      currentDocument.commaPeriodSetting = CommaPeriodSetting[commaPeriodSetting]
+      currentDocument.commaPeriodSetting =
+        CommaPeriodSetting[commaPeriodSetting]
     }
     if (start) {
       currentDocument.start = moment(start)
@@ -103,7 +118,12 @@ class JournalDocumentModule {
   }
 
   @action(Action.REQUEST_MONEY_FORMAT)
-  formatMoney (hub, { detail: { send, amount } }) {
+  formatMoney (
+    hub,
+    {
+      detail: { send, amount }
+    }
+  ) {
     send(hub.user.currentDocument.format(new Money(amount)))
   }
 }

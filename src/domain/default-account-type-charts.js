@@ -11,9 +11,35 @@ const defaultAccountTypeCharts = {
    */
   [EN.code]: factory.createFromObject({
     id: 'en-default',
-    asset: ['Cash at Bank', 'Cash', 'Deferred Expense', 'Other Assets', 'Accounts Receivable', 'Supplies', 'Prepaid Insurance', 'Equipment', 'Accumulated Depreciation Equipment'],
-    liability: ['Notes Payable', 'Accounts Payable', 'Unearned Service Revenue', 'Tax Payable', 'Bonds Payable', 'Salaries and Wages Payable', 'Interest Payable'],
-    equity: ["Owner's capital", 'Share Capital-Ordinary', 'Retained Earnings', 'Capital contributions', 'Dividends', 'Income Summary', 'Drawings'],
+    asset: [
+      'Cash at Bank',
+      'Cash',
+      'Deferred Expense',
+      'Other Assets',
+      'Accounts Receivable',
+      'Supplies',
+      'Prepaid Insurance',
+      'Equipment',
+      'Accumulated Depreciation Equipment'
+    ],
+    liability: [
+      'Notes Payable',
+      'Accounts Payable',
+      'Unearned Service Revenue',
+      'Tax Payable',
+      'Bonds Payable',
+      'Salaries and Wages Payable',
+      'Interest Payable'
+    ],
+    equity: [
+      "Owner's capital",
+      'Share Capital-Ordinary',
+      'Retained Earnings',
+      'Capital contributions',
+      'Dividends',
+      'Income Summary',
+      'Drawings'
+    ],
     revenue: ['Service Income', 'Sales', 'Rental Income', 'Interest Income'],
     expense: [
       'Office Expense',
@@ -57,7 +83,15 @@ const defaultAccountTypeCharts = {
       '土地',
       '事業主貸'
     ],
-    liability: ['支払手形', '買掛金', '借入金', '未払金', '前受金', '預り金', '貸倒引当金'],
+    liability: [
+      '支払手形',
+      '買掛金',
+      '借入金',
+      '未払金',
+      '前受金',
+      '預り金',
+      '貸倒引当金'
+    ],
     equity: ['事業主借', '元入金', '所得'],
     revenue: ['売上', '雑収入'],
     expense: [

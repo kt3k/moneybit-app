@@ -1,4 +1,6 @@
-const { actions: { MODEL_UPDATE } } = require('~')
+const {
+  actions: { MODEL_UPDATE }
+} = require('~')
 const { component, wire, on } = capsid
 const genel = require('genel')
 
@@ -8,7 +10,12 @@ class ChartCard {
   get tbody () {}
 
   @on(MODEL_UPDATE)
-  onModelUpdate ({ detail: { currentChart, domain: { MajorAccountType } } }) {
+  onModelUpdate ({
+    detail: {
+      currentChart,
+      domain: { MajorAccountType }
+    }
+  }) {
     const majorType = MajorAccountType[this.el.getAttribute('type')]
 
     if (!majorType) {

@@ -19,7 +19,9 @@ describe('JournalRepository', () => {
   describe('getById', () => {
     it('gets the journal by the id', () => {
       td.replace(infrastructure.storage, 'get')
-      td.when(infrastructure.storage.get('journal-foo', null)).thenResolve(journalObj)
+      td.when(infrastructure.storage.get('journal-foo', null)).thenResolve(
+        journalObj
+      )
 
       return repo.getById('foo').then(journal => {
         expect(journal).to.be.instanceof(Journal)
@@ -32,7 +34,9 @@ describe('JournalRepository', () => {
       const captor = td.matchers.captor()
 
       td.replace(infrastructure.storage, 'set')
-      td.when(infrastructure.storage.set('journal-foo', td.matchers.anything())).thenResolve()
+      td.when(
+        infrastructure.storage.set('journal-foo', td.matchers.anything())
+      ).thenResolve()
 
       return repo.save(journal).then(() => {
         td.verify(infrastructure.storage.set('journal-foo', captor.capture()))

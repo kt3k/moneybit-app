@@ -22,7 +22,9 @@ class ChartModule {
       promises.push(journalRepository.getById(user.currentDocument.journalId))
     }
 
-    const [defaultChart, currentChart, currentJournal] = await Promise.all(promises)
+    const [defaultChart, currentChart, currentJournal] = await Promise.all(
+      promises
+    )
 
     store.defaultChart = defaultChart
     store.currentChart = currentChart

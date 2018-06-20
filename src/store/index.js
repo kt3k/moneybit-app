@@ -8,7 +8,15 @@ const { store, dispatches, action } = require('evex')
  */
 @component('js-store')
 @store({
-  modules: [require('./app-state'), require('./user'), require('./language'), require('./journal-document'), require('./chart'), require('./location'), require('./trade')]
+  modules: [
+    require('./app-state'),
+    require('./user'),
+    require('./language'),
+    require('./journal-document'),
+    require('./chart'),
+    require('./location'),
+    require('./trade')
+  ]
 })
 class Store {
   constructor () {
