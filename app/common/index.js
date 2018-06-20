@@ -36503,8 +36503,7 @@ exports.UI_SHOW = 'mb/ui/SHOW';
 exports.UI_HIDE = 'mb/ui/HIDE';
 
 },{}],430:[function(require,module,exports){
-(function (process){
-const basepath = process.env.BASEPATH || ''
+const basepath = "/moneybit-app/app" || ''
 
 console.log(`basepath=${basepath}`)
 
@@ -36517,8 +36516,7 @@ module.exports = {
   EDIT_CHART_OF_ACCOUNTS: `${basepath}/pages/edit-chart-of-accounts/index.html`
 }
 
-}).call(this,require('_process'))
-},{"_process":402}],431:[function(require,module,exports){
+},{}],431:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
