@@ -67,7 +67,7 @@ asset(
   paths.src.js.i18n
 )
   .watch(paths.src.js.all)
-  .pipe(bundle({ transform: ['envify', 'babelify'] }))
+  .pipe(bundle({ transform: [['envify', { global: true }], 'babelify'] }))
 
 // css
 asset(paths.src.scss.pages, paths.src.scss.common)
