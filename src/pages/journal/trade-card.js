@@ -1,19 +1,22 @@
-const { component, on, wire } = capsid
+const { component, on, wired } = capsid
 const { Action } = require('~')
 const genel = require('genel')
 
 @component('js-trade-card')
 class TradeCard {
-  @wire.el('.trade-card__date-label')
+  @wired('.trade-card__date-label')
   get dateLabel () {}
 
-  @wire.el('.trade-card__desc-label')
+  @wired('.trade-card__edit-item-button')
+  get editItemButton () {}
+
+  @wired('.trade-card__desc-label')
   get descLabel () {}
 
-  @wire.el('.trade-card__debit-title-row')
+  @wired('.trade-card__debit-title-row')
   get debitTitleRow () {}
 
-  @wire.el('.trade-card__credit-title-row')
+  @wired('.trade-card__credit-title-row')
   get creditTitleRow () {}
 
   __mount__ () {
@@ -28,7 +31,7 @@ class TradeCard {
             <span class=""><strong class="trade-card__date-label"></strong></span>
           </div>
           <div class="card-header-icon">
-            <a class="button is-primary is-outlined t-text" href="">ui.form.edit</a>
+            <a class="button is-primary is-outlined t-text trade-card__edit-item-button">ui.form.edit</a>
           </div>
         </div>
         <div class="card-content">
@@ -76,7 +79,10 @@ class TradeCard {
       return
     }
 
+    this.lastTradeSerialized = serialized
+
     this.el.dataset.tradeId = trade.id
+    this.editItemButton.dataset.tradeId = trade.id
     this.dateLabel.textContent = trade.date.format(t10.t('locale.date_format'))
     this.descLabel.textContent = trade.description
 
@@ -102,8 +108,6 @@ class TradeCard {
       tr.classList.add('trade-card__account-row')
       table.insertBefore(tr, null)
     })
-
-    this.lastTradeSerialized = serialized
   }
 }
 

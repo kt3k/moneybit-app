@@ -1,5 +1,4 @@
 const { component, on, make } = capsid
-const { Action } = require('~')
 const genel = require('genel')
 
 @component('js-trade-list')

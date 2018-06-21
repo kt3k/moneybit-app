@@ -10,9 +10,25 @@ export class JournalPage {
   get addEntryButton () {}
 
   @on('click', { at: '.add-entry-button' })
+  onClickAddEntryButton () {
+    this.openEditItemCard(null) // creates new entry
+  }
+
+  @on('click', { at: '.trade-card__edit-item-button' })
+  onClickEditButton (e) {
+    e.preventDefault()
+    this.openEditItemCard(e.target.dataset.tradeId) // start editing the item
+  }
+
+  /**
+   * @param {string | null} tradeId
+   */
   @notifies(Action.UI_SHOW, '.modal-overlay-shadow')
-  onClick () {
-    this.editItemWrapper.dispatchEvent(new CustomEvent(SHOW))
+  openEditItemCard (tradeId) {
+    console.log(`tradeId=${tradeId}`)
+    this.editItemWrapper.dispatchEvent(
+      new CustomEvent(SHOW, { detail: tradeId })
+    )
     this.addEntryButton.setAttribute('disabled', 'disabled')
   }
 
