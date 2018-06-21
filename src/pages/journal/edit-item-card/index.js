@@ -1,1 +1,2 @@
-module.exports = require('./edit-item-card')
+module.exports = require('./edit-item-card-wrapper')
+require('./edit-item-card')

@@ -1,38 +1,9 @@
 const { prep, component, on, emits, wired, notifies } = capsid
 const genel = require('genel')
 
-export const SHOW = 'js-edit-item-card/SHOW'
-export const HIDE = 'js-edit-item-card/HIDE'
+const { HIDE, RESET_SCROLL } = require('./edit-item-card-wrapper')
 
-const { LOCK, UNLOCK } = global.capsidScrollLock
-
-const CLASS_VISIBLE = 'is-visible'
 const CLASS_ERROR = 'has-error'
-const RESET_SCROLL = 'mb/edit-item-card-wrapper/RESET_SCROLL'
-
-@component('edit-item-card-wrapper')
-export class EditItemCardWrapper {
-  @wired.component('edit-item-card')
-  get card () {}
-
-  @on(RESET_SCROLL)
-  resetScroll () {
-    this.el.scrollTop = 0
-  }
-
-  @on(SHOW)
-  @emits(LOCK)
-  show () {
-    this.el.classList.add(CLASS_VISIBLE)
-    this.card.resetHtml()
-  }
-
-  @on(HIDE)
-  @emits(UNLOCK)
-  hide () {
-    this.el.classList.remove(CLASS_VISIBLE)
-  }
-}
 
 @component('edit-item-card')
 export default class EditItemCard {
@@ -214,7 +185,10 @@ export default class EditItemCard {
       <hr />
     `
 
-    div.classList.add(`edit-item-card__${side}`, 'edit-item-card__account-input')
+    div.classList.add(
+      `edit-item-card__${side}`,
+      'edit-item-card__account-input'
+    )
 
     insertBefore.parentElement.insertBefore(div, insertBefore)
   }
@@ -280,7 +254,7 @@ export default class EditItemCard {
   @on('change', { at: '.edit-item-card__account-type' })
   @on('input', { at: '.edit-item-card__account-amount' })
   @notifies('field-error', '.js-form')
-  onAccountChange (e) {
+  onAccountChange () {
     const dt = this.debitTotal()
     const ct = this.creditTotal()
 
@@ -370,7 +344,7 @@ export default class EditItemCard {
   }
 
   /**
-   * @param {Object[]}
+   * @param {Object[]} accountArray
    * @return {number}
    */
   accountTotal (accountArray) {
@@ -392,7 +366,6 @@ export default class EditItemCard {
 
   /**
    * @param {NodeList} accountRows
-   * @param {string} side debit or credit
    * @return {Object[]}
    */
   createAccountArray (accountRows) {
@@ -416,7 +389,8 @@ export default class EditItemCard {
   getAccountObject (el) {
     return {
       type: el.querySelector('.edit-item-card__account-type').value,
-      amount: +el.querySelector('.edit-item-card__account-amount').dataset.amount
+      amount: +el.querySelector('.edit-item-card__account-amount').dataset
+        .amount
     }
   }
 
