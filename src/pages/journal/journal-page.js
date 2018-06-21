@@ -1,10 +1,10 @@
 const { component, on, wired, notifies } = capsid
-const { SHOW, HIDE } = require('./new-item-card')
+const { SHOW, HIDE } = require('./edit-item-card')
 
 @component('journal-page')
 export class JournalPage {
-  @wired('.new-item-card-wrapper')
-  get newItemWrapper () {}
+  @wired('.edit-item-card-wrapper')
+  get editItemWrapper () {}
 
   @wired('.add-entry-button')
   get addEntryButton () {}
@@ -12,7 +12,7 @@ export class JournalPage {
   @on('click', { at: '.add-entry-button' })
   @notifies(Action.UI_SHOW, '.modal-overlay-shadow')
   onClick () {
-    this.newItemWrapper.dispatchEvent(new CustomEvent(SHOW))
+    this.editItemWrapper.dispatchEvent(new CustomEvent(SHOW))
     this.addEntryButton.setAttribute('disabled', 'disabled')
   }
 

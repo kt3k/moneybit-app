@@ -13,7 +13,7 @@ let comp
 describe('journal-page component', () => {
   beforeEach(() => {
     el = genel.div`
-      <div class="new-item-card-wrapper"></div>
+      <div class="edit-item-card-wrapper"></div>
       <button class="add-entry-button"></button>
     `
     comp = make('journal-page', el)

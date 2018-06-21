@@ -1,4 +1,4 @@
-.new-item-card-wrapper {
+.edit-item-card-wrapper {
   position: fixed;
   left: 0;
   top: 60px;
@@ -19,7 +19,7 @@
   }
 }
 
-.new-item-card {
+.edit-item-card {
   &__debit-total,
   &__credit-total {
     font-size: 20px;

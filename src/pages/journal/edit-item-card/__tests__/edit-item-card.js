@@ -3,26 +3,26 @@ const genel = require('genel')
 const { make } = require('capsid')
 const assert = require('assert')
 const { Action } = require('~/src')
-require('../new-item-card')
+require('../edit-item-card')
 
 let el
 let card
 
-describe('new-item-card', () => {
+describe('edit-item-card', () => {
   beforeEach(() => {
     el = genel.div`
-      <input class="new-item-card__date" value="2018-05-31" />
-      <input class="new-item-card__desc" value="Sales for May" />
-      <div class="new-item-card__debit">
-        <input class="new-item-card__account-type" value="Account Receivable" />
-        <input class="new-item-card__account-amount" value="20000" />
+      <input class="edit-item-card__date" value="2018-05-31" />
+      <input class="edit-item-card__desc" value="Sales for May" />
+      <div class="edit-item-card__debit">
+        <input class="edit-item-card__account-type" value="Account Receivable" />
+        <input class="edit-item-card__account-amount" value="20000" />
       </div>
-      <div class="new-item-card__credit">
-        <input class="new-item-card__account-type" value="Sales" />
-        <input class="new-item-card__account-amount" value="20000" />
+      <div class="edit-item-card__credit">
+        <input class="edit-item-card__account-type" value="Sales" />
+        <input class="edit-item-card__account-amount" value="20000" />
       </div>
     `
-    card = make('new-item-card', el)
+    card = make('edit-item-card', el)
   })
 
   afterEach(() => {

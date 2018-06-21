@@ -1,18 +1,18 @@
 const { prep, component, on, emits, wired, notifies } = capsid
 const genel = require('genel')
 
-export const SHOW = 'js-new-item-card/SHOW'
-export const HIDE = 'js-new-item-card/HIDE'
+export const SHOW = 'js-edit-item-card/SHOW'
+export const HIDE = 'js-edit-item-card/HIDE'
 
 const { LOCK, UNLOCK } = global.capsidScrollLock
 
 const CLASS_VISIBLE = 'is-visible'
 const CLASS_ERROR = 'has-error'
-const RESET_SCROLL = 'mb/new-item-card-wrapper/RESET_SCROLL'
+const RESET_SCROLL = 'mb/edit-item-card-wrapper/RESET_SCROLL'
 
-@component('new-item-card-wrapper')
-export class NewItemCardWrapper {
-  @wired.component('new-item-card')
+@component('edit-item-card-wrapper')
+export class EditItemCardWrapper {
+  @wired.component('edit-item-card')
   get card () {}
 
   @on(RESET_SCROLL)
@@ -34,30 +34,30 @@ export class NewItemCardWrapper {
   }
 }
 
-@component('new-item-card')
-export default class NewItemCard {
-  @wired('.new-item-card__date')
+@component('edit-item-card')
+export default class EditItemCard {
+  @wired('.edit-item-card__date')
   get date () {}
 
-  @wired('.new-item-card__desc')
+  @wired('.edit-item-card__desc')
   get desc () {}
 
-  @wired.all('.new-item-card__debit')
+  @wired.all('.edit-item-card__debit')
   get debits () {}
 
-  @wired.all('.new-item-card__credit')
+  @wired.all('.edit-item-card__credit')
   get credits () {}
 
-  @wired('.new-item-card__debit-total')
+  @wired('.edit-item-card__debit-total')
   get debitTotalLabel () {}
 
-  @wired('.new-item-card__credit-total')
+  @wired('.edit-item-card__credit-total')
   get creditTotalLabel () {}
 
-  @wired('.new-item-card__debit-total-diff')
+  @wired('.edit-item-card__debit-total-diff')
   get debitTotalDiffLabel () {}
 
-  @wired('.new-item-card__credit-total-diff')
+  @wired('.edit-item-card__credit-total-diff')
   get creditTotalDiffLabel () {}
 
   @wired('.add-debit-button')
@@ -69,7 +69,7 @@ export default class NewItemCard {
   @wired('.account-error-holder')
   get accountErrorHolder () {}
 
-  @wired.all('.new-item-card__account-input')
+  @wired.all('.edit-item-card__account-input')
   get accountInputs () {}
 
   @on(Action.MODEL_UPDATE)
@@ -90,13 +90,13 @@ export default class NewItemCard {
           <div class="card-header-icon js-field-wrapper pure">
             <p class="control">
               <input
-                class="input js-field js-pickadate new-item-card__date"
+                class="input js-field js-pickadate edit-item-card__date"
                 data-validate="required"
               />
             </p>
             <div
               class="popper error-tooltip"
-              data-popper-ref=".new-item-card__date"
+              data-popper-ref=".edit-item-card__date"
               data-popper-placement="top-end"
             ></div>
           </div>
@@ -107,7 +107,7 @@ export default class NewItemCard {
             <div class="js-field-wrapper pure">
               <p class="control">
                 <input
-                  class="js-field input new-item-card__desc"
+                  class="js-field input edit-item-card__desc"
                   data-validate="required"
                 />
               </p>
@@ -119,8 +119,8 @@ export default class NewItemCard {
             </div>
             <h2>
               <t>domain.debits</t>
-              <span class="new-item-card__debit-total"></span>
-              <span class="new-item-card__debit-total-diff"></span>
+              <span class="edit-item-card__debit-total"></span>
+              <span class="edit-item-card__debit-total-diff"></span>
             </h2>
             <button class="button is-primary is-outlined add-debit-button">
               <span class="icon">
@@ -129,8 +129,8 @@ export default class NewItemCard {
             </button>
             <h2>
               <t>domain.credits</t>
-              <span class="new-item-card__credit-total"></span>
-              <span class="new-item-card__credit-total-diff"></span>
+              <span class="edit-item-card__credit-total"></span>
+              <span class="edit-item-card__credit-total-diff"></span>
             </h2>
             <button class="button is-primary is-outlined add-credit-button">
               <span class="icon">
@@ -141,10 +141,10 @@ export default class NewItemCard {
         </div>
         <div class="card-footer">
           <p class="card-footer-item">
-            <a class="button is-danger t-text new-item-cancel-button" href="#">ui.form.cancel</a>
+            <a class="button is-danger t-text edit-item-cancel-button" href="#">ui.form.cancel</a>
           </p>
           <p class="card-footer-item">
-            <button class="button is-primary t-text new-item-save-button disable-on-error">ui.form.save</button>
+            <button class="button is-primary t-text edit-item-save-button disable-on-error">ui.form.save</button>
           </p>
         </div>
         <div class="account-error-holder"></div>
@@ -182,10 +182,10 @@ export default class NewItemCard {
    */
   addAccountInput (side, accountTypes, insertBefore) {
     const div = genel.div`
-      <div class="field js-field-wrapper new-item-card__account-type-wrapper">
+      <div class="field js-field-wrapper edit-item-card__account-type-wrapper">
         <div class="control is-expanded">
           <div class="select is-fullwidth">
-            <select class="input new-item-card__account-type">
+            <select class="input edit-item-card__account-type">
               <option value="" class="t-text">ui.form.select_account_title</option>
               ${this.options(accountTypes)}
             </select>
@@ -200,7 +200,7 @@ export default class NewItemCard {
       <div class="field js-field-wrapper">
         <p class="control">
           <input
-            class="input js-field js-number-input t-attr new-item-card__account-amount"
+            class="input js-field js-number-input t-attr edit-item-card__account-amount"
             data-validate="number"
             placeholder="t:domain.amount"
           />
@@ -214,7 +214,7 @@ export default class NewItemCard {
       <hr />
     `
 
-    div.classList.add(`new-item-card__${side}`, 'new-item-card__account-input')
+    div.classList.add(`edit-item-card__${side}`, 'edit-item-card__account-input')
 
     insertBefore.parentElement.insertBefore(div, insertBefore)
   }
@@ -243,7 +243,7 @@ export default class NewItemCard {
     prep(null, this.el)
   }
 
-  @on('click', { at: '.new-item-save-button' })
+  @on('click', { at: '.edit-item-save-button' })
   @emits(Action.CREATE_TRADE)
   onCreate (e) {
     e.preventDefault()
@@ -258,7 +258,7 @@ export default class NewItemCard {
     return { date, desc, dr, cr }
   }
 
-  @on('click', { at: '.new-item-cancel-button' })
+  @on('click', { at: '.edit-item-cancel-button' })
   onCancel (e) {
     e.preventDefault()
     this.hide()
@@ -277,8 +277,8 @@ export default class NewItemCard {
     capsidPopper.updateAll()
   }
 
-  @on('change', { at: '.new-item-card__account-type' })
-  @on('input', { at: '.new-item-card__account-amount' })
+  @on('change', { at: '.edit-item-card__account-type' })
+  @on('input', { at: '.edit-item-card__account-amount' })
   @notifies('field-error', '.js-form')
   onAccountChange (e) {
     const dt = this.debitTotal()
@@ -298,7 +298,7 @@ export default class NewItemCard {
   validateAccountInput (el) {
     const { type, amount } = this.getAccountObject(el)
 
-    el.querySelector('.new-item-card__account-type-wrapper').classList.toggle(
+    el.querySelector('.edit-item-card__account-type-wrapper').classList.toggle(
       CLASS_ERROR,
       this.isValidAmount(amount) && type === ''
     )
@@ -415,8 +415,8 @@ export default class NewItemCard {
    */
   getAccountObject (el) {
     return {
-      type: el.querySelector('.new-item-card__account-type').value,
-      amount: +el.querySelector('.new-item-card__account-amount').dataset.amount
+      type: el.querySelector('.edit-item-card__account-type').value,
+      amount: +el.querySelector('.edit-item-card__account-amount').dataset.amount
     }
   }
 
