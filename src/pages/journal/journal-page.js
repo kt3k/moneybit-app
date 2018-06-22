@@ -1,5 +1,6 @@
 const { component, on, wired, notifies } = capsid
 const { SHOW, HIDE } = require('./edit-item-card')
+const { REQUEST_EDIT } = require('./trade-card')
 
 @component('journal-page')
 export class JournalPage {
@@ -14,20 +15,18 @@ export class JournalPage {
     this.openEditItemCard(null) // creates new entry
   }
 
-  @on('click', { at: '.trade-card__edit-item-button' })
-  onClickEditButton (e) {
-    e.preventDefault()
-    this.openEditItemCard(e.target.dataset.tradeId) // start editing the item
+  @on(REQUEST_EDIT)
+  onClickEditButton ({ detail: { trade } }) {
+    this.openEditItemCard(trade) // start editing the item
   }
 
   /**
-   * @param {string | null} tradeId
+   * @param {Trade | null} tradeId
    */
   @notifies(Action.UI_SHOW, '.modal-overlay-shadow')
-  openEditItemCard (tradeId) {
-    console.log(`tradeId=${tradeId}`)
+  openEditItemCard (trade) {
     this.editItemWrapper.dispatchEvent(
-      new CustomEvent(SHOW, { detail: tradeId })
+      new CustomEvent(SHOW, { detail: { trade } })
     )
     this.addEntryButton.setAttribute('disabled', 'disabled')
   }

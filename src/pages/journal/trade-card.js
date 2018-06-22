@@ -1,9 +1,11 @@
-const { component, on, wired } = capsid
+const { component, on, wired, emits } = capsid
 const { Action } = require('~')
 const genel = require('genel')
 
+export const REQUEST_EDIT = 'mb/trade-card/REQUEST_EDIT'
+
 @component('js-trade-card')
-class TradeCard {
+export class TradeCard {
   @wired('.trade-card__date-label')
   get dateLabel () {}
 
@@ -70,6 +72,12 @@ class TradeCard {
     )}`
   }
 
+  @on.click.at('.trade-card__edit-item-button')
+  @emits(REQUEST_EDIT)
+  onEditButtonClick () {
+    return { trade: this.trade }
+  }
+
   @on(Action.UPDATE_TRADE)
   update ({ detail: { journalDocument: doc, trade } }) {
     const serialized = this.serializeTrade(trade)
@@ -80,6 +88,7 @@ class TradeCard {
     }
 
     this.lastTradeSerialized = serialized
+    this.trade = trade
 
     this.el.dataset.tradeId = trade.id
     this.editItemButton.dataset.tradeId = trade.id
@@ -110,5 +119,3 @@ class TradeCard {
     })
   }
 }
-
-module.exports = TradeCard
