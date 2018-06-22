@@ -21,7 +21,7 @@ describe('journal-page component', () => {
 
   describe('onClick', () => {
     it('disables add-entry-button', () => {
-      comp.onClick()
+      comp.onClickAddEntryButton()
       assert(comp.addEntryButton.getAttribute('disabled') === 'disabled')
     })
   })
