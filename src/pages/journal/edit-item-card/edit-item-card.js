@@ -128,7 +128,7 @@ export default class EditItemCard {
     this.prep()
   }
 
-  @on('click', { at: '.add-debit-button' })
+  @on.click.at('.add-debit-button')
   onClickAddDebitButton (e) {
     e.preventDefault()
 
@@ -137,7 +137,7 @@ export default class EditItemCard {
     this.prep()
   }
 
-  @on('click', { at: '.add-credit-button' })
+  @on.click.at('.add-credit-button')
   onClickCreditButton (e) {
     e.preventDefault()
 
@@ -217,7 +217,7 @@ export default class EditItemCard {
     prep(null, this.el)
   }
 
-  @on('click', { at: '.edit-item-save-button' })
+  @on.click.at('.edit-item-save-button')
   @emits(Action.CREATE_TRADE)
   onCreate (e) {
     e.preventDefault()
@@ -232,7 +232,7 @@ export default class EditItemCard {
     return { date, desc, dr, cr }
   }
 
-  @on('click', { at: '.edit-item-cancel-button' })
+  @on.click.at('.edit-item-cancel-button')
   onCancel (e) {
     e.preventDefault()
     this.hide()
