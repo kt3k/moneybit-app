@@ -6,6 +6,8 @@ if (process.env.NODE_ENV !== 'production') {
 global.basepath = process.env.BASEPATH || ''
 global.t10 = require('t10')
 global.capsid = require('capsid')
+global.capsid.on.useHandler('change')
+global.capsid.on.useHandler('input')
 global.Action = require('../const/action-types.js')
 global.$ = require('jquery')
 global.domain = require('../domain')
