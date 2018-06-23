@@ -1,12 +1,12 @@
 const { prep, component, on, emits, wired, notifies } = capsid
 const genel = require('genel')
 
-const { HIDE, RESET_SCROLL } = require('./edit-item-card-wrapper')
+const { HIDE, RESET_SCROLL, OPEN } = require('./edit-item-card-wrapper')
 
 const CLASS_ERROR = 'has-error'
 
 @component('edit-item-card')
-export default class EditItemCard {
+export class EditItemCard {
   @wired('.edit-item-card__date')
   get date () {}
 
@@ -50,8 +50,12 @@ export default class EditItemCard {
     this.creditTypes = user.currentDocument.recentCreditTypes(this.currentChart)
   }
 
+  /**
+   * @param {Trade} trade The trade
+   */
+  @on(OPEN)
   @emits(RESET_SCROLL)
-  resetHtml () {
+  onOpen ({ detail: { trade } }) {
     this.el.innerHTML = `
       <form class="js-form">
         <div class="card-header">
@@ -122,10 +126,29 @@ export default class EditItemCard {
       </form>
     `
 
-    this.addDebitRow()
-    this.addCreditRow()
+    this.prep()
+
+    if (trade) {
+      this.fillTradeInForm(trade)
+    } else {
+      this.addDebitRow()
+      this.addCreditRow()
+    }
 
     this.prep()
+  }
+
+  fillTradeInForm (trade) {
+    this.desc.value = trade.description
+    this.date.dispatchEvent(
+      new CustomEvent(window.PICKDATE, { detail: trade.date })
+    )
+    trade.debits.forEach(debit => {
+      this.addDebitRow(debit)
+    })
+    trade.credits.forEach(credit => {
+      this.addCreditRow(credit)
+    })
   }
 
   @on.click.at('.add-debit-button')
@@ -148,10 +171,11 @@ export default class EditItemCard {
 
   /**
    * @param {string} side debit or credit
+   * @param {Account} account The account
    * @param {AccountType[]} accountTypes
    * @param {HTMLElement} insertBefore
    */
-  addAccountInput (side, accountTypes, insertBefore) {
+  addAccountInput (side, account, accountTypes, insertBefore) {
     const div = genel.div`
       <div class="field js-field-wrapper edit-item-card__account-type-wrapper">
         <div class="control is-expanded">
@@ -190,15 +214,32 @@ export default class EditItemCard {
       'edit-item-card__account-input'
     )
 
+    if (account) {
+      div.querySelector('.edit-item-card__account-amount').value =
+        account.amount.amount
+      div.querySelector('select').value = account.type.name
+    }
+
     insertBefore.parentElement.insertBefore(div, insertBefore)
   }
 
-  addDebitRow () {
-    this.addAccountInput('debit', this.debitTypes, this.addDebitButton)
+  /**
+   * @param {Debit | undefined} debit
+   */
+  addDebitRow (debit) {
+    this.addAccountInput('debit', debit, this.debitTypes, this.addDebitButton)
   }
 
-  addCreditRow () {
-    this.addAccountInput('credit', this.creditTypes, this.addCreditButton)
+  /**
+   * @param {Credit | undefined} credit
+   */
+  addCreditRow (credit) {
+    this.addAccountInput(
+      'credit',
+      credit,
+      this.creditTypes,
+      this.addCreditButton
+    )
   }
 
   options (accountTypes) {
@@ -219,6 +260,7 @@ export default class EditItemCard {
 
   @on.click.at('.edit-item-save-button')
   @emits(Action.CREATE_TRADE)
+  @emits(HIDE)
   onCreate (e) {
     e.preventDefault()
 
@@ -227,23 +269,13 @@ export default class EditItemCard {
     const dr = this.createDebitObject()
     const cr = this.createCreditObject()
 
-    this.hide()
-
     return { date, desc, dr, cr }
   }
 
   @on.click.at('.edit-item-cancel-button')
+  @emits(HIDE)
   onCancel (e) {
     e.preventDefault()
-    this.hide()
-  }
-
-  /**
-   * Removes the component at the next tick.
-   */
-  @emits(HIDE)
-  async hide () {
-    await Promise.resolve()
   }
 
   @on('input')
@@ -251,8 +283,8 @@ export default class EditItemCard {
     capsidPopper.updateAll()
   }
 
-  @on('change', { at: '.edit-item-card__account-type' })
-  @on('input', { at: '.edit-item-card__account-amount' })
+  @on.change.at('.edit-item-card__account-type')
+  @on.input.at('.edit-item-card__account-amount')
   @notifies('field-error', '.js-form')
   onAccountChange () {
     const dt = this.debitTotal()
