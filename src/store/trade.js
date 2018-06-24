@@ -42,6 +42,17 @@ class TradeModule {
 
     store.currentJournal.saveTrade(trade)
   }
+
+  @action(Action.DELETE_TRADE)
+  @dispatches(Action.MODEL_SAVE)
+  deleteTrade (
+    store,
+    {
+      detail: { id }
+    }
+  ) {
+    store.currentJournal.removeTradeById(id)
+  }
 }
 
 module.exports = TradeModule
