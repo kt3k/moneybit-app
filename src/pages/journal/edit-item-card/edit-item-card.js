@@ -7,6 +7,9 @@ const CLASS_ERROR = 'has-error'
 
 @component('edit-item-card')
 export class EditItemCard {
+  @wired('.edit-item-card__id')
+  get id () {}
+
   @wired('.edit-item-card__date')
   get date () {}
 
@@ -58,6 +61,7 @@ export class EditItemCard {
   onOpen ({ detail: { trade } }) {
     this.el.innerHTML = `
       <form class="js-form">
+        <input type="hidden" class="edit-item-card__id"/>
         <div class="card-header">
           <p class="card-header-title">
             Date
@@ -133,12 +137,13 @@ export class EditItemCard {
     } else {
       this.addDebitRow()
       this.addCreditRow()
+      this.prep()
     }
-
-    this.prep()
   }
 
+  @notifies('blur', '.js-number-input')
   fillTradeInForm (trade) {
+    this.id.value = trade.id
     this.desc.value = trade.description
     this.date.dispatchEvent(
       new CustomEvent(window.PICKDATE, { detail: trade.date })
@@ -149,6 +154,8 @@ export class EditItemCard {
     trade.credits.forEach(credit => {
       this.addCreditRow(credit)
     })
+
+    this.prep()
   }
 
   @on.click.at('.add-debit-button')
@@ -215,7 +222,7 @@ export class EditItemCard {
     )
 
     if (account) {
-      div.querySelector('.edit-item-card__account-amount').value =
+      div.querySelector('.edit-item-card__account-amount').dataset.amount =
         account.amount.amount
       div.querySelector('select').value = account.type.name
     }
@@ -261,15 +268,16 @@ export class EditItemCard {
   @on.click.at('.edit-item-save-button')
   @emits(Action.SAVE_TRADE)
   @emits(HIDE)
-  onCreate (e) {
+  onSave (e) {
     e.preventDefault()
 
-    const date = this.date.dataset.date
-    const desc = this.desc.value
-    const debitArray = this.createDebitArray()
-    const creditArray = this.createCreditArray()
-
-    return { date, desc, debitArray, creditArray }
+    return {
+      id: this.id.value,
+      date: this.date.dataset.date,
+      desc: this.desc.value,
+      debitArray: this.createDebitArray(),
+      creditArray: this.createCreditArray()
+    }
   }
 
   @on.click.at('.edit-item-cancel-button')
