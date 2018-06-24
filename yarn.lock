@@ -4915,9 +4915,9 @@ moment@^2.15.1:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moneybit-domain@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/moneybit-domain/-/moneybit-domain-0.8.0.tgz#35f745e6734721989e3579f1af0974000ed43f82"
+moneybit-domain@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/moneybit-domain/-/moneybit-domain-0.9.0.tgz#deb01c75af69aba3488233e8db99d62959a730e1"
   dependencies:
     js-yaml "^3.8.2"
 
