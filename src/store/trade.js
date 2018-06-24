@@ -12,22 +12,25 @@ class TradeModule {
   createTrade (
     store,
     {
-      detail: { id, date, desc, dr, cr }
+      detail: { id, date, desc, debitArray, creditArray }
     }
   ) {
     const { AccountType } = store.domain
 
-    Object.keys(dr)
-      .map(name => new AccountType(name))
-      .forEach(type => {
-        store.user.currentDocument.updateRecentDebit(type)
-      })
+    const dr = {}
+    const cr = {}
 
-    Object.keys(cr)
-      .map(name => new AccountType(name))
-      .forEach(type => {
-        store.user.currentDocument.updateRecentCredit(type)
-      })
+    debitArray.forEach(debit => {
+      store.user.currentDocument.updateRecentDebit(new AccountType(debit.type))
+      dr[debit.type] = debit.amount
+    })
+
+    creditArray.forEach(credit => {
+      store.user.currentDocument.updateRecentCredit(
+        new AccountType(credit.type)
+      )
+      cr[credit.type] = credit.amount
+    })
 
     const trade = new store.domain.Trade.Factory().createFromObject({
       id: id || uuid.v4(),

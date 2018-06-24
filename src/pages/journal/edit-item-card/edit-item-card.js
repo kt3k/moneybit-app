@@ -266,10 +266,10 @@ export class EditItemCard {
 
     const date = this.date.dataset.date
     const desc = this.desc.value
-    const dr = this.createDebitObject()
-    const cr = this.createCreditObject()
+    const debitArray = this.createDebitArray()
+    const creditArray = this.createCreditArray()
 
-    return { date, desc, dr, cr }
+    return { date, desc, debitArray, creditArray }
   }
 
   @on.click.at('.edit-item-cancel-button')
@@ -384,19 +384,6 @@ export class EditItemCard {
   }
 
   /**
-   * @param {Object[]} accountArray
-   */
-  createAccountMap (accountArray) {
-    const accountMap = {}
-
-    accountArray.map(item => {
-      accountMap[item.type] = item.amount
-    })
-
-    return accountMap
-  }
-
-  /**
    * @param {NodeList} accountRows
    * @return {Object[]}
    */
@@ -432,13 +419,5 @@ export class EditItemCard {
 
   createCreditArray () {
     return this.createAccountArray(this.credits)
-  }
-
-  createDebitObject () {
-    return this.createAccountMap(this.createDebitArray())
-  }
-
-  createCreditObject () {
-    return this.createAccountMap(this.createCreditArray())
   }
 }
