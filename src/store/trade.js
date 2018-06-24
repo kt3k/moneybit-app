@@ -7,12 +7,12 @@ class TradeModule {
   /**
    * Creates an trade
    */
-  @action(Action.CREATE_TRADE)
+  @action(Action.SAVE_TRADE)
   @dispatches(Action.MODEL_SAVE)
   createTrade (
     store,
     {
-      detail: { date, desc, dr, cr }
+      detail: { id, date, desc, dr, cr }
     }
   ) {
     const { AccountType } = store.domain
@@ -30,14 +30,14 @@ class TradeModule {
       })
 
     const trade = new store.domain.Trade.Factory().createFromObject({
-      id: uuid.v4(),
+      id: id || uuid.v4(),
       date,
       desc,
       dr,
       cr
     })
 
-    store.currentJournal.addTrade(trade)
+    store.currentJournal.saveTrade(trade)
   }
 }
 

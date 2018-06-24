@@ -259,7 +259,7 @@ export class EditItemCard {
   }
 
   @on.click.at('.edit-item-save-button')
-  @emits(Action.CREATE_TRADE)
+  @emits(Action.SAVE_TRADE)
   @emits(HIDE)
   onCreate (e) {
     e.preventDefault()

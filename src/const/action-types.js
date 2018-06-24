@@ -16,8 +16,9 @@ exports.USER_READY = 'mb/user/READY'
 exports.CREATE_JOURNAL_DOCUMENT = 'mb/journal-document/CREATE'
 exports.CHANGE_CURRENT_DOCUMENT = 'mb/journal-document/CHANGE'
 exports.UPDATE_CURRENT_DOCUMENT = 'mb/journal-document/UPDATE'
+exports.REQUEST_MONEY_FORMAT = 'mb/journa-document/REQUEST_MOENY_FORMAT'
 // trade
-exports.CREATE_TRADE = 'mb/trade/CREATE'
+exports.SAVE_TRADE = 'mb/trade/SAVE'
 exports.UPDATE_TRADE = 'mb/trade/UPDATE'
 exports.DELETE_TRADE = 'mb/trade/DELETE'
 // language
