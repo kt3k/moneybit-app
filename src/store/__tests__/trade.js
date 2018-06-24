@@ -15,19 +15,25 @@ describe('TradeModule', () => {
     await store.dispatch({ type: Action.LOAD_CHART })
   })
 
-  describe('Action.CREATE_TRADE', () => {
+  describe('Action.SAVE_TRADE', () => {
     it('creates a trade', async () => {
       await store.dispatch({
-        type: Action.CREATE_TRADE,
+        type: Action.SAVE_TRADE,
         detail: {
           date: '',
           desc: 'foo',
-          dr: {
-            bar: 123
-          },
-          cr: {
-            baz: 123
-          }
+          debitArray: [
+            {
+              type: 'bar',
+              amount: 123
+            }
+          ],
+          creditArray: [
+            {
+              type: 'baz',
+              amount: 123
+            }
+          ]
         }
       })
 

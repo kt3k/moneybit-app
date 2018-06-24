@@ -10,7 +10,8 @@ let card
 
 describe('edit-item-card', () => {
   beforeEach(() => {
-    el = genel.div`
+    el = genel.div`` /* `
+      <input class="edit-item-card__id" value="1" />
       <input class="edit-item-card__date" value="2018-05-31" />
       <input class="edit-item-card__desc" value="Sales for May" />
       <div class="edit-item-card__debit">
@@ -21,21 +22,26 @@ describe('edit-item-card', () => {
         <input class="edit-item-card__account-type" value="Sales" />
         <input class="edit-item-card__account-amount" value="20000" />
       </div>
-    `
+    ` */
+
     card = make('edit-item-card', el)
+    card.update({
+      detail: { user: global.user, currentChart: global.currentChart }
+    })
+    card.onOpen({ detail: { trade: null } })
   })
 
   afterEach(() => {
     document.body.innerHTML = ''
   })
 
-  describe('onCreate', () => {
-    it('dispatches Action.CREATE_TRADE', done => {
-      el.addEventListener(Action.CREATE_TRADE, e => {
+  describe('onSave', () => {
+    it('dispatches Action.SAVE_TRADE', done => {
+      el.addEventListener(Action.SAVE_TRADE, e => {
         done()
       })
 
-      card.onCreate(new UIEvent('click'))
+      card.onSave(new UIEvent('click'))
     })
   })
 
