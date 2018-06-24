@@ -10,19 +10,7 @@ let card
 
 describe('edit-item-card', () => {
   beforeEach(() => {
-    el = genel.div`` /* `
-      <input class="edit-item-card__id" value="1" />
-      <input class="edit-item-card__date" value="2018-05-31" />
-      <input class="edit-item-card__desc" value="Sales for May" />
-      <div class="edit-item-card__debit">
-        <input class="edit-item-card__account-type" value="Account Receivable" />
-        <input class="edit-item-card__account-amount" value="20000" />
-      </div>
-      <div class="edit-item-card__credit">
-        <input class="edit-item-card__account-type" value="Sales" />
-        <input class="edit-item-card__account-amount" value="20000" />
-      </div>
-    ` */
+    el = genel.div``
 
     card = make('edit-item-card', el)
     card.update({
@@ -54,6 +42,20 @@ describe('edit-item-card', () => {
 
         done()
       }, 10)
+    })
+  })
+
+  describe('on click at .add-debit-button', () => {
+    it('adds a debit input', () => {
+      el.querySelector('.add-debit-button').click()
+      assert(el.querySelectorAll('.edit-item-card__debit').length === 2)
+    })
+  })
+
+  describe('on click at .add-credit-button', () => {
+    it('adds a credit input', () => {
+      el.querySelector('.add-credit-button').click()
+      assert(el.querySelectorAll('.edit-item-card__credit').length === 2)
     })
   })
 })
