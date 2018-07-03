@@ -119,6 +119,11 @@ export class EditItemCard {
           </div>
         </div>
         <div class="card-footer">
+          ${
+            trade
+              ? '<p class="card-footer-item"><a class="button is-dark t-text edit-item-card__delete-button" href="#">ui.form.delete</a></p>'
+              : ''
+          }
           <p class="card-footer-item">
             <a class="button is-danger t-text edit-item-cancel-button" href="#">ui.form.cancel</a>
           </p>
@@ -284,6 +289,21 @@ export class EditItemCard {
   @emits(HIDE)
   onCancel (e) {
     e.preventDefault()
+  }
+
+  @on.click.at('.edit-item-card__delete-button')
+  onClickAtDelete (e) {
+    e.preventDefault()
+
+    if (confirm('Delete this trade?')) {
+      this.deleteTrade()
+    }
+  }
+
+  @emits(Action.DELETE_TRADE)
+  @emits(HIDE)
+  deleteTrade () {
+    return { id: this.id.value }
   }
 
   @on('input')
