@@ -2,6 +2,7 @@ const { prep, component, on, emits, wired, notifies } = capsid
 const genel = require('genel')
 
 const { HIDE, RESET_SCROLL, OPEN } = require('./edit-item-card-wrapper')
+const { SHOW: SHOW_CONFIRM_MODAL } = require('../confirm-modal.js')
 
 const CLASS_ERROR = 'has-error'
 
@@ -292,11 +293,13 @@ export class EditItemCard {
   }
 
   @on.click.at('.edit-item-card__delete-button')
+  @emits(SHOW_CONFIRM_MODAL)
   onClickAtDelete (e) {
     e.preventDefault()
 
-    if (confirm('Delete this trade?')) {
-      this.deleteTrade()
+    return {
+      message: 'Delete this trade?',
+      onOk: () => this.deleteTrade()
     }
   }
 

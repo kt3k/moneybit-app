@@ -1,4 +1,4 @@
-.modal-overlay-shadow {
+.overlay-shadow {
   position: fixed;
   top: 60px;
   left: 0;
@@ -10,7 +10,7 @@
   transition-duration: 500ms;
 
   &.is-visible {
-    opacity: 0.2;
+    opacity: 0.3;
     visibility: visible;
   }
 }

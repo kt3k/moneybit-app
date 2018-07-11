@@ -1,4 +1,5 @@
 require('./edit-item-card')
+require('./confirm-modal')
 require('./journal-page')
 require('./trade-list')
 require('./trade-card')
