@@ -4,7 +4,7 @@ const genel = require('genel')
 
 export const REQUEST_EDIT = 'mb/trade-card/REQUEST_EDIT'
 
-@component('js-trade-card')
+@component('trade-card')
 export class TradeCard {
   @wired('.trade-card__date-label')
   get dateLabel () {}
