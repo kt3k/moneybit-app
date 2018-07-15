@@ -102,6 +102,22 @@ class JournalDocument {
   recentCreditTypes (chart) {
     return this.creditTypeRecentList.sortChartKeys(chart)
   }
+
+  /**
+   * Returns the list of months in the range of document.
+   * @return {mement[]}
+   */
+  getMonths () {
+    const c = this.start.clone().startOf('month')
+    const months = []
+
+    while (c <= this.end) {
+      months.push(c.clone())
+      c.add(1, 'month').startOf('month')
+    }
+
+    return months
+  }
 }
 
 module.exports = JournalDocument

@@ -49,4 +49,30 @@ describe('JournalDocument', () => {
       expect(docEur.format(new Money(10000000.75))).to.equal('€10.000.000,75')
     })
   })
+
+  describe('getMonths', () => {
+    it('returns the months during the docuemnt range', () => {
+      const doc0 = factory.createFromObject({
+        start: '2018-01-01',
+        end: '2018-12-31'
+      })
+
+      const months0 = doc0.getMonths()
+
+      expect(months0.length).to.equal(12)
+      expect(months0[0].format('YYYY-MM-DD')).to.equal('2018-01-01')
+      expect(months0[11].format('YYYY-MM-DD')).to.equal('2018-12-01')
+
+      const doc1 = factory.createFromObject({
+        start: '2018-04-07',
+        end: '2019-04-06'
+      })
+
+      const months1 = doc1.getMonths()
+
+      expect(months1.length).to.equal(13)
+      expect(months1[0].format('YYYY-MM-DD')).to.equal('2018-04-01')
+      expect(months1[12].format('YYYY-MM-DD')).to.equal('2019-04-01')
+    })
+  })
 })
