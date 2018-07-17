@@ -151,6 +151,7 @@ export class EditItemCard {
   fillTradeInForm (trade) {
     this.id.value = trade.id
     this.desc.value = trade.description
+    this.desc.dispatchEvent(new CustomEvent('input'))
     this.date.dispatchEvent(
       new CustomEvent(window.PICKDATE, { detail: trade.date })
     )
