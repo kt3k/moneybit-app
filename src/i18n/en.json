@@ -16,7 +16,7 @@
   "app.lets_create_new_journal": "Let's create a new journal when the fiscal year ends!",
   "app.title.language": "あA Language",
   "app.this_chart_of_accounts_is_used_as_default": "This is the default chart of accounts. This is used as the default for each new journal.",
-  "app.onboarding.lets_start": "Let's press the above ☝️ button and start accounting! 😄",
+  "app.onboarding.lets_start": "Let's tap the button above and start entering journal items! 😄",
   "domain.balancesheet": "Balance Sheet",
   "domain.asset": "Asset",
   "domain.assets": "Assets",
