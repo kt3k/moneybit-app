@@ -10,6 +10,7 @@ class NoTradePlaceholder {
   }) {
     if (trades.length > 0) {
       this.el.style.display = 'none'
+      return
     }
 
     this.el.style.display = ''
