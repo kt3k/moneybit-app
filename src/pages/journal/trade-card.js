@@ -12,6 +12,9 @@ export class TradeCard {
   @wired('.trade-card__edit-item-button')
   get editItemButton () {}
 
+  @wired('.trade-card__number-label')
+  get numberLabel () {}
+
   @wired('.trade-card__desc-label')
   get descLabel () {}
 
@@ -27,7 +30,7 @@ export class TradeCard {
       <div class="card">
         <div class="card-header">
           <p class="card-header-title">
-            No.16
+            No.<span class="trade-card__number-label">-</span>
           </p>
           <div class="card-header-icon">
             <span class=""><strong class="trade-card__date-label"></strong></span>
@@ -79,7 +82,7 @@ export class TradeCard {
   }
 
   @on(Action.UPDATE_TRADE)
-  update ({ detail: { journalDocument: doc, trade } }) {
+  update ({ detail: { journalDocument: doc, trade, number } }) {
     const serialized = this.serializeTrade(trade)
 
     if (this.lastTradeSerialized === serialized) {
@@ -92,6 +95,7 @@ export class TradeCard {
 
     this.el.dataset.tradeId = trade.id
     this.editItemButton.dataset.tradeId = trade.id
+    this.numberLabel.textContent = number
     this.dateLabel.textContent = trade.date.format(t10.t('locale.date_format'))
     this.descLabel.textContent = trade.description
 

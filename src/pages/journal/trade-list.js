@@ -31,19 +31,19 @@ class TradeList {
 
     Array.prototype.forEach.call(this.tradeCards, el => {
       // TODO: do not use find each time
-      if (!trades.find(trade => trade.id === el.dataset.tradeId)) {
+      if (!trades.find(([trade, i]) => trade.id === el.dataset.tradeId)) {
         this.main.removeChild(el)
       }
     })
 
-    trades.forEach(trade => {
+    trades.forEach(([trade, number]) => {
       const el =
         this.el.querySelector(`[data-trade-id="${trade.id}"]`) ||
         make('trade-card', genel.div``).el
 
       el.dispatchEvent(
         new CustomEvent(Action.UPDATE_TRADE, {
-          detail: { journalDocument: currentDocument, trade }
+          detail: { journalDocument: currentDocument, trade, number }
         })
       )
 

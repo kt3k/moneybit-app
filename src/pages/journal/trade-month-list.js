@@ -36,10 +36,14 @@ export default class TradeMonthList {
       this.setUpMonths(months)
     }
 
+    const allTrades = Array.from(currentJournal.trades)
+      .map((trade, i) => [trade, i + 1])
+      .reverse()
+
     months.forEach(month => {
       // TODO: do not use filter on each item
-      const trades = currentJournal.trades.reverse().filter(
-        trade =>
+      const trades = allTrades.filter(
+        ([trade, i]) =>
           trade.date
             .clone()
             .startOf('month')
