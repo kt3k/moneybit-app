@@ -97,7 +97,7 @@
     "layout1": "^1.1.0",
     "lint-staged": "^6.0.0",
     "matango": "^1.0.0",
-    "moneybit-domain": "^0.9.0",
+    "moneybit-domain": "^0.9.1",
     "npm-run-all": "^4.0.2",
     "once": "^1.4.0",
     "opener": "^1.4.3",

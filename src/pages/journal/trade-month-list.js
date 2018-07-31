@@ -38,7 +38,7 @@ export default class TradeMonthList {
 
     months.forEach(month => {
       // TODO: do not use filter on each item
-      const trades = currentJournal.trades.filter(
+      const trades = currentJournal.trades.reverse().filter(
         trade =>
           trade.date
             .clone()
