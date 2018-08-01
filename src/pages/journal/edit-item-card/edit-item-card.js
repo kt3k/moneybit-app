@@ -65,7 +65,7 @@ export class EditItemCard {
         <input type="hidden" class="edit-item-card__id"/>
         <div class="card-header">
           <p class="card-header-title">
-            Date
+            <t>domain.date</t>
           </p>
           <div class="card-header-icon js-field-wrapper pure">
             <p class="control">

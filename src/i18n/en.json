@@ -39,6 +39,7 @@
   "domain.journal.start_date": "Start Date",
   "domain.journal.end_date": "End Date",
   "domain.journal.title": "Journal Title",
+  "domain.date": "Date",
   "ui.form.save": "Save",
   "ui.form.create": "Create",
   "ui.form.cancel": "Cancel",
