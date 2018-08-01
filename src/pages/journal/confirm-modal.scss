@@ -12,6 +12,10 @@
   opacity: 0;
   visibility: hidden;
 
+  > .card {
+    min-width: 250px;
+  }
+
   &.is-visible {
     opacity: 1;
     transform: translate(0, 0);

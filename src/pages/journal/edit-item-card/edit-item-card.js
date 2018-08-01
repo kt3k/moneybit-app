@@ -299,7 +299,7 @@ export class EditItemCard {
     e.preventDefault()
 
     return {
-      message: 'Delete this trade?',
+      message: t10.t('app.ask_delete_this_trade'),
       onOk: () => this.deleteTrade()
     }
   }
