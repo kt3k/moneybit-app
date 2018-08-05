@@ -35,7 +35,8 @@ const paths = {
     img: {
       all: `${src}/**/*.svg`
     },
-    vendor: `${src}/vendor/**/*.*`
+    vendor: `${src}/vendor/**/*.*`,
+    design: `${src}/design/**/*.*`
   }
 }
 

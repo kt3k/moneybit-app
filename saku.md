@@ -50,6 +50,7 @@
     npx domaindoc build
     npx langsheet build
     npx wsindex build
+    npx cpx "design/*.*" build/design/
     npx gh-pages -d build
 
 # lint
