@@ -49,9 +49,19 @@ class JournalDocument {
    * Formats the given money.
    */
   format (money) {
-    return `${this.currency.symbol}${this.commaPeriodSetting.format(
-      Math.floor(money.amount)
+    return `${this.formatSign(money)}${
+      this.currency.symbol
+    }${this.commaPeriodSetting.format(
+      Math.floor(Math.abs(money.amount))
     )}${this.formatMoneyFractionPart(money)}`
+  }
+
+  formatSign (money) {
+    if (money.amount < 0) {
+      return '-'
+    }
+
+    return ''
   }
 
   /**

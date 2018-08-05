@@ -14,8 +14,11 @@ describe('JournalDocument', () => {
       })
 
       expect(docJpy.format(new Money(100))).to.equal('¥100')
+      expect(docJpy.format(new Money(-100))).to.equal('-¥100')
       expect(docJpy.format(new Money(100000))).to.equal('¥100,000')
+      expect(docJpy.format(new Money(-100000))).to.equal('-¥100,000')
       expect(docJpy.format(new Money(100000000))).to.equal('¥100,000,000')
+      expect(docJpy.format(new Money(-100000000))).to.equal('-¥100,000,000')
 
       const docUsd = factory.createFromObject({
         currencyCode: 'USD',
