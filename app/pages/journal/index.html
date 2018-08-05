@@ -70,18 +70,33 @@
   <span class="t-text">app.journal.add_an_entry</span>
 </button>
 
-<hr />
-
-<h2 class="subtitle t-text">domain.journal</h2>
-<h1 class="title">May 2016</h1>
-
-<div class="columns js-trade-list is-model-observer"></div>
+<div class="trade-month-list is-model-observer"></div>
+<div class="no-trade-placeholder is-model-observer section" style="display: none;">
+  <div class="content">
+    <p><t>app.onboarding.lets_start</t></p>
+  </div>
+</div>
 
 <br />
 
 <div class="overlay-shadow modal-overlay-shadow"></div>
-<div class="new-item-card-wrapper">
-  <div class="card new-item-card is-model-observer"></div>
+<div class="edit-item-card-wrapper">
+  <div class="card edit-item-card is-model-observer"></div>
+</div>
+
+<div class="overlay-shadow confirm-modal-overlay-shadow"></div>
+<div class="confirm-modal">
+  <div class="card">
+    <div class="card-content">
+      <div class="content">
+        <p class="confirm-modal__message"></p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a class="card-footer-item confirm-modal__cancel"><t>ui.form.cancel</t></a>
+      <a class="card-footer-item confirm-modal__ok"><t>ui.form.delete</t></a>
+    </div>
+  </div>
 </div>
 
     </div>
