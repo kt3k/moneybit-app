@@ -34,7 +34,6 @@ const defaultAccountTypeCharts = {
     equity: [
       "Owner's capital",
       'Share Capital-Ordinary',
-      'Retained Earnings',
       'Capital contributions',
       'Dividends',
       'Income Summary',

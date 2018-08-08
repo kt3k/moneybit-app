@@ -19,6 +19,7 @@
   "app.this_chart_of_accounts_is_used_as_default": "This is the default chart of accounts. This is used as the default for each new journal.",
   "app.onboarding.lets_start": "Let's tap the button above and start entering journal items! 😄",
   "domain.balancesheet": "Balance Sheet",
+  "domain.incomestatement": "Income Statement",
   "domain.asset": "Asset",
   "domain.assets": "Assets",
   "domain.amount": "Amount",
