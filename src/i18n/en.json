@@ -20,6 +20,8 @@
   "app.onboarding.lets_start": "Let's tap the button above and start entering journal items! 😄",
   "domain.balancesheet": "Balance Sheet",
   "domain.incomestatement": "Income Statement",
+  "domain.retained_earnings": "Retained Earnings",
+  "domain.income": "Income",
   "domain.asset": "Asset",
   "domain.assets": "Assets",
   "domain.amount": "Amount",

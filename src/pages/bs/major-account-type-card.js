@@ -47,14 +47,12 @@ class MajorAccountTypeCard {
       this.createSubledgerTotalRow(subledger)
     })
 
-    const row = genel.tr`
-      <th><t>app.total</t></th>
-      <th>-</th>
-    `
-
-    this.table.appendChild(row)
-
-    this.assignMoneyFormat(amounts.reduce((x, y) => x + y, 0), row.lastChild)
+    this.createTotalRow(
+      amounts.reduce((x, y) => x + y, 0),
+      currentJournal,
+      currentChart,
+      domain.MajorAccountType
+    )
 
     t10.scan()
   }
@@ -70,6 +68,34 @@ class MajorAccountTypeCard {
     this.table.appendChild(tr)
 
     this.assignMoneyFormat(subledger.total().amount, tr.lastChild)
+  }
+
+  createRetainedEarningsRow (retainedEarnings) {
+    const tr = genel.tr`
+      <td><t>domain.retained_earnings</t></td>
+      <td>-</td>
+    `
+    this.table.appendChild(tr)
+    this.assignMoneyFormat(retainedEarnings, tr.lastChild)
+  }
+
+  createTotalRow (total, currentJournal, currentChart, MajorAccountType) {
+    if (this.majorAccountType(MajorAccountType) === MajorAccountType.EQUITY) {
+      const retainedEarnings = currentJournal
+        .toBalanceSheet(currentChart)
+        .retainedEarnings().amount
+      total += retainedEarnings
+      this.createRetainedEarningsRow(retainedEarnings)
+    }
+
+    const row = genel.tr`
+      <th><t>app.total</t></th>
+      <th>-</th>
+    `
+
+    this.table.appendChild(row)
+
+    this.assignMoneyFormat(total, row.lastChild)
   }
 
   @emits(Action.REQUEST_MONEY_FORMAT)

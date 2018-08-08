@@ -20,6 +20,8 @@
   "app.onboarding.lets_start": "上のボタンを押して仕訳を始めましょう! 😃",
   "domain.balancesheet": "貸借対照表",
   "domain.incomestatement": "損益計算書",
+  "domain.retained_earnings": "利益余剰金",
+  "domain.income": "利益",
   "domain.asset": "資産",
   "domain.assets": "資産",
   "domain.amount": "金額",
