@@ -1,4 +1,4 @@
-const { on, wired, emits } = capsid
+const { component, on, wired, emits } = capsid
 const genel = require('genel')
 
 class MajorAccountTypeCard {
@@ -9,7 +9,7 @@ class MajorAccountTypeCard {
     this.el.innerHTML = `
       <header class="card-header">
         <div class="card-header-title">
-          ${this.title()}
+          <t>${this.title()}</t>
         </div>
       </header>
       <div class="card-content">
@@ -83,4 +83,59 @@ class MajorAccountTypeCard {
   }
 }
 
-module.exports = MajorAccountTypeCard
+@component('asset-card')
+class AssetCard extends MajorAccountTypeCard {
+  title () {
+    return 'domain.assets'
+  }
+
+  majorAccountType (MajorAccountType) {
+    return MajorAccountType.ASSET
+  }
+}
+@component('liability-card')
+class LiabilityCard extends MajorAccountTypeCard {
+  title () {
+    return 'domain.liabilities'
+  }
+
+  majorAccountType (MajorAccountType) {
+    return MajorAccountType.LIABILITY
+  }
+}
+@component('equity-card')
+class EquityCard extends MajorAccountTypeCard {
+  title () {
+    return 'domain.equity'
+  }
+
+  majorAccountType (MajorAccountType) {
+    return MajorAccountType.EQUITY
+  }
+}
+@component('revenue-card')
+class RevenueCard extends MajorAccountTypeCard {
+  title () {
+    return 'domain.revenues'
+  }
+
+  majorAccountType (MajorAccountType) {
+    return MajorAccountType.REVENUE
+  }
+}
+@component('expense-card')
+class ExpenseCard extends MajorAccountTypeCard {
+  title () {
+    return 'domain.expenses'
+  }
+
+  majorAccountType (MajorAccountType) {
+    return MajorAccountType.EXPENSE
+  }
+}
+
+exports.AssetCard = AssetCard
+exports.LiabilityCard = LiabilityCard
+exports.EquityCard = EquityCard
+exports.RevenueCard = RevenueCard
+exports.ExpenseCard = ExpenseCard

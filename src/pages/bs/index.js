@@ -1,1 +1,1 @@
-require('./asset-card')
+require('./major-account-type-card')
