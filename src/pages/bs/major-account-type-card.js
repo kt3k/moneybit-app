@@ -1,33 +1,8 @@
-const { component, on, wired, emits } = capsid
+const { component, on } = capsid
 const genel = require('genel')
+const { SummaryCard } = require('./summary-cards')
 
-class MajorAccountTypeCard {
-  @wired('tbody')
-  get table () {}
-
-  __mount__ () {
-    this.el.innerHTML = `
-      <header class="card-header">
-        <div class="card-header-title">
-          <t>${this.title()}</t>
-        </div>
-      </header>
-      <div class="card-content">
-        <div class="content">
-          <table>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-    `
-
-    this.el.classList.add('card', 'is-model-observer')
-  }
-
-  title () {
-    return 'MajorAccountType'
-  }
-
+class MajorAccountTypeCard extends SummaryCard {
   majorAccountType (MajorAccountType) {
     return MajorAccountType.ASSET
   }
@@ -97,22 +72,12 @@ class MajorAccountTypeCard {
 
     this.assignMoneyFormat(total, row.lastChild)
   }
-
-  @emits(Action.REQUEST_MONEY_FORMAT)
-  assignMoneyFormat (amount, el) {
-    return {
-      amount,
-      send (format) {
-        el.textContent = format
-      }
-    }
-  }
 }
 
 @component('asset-card')
 class AssetCard extends MajorAccountTypeCard {
   title () {
-    return 'domain.assets'
+    return '<t>domain.assets</t>'
   }
 
   majorAccountType (MajorAccountType) {
@@ -122,7 +87,7 @@ class AssetCard extends MajorAccountTypeCard {
 @component('liability-card')
 class LiabilityCard extends MajorAccountTypeCard {
   title () {
-    return 'domain.liabilities'
+    return '<t>domain.liabilities</t>'
   }
 
   majorAccountType (MajorAccountType) {
@@ -132,7 +97,7 @@ class LiabilityCard extends MajorAccountTypeCard {
 @component('equity-card')
 class EquityCard extends MajorAccountTypeCard {
   title () {
-    return 'domain.equity'
+    return '<t>domain.equity</t>'
   }
 
   majorAccountType (MajorAccountType) {
@@ -142,7 +107,7 @@ class EquityCard extends MajorAccountTypeCard {
 @component('revenue-card')
 class RevenueCard extends MajorAccountTypeCard {
   title () {
-    return 'domain.revenues'
+    return '<t>domain.revenues</t>'
   }
 
   majorAccountType (MajorAccountType) {
@@ -152,7 +117,7 @@ class RevenueCard extends MajorAccountTypeCard {
 @component('expense-card')
 class ExpenseCard extends MajorAccountTypeCard {
   title () {
-    return 'domain.expenses'
+    return '<t>domain.expenses</t>'
   }
 
   majorAccountType (MajorAccountType) {
