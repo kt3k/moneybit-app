@@ -127,6 +127,7 @@
       "util",
       "Action",
       "capsid",
+      "moment",
       "capsidPopper",
       "basepath",
       "t10"

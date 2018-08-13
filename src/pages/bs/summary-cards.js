@@ -1,5 +1,6 @@
 const { component, on, wired, emits } = capsid
 const genel = require('genel')
+const { CLASS_UPDATE_BS_DATE, UPDATE_BS_DATE } = require('./bs-page')
 
 class SummaryCard {
   @wired('tbody')
@@ -21,7 +22,7 @@ class SummaryCard {
       </div>
     `
 
-    this.el.classList.add('card', 'is-model-observer')
+    this.el.classList.add('card', CLASS_UPDATE_BS_DATE)
   }
 
   title () {
@@ -45,9 +46,9 @@ class LiabilityEquityTotalCard extends SummaryCard {
     return '<t>domain.liabilities</t> + <t>domain.equity</t>'
   }
 
-  @on(Action.MODEL_UPDATE)
-  update ({ detail: { currentJournal, currentChart, domain } }) {
-    const bs = currentJournal.toBalanceSheet(currentChart)
+  @on(UPDATE_BS_DATE)
+  update ({ detail: { journal, chart, domain } }) {
+    const bs = journal.toBalanceSheet(chart)
     const {
       MajorAccountType: { EQUITY, LIABILITY }
     } = domain
@@ -71,9 +72,9 @@ class IncomeCard extends SummaryCard {
     return '<t>domain.income</t>'
   }
 
-  @on(Action.MODEL_UPDATE)
-  update ({ detail: { currentJournal, currentChart, domain } }) {
-    const bs = currentJournal.toBalanceSheet(currentChart)
+  @on(UPDATE_BS_DATE)
+  update ({ detail: { journal, chart, domain } }) {
+    const bs = journal.toBalanceSheet(chart)
     const {
       MajorAccountType: { REVENUE, EXPENSE }
     } = domain

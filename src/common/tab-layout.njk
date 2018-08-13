@@ -2,7 +2,7 @@
 
 {% block body %}
 {% include src + '/common/organisms/header.njk' %}
-<main class="l-main">
+<main class="l-main{% if file.fm.main and file.fm.main.class %} {{ file.fm.main.class }}{% endif %}">
   <div class="section">
     <div class="container">
       {{ file.contents | safe }}

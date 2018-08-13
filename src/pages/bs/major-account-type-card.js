@@ -1,16 +1,17 @@
 const { component, on } = capsid
 const genel = require('genel')
 const { SummaryCard } = require('./summary-cards')
+const { UPDATE_BS_DATE } = require('./bs-page')
 
 class MajorAccountTypeCard extends SummaryCard {
   majorAccountType (MajorAccountType) {
     return MajorAccountType.ASSET
   }
 
-  @on(Action.MODEL_UPDATE)
-  update ({ detail: { currentJournal, currentChart, domain } }) {
-    const subledgers = currentJournal
-      .toLedger(currentChart)
+  @on(UPDATE_BS_DATE)
+  update ({ detail: { journal, chart, domain } }) {
+    const subledgers = journal
+      .toLedger(chart)
       .getSubledgersByMajorType(this.majorAccountType(domain.MajorAccountType))
 
     this.table.innerHTML = ''
@@ -24,8 +25,8 @@ class MajorAccountTypeCard extends SummaryCard {
 
     this.createTotalRow(
       amounts.reduce((x, y) => x + y, 0),
-      currentJournal,
-      currentChart,
+      journal,
+      chart,
       domain.MajorAccountType
     )
 
