@@ -25,7 +25,7 @@ export class TradeCard {
   get creditTitleRow () {}
 
   __mount__ () {
-    this.el.classList.add('column')
+    this.el.classList.add('column', 'is-3')
     this.el.appendChild(genel`
       <div class="card">
         <div class="card-header">

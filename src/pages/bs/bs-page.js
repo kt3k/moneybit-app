@@ -20,8 +20,10 @@ class BsPage {
       )
     }
 
+    const date = journal.lastTrade().date
+
     return {
-      date: this.date,
+      date,
       journal,
       chart: this.chart,
       domain: this.domain

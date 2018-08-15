@@ -13,7 +13,7 @@ class TradeList {
   get title () {}
 
   __mount__ () {
-    this.el.innerHTML = `<hr /><h2 class="title"></h2><div class="trade-list__main columns"></div>`
+    this.el.innerHTML = `<hr /><h2 class="title"></h2><div class="trade-list__main columns is-multiline"></div>`
   }
 
   setTitle (title) {
