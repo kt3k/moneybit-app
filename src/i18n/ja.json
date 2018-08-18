@@ -17,6 +17,8 @@
   "app.ask_delete_this_trade": "この取引を本当に削除しますか?",
   "app.title.language": "あA 言語",
   "app.this_chart_of_accounts_is_used_as_default": "アプリのデフォルトの勘定科目一覧です. 新しい仕訳帳を作る際にデフォルトとして使用されます.",
+  "app.bs.show_bs_first_date": "期初の貸借対照表を表示する",
+  "app.bs.show_bs_last_date": "最新の貸借対照表を表示する",
   "app.onboarding.lets_start": "上のボタンを押して仕訳を始めましょう! 😃",
   "domain.balancesheet": "貸借対照表",
   "domain.incomestatement": "損益計算書",

@@ -48,6 +48,8 @@ class LiabilityEquityTotalCard extends SummaryCard {
 
   @on(UPDATE_BS_DATE)
   update ({ detail: { journal, chart, domain } }) {
+    this.table.innerHTML = ''
+
     const bs = journal.toBalanceSheet(chart)
     const {
       MajorAccountType: { EQUITY, LIABILITY }
@@ -74,6 +76,8 @@ class IncomeCard extends SummaryCard {
 
   @on(UPDATE_BS_DATE)
   update ({ detail: { journal, chart, domain } }) {
+    this.table.innerHTML = ''
+
     const bs = journal.toBalanceSheet(chart)
     const {
       MajorAccountType: { REVENUE, EXPENSE }

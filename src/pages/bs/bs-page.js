@@ -26,7 +26,8 @@ class BsPage {
       date,
       journal,
       chart: this.chart,
-      domain: this.domain
+      domain: this.domain,
+      baseJournal: this.journal
     }
   }
 
