@@ -23,20 +23,6 @@
   font-size: 16px;
   color: #e0407b; }
 
-.overlay-shadow {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  height: calc(100vh - 60px - 56.5px);
-  width: 100%;
-  background-color: black;
-  opacity: 0;
-  visibility: hidden;
-  transition-duration: 500ms; }
-  .overlay-shadow.is-visible {
-    opacity: 0.3;
-    visibility: visible; }
-
 .confirm-modal {
   position: fixed;
   left: 0;

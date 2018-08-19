@@ -27851,9 +27851,6 @@ class AccountFactory {
    */
   createFromParams (typeName, amount, { date, desc }, side) {
     const type = new AccountType(typeName)
-    const money = new Money(amount)
-
-    date = moment(date)
 
     if (typeof amount !== 'number') {
       throw new Error(
@@ -27866,11 +27863,15 @@ class AccountFactory {
       )
     }
 
+    const money = new Money(amount)
+
     if (date == null) {
       throw new Error(
         'No date for the account: type=' + typeName + ' desc=' + desc
       )
     }
+
+    date = moment(date)
 
     if (side === DEBIT) {
       return new Debit(date, type, money, desc, null)
@@ -28212,12 +28213,28 @@ class BalanceSheet {
   }
 
   /**
-   * Gets the total of subledgers by the given type.
+   * Gets the total of the given major type.
    *
    * @param {MajorAccountType} majorType The type
    * @return {Money}
    */
   totalByMajorType (majorType) {
+    if (majorType === EQUITY) {
+      return this.totalOfSubledgersByMajorType(ASSET).minus(
+        this.totalOfSubledgersByMajorType(LIABILITY)
+      )
+    }
+
+    return this.totalOfSubledgersByMajorType(majorType)
+  }
+
+  /**
+   * Gets the total of subledgers by the given type.
+   *
+   * @param {MajorAccountType} majorType The type
+   * @return {Money}
+   */
+  totalOfSubledgersByMajorType (majorType) {
     return Money.sum(
       this.subledgers(majorType).map(subledger => subledger.total())
     )
@@ -28229,9 +28246,9 @@ class BalanceSheet {
    * @return {Money}
    */
   retainedEarnings () {
-    return this.totalByMajorType(ASSET)
-      .minus(this.totalByMajorType(LIABILITY))
-      .minus(this.totalByMajorType(EQUITY))
+    return this.totalByMajorType(EQUITY).minus(
+      this.totalOfSubledgersByMajorType(EQUITY)
+    )
   }
 }
 
@@ -28371,6 +28388,13 @@ class Journal {
   }
 
   /**
+   * @return {boolean}
+   */
+  isEmpty () {
+    return this.length === 0
+  }
+
+  /**
    * Gets the trade by the given id.
    * @param {string} id
    * @return {Trade}
@@ -28477,6 +28501,28 @@ class Journal {
     const accounts = this.trades.map(trade => trade.accounts())
 
     return [].concat(...accounts) // i.e. flatten(accounts)
+  }
+
+  /**
+   * @return {Trade}
+   */
+  firstTrade () {
+    if (this.isEmpty()) {
+      return null
+    }
+
+    return this.trades[0]
+  }
+
+  /**
+   * @return {Trade}
+   */
+  lastTrade () {
+    if (this.isEmpty()) {
+      return null
+    }
+
+    return this.trades[this.length - 1]
   }
 }
 
@@ -35537,6 +35583,7 @@ global.capsid.on.useHandler('input');
 global.Action = require('../const/action-types.js');
 global.$ = require('jquery');
 global.domain = require('../domain');
+global.moment = require('moment');
 global.util = require('./util');
 require('capsid/jquery')(capsid, $);
 require('capsid/outside-events')(capsid);
@@ -35552,7 +35599,7 @@ require('./organisms');
 require('../store');
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../const/action-types.js":429,"../domain":439,"../store":452,"./atoms":410,"./molecules":415,"./organisms":420,"./quarks":425,"./util":428,"_process":402,"babel-polyfill":2,"capsid":13,"capsid-popper":4,"capsid-scroll-lock":5,"capsid/debug":6,"capsid/jquery":14,"capsid/outside-events":15,"jquery":344,"t10":404}],415:[function(require,module,exports){
+},{"../const/action-types.js":429,"../domain":439,"../store":452,"./atoms":410,"./molecules":415,"./organisms":420,"./quarks":425,"./util":428,"_process":402,"babel-polyfill":2,"capsid":13,"capsid-popper":4,"capsid-scroll-lock":5,"capsid/debug":6,"capsid/jquery":14,"capsid/outside-events":15,"jquery":344,"moment":376,"t10":404}],415:[function(require,module,exports){
 'use strict';
 
 require('./input-modal');
@@ -37320,7 +37367,7 @@ var defaultAccountTypeCharts = (_defaultAccountTypeCh = {}, _defineProperty(_def
   id: 'en-default',
   asset: ['Cash at Bank', 'Cash', 'Deferred Expense', 'Other Assets', 'Accounts Receivable', 'Supplies', 'Prepaid Insurance', 'Equipment', 'Accumulated Depreciation Equipment'],
   liability: ['Notes Payable', 'Accounts Payable', 'Unearned Service Revenue', 'Tax Payable', 'Bonds Payable', 'Salaries and Wages Payable', 'Interest Payable'],
-  equity: ["Owner's capital", 'Share Capital-Ordinary', 'Retained Earnings', 'Capital contributions', 'Dividends', 'Income Summary', 'Drawings'],
+  equity: ["Owner's capital", 'Share Capital-Ordinary', 'Capital contributions', 'Dividends', 'Income Summary', 'Drawings'],
   revenue: ['Service Income', 'Sales', 'Rental Income', 'Interest Income'],
   expense: ['Office Expense', 'Computer Expenses', 'Communication Expense', 'Labour & Welfare Expenses', 'Advertising Expenses', 'Printing & Stationery Expenses', 'Supplies Expense', 'Depreciation Expense', 'Insurance Expense', 'Salaries and Wages Expense', 'Rent Expense', 'Utilities Expense', 'Interest Expense']
 })), _defineProperty(_defaultAccountTypeCh, JA.code, factory.createFromObject({
@@ -37527,7 +37574,16 @@ var JournalDocument = function () {
   }, {
     key: 'format',
     value: function format(money) {
-      return '' + this.currency.symbol + this.commaPeriodSetting.format(Math.floor(money.amount)) + this.formatMoneyFractionPart(money);
+      return '' + this.formatSign(money) + this.currency.symbol + this.commaPeriodSetting.format(Math.floor(Math.abs(money.amount))) + this.formatMoneyFractionPart(money);
+    }
+  }, {
+    key: 'formatSign',
+    value: function formatSign(money) {
+      if (money.amount < 0) {
+        return '-';
+      }
+
+      return '';
     }
 
     /**

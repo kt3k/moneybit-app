@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/moneybit-app/app/vendor/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="/moneybit-app/app/common/index.css" />
     
+    <link rel="stylesheet" href="/moneybit-app/app/pages/bs/index.js" />
+    
   </head>
   <body class="js-store scroll-lock">
     
@@ -60,122 +62,51 @@
 
 </header>
 
-<main class="l-main">
+<main class="l-main bs-page is-model-observer">
   <div class="section">
     <div class="container">
-      <h2 class="subtitle t-text">domain.balancesheet</h1>
-<h1 class="title">2016/04/05</h1>
+      
+<div class="columns">
+  <div class="column date-panel">
+    <h2 class="subtitle t-text">domain.balancesheet</h2>
+    <h1 class="title"></h1>
+    <button class="last-date button is-small is-info is-outlined" style="display: none"><t>app.bs.show_bs_last_date</t></button>
+    <button class="first-date button is-small is-info is-outlined" style="display: none"><t>app.bs.show_bs_first_date</t></button>
+  </div>
+  <div class="column">
+    <div class="asset-card"></div>
+  </div>
+  <div class="column">
+    <div class="liability-card"></div>
+  </div>
+  <div class="column">
+    <div class="equity-card"></div>
+    <br />
+    <div class="liability-equity-total-card"></div>
+  </div>
+</div>
+
+<hr />
 
 <div class="columns">
-<div class="column">
-
-<div class="card">
-  <header class="card-header">
-    <div class="card-header-title">
-      <t>domain.assets</t>
-    </div>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <table>
-        <tr>
-          <td>普通預金
-          <td>¥3,128,097
-        </tr>
-        <tr>
-          <td>売掛金
-          <td>¥1,069,200
-        </tr>
-        <tr>
-          <td>商品在庫
-          <td>¥2,000,000
-        </tr>
-        <tr>
-          <th>Total
-          <th>¥6,197,297
-        </tr>
-      </table>
-    </div>
+  <div class="column date-panel">
+    <h2 class="subtitle t-text">domain.incomestatement</h2>
+    <h1 class="title"></h1>
+  </div>
+  <div class="column">
+    <div class="revenue-card"></div>
+  </div>
+  <div class="column">
+    <div class="expense-card"></div>
+  </div>
+  <div class="column">
+    <div class="income-card"></div>
   </div>
 </div>
 
-</div>
-<div class="column">
+<div class="overlay-shadow subledger-modal-overlay-shadow"></div>
 
-<div class="card">
-  <header class="card-header">
-    <div class="card-header-title">
-      <t>domain.liabilities</t>
-    </div>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <table>
-        <tr>
-          <td>買掛金
-          <td>¥2,000,000
-        </tr>
-        <tr>
-          <th>Total
-          <th>¥2,000,000
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-</div>
-<div class="column">
-
-<div class="card">
-  <header class="card-header">
-    <div class="card-header-title">
-      <t>domain.equity</t>
-    </div>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <table>
-        <tr>
-          <td>元入金
-          <td>¥4,197,297
-        </tr>
-        <tr>
-          <td>Retained Earnings
-          <td>¥0
-        </tr>
-        <tr>
-          <th>Total
-          <th>¥4,197,297
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-</div>
-<div class="column">
-
-<div class="card">
-  <header class="card-header">
-    <div class="card-header-title">
-      <t>domain.liabilities</t> + <t>domain.equity</t>
-    </div>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <table>
-        <tr>
-          <th>Total
-          <th>¥6,197,297
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-</div>
-</div>
+<div class="subledger-modal"></div>
 
     </div>
   </div>
@@ -218,6 +149,8 @@
 
     <script src="/moneybit-app/app/infrastructure/index.js"></script>
     <script src="/moneybit-app/app/common/index.js"></script>
+    
+    <script src="/moneybit-app/app/pages/bs/index.js"></script>
     
     
     <script src="/moneybit-app/app/pages/debug/index.js"></script>

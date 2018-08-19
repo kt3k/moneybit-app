@@ -5581,6 +5581,20 @@ t, .t-text, .t-attr, .t-hidden {
 .picker__holder {
   transform: translateX(100%); }
 
+.overlay-shadow {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: calc(100vh - 60px - 56.5px);
+  width: 100%;
+  background-color: black;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 500ms; }
+  .overlay-shadow.is-visible {
+    opacity: 0.3;
+    visibility: visible; }
+
 .app-menu-dropdown {
   position: absolute;
   top: 56px;
@@ -5683,6 +5697,7 @@ t, .t-text, .t-attr, .t-hidden {
   border-top: solid 1px #999; }
   .app-footer .level-item {
     padding-top: 2px;
+    height: 60px;
     max-width: 32%; }
   .app-footer .is-selected {
     background-color: rgba(238, 238, 238, 0.8); }
@@ -5723,7 +5738,8 @@ t, .t-text, .t-attr, .t-hidden {
     border-style: solid; }
 
 .l-main {
-  padding-top: 61px; }
+  padding-top: 61px;
+  padding-bottom: 61px; }
 
 body {
   background: #ffffff; }

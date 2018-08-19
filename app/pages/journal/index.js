@@ -970,7 +970,7 @@ var TradeCard = exports.TradeCard = (_dec = component('trade-card'), _dec2 = wir
   _createClass(TradeCard, [{
     key: '__mount__',
     value: function __mount__() {
-      this.el.classList.add('column');
+      this.el.classList.add('column', 'is-3');
       this.el.appendChild(genel(_templateObject));
     }
   }, {
@@ -1116,7 +1116,7 @@ var TradeList = (_dec = component('trade-list'), _dec2 = wired.all('.trade-card'
   _createClass(TradeList, [{
     key: '__mount__',
     value: function __mount__() {
-      this.el.innerHTML = '<hr /><h2 class="title"></h2><div class="trade-list__main columns"></div>';
+      this.el.innerHTML = '<hr /><h2 class="title"></h2><div class="trade-list__main columns is-multiline"></div>';
     }
   }, {
     key: 'setTitle',
