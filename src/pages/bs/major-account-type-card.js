@@ -4,6 +4,12 @@ const { SummaryCard } = require('./summary-cards')
 const { UPDATE_BS_DATE } = require('./bs-page')
 
 class MajorAccountTypeCard extends SummaryCard {
+  @on.click.at('tr')
+  onClickAtSubledger (e) {
+    console.log(e.target)
+    console.log(e.currentTarget)
+  }
+
   majorAccountType (MajorAccountType) {
     return MajorAccountType.ASSET
   }

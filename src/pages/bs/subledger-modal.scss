@@ -1,0 +1,21 @@
+.subledger-modal {
+  position: fixed;
+  left: 0;
+  top: 60px;
+  height: calc(100vh - 60px - 60px);
+  width: 100%;
+  transition-duration: 500ms;
+  transform: scale(0.8);
+  opacity: 0;
+  visibility: hidden;
+  overflow: scroll;
+  background-color: white;
+
+  padding: 10px;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+}
