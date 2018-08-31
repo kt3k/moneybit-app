@@ -17,8 +17,6 @@
   "app.ask_delete_this_trade": "Are you sure you want to delete this trade?",
   "app.title.language": "あA Language",
   "app.this_chart_of_accounts_is_used_as_default": "This is the default chart of accounts. This is used as the default for each new journal.",
-  "app.bs.show_bs_first_date": "Show the balance sheet on the first date",
-  "app.bs.show_bs_last_date": "Show the balance sheet on the latest date",
   "app.onboarding.lets_start": "Let's tap the button above and start entering journal items! 😄",
   "domain.balancesheet": "Balance Sheet",
   "domain.incomestatement": "Income Statement",
