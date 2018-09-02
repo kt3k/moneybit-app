@@ -22,15 +22,22 @@ class DateTabs {
     this.firstDate = baseJournal.firstTrade().date
     this.lastDate = baseJournal.lastTrade().date
 
-    this.firstTab.querySelector('a').textContent = this.firstDate.format(
-      t10.t('locale.date_format')
+    this.updateTab(
+      this.firstTab,
+      this.firstDate.format(t10.t('locale.date_format')),
+      date.isSame(this.firstDate)
     )
-    this.firstTab.classList.toggle('is-active', date.isSame(this.firstDate))
 
-    this.lastTab.querySelector('a').textContent = this.lastDate.format(
-      t10.t('locale.date_format')
+    this.updateTab(
+      this.lastTab,
+      this.lastDate.format(t10.t('locale.date_format')),
+      date.isSame(this.lastDate)
     )
-    this.lastTab.classList.toggle('is-active', date.isSame(this.lastDate))
+  }
+
+  updateTab (tab, label, isActive) {
+    this.tab.querySelector('a').textContent = label
+    this.tab.classList('is-active', isActive)
   }
 
   @on.click.at('.first-tab')
