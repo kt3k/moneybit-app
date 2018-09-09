@@ -31,7 +31,7 @@ class Store {
   }
 
   @dispatches(Action.HUB_READY)
-  async __init__ () {}
+  async __mount__ () {}
 
   @action(Action.MODEL_SAVE)
   async onModelSave (hub, { detail }) {
