@@ -3,8 +3,7 @@ const genel = require('genel')
 const { CLASS_UPDATE_BS_DATE, UPDATE_BS_DATE } = require('./bs-page')
 
 class SummaryCard {
-  @wired('tbody')
-  get table () {}
+  @wired('tbody') table
 
   __mount__ () {
     this.el.innerHTML = `

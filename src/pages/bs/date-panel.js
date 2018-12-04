@@ -7,8 +7,7 @@ class DatePanel {
     this.el.classList.add(CLASS_UPDATE_BS_DATE)
   }
 
-  @wired('.title')
-  get label () {}
+  @wired('.title') label
 
   @on(UPDATE_BS_DATE)
   update ({ detail: { date } }) {

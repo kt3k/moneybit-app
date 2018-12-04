@@ -7,7 +7,22 @@ module.exports = config =>
     },
     browserify: {
       debug: true,
-      transform: [['babelify', { presets: ['env', 'decorators-legacy'], plugins: ['transform-runtime', 'transform-object-rest-spread', 'istanbul'] }]]
+      transform: [
+        [
+          'babelify',
+          {
+            presets: ['@babel/preset-env'],
+            plugins: [
+              'istanbul',
+              [
+                '@babel/plugin-proposal-decorators',
+                { decoratorsBeforeExport: false }
+              ],
+              '@babel/plugin-proposal-class-properties'
+            ]
+          }
+        ]
+      ]
     },
     reporters: ['progress', 'coverage'],
     coverageReporter: { reporters: [{ type: 'lcov' }] },

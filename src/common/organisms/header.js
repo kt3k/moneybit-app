@@ -1,4 +1,4 @@
-const { wire, component, on, emits } = capsid
+const { wired, component, on, emits } = capsid
 const {
   actions: { MODEL_UPDATE, CHANGE_CURRENT_DOCUMENT }
 } = require('~')
@@ -7,8 +7,7 @@ const genel = require('genel')
 
 @component('app-header')
 class AppHeader {
-  @wire.el('.journal-document-select')
-  get select () {}
+  @wired('.journal-document-select') select
 
   @on(MODEL_UPDATE)
   onModelUpdate ({ detail: { user } }) {

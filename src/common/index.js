@@ -1,4 +1,4 @@
-require('babel-polyfill')
+require('@babel/polyfill')
 
 if (process.env.NODE_ENV !== 'production') {
   require('capsid/debug')
@@ -13,8 +13,7 @@ global.$ = require('jquery')
 global.domain = require('../domain')
 global.moment = require('moment')
 global.util = require('./util')
-require('capsid/jquery')(capsid, $)
-require('capsid/outside-events')(capsid)
+capsid.install(require('capsid/outside-events'))
 global.capsidPopper = require('capsid-popper')
 capsid.install(global.capsidPopper)
 global.capsidScrollLock = require('capsid-scroll-lock')

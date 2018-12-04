@@ -1,5 +1,5 @@
 const nextTick = require('../quarks/next-tick')
-const { emits, on, component, wire } = capsid
+const { emits, on, component, wired } = capsid
 
 const OPEN = 'mb/input-modal/OPEN'
 const CLOSE = 'mb/input-modal/CLOSE'
@@ -7,8 +7,7 @@ const INPUT = 'mb/input-modal/INPUT'
 
 @component('input-modal')
 class InputModal {
-  @wire.el('input')
-  get input () {}
+  @wired('input') input
 
   @on(OPEN)
   @nextTick

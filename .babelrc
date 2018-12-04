@@ -1,9 +1,14 @@
 {
   "presets": [
-    "env",
-    "decorators-legacy"
+    "@babel/preset-env"
   ],
   "plugins": [
-    "transform-object-rest-spread"
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "decoratorsBeforeExport": false
+      }
+    ],
+    "@babel/plugin-proposal-class-properties"
   ]
 }

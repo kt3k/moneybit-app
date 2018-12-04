@@ -9,9 +9,8 @@ const { LOCK, UNLOCK } = global.capsidScrollLock
 const CLASS_VISIBLE = 'is-visible'
 
 @component('edit-item-card-wrapper')
-export class EditItemCardWrapper {
-  @wired.component('edit-item-card')
-  get card () {}
+class EditItemCardWrapper {
+  @wired.component('edit-item-card') card
 
   @on(RESET_SCROLL)
   resetScroll () {
@@ -36,3 +35,5 @@ export class EditItemCardWrapper {
     this.el.classList.remove(CLASS_VISIBLE)
   }
 }
+
+module.exports = EditItemCardWrapper

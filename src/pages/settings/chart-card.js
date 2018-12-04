@@ -1,13 +1,12 @@
 const {
   actions: { MODEL_UPDATE }
 } = require('~')
-const { component, wire, on } = capsid
+const { component, wired, on } = capsid
 const genel = require('genel')
 
-@component
+@component('chart-card')
 class ChartCard {
-  @wire.el('tbody')
-  get tbody () {}
+  @wired('tbody') tbody
 
   @on(MODEL_UPDATE)
   onModelUpdate ({

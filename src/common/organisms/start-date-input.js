@@ -4,7 +4,7 @@ const { component, on, emits } = capsid
 class StartDateInput {
   @on('input')
   @emits('start-date-selected')
-  onInput (e) {
+  onInput () {
     return this.el.dataset.date
   }
 }

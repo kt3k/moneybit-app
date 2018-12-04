@@ -2,27 +2,26 @@ const {
   Action: { CREATE_JOURNAL_DOCUMENT }
 } = require('~')
 
-const { component, on, emits, wire } = capsid
+const { component, on, emits, wired } = capsid
 
 /**
  * The form component which creates journal with `.is-primary` button.
  */
 @component('js-create-journal-form')
 class CreateJournalForm {
-  @wire.el('[name="title"]')
-  get title () {}
-  @wire.el('[name="currencyCode"]')
-  get currencyCode () {}
-  @wire.el('[name="commaPeriodSetting"]')
-  get commaPeriodSetting () {}
-  @wire.el('[name="startDate"]')
-  get startDate () {}
-  @wire.el('[name="endDate"]')
-  get endDate () {}
-  @wire.el('button.is-primary')
-  get primaryButton () {}
-  @wire.el('button.is-danger')
-  get cancelButton () {}
+  @wired('[name="title"]') title
+
+  @wired('[name="currencyCode"]') currencyCode
+
+  @wired('[name="commaPeriodSetting"]') commaPeriodSetting
+
+  @wired('[name="startDate"]') startDate
+
+  @wired('[name="endDate"]') endDate
+
+  @wired('button.is-primary') primaryButton
+
+  @wired('button.is-danger') cancelButton
 
   @on('click', { at: '.create-journal-form__create-button' })
   @emits(CREATE_JOURNAL_DOCUMENT)

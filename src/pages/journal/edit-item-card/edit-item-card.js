@@ -7,45 +7,32 @@ const { SHOW: SHOW_CONFIRM_MODAL } = require('../confirm-modal.js')
 const CLASS_ERROR = 'has-error'
 
 @component('edit-item-card')
-export class EditItemCard {
-  @wired('.edit-item-card__id')
-  get id () {}
+class EditItemCard {
+  @wired('.edit-item-card__id') id
 
-  @wired('.edit-item-card__date')
-  get date () {}
+  @wired('.edit-item-card__date') date
 
-  @wired('.edit-item-card__desc')
-  get desc () {}
+  @wired('.edit-item-card__desc') desc
 
-  @wired.all('.edit-item-card__debit')
-  get debits () {}
+  @wired.all('.edit-item-card__debit') debits
 
-  @wired.all('.edit-item-card__credit')
-  get credits () {}
+  @wired.all('.edit-item-card__credit') credits
 
-  @wired('.edit-item-card__debit-total')
-  get debitTotalLabel () {}
+  @wired('.edit-item-card__debit-total') debitTotalLabel
 
-  @wired('.edit-item-card__credit-total')
-  get creditTotalLabel () {}
+  @wired('.edit-item-card__credit-total') creditTotalLabel
 
-  @wired('.edit-item-card__debit-total-diff')
-  get debitTotalDiffLabel () {}
+  @wired('.edit-item-card__debit-total-diff') debitTotalDiffLabel
 
-  @wired('.edit-item-card__credit-total-diff')
-  get creditTotalDiffLabel () {}
+  @wired('.edit-item-card__credit-total-diff') creditTotalDiffLabel
 
-  @wired('.add-debit-button')
-  get addDebitButton () {}
+  @wired('.add-debit-button') addDebitButton
 
-  @wired('.add-credit-button')
-  get addCreditButton () {}
+  @wired('.add-credit-button') addCreditButton
 
-  @wired('.account-error-holder')
-  get accountErrorHolder () {}
+  @wired('.account-error-holder') accountErrorHolder
 
-  @wired.all('.edit-item-card__account-input')
-  get accountInputs () {}
+  @wired.all('.edit-item-card__account-input') accountInputs
 
   @on(Action.MODEL_UPDATE)
   update ({ detail: { user, currentChart } }) {
@@ -453,3 +440,5 @@ export class EditItemCard {
     return this.createAccountArray(this.credits)
   }
 }
+
+module.exports = EditItemCard

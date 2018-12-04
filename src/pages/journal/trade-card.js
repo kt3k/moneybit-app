@@ -2,27 +2,21 @@ const { component, on, wired, emits } = capsid
 const { Action } = require('~')
 const genel = require('genel')
 
-export const REQUEST_EDIT = 'mb/trade-card/REQUEST_EDIT'
+const REQUEST_EDIT = 'mb/trade-card/REQUEST_EDIT'
 
 @component('trade-card')
-export class TradeCard {
-  @wired('.trade-card__date-label')
-  get dateLabel () {}
+class TradeCard {
+  @wired('.trade-card__date-label') dateLabel
 
-  @wired('.trade-card__edit-item-button')
-  get editItemButton () {}
+  @wired('.trade-card__edit-item-button') editItemButton
 
-  @wired('.trade-card__number-label')
-  get numberLabel () {}
+  @wired('.trade-card__number-label') numberLabel
 
-  @wired('.trade-card__desc-label')
-  get descLabel () {}
+  @wired('.trade-card__desc-label') descLabel
 
-  @wired('.trade-card__debit-title-row')
-  get debitTitleRow () {}
+  @wired('.trade-card__debit-title-row') debitTitleRow
 
-  @wired('.trade-card__credit-title-row')
-  get creditTitleRow () {}
+  @wired('.trade-card__credit-title-row') creditTitleRow
 
   __mount__ () {
     this.el.classList.add('column', 'is-3')
@@ -123,3 +117,6 @@ export class TradeCard {
     })
   }
 }
+
+module.exports = TradeCard
+module.exports.REQUEST_EDIT = REQUEST_EDIT

@@ -10,12 +10,10 @@ const {
 const { REQUEST_EDIT } = require('./trade-card')
 
 @component('journal-page')
-export class JournalPage {
-  @wired('.edit-item-card-wrapper')
-  get editItemWrapper () {}
+class JournalPage {
+  @wired('.edit-item-card-wrapper') editItemWrapper
 
-  @wired('.add-entry-button')
-  get addEntryButton () {}
+  @wired('.add-entry-button') addEntryButton
 
   @on('click', { at: '.add-entry-button' })
   onClickAddEntryButton () {
@@ -55,3 +53,5 @@ export class JournalPage {
   @notifies(Action.UI_HIDE, '.confirm-modal-overlay-shadow')
   hideConfirmModal () {}
 }
+
+module.exports = JournalPage

@@ -2,9 +2,8 @@ const { component, on, make, wired } = capsid
 const genel = require('genel')
 
 @component('trade-month-list')
-export default class TradeMonthList {
-  @wired.all('.trade-list')
-  get tradeLists () {}
+class TradeMonthList {
+  @wired.all('.trade-list') tradeLists
 
   classForMonth (month) {
     return 'trade-month-list_' + month.format('MMMM-YYYY')
@@ -59,3 +58,5 @@ export default class TradeMonthList {
     t10.scan()
   }
 }
+
+module.exports = TradeMonthList

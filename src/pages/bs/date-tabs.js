@@ -7,11 +7,9 @@ const {
 
 @component('date-tabs')
 class DateTabs {
-  @wired('.first-tab')
-  get firstTab () {}
+  @wired('.first-tab') firstTab
 
-  @wired('.last-tab')
-  get lastTab () {}
+  @wired('.last-tab') lastTab
 
   __mount__ () {
     this.el.classList.add(CLASS_UPDATE_BS_DATE)

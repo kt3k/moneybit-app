@@ -7,8 +7,7 @@ const CLASS_VISIBLE = 'is-visible'
 
 @component('confirm-modal')
 export default class ConfirmModal {
-  @wired('.confirm-modal__message')
-  get message () {}
+  @wired('.confirm-modal__message') message
 
   @on(SHOW)
   show ({ detail: { message, onOk } }) {

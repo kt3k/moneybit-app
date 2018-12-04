@@ -7,7 +7,7 @@ export const EVENT_VALIDATION_UPDATE = 'validation-update'
 export const CLASS_DISABLE_ON_ERROR = 'disable-on-error'
 
 @component('js-form')
-export class Form {
+class Form {
   @wired.all(`.${ERROR_CLASS}`)
   get errors () {}
 
@@ -23,7 +23,7 @@ export class Form {
 }
 
 @component(CLASS_DISABLE_ON_ERROR)
-export class DisableOnError {
+class DisableOnError {
   @on(EVENT_VALIDATION_UPDATE)
   onValidationUpdate (e) {
     const { error } = e.detail
@@ -37,7 +37,7 @@ export class DisableOnError {
 }
 
 @component('error-tooltip')
-export class ErrorTooltip {
+class ErrorTooltip {
   @on('field-error')
   onFieldError ({ detail: { errors } }) {
     this.el.innerHTML = ''
@@ -49,7 +49,7 @@ export class ErrorTooltip {
 }
 
 @component('js-field-wrapper')
-export class FieldWrapper {
+class FieldWrapper {
   @on('field-error')
   @notifies('field-error', '.error-tooltip')
   onFieldError ({ detail: { errors } }) {
@@ -59,7 +59,7 @@ export class FieldWrapper {
 }
 
 @component('pure')
-export class Pure {
+class Pure {
   @on('input')
   @on('change')
   onInput () {
@@ -68,7 +68,7 @@ export class Pure {
 }
 
 @component('js-field')
-export class Field {
+class Field {
   __mount__ () {
     this.onInput()
   }
@@ -174,3 +174,10 @@ class ValidationError {
     this.message = message
   }
 }
+
+exports.Form = Form
+exports.DisableOnError = DisableOnError
+exports.ErrorTooltip = ErrorTooltip
+exports.FieldWrapper = FieldWrapper
+exports.Pure = Pure
+exports.Field = Field
