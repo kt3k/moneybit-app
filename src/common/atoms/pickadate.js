@@ -10,7 +10,8 @@ window.PICKDATE = PICKDATE
 @component('js-pickadate')
 class Pickadate {
   __mount__ () {
-    this.$el
+    global
+      .$(this.el)
       .pickadate({ format: 'yyyy-mm-dd' })
       .pickadate('picker')
       .on({

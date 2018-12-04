@@ -1,12 +1,12 @@
 const { component, emits, on, wired } = capsid
 
-export const SHOW = 'mb/confirm-modal/SHOW'
-export const HIDE = 'mb/confirm-modal/HIDE'
+const SHOW = 'mb/confirm-modal/SHOW'
+const HIDE = 'mb/confirm-modal/HIDE'
 
 const CLASS_VISIBLE = 'is-visible'
 
 @component('confirm-modal')
-export default class ConfirmModal {
+class ConfirmModal {
   @wired('.confirm-modal__message') message
 
   @on(SHOW)
@@ -34,3 +34,7 @@ export default class ConfirmModal {
   @emits(HIDE)
   onClickCancel () {}
 }
+
+module.exports = ConfirmModal
+module.exports.SHOW = SHOW
+module.exports.HIDE = HIDE
