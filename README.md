@@ -38,11 +38,13 @@
 - Can manage multiple journals. Can switch journals.
 - Can set up/modify period of each journal.
 
-# Docs
+# References
+
+## [ZenHub](https://app.zenhub.com/workspaces/5ab24577a208ae2ed71377b1/boards?repos=85275656)
 
 ## [Domaindoc](https://kt3k.github.io/moneybit-app/domaindoc/)
 
-## [langsheet](https://kt3k.github.io/moneybit-app/langsheet/)
+## [Langsheet](https://kt3k.github.io/moneybit-app/langsheet/)
 
 # License
 
