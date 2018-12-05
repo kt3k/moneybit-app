@@ -5585,7 +5585,7 @@ t, .t-text, .t-attr, .t-hidden {
   position: fixed;
   top: 60px;
   left: 0;
-  height: calc(100vh - 60px - 56.5px);
+  height: calc(100vh - 60px - 60px);
   width: 100%;
   background-color: black;
   opacity: 0;

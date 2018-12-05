@@ -186,17 +186,21 @@ process.umask = function() { return 0; };
 
 },{}],2:[function(require,module,exports){
 (function (global){
-'use strict';
+"use strict";
 
 var storage = require('./storage');
+
 var locale = require('./locale');
 
-global.infrastructure = { storage: storage, locale: locale };
+global.infrastructure = {
+  storage: storage,
+  locale: locale
+};
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./locale":3,"./storage":4}],3:[function(require,module,exports){
 (function (process){
-'use strict';
+"use strict";
 
 /**
  * Gets the lang tag which the user use.
@@ -218,19 +222,18 @@ exports.getLangTag = function () {
  */
 exports.get = function (key, defaultValue) {
   var value = window.localStorage.getItem(key);
-
   return Promise.resolve(value != null ? JSON.parse(value) : defaultValue);
 };
-
 /**
  * Sets the value to the key.
  * @param {string} ket The key
  * @param {object} value The value to set
  * @return {Promise}
  */
+
+
 exports.set = function (key, value) {
   window.localStorage.setItem(key, JSON.stringify(value));
-
   return Promise.resolve();
 };
 

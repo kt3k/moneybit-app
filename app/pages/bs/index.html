@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/moneybit-app/app/vendor/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="/moneybit-app/app/common/index.css" />
     
-    <link rel="stylesheet" href="/moneybit-app/app/pages/bs/index.js" />
+    <link rel="stylesheet" href="/moneybit-app/app/pages/bs/index.css" />
     
   </head>
   <body class="js-store scroll-lock">
@@ -66,12 +66,21 @@
   <div class="section">
     <div class="container">
       
+<div class="date-tabs tabs is-centered">
+  <ul>
+    <li class="first-tab">
+      <a></a>
+    </li>
+    <li class="last-tab">
+      <a></a>
+    </li>
+  </ul>
+</div>
+
 <div class="columns">
   <div class="column date-panel">
     <h2 class="subtitle t-text">domain.balancesheet</h2>
     <h1 class="title"></h1>
-    <button class="last-date button is-small is-info is-outlined" style="display: none"><t>app.bs.show_bs_last_date</t></button>
-    <button class="first-date button is-small is-info is-outlined" style="display: none"><t>app.bs.show_bs_first_date</t></button>
   </div>
   <div class="column">
     <div class="asset-card"></div>
@@ -106,7 +115,13 @@
 
 <div class="overlay-shadow subledger-modal-overlay-shadow"></div>
 
-<div class="subledger-modal"></div>
+<div class="subledger-modal">
+  <div class="section">
+    <div class="contents">
+      <h1 class="title"></h1>
+    </div>
+  </div>
+</div>
 
     </div>
   </div>

@@ -199,17 +199,15 @@ module.exports.MenuFormatter = MenuFormatter
 
 },{}],2:[function(require,module,exports){
 (function (global){
-'use strict';
+"use strict";
 
 /* global copy */
-
 console.log('__DEBUG_MODE__');
 
 var menu = require('chrome-console-debug-menu');
+
 var resetLocalStorage = menu.resetLocalStorage,
     serializeLocalStorage = menu.serializeLocalStorage;
-
-
 global.m = menu.create('m', {
   ls: {
     description: 'localStorage controls',
@@ -217,7 +215,9 @@ global.m = menu.create('m', {
       clear: {
         description: 'Clear localStorage',
         func: function func() {
-          return resetLocalStorage({ message: 'Clearing localStorage' });
+          return resetLocalStorage({
+            message: 'Clearing localStorage'
+          });
         }
       },
       dump: {
@@ -258,9 +258,8 @@ global.m = menu.create('m', {
         desc: 'list capsid components',
         func: function func() {
           var obj = {};
-
           Object.keys(capsid.__ccc__).forEach(function (key) {
-            obj[key] = document.querySelectorAll('.' + key + '.' + key + '-initialized').length;
+            obj[key] = document.querySelectorAll(".".concat(key, ".").concat(key, "-initialized")).length;
           });
           return console.table(obj);
         }

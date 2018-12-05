@@ -14,12 +14,10 @@ module.exports={
   "app.journal.create_new": "Create a new journal",
   "app.edit_chart_of_accounts": "Edit Chart of Accounts",
   "app.save_this_chart_as_the_default_chart": "Save this chart as the default chart of the app.",
-  "app.lets_create_new_journal": "Let's create a new journal when the fiscal year ends!",
+  "app.lets_create_new_journal": "Let's create a new journal when the fiscal year starts!",
   "app.ask_delete_this_trade": "Are you sure you want to delete this trade?",
   "app.title.language": "あA Language",
   "app.this_chart_of_accounts_is_used_as_default": "This is the default chart of accounts. This is used as the default for each new journal.",
-  "app.bs.show_bs_first_date": "Show the balance sheet on the first date",
-  "app.bs.show_bs_last_date": "Show the balance sheet on the latest date",
   "app.onboarding.lets_start": "Let's tap the button above and start entering journal items! 😄",
   "domain.balancesheet": "Balance Sheet",
   "domain.incomestatement": "Income Statement",
@@ -62,7 +60,7 @@ module.exports={
 }
 
 },{}],2:[function(require,module,exports){
-'use strict';
+"use strict";
 
 t10.setResource(require('./en.json'));
 
