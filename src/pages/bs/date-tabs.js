@@ -34,8 +34,8 @@ class DateTabs {
   }
 
   updateTab (tab, label, isActive) {
-    this.tab.querySelector('a').textContent = label
-    this.tab.classList('is-active', isActive)
+    tab.querySelector('a').textContent = label
+    tab.classList.toggle('is-active', isActive)
   }
 
   @on.click.at('.first-tab')
