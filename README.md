@@ -40,9 +40,9 @@
 
 # Docs
 
-## [Domain Models](https://kt3k.github.io/moneybit-app/domaindoc/)
+## [Domaindoc](https://kt3k.github.io/moneybit-app/domaindoc/)
 
-## [Translation Data](https://kt3k.github.io/moneybit-app/langsheet/)
+## [langsheet](https://kt3k.github.io/moneybit-app/langsheet/)
 
 # License
 
