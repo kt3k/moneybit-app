@@ -16,9 +16,10 @@ class MajorAccountTypeCard extends SummaryCard {
 
   @on(UPDATE_BS_DATE)
   update ({ detail: { journal, chart, domain } }) {
+    this.domain = domain
     const subledgers = journal
       .toLedger(chart)
-      .getSubledgersByMajorType(this.majorAccountType(domain.MajorAccountType))
+      .getSubledgersByMajorType(this.majorAccountType())
 
     this.table.innerHTML = ''
 
@@ -29,12 +30,7 @@ class MajorAccountTypeCard extends SummaryCard {
       this.createSubledgerTotalRow(subledger)
     })
 
-    this.createTotalRow(
-      amounts.reduce((x, y) => x + y, 0),
-      journal,
-      chart,
-      domain.MajorAccountType
-    )
+    this.createTotalRow(amounts.reduce((x, y) => x + y, 0), journal, chart)
 
     t10.scan()
   }
@@ -61,8 +57,8 @@ class MajorAccountTypeCard extends SummaryCard {
     this.assignMoneyFormat(retainedEarnings, tr.lastChild)
   }
 
-  createTotalRow (total, currentJournal, currentChart, MajorAccountType) {
-    if (this.majorAccountType(MajorAccountType) === MajorAccountType.EQUITY) {
+  createTotalRow (total, currentJournal, currentChart) {
+    if (this.majorAccountType() === this.domain.MajorAccountType.EQUITY) {
       const retainedEarnings = currentJournal
         .toBalanceSheet(currentChart)
         .retainedEarnings().amount
@@ -87,8 +83,8 @@ class AssetCard extends MajorAccountTypeCard {
     return '<t>domain.assets</t>'
   }
 
-  majorAccountType (MajorAccountType) {
-    return MajorAccountType.ASSET
+  majorAccountType () {
+    return this.domain.MajorAccountType.ASSET
   }
 }
 @component('liability-card')
@@ -97,8 +93,8 @@ class LiabilityCard extends MajorAccountTypeCard {
     return '<t>domain.liabilities</t>'
   }
 
-  majorAccountType (MajorAccountType) {
-    return MajorAccountType.LIABILITY
+  majorAccountType () {
+    return this.domain.MajorAccountType.LIABILITY
   }
 }
 @component('equity-card')
@@ -107,8 +103,8 @@ class EquityCard extends MajorAccountTypeCard {
     return '<t>domain.equity</t>'
   }
 
-  majorAccountType (MajorAccountType) {
-    return MajorAccountType.EQUITY
+  majorAccountType () {
+    return this.domain.MajorAccountType.EQUITY
   }
 }
 @component('revenue-card')
@@ -117,8 +113,8 @@ class RevenueCard extends MajorAccountTypeCard {
     return '<t>domain.revenues</t>'
   }
 
-  majorAccountType (MajorAccountType) {
-    return MajorAccountType.REVENUE
+  majorAccountType () {
+    return this.domain.MajorAccountType.REVENUE
   }
 }
 @component('expense-card')
@@ -127,8 +123,8 @@ class ExpenseCard extends MajorAccountTypeCard {
     return '<t>domain.expenses</t>'
   }
 
-  majorAccountType (MajorAccountType) {
-    return MajorAccountType.EXPENSE
+  majorAccountType () {
+    return this.domain.MajorAccountType.EXPENSE
   }
 }
 
