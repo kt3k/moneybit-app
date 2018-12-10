@@ -1546,9 +1546,9 @@ capsid-scroll-lock@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/capsid-scroll-lock/-/capsid-scroll-lock-1.0.1.tgz#cdd0abfec5d9760a8e1570bec62c5a4cb1fc3725"
 
-capsid@^0.29.0:
-  version "0.29.0"
-  resolved "https://registry.yarnpkg.com/capsid/-/capsid-0.29.0.tgz#2e3278b6c0a8582fb2a61aef868fcb366fdd5d98"
+capsid@^0.29.1:
+  version "0.29.1"
+  resolved "https://registry.yarnpkg.com/capsid/-/capsid-0.29.1.tgz#f06250a0a63acf0b9c24577205b5227e2a298fdb"
 
 caseless@~0.11.0:
   version "0.11.0"
