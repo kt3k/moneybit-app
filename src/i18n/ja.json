@@ -44,6 +44,7 @@
   "domain.journal.end_date": "終了日",
   "domain.journal.title": "仕訳帳タイトル",
   "domain.date": "日付",
+  "ui.close": "閉じる",
   "ui.form.save": "保存",
   "ui.form.create": "作成",
   "ui.form.cancel": "キャンセル",

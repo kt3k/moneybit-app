@@ -1,5 +1,6 @@
 require('./major-account-type-card')
 require('./summary-cards')
+require('./subledger-modal')
 require('./bs-page')
 require('./date-tabs')
 require('./date-panel')

@@ -1,13 +1,15 @@
-const { component, on } = capsid
+const { component, on, emits } = capsid
 const genel = require('genel')
 const { SummaryCard } = require('./summary-cards')
-const { UPDATE_BS_DATE } = require('./bs-page')
+const { UPDATE_BS_DATE, OPEN_SUBLEDGER_MODAL } = require('./bs-page')
 
 class MajorAccountTypeCard extends SummaryCard {
   @on.click.at('tr')
+  @emits(OPEN_SUBLEDGER_MODAL)
   onClickAtSubledger (e) {
-    console.log(e.target)
-    console.log(e.currentTarget)
+    return {
+      title: e.target.textContent
+    }
   }
 
   majorAccountType (MajorAccountType) {

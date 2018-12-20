@@ -44,6 +44,7 @@
   "domain.journal.end_date": "End Date",
   "domain.journal.title": "Journal Title",
   "domain.date": "Date",
+  "ui.close": "Close",
   "ui.form.save": "Save",
   "ui.form.create": "Create",
   "ui.form.cancel": "Cancel",

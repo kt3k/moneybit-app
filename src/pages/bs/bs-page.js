@@ -2,6 +2,8 @@ const { component, on, notifies } = capsid
 
 const UPDATE_BS_DATE = 'mb/bs/UPDATE_BS_DATE'
 const CHANGE_BS_DATE = 'mb/bs/CHANGE_BS_DATE'
+const OPEN_SUBLEDGER_MODAL = 'mb/bs/OPEN_SUBLEDGER_MODAL'
+const CLOSE_SUBLEDGER_MODAL = 'mb/bs/CLOSE_SUBLEDGER_MODAL'
 const CLASS_UPDATE_BS_DATE = 'observes-bs-date'
 
 @component('bs-page')
@@ -45,9 +47,22 @@ class BsPage {
 
     this.notifyUpdates()
   }
+
+  @on(OPEN_SUBLEDGER_MODAL)
+  @notifies(OPEN_SUBLEDGER_MODAL, '.subledger-modal')
+  @notifies(Action.UI_SHOW, '.subledger-modal-overlay-shadow')
+  openSubledgerModal ({ detail }) {
+    return detail
+  }
+
+  @on(CLOSE_SUBLEDGER_MODAL)
+  @notifies(Action.UI_HIDE, '.subledger-modal-overlay-shadow')
+  closeSubledgerModal () {}
 }
 
 module.exports = BsPage
 module.exports.UPDATE_BS_DATE = UPDATE_BS_DATE
 module.exports.CLASS_UPDATE_BS_DATE = CLASS_UPDATE_BS_DATE
 module.exports.CHANGE_BS_DATE = CHANGE_BS_DATE
+module.exports.OPEN_SUBLEDGER_MODAL = OPEN_SUBLEDGER_MODAL
+module.exports.CLOSE_SUBLEDGER_MODAL = CLOSE_SUBLEDGER_MODAL
