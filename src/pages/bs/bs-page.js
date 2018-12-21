@@ -1,4 +1,5 @@
-const { component, on, notifies } = capsid
+const { component, on, emits, notifies } = capsid
+const { LOCK, UNLOCK } = global.capsidScrollLock
 
 const UPDATE_BS_DATE = 'mb/bs/UPDATE_BS_DATE'
 const CHANGE_BS_DATE = 'mb/bs/CHANGE_BS_DATE'
@@ -49,6 +50,7 @@ class BsPage {
   }
 
   @on(OPEN_SUBLEDGER_MODAL)
+  @emits(LOCK)
   @notifies(OPEN_SUBLEDGER_MODAL, '.subledger-modal')
   @notifies(Action.UI_SHOW, '.subledger-modal-overlay-shadow')
   openSubledgerModal ({ detail }) {
@@ -56,6 +58,7 @@ class BsPage {
   }
 
   @on(CLOSE_SUBLEDGER_MODAL)
+  @emits(UNLOCK)
   @notifies(Action.UI_HIDE, '.subledger-modal-overlay-shadow')
   closeSubledgerModal () {}
 }
