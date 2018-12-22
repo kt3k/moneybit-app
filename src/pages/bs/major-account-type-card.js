@@ -8,7 +8,8 @@ class MajorAccountTypeCard extends SummaryCard {
   @emits(OPEN_SUBLEDGER_MODAL)
   onClickAtSubledger (e) {
     return {
-      title: e.target.textContent
+      title: e.target.textContent,
+      domain: this.domain
     }
   }
 
