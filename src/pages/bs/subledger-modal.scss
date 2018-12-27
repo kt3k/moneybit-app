@@ -17,6 +17,7 @@
 
     .card-content {
       height: calc(100% - 49px);
+      overflow-y: scroll;
     }
   }
 
