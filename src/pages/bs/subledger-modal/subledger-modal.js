@@ -1,5 +1,5 @@
 const { component, on, emits, wired } = capsid
-const { OPEN_SUBLEDGER_MODAL, CLOSE_SUBLEDGER_MODAL } = require('./bs-page')
+const { OPEN_SUBLEDGER_MODAL, CLOSE_SUBLEDGER_MODAL } = require('../bs-page')
 
 @component('subledger-modal')
 class SubledgerModal {
