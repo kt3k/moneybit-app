@@ -4,13 +4,13 @@ const { SummaryCard } = require('./summary-cards')
 const { UPDATE_BS_DATE, OPEN_SUBLEDGER_MODAL } = require('./bs-page')
 
 class MajorAccountTypeCard extends SummaryCard {
-  @on.click.at('tr')
+  @on.click.at('tr.has-subledger')
   @emits(OPEN_SUBLEDGER_MODAL)
   onClickAtSubledger (e) {
-    return {
-      title: e.target.textContent,
-      domain: this.domain
-    }
+    const title = e.target.closest('tr.has-subledger').dataset.accountTitle
+    const subledger = this.subledgerMap[title]
+
+    return { title, subledger }
   }
 
   majorAccountType (MajorAccountType) {
@@ -20,6 +20,7 @@ class MajorAccountTypeCard extends SummaryCard {
   @on(UPDATE_BS_DATE)
   update ({ detail: { journal, chart, domain } }) {
     this.domain = domain
+    this.subledgerMap = {}
     const subledgers = journal
       .toLedger(chart)
       .getSubledgersByMajorType(this.majorAccountType())
@@ -29,6 +30,7 @@ class MajorAccountTypeCard extends SummaryCard {
     const amounts = []
 
     subledgers.forEach(subledger => {
+      this.subledgerMap[subledger.type.name] = subledger
       amounts.push(subledger.total().amount)
       this.createSubledgerTotalRow(subledger)
     })
@@ -42,10 +44,13 @@ class MajorAccountTypeCard extends SummaryCard {
    * @param {Subledger} subledger
    */
   createSubledgerTotalRow (subledger) {
+    const title = subledger.type.name
     const tr = genel.tr`
-      <td>${subledger.type.name}</td>
+      <td>${title}</td>
       <td>-</td>
     `
+    tr.classList.add('has-subledger')
+    tr.dataset.accountTitle = title
     this.table.appendChild(tr)
 
     this.assignMoneyFormat(subledger.total().amount, tr.lastChild)
