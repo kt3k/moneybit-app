@@ -7,10 +7,14 @@ class MajorAccountTypeCard extends SummaryCard {
   @on.click.at('tr.has-subledger')
   @emits(OPEN_SUBLEDGER_MODAL)
   onClickAtSubledger (e) {
-    const title = e.target.closest('tr.has-subledger').dataset.accountTitle
-    const subledger = this.subledgerMap[title]
+    const typeName = e.target.closest('tr.has-subledger').dataset
+      .accountTypeName
+    const subledger = this.subledgerMap[typeName]
+    const months = this.user.currentDocument.getMonths()
+    const accountType = new this.domain.AccountType(typeName)
+    const majorAccountType = this.chart.getMajorTypeByAccountType(accountType)
 
-    return { title, subledger }
+    return { accountType, majorAccountType, subledger, months }
   }
 
   majorAccountType (MajorAccountType) {
@@ -18,8 +22,10 @@ class MajorAccountTypeCard extends SummaryCard {
   }
 
   @on(UPDATE_BS_DATE)
-  update ({ detail: { journal, chart, domain } }) {
+  update ({ detail: { journal, chart, domain, user } }) {
     this.domain = domain
+    this.user = user
+    this.chart = chart
     this.subledgerMap = {}
     const subledgers = journal
       .toLedger(chart)
@@ -44,13 +50,13 @@ class MajorAccountTypeCard extends SummaryCard {
    * @param {Subledger} subledger
    */
   createSubledgerTotalRow (subledger) {
-    const title = subledger.type.name
+    const typeName = subledger.type.name
     const tr = genel.tr`
-      <td>${title}</td>
+      <td>${typeName}</td>
       <td>-</td>
     `
     tr.classList.add('has-subledger')
-    tr.dataset.accountTitle = title
+    tr.dataset.accountTypeName = typeName
     this.table.appendChild(tr)
 
     this.assignMoneyFormat(subledger.total().amount, tr.lastChild)

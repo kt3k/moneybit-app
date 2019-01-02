@@ -28,6 +28,7 @@ class BsPage {
     return {
       date,
       journal,
+      user: this.user,
       chart: this.chart,
       domain: this.domain,
       baseJournal: this.journal
@@ -35,10 +36,11 @@ class BsPage {
   }
 
   @on(Action.MODEL_UPDATE)
-  update ({ detail: { currentJournal, currentChart, domain } }) {
+  update ({ detail: { currentJournal, currentChart, domain, user } }) {
     this.journal = currentJournal
     this.chart = currentChart
     this.domain = domain
+    this.user = user
     this.notifyUpdates()
   }
 

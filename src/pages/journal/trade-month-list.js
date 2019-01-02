@@ -21,7 +21,7 @@ class TradeMonthList {
 
       const tradeList = make('trade-list', el)
 
-      tradeList.setTitle(month.format('MMMM YYYY'))
+      tradeList.setTitle(month.format(t10.t('locale.month_format')))
 
       this.el.appendChild(el)
     })
