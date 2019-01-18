@@ -13,7 +13,6 @@ class SubledgerModal {
     this.el.classList.add('is-visible')
     this.title.textContent = accountType.name
     this.majorAccountType = majorAccountType
-    console.log(subledger)
     this.monthlyBalance = 0
     this.balance = 0
     const accMap = {}

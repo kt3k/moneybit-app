@@ -6,14 +6,14 @@ const factory = new AccountTypeChart.Factory()
 const defaultAccountTypeCharts = {
   /**
    * This default is taken from https://en.wikipedia.org/wiki/Chart_of_accounts
-   * # Simple Example chapter.
-   * Maybe this is not useful for anybody in the real world.
+   * I moved Drawings from equity to assets. https://www.accountingtools.com/articles/what-is-a-drawing-account.html
    */
   [EN.code]: factory.createFromObject({
     id: 'en-default',
     asset: [
       'Cash at Bank',
       'Cash',
+      'Drawings',
       'Deferred Expense',
       'Other Assets',
       'Accounts Receivable',
@@ -31,15 +31,13 @@ const defaultAccountTypeCharts = {
       'Salaries and Wages Payable',
       'Interest Payable'
     ],
-    equity: [
-      "Owner's capital",
-      'Share Capital-Ordinary',
-      'Capital contributions',
-      'Dividends',
-      'Income Summary',
-      'Drawings'
+    equity: ["Owner's Capital", 'Share Capital-Ordinary', 'Income Summary'],
+    revenue: [
+      'Service Income',
+      'Sales Income',
+      'Rental Income',
+      'Interest Income'
     ],
-    revenue: ['Service Income', 'Sales', 'Rental Income', 'Interest Income'],
     expense: [
       'Office Expense',
       'Computer Expenses',

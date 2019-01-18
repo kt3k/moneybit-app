@@ -4,7 +4,7 @@
     "id": 1,
     "date": "2015-01-01",
     "desc": "Start the business",
-    "dr": {"Deposit": 1000},
+    "dr": {"Cash at Bank": 1000},
     "cr": {"Capital": 1000}
   }, {
     "id": 2,
