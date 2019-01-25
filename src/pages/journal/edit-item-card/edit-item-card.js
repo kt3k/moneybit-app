@@ -61,11 +61,6 @@ class EditItemCard {
                 data-validate="required"
               />
             </p>
-            <div
-              class="popper error-tooltip"
-              data-popper-ref=".edit-item-card__date"
-              data-popper-placement="top-end"
-            ></div>
           </div>
         </div>
         <div class="card-content">
