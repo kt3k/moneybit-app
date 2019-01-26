@@ -11,8 +11,9 @@
 
 ## [ドメインモデル](https://kt3k.github.io/moneybit-app/domaindoc/)
 
-## [言語リソース](https://kt3k.github.io/moneybit-app/langsheet/)
+## [i18nリソース](https://kt3k.github.io/moneybit-app/langsheet/)
 
+# 概要
 
 - 経理アプリ
 - 100% オープンソース
