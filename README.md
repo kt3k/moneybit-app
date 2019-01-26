@@ -5,6 +5,14 @@
 [![CircleCI](https://circleci.com/gh/kt3k/moneybit-app.svg?style=svg)](https://circleci.com/gh/kt3k/moneybit-app)
 [![codecov](https://codecov.io/gh/kt3k/moneybit-app/branch/master/graph/badge.svg)](https://codecov.io/gh/kt3k/moneybit-app)
 
+## [タスクボード(ZenHub)](https://app.zenhub.com/workspaces/5ab24577a208ae2ed71377b1/boards?repos=85275656)
+
+## [最新モック](https://kt3k.github.io/moneybit-app/app/pages/journal/)
+
+## [ドメインモデル](https://kt3k.github.io/moneybit-app/domaindoc/)
+
+## [言語リソース](https://kt3k.github.io/moneybit-app/langsheet/)
+
 
 - 経理アプリ
 - 100% オープンソース
@@ -49,14 +57,6 @@
 
 - Can manage multiple journals. Can switch journals.
 - Can set up/modify period of each journal.
-
-# References
-
-## [ZenHub](https://app.zenhub.com/workspaces/5ab24577a208ae2ed71377b1/boards?repos=85275656)
-
-## [Domaindoc](https://kt3k.github.io/moneybit-app/domaindoc/)
-
-## [Langsheet](https://kt3k.github.io/moneybit-app/langsheet/)
 
 # License
 
