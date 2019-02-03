@@ -8,6 +8,7 @@ module.exports={
   "app.settings": "設定",
   "app.title": "タイトル",
   "app.total": "合計",
+  "app.monthly_total": "月合計",
   "app.description": "説明",
   "app.language.auto": "自動",
   "app.journal.add_an_entry": "仕訳帳に追加する",
@@ -19,6 +20,7 @@ module.exports={
   "app.title.language": "あA 言語",
   "app.this_chart_of_accounts_is_used_as_default": "アプリのデフォルトの勘定科目一覧です. 新しい仕訳帳を作る際にデフォルトとして使用されます.",
   "app.onboarding.lets_start": "上のボタンを押して仕訳を始めましょう! 😃",
+  "domain.title": "科目",
   "domain.balancesheet": "貸借対照表",
   "domain.incomestatement": "損益計算書",
   "domain.retained_earnings": "利益余剰金",
@@ -45,6 +47,8 @@ module.exports={
   "domain.journal.end_date": "終了日",
   "domain.journal.title": "仕訳帳タイトル",
   "domain.date": "日付",
+  "domain.balance": "残高金額",
+  "ui.close": "閉じる",
   "ui.form.save": "保存",
   "ui.form.create": "作成",
   "ui.form.cancel": "キャンセル",
@@ -53,10 +57,11 @@ module.exports={
   "ui.form.delete": "削除",
   "ui.form.select_date": "日付を選択",
   "ui.form.select_account_title": "勘定科目を選択",
-  "error.form.field_required": "必須項目です💦",
-  "error.form.not_valid_number": "数値の形式が正しくありません💦",
-  "error.form.account_type_not_selected": "勘定科目が選択されていません💦",
-  "locale.date_format": "YYYY/MM/DD"
+  "error.form.field_required": "⚠️ 必須項目です",
+  "error.form.not_valid_number": "⚠️ 数値の形式が正しくありません",
+  "error.form.account_type_not_selected": "⚠️ 勘定科目が選択されていません",
+  "locale.date_format": "YYYY/MM/DD",
+  "locale.month_format": "YYYY年M月"
 }
 
 },{}],2:[function(require,module,exports){

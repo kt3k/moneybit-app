@@ -8,6 +8,7 @@ module.exports={
   "app.settings": "Settings",
   "app.title": "Title",
   "app.total": "Total",
+  "app.monthly_total": "Monthly Total",
   "app.description": "Description",
   "app.language.auto": "Auto",
   "app.journal.add_an_entry": "Add a journal entry",
@@ -19,6 +20,7 @@ module.exports={
   "app.title.language": "あA Language",
   "app.this_chart_of_accounts_is_used_as_default": "This is the default chart of accounts. This is used as the default for each new journal.",
   "app.onboarding.lets_start": "Let's tap the button above and start entering journal items! 😄",
+  "domain.title": "Title",
   "domain.balancesheet": "Balance Sheet",
   "domain.incomestatement": "Income Statement",
   "domain.retained_earnings": "Retained Earnings",
@@ -45,6 +47,8 @@ module.exports={
   "domain.journal.end_date": "End Date",
   "domain.journal.title": "Journal Title",
   "domain.date": "Date",
+  "domain.balance": "Balance",
+  "ui.close": "Close",
   "ui.form.save": "Save",
   "ui.form.create": "Create",
   "ui.form.cancel": "Cancel",
@@ -53,10 +57,11 @@ module.exports={
   "ui.form.delete": "Delete",
   "ui.form.select_date": "Select date",
   "ui.form.select_account_title": "Select account title",
-  "error.form.field_required": "This field is required 😥",
-  "error.form.not_valid_number": "Not a valid number 😥",
-  "error.form.account_type_not_selected": "The account type is not selected 😥",
-  "locale.date_format": "D MMM, YYYY"
+  "error.form.field_required": "⚠️ This field is required",
+  "error.form.not_valid_number": "⚠️ Not a valid number",
+  "error.form.account_type_not_selected": "⚠️ The account type is not selected",
+  "locale.date_format": "D MMM, YYYY",
+  "locale.month_format": "MMMM YYYY"
 }
 
 },{}],2:[function(require,module,exports){

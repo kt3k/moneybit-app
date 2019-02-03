@@ -1,16 +1,20 @@
 .subledger-modal {
   position: fixed;
-  left: 0;
-  top: 60px;
-  height: calc(100vh - 60px - 60px);
-  width: 100%;
+  left: 10px;
+  top: 70px;
+  height: calc(100vh - 60px - 60px - 10px - 10px);
+  width: calc(100% - 20px);
   transition-duration: 500ms;
   transform: scale(0.8);
   opacity: 0;
   visibility: hidden;
   overflow: scroll;
-  background-color: white;
   padding: 10px; }
+  .subledger-modal .card {
+    height: 100%; }
+    .subledger-modal .card .card-content {
+      height: calc(100% - 49px);
+      overflow-y: scroll; }
   .subledger-modal.is-visible {
     opacity: 1;
     visibility: visible;
