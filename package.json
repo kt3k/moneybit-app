@@ -29,15 +29,21 @@
       },
       {
         "title": "🌊 domaindoc",
-        "desc": "Document of domain models.",
+        "desc": "Documentation of domain models.",
         "serve": "http://localhost:50000/",
         "build": "domaindoc/"
       },
       {
-        "title": "⛩ ZenHub board",
-        "desc": "ZenHub board",
+        "title": "⛩ ZenHub",
+        "desc": "Task board",
         "serve": "https://app.zenhub.com/workspaces/5ab24577a208ae2ed71377b1/boards?repos=85275656",
         "build": "https://app.zenhub.com/workspaces/5ab24577a208ae2ed71377b1/boards?repos=85275656"
+      },
+      {
+        "title": "🐙 Github",
+        "desc": "Source Repository",
+        "serve": "https://github.com/kt3k/moneybit-app",
+        "build": "https://github.com/kt3k/moneybit-app"
       }
     ]
   },
