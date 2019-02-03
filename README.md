@@ -52,7 +52,7 @@
 
 # Wireframes
 
-![](https://kt3k.github.io/moneybit-app/design/ss.png)
+[![](https://kt3k.github.io/moneybit-app/design/ss.png)](https://sketch.cloud/s/akwkv)
 
 # Features
 
