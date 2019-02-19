@@ -13,6 +13,8 @@
 
 ## [i18nリソース](https://kt3k.github.io/moneybit-app/langsheet/)
 
+## [ページ仕様書](https://github.com/kt3k/moneybit-app/blob/master/src/pages/README.md)
+
 # 概要
 
 - 経理アプリ
