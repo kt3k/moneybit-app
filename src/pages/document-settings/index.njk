@@ -1,14 +1,14 @@
 ---
-css: pages/settings/index.css
-js: pages/settings/index.js
+css: pages/document-settings/index.css
+js: pages/document-settings/index.js
 ---
 <h2 class="title t-text">app.title</h2>
 
-{% include src + '/pages/settings/title-area.njk' %}
+{% include src + '/pages/document-settings/title-area.njk' %}
 
 <hr />
 
-{% include src + '/pages/settings/misc-settings.njk' %}
+{% include src + '/pages/document-settings/misc-settings.njk' %}
 
 <hr />
 
@@ -22,7 +22,7 @@ js: pages/settings/index.js
 
 <br />
 
-{% from src + '/pages/settings/chart-card.njk' import chartCard %}
+{% from src + '/pages/document-settings/chart-card.njk' import chartCard %}
 
 {{ chartCard('ASSET', 'diamond', '<t>domain.assets</t>') }}<br />
 {{ chartCard('LIABILITY', 'bank', '<t>domain.liabilities</t>') }}<br />

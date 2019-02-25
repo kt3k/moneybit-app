@@ -6,7 +6,7 @@ const { action, dispatches } = require('evex')
 const MAIN_PAGES = [
   Page.BS,
   Page.JOURNAL,
-  Page.SETTINGS,
+  Page.DOCUMENT_SETTINGS,
   Page.EDIT_CHART_OF_ACCOUNTS
 ]
 
