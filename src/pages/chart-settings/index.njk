@@ -3,6 +3,7 @@ layout: simple-layout
 css: pages/chart-settings/index.css
 js: pages/chart-settings/index.js
 ---
+{% from src + '/pages/chart-settings/chart-card.njk' import chartCard %}
 
 <header class="app-header-wrapper">
   {% include src + '/common/atoms/brand-stripe.njk' %}
@@ -31,33 +32,26 @@ js: pages/chart-settings/index.js
 <main class="l-main">
   <div class="section">
     <div class="container">
-
-<h2 class="title t-text">domain.chart_of_accounts</h2>
-
-{% from src + '/pages/chart-settings/chart-card.njk' import chartCard %}
-
-{{ chartCard('ASSET', 'diamond', '<t>domain.assets</t>') }}<br />
-{{ chartCard('LIABILITY', 'bank', '<t>domain.liabilities</t>') }}<br />
-{{ chartCard('EQUITY', 'gift', '<t>domain.equity</t>') }}<br />
-{{ chartCard('REVENUE', 'thumbs-o-up', '<t>domain.revenues</t>') }}<br />
-{{ chartCard('EXPENSE', 'fire', '<t>domain.expenses</t>') }}<br />
-
-<div class="section">
-  <a href="../chart-settings/index.html" class="button is-primary is-wide">
-    <i class="fa fa-check"></i>&nbsp;
-    <t>ui.form.finish_editing</t>
-  </a>
-</div>
-
-<div class="box">
-  <t>app.save_this_chart_as_the_default_chart</t>
-  <hr />
-  <a href="../chart-settings/index.html" class="button is-primary is-wide">
-    <i class="fa fa-copy"></i>&nbsp;
-    <t>ui.form.save</t>
-  </a>
-</div>
-
+      <h2 class="title t-text">domain.chart_of_accounts</h2>
+      {{ chartCard('ASSET', 'diamond', '<t>domain.assets</t>') }}<br />
+      {{ chartCard('LIABILITY', 'bank', '<t>domain.liabilities</t>') }}<br />
+      {{ chartCard('EQUITY', 'gift', '<t>domain.equity</t>') }}<br />
+      {{ chartCard('REVENUE', 'thumbs-o-up', '<t>domain.revenues</t>') }}<br />
+      {{ chartCard('EXPENSE', 'fire', '<t>domain.expenses</t>') }}<br />
+      <div class="section">
+        <a href="../document-settings/index.html" class="button is-primary is-wide">
+          <i class="fa fa-check"></i>&nbsp;
+          <t>ui.form.finish_editing</t>
+        </a>
+      </div>
+      <div class="box">
+        <t>app.save_this_chart_as_the_default_chart</t>
+        <hr />
+        <a href="../chart-settings/index.html" class="button is-primary is-wide">
+          <i class="fa fa-copy"></i>&nbsp;
+          <t>ui.form.save</t>
+        </a>
+      </div>
     </div>
   </div>
 </main>
