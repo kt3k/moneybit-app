@@ -24,7 +24,7 @@ class ChartCard {
     this.tbody.innerHTML = ''
 
     currentChart.getAccountTypesByMajorType(majorType).forEach(type => {
-      this.tbody.appendChild(genel.tr`<td><a href="#">${type.name}</a></td>`)
+      this.tbody.appendChild(genel.tr`<td>${type.name}</td>`)
     })
   }
 }
