@@ -6,5 +6,5 @@ module.exports = {
   DOCUMENT_SETTINGS: `${basepath}/pages/document-settings/index.html`,
   APP_SETTINGS: `${basepath}/pages/app-settings/index.html`,
   NEW: `${basepath}/pages/new/index.html`,
-  EDIT_CHART_OF_ACCOUNTS: `${basepath}/pages/edit-chart-of-accounts/index.html`
+  CHART_SETTINGS: `${basepath}/pages/chart-settings/index.html`
 }

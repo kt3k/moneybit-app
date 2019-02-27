@@ -1,7 +1,7 @@
 ---
 layout: simple-layout
-css: pages/edit-chart-of-accounts/index.css
-js: pages/edit-chart-of-accounts/index.js
+css: pages/chart-settings/index.css
+js: pages/chart-settings/index.js
 ---
 
 <header class="app-header-wrapper">
@@ -34,7 +34,7 @@ js: pages/edit-chart-of-accounts/index.js
 
 <h2 class="title t-text">domain.chart_of_accounts</h2>
 
-{% from src + '/pages/edit-chart-of-accounts/chart-card.njk' import chartCard %}
+{% from src + '/pages/chart-settings/chart-card.njk' import chartCard %}
 
 {{ chartCard('ASSET', 'diamond', '<t>domain.assets</t>') }}<br />
 {{ chartCard('LIABILITY', 'bank', '<t>domain.liabilities</t>') }}<br />
@@ -43,7 +43,7 @@ js: pages/edit-chart-of-accounts/index.js
 {{ chartCard('EXPENSE', 'fire', '<t>domain.expenses</t>') }}<br />
 
 <div class="section">
-  <a href="../edit-chart-of-accounts/index.html" class="button is-primary is-wide">
+  <a href="../chart-settings/index.html" class="button is-primary is-wide">
     <i class="fa fa-check"></i>&nbsp;
     <t>ui.form.finish_editing</t>
   </a>
@@ -52,7 +52,7 @@ js: pages/edit-chart-of-accounts/index.js
 <div class="box">
   <t>app.save_this_chart_as_the_default_chart</t>
   <hr />
-  <a href="../edit-chart-of-accounts/index.html" class="button is-primary is-wide">
+  <a href="../chart-settings/index.html" class="button is-primary is-wide">
     <i class="fa fa-copy"></i>&nbsp;
     <t>ui.form.save</t>
   </a>

@@ -7,7 +7,7 @@ const MAIN_PAGES = [
   Page.BS,
   Page.JOURNAL,
   Page.DOCUMENT_SETTINGS,
-  Page.EDIT_CHART_OF_ACCOUNTS
+  Page.CHART_SETTINGS
 ]
 
 /*
