@@ -2,6 +2,8 @@
 layout: simple-layout
 css: pages/chart-settings/index.css
 js: pages/chart-settings/index.js
+body:
+  class: chart-settings-page
 ---
 {% from src + '/pages/chart-settings/chart-card.njk' import chartCard %}
 
@@ -56,3 +58,9 @@ js: pages/chart-settings/index.js
   </div>
 </main>
 
+<div
+  class="popper edit-tooltip"
+  data-popper-placement="bottom-start">
+  <button class="button is-primary">EDIT</button>
+  <button class="button is-danger">DELETE</button>
+</div>

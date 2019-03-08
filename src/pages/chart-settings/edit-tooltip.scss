@@ -1,0 +1,43 @@
+.edit-tooltip {
+  $bg-color: $white;
+
+  position: absolute;
+  margin-top: 10px;
+  padding: 18px 18px;
+  border-radius: 8px;
+  border: solid 1px $dark-gray;
+  background-color: $very-light-gray;
+  background-color: $bg-color;
+  font-size: 18px;
+  transition-property: opacity, visibility;
+  transition-duration: 500ms;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(0, -10px);
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+  }
+
+  &::before {
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    content: '';
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: $dark-gray transparent;
+  }
+
+  &::after {
+    position: absolute;
+    top: -6px;
+    left: 12px;
+    content: '';
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: $bg-color transparent;
+  }
+}
