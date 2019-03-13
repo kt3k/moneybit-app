@@ -2,7 +2,7 @@ const { component, on, wired } = capsid
 
 @component('chart-settings-page')
 class ChartSettingsPage {
-  @wired('.edit-tooltip') editTooltip
+  @wired('.edit-chart-tooltip') editTooltip
 
   @on('open-tooltip')
   openTooltip ({ detail: { id } }) {
