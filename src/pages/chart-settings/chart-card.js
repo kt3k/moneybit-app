@@ -1,7 +1,3 @@
-const {
-  actions: { MODEL_UPDATE }
-} = require('~')
-
 const { component, wired, on, emits, make } = capsid
 const genel = require('genel')
 const uuid = require('uuid')
@@ -10,10 +6,11 @@ const uuid = require('uuid')
 class ChartCard {
   @wired('tbody') tbody
 
-  @on(MODEL_UPDATE)
-  onModelUpdate ({
+  @on('ledger-update')
+  onLedgerUpdate ({
     detail: {
       currentChart,
+      ledger,
       domain: { MajorAccountType }
     }
   }) {
@@ -27,7 +24,9 @@ class ChartCard {
 
     currentChart.getAccountTypesByMajorType(majorType).forEach(type => {
       const item = make('chart-card__item', genel.tr`<td></td>`)
-      item.update(type.name)
+      const name =
+        type.name + (ledger.hasSubledgerOfAccountType(type) ? '*' : '')
+      item.update(name)
       this.tbody.appendChild(item.el)
     })
   }

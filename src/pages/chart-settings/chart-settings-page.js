@@ -1,4 +1,4 @@
-const { component, on, wired } = capsid
+const { component, on, wired, notifies } = capsid
 
 @component('chart-settings-page')
 class ChartSettingsPage {
@@ -9,6 +9,18 @@ class ChartSettingsPage {
     this.editTooltip.dataset.popperRef = `[id="${id}"]`
     this.editTooltip.dispatchEvent(new CustomEvent(capsidPopper.UPDATE))
     this.editTooltip.classList.add('is-visible')
+  }
+
+  @notifies('ledger-update', '.is-ledger-observer')
+  @on(Action.MODEL_UPDATE)
+  onModelUpdate ({ detail: { currentChart, currentJournal, domain } }) {
+    const ledger = currentJournal.toLedger(currentChart)
+
+    return {
+      ledger,
+      currentChart,
+      domain
+    }
   }
 }
 

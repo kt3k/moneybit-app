@@ -2,8 +2,6 @@
 layout: simple-layout
 css: pages/chart-settings/index.css
 js: pages/chart-settings/index.js
-body:
-  class: chart-settings-page
 ---
 {% from src + '/pages/chart-settings/chart-card.njk' import chartCard %}
 
@@ -31,7 +29,7 @@ body:
   {% include src + '/common/molecules/app-menu-dropdown.njk' %}
 </header>
 
-<main class="l-main">
+<main class="l-main chart-settings-page is-model-observer">
   <div class="section">
     <div class="container">
       <h2 class="title t-text">domain.chart_of_accounts</h2>
