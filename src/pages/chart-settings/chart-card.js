@@ -24,8 +24,11 @@ class ChartCard {
 
     currentChart.getAccountTypesByMajorType(majorType).forEach(type => {
       const item = make('chart-card__item', genel.tr`<td></td>`)
-      const name =
-        type.name + (ledger.hasSubledgerOfAccountType(type) ? '*' : '')
+      let name = type.name
+      if (ledger.hasSubledgerOfAccountType(type)) {
+        const subledger = ledger.getSubledgerByAccountType(type)
+        name += ` (${subledger.accounts.length})`
+      }
       item.update(name)
       this.tbody.appendChild(item.el)
     })
