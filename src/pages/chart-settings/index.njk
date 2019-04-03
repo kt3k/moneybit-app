@@ -58,8 +58,13 @@ js: pages/chart-settings/index.js
   <div
     class="popper edit-chart-tooltip"
     data-popper-placement="bottom-start">
-    <button class="button is-primary">EDIT</button>
-    <button class="button is-danger">DELETE</button>
+    <div class="content">
+      <p class="edit-chart-tooltip__message"></p>
+      <p>
+        <button class="button edit-chart-tooltip__edit-button is-primary">EDIT</button>
+        <button class="button edit-chart-tooltip__delete-button is-danger">DELETE</button>
+      </p>
+    </div>
   </div>
 </main>
 

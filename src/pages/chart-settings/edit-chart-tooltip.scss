@@ -40,4 +40,8 @@
     border-style: solid;
     border-color: $bg-color transparent;
   }
+
+  &__message {
+    max-width: 300px;
+  }
 }

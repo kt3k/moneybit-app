@@ -24,12 +24,12 @@ class ChartCard {
 
     currentChart.getAccountTypesByMajorType(majorType).forEach(type => {
       const item = make('chart-card__item', genel.tr`<td></td>`)
-      let name = type.name
-      if (ledger.hasSubledgerOfAccountType(type)) {
-        const subledger = ledger.getSubledgerByAccountType(type)
-        name += ` (${subledger.accounts.length})`
-      }
-      item.update(name)
+      item.update({
+        name: type.name,
+        count: ledger.hasSubledgerOfAccountType(type)
+          ? ledger.getSubledgerByAccountType(type).accounts.length
+          : 0
+      })
       this.tbody.appendChild(item.el)
     })
   }
@@ -48,12 +48,18 @@ class ChartCardItem {
   openTooltip () {
     return {
       id: this.el.id,
-      typeName: this.el.textContent
+      typeName: this.name,
+      disabled: this.count > 0
     }
   }
 
-  update (name) {
+  update ({ name, count }) {
+    this.name = name
+    this.count = count
     this.td.textContent = name
+    if (this.count > 0) {
+      this.td.textContent += ` (${this.count})`
+    }
   }
 }
 

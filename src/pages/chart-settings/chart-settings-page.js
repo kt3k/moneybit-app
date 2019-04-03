@@ -5,10 +5,9 @@ class ChartSettingsPage {
   @wired('.edit-chart-tooltip') editTooltip
 
   @on('open-tooltip')
-  openTooltip ({ detail: { id } }) {
-    this.editTooltip.dataset.popperRef = `[id="${id}"]`
-    this.editTooltip.dispatchEvent(new CustomEvent(capsidPopper.UPDATE))
-    this.editTooltip.classList.add('is-visible')
+  @notifies('open-tooltip', '.edit-chart-tooltip')
+  openTooltip ({ detail }) {
+    return detail
   }
 
   @notifies('ledger-update', '.is-ledger-observer')
