@@ -1538,10 +1538,10 @@ caniuse-lite@^1.0.30000912:
   version "1.0.30000912"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000912.tgz#08e650d4090a9c0ab06bfd2b46b7d3ad6dcaea28"
 
-capsid-popper@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/capsid-popper/-/capsid-popper-1.6.0.tgz#83b6a6f8543e334b1865982971bea9421016ca90"
-  integrity sha512-8ULvS4oA8FkxjKYaLqwX8djqQswFe3wKISePszbSZxo9sWjY6O3p+VqLXWoRZ0eaoWNfFLUUBfM/ctKpQmdxKg==
+capsid-popper@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/capsid-popper/-/capsid-popper-2.0.0.tgz#6161ee130a7a4b6bd2e65db19e8dae1670b3958f"
+  integrity sha512-OHCtZqZuLs6wyjNxybei1XLmzzaV0tICLm4GwIwgXzdAuh2YXSKlmLl7pfhxj1Au1zx+4Mcw7ndTh0KwQQduDg==
 
 capsid-scroll-lock@^2.0.0:
   version "2.0.0"
