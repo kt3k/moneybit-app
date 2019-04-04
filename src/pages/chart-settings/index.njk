@@ -57,7 +57,10 @@ js: pages/chart-settings/index.js
 
   <div
     class="popper edit-chart-tooltip"
-    data-popper-placement="bottom-start">
+    data-popper-placement="bottom-start"
+    data-popper-prevent-overflow='{"enabled": false}'
+    data-popper-flip='{"enabled": false}'
+    >
     <div class="content">
       <p class="edit-chart-tooltip__message"></p>
       <p>

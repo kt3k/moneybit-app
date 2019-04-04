@@ -75,7 +75,7 @@
     "bulma": "^0.4.1",
     "bundle-through": "^1.0.3",
     "capsid": "^0.29.1",
-    "capsid-popper": "^1.4.0",
+    "capsid-popper": "^1.6.0",
     "capsid-scroll-lock": "^2.0.0",
     "chai": "^3.5.0",
     "chrome-console-debug-menu": "^2.0.1",
