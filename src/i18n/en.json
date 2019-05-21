@@ -49,6 +49,7 @@
   "domain.balance": "Balance",
   "ui.close": "Close",
   "ui.form.save": "Save",
+  "ui.form.add": "Add",
   "ui.form.create": "Create",
   "ui.form.cancel": "Cancel",
   "ui.form.edit": "Edit",

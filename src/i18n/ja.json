@@ -49,6 +49,7 @@
   "domain.balance": "残高金額",
   "ui.close": "閉じる",
   "ui.form.save": "保存",
+  "ui.form.add": "追加",
   "ui.form.create": "作成",
   "ui.form.cancel": "キャンセル",
   "ui.form.edit": "編集",

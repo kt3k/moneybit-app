@@ -1,7 +1,12 @@
 {% macro chartCard(type, iconType, title) %}
 <div class="card chart-card is-ledger-observer" type="{{ type }}">
   <header class="card-header">
-    <p class="card-header-title"><i class="fa fa-{{ iconType }}"></i>&nbsp;{{ title | safe }}</p>
+    <p class="card-header-title">
+      <i class="fa fa-{{ iconType }}"></i>
+      &nbsp;
+      {{ title | safe }}
+      <button class="button ml-30"><t>ui.form.add</t></button>
+    </p>
   </header>
   <div class="card-content">
     <div class="content">
