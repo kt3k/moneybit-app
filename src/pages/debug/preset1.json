@@ -1,0 +1,844 @@
+{
+  "localStorage": {
+    "account-type-chart-792feada-cff5-41cf-a1a5-4e16c17033b9": {
+      "id": "792feada-cff5-41cf-a1a5-4e16c17033b9",
+      "asset": [
+        "Cash at Bank",
+        "Cash",
+        "Deferred Expense",
+        "Other Assets",
+        "Accounts Receivable",
+        "Supplies",
+        "Prepaid Insurance",
+        "Equipment",
+        "Accumulated Depreciation Equipment"
+      ],
+      "liability": [
+        "Notes Payable",
+        "Accounts Payable",
+        "Unearned Service Revenue",
+        "Tax Payable",
+        "Bonds Payable",
+        "Salaries and Wages Payable",
+        "Interest Payable"
+      ],
+      "equity": [
+        "Owner's capital",
+        "Share Capital-Ordinary",
+        "Retained Earnings",
+        "Capital contributions",
+        "Dividends",
+        "Income Summary",
+        "Drawings"
+      ],
+      "revenue": [
+        "Service Income",
+        "Sales",
+        "Rental Income",
+        "Interest Income"
+      ],
+      "expense": [
+        "Office Expense",
+        "Computer Expenses",
+        "Communication Expense",
+        "Labour & Welfare Expenses",
+        "Advertising Expenses",
+        "Printing & Stationery Expenses",
+        "Supplies Expense",
+        "Depreciation Expense",
+        "Insurance Expense",
+        "Salaries and Wages Expense",
+        "Rent Expense",
+        "Utilities Expense",
+        "Interest Expense"
+      ]
+    },
+    "mb-app-state": {
+      "userId": "056d1df9-a4d9-43fe-93e9-1471aab85554"
+    },
+    "journal-c218d750-4b79-476d-87d2-d8241232dc0d": {
+      "id": "c218d750-4b79-476d-87d2-d8241232dc0d",
+      "trades": []
+    },
+    "journal-26bf90d3-6af4-40d8-88f5-c21a95ab5bd5": {
+      "id": "26bf90d3-6af4-40d8-88f5-c21a95ab5bd5",
+      "trades": [
+        {
+          "id": "ca2a1f6a-a905-4085-8136-84c9327678ec",
+          "desc": "",
+          "date": "2018-03-02",
+          "dr": {
+            "普通預金": 1000
+          },
+          "cr": {
+            "元入金": 1000
+          }
+        },
+        {
+          "id": "dc25b987-677a-49fb-8d68-061207129193",
+          "desc": "",
+          "date": "2018-03-02",
+          "dr": {
+            "普通預金": 100
+          },
+          "cr": {
+            "元入金": 99
+          }
+        },
+        {
+          "id": "9a582f26-26e2-4884-93e3-baad447b65c8",
+          "desc": "",
+          "date": "2018-03-02",
+          "dr": {
+            "普通預金": 100
+          },
+          "cr": {
+            "元入金": 100
+          }
+        },
+        {
+          "id": "fa6e7439-86f0-460e-94d0-e88ff77d6554",
+          "desc": "",
+          "date": "2018-03-02",
+          "dr": {
+            "普通預金": 100
+          },
+          "cr": {
+            "元入金": 100
+          }
+        }
+      ]
+    },
+    "account-type-chart-0e0fc592-2e28-419f-8111-891e66af4b1d": {
+      "id": "0e0fc592-2e28-419f-8111-891e66af4b1d",
+      "asset": [
+        "Cash at Bank",
+        "Cash",
+        "Deferred Expense",
+        "Other Assets",
+        "Accounts Receivable",
+        "Supplies",
+        "Prepaid Insurance",
+        "Equipment",
+        "Accumulated Depreciation Equipment"
+      ],
+      "liability": [
+        "Notes Payable",
+        "Accounts Payable",
+        "Unearned Service Revenue",
+        "Tax Payable",
+        "Bonds Payable",
+        "Salaries and Wages Payable",
+        "Interest Payable"
+      ],
+      "equity": [
+        "Owner's capital",
+        "Share Capital-Ordinary",
+        "Retained Earnings",
+        "Capital contributions",
+        "Dividends",
+        "Income Summary",
+        "Drawings"
+      ],
+      "revenue": [
+        "Service Income",
+        "Sales",
+        "Rental Income",
+        "Interest Income"
+      ],
+      "expense": [
+        "Office Expense",
+        "Computer Expenses",
+        "Communication Expense",
+        "Labour & Welfare Expenses",
+        "Advertising Expenses",
+        "Printing & Stationery Expenses",
+        "Supplies Expense",
+        "Depreciation Expense",
+        "Insurance Expense",
+        "Salaries and Wages Expense",
+        "Rent Expense",
+        "Utilities Expense",
+        "Interest Expense"
+      ]
+    },
+    "account-type-chart-b0696e31-160a-455b-b415-d7718a8adb23": {
+      "id": "b0696e31-160a-455b-b415-d7718a8adb23",
+      "asset": [
+        "Cash at Bank",
+        "Cash",
+        "Deferred Expense",
+        "Other Assets",
+        "Accounts Receivable",
+        "Supplies",
+        "Prepaid Insurance",
+        "Equipment",
+        "Accumulated Depreciation Equipment"
+      ],
+      "liability": [
+        "Notes Payable",
+        "Accounts Payable",
+        "Unearned Service Revenue",
+        "Tax Payable",
+        "Bonds Payable",
+        "Salaries and Wages Payable",
+        "Interest Payable"
+      ],
+      "equity": [
+        "Owner's capital",
+        "Share Capital-Ordinary",
+        "Retained Earnings",
+        "Capital contributions",
+        "Dividends",
+        "Income Summary",
+        "Drawings"
+      ],
+      "revenue": [
+        "Service Income",
+        "Sales",
+        "Rental Income",
+        "Interest Income"
+      ],
+      "expense": [
+        "Office Expense",
+        "Computer Expenses",
+        "Communication Expense",
+        "Labour & Welfare Expenses",
+        "Advertising Expenses",
+        "Printing & Stationery Expenses",
+        "Supplies Expense",
+        "Depreciation Expense",
+        "Insurance Expense",
+        "Salaries and Wages Expense",
+        "Rent Expense",
+        "Utilities Expense",
+        "Interest Expense"
+      ]
+    },
+    "journal-3f40f35a-71af-4a40-9bf9-c3caa3c360b1": {
+      "id": "3f40f35a-71af-4a40-9bf9-c3caa3c360b1",
+      "trades": []
+    },
+    "account-type-chart-ab3af9b5-c445-420f-8c81-75d7a5b9512f": {
+      "id": "ab3af9b5-c445-420f-8c81-75d7a5b9512f",
+      "asset": [
+        "Cash at Bank",
+        "Cash",
+        "Deferred Expense",
+        "Other Assets",
+        "Accounts Receivable",
+        "Supplies",
+        "Prepaid Insurance",
+        "Equipment",
+        "Accumulated Depreciation Equipment"
+      ],
+      "liability": [
+        "Notes Payable",
+        "Accounts Payable",
+        "Unearned Service Revenue",
+        "Tax Payable",
+        "Bonds Payable",
+        "Salaries and Wages Payable",
+        "Interest Payable"
+      ],
+      "equity": [
+        "Owner's capital",
+        "Share Capital-Ordinary",
+        "Retained Earnings",
+        "Capital contributions",
+        "Dividends",
+        "Income Summary",
+        "Drawings"
+      ],
+      "revenue": [
+        "Service Income",
+        "Sales",
+        "Rental Income",
+        "Interest Income"
+      ],
+      "expense": [
+        "Office Expense",
+        "Computer Expenses",
+        "Communication Expense",
+        "Labour & Welfare Expenses",
+        "Advertising Expenses",
+        "Printing & Stationery Expenses",
+        "Supplies Expense",
+        "Depreciation Expense",
+        "Insurance Expense",
+        "Salaries and Wages Expense",
+        "Rent Expense",
+        "Utilities Expense",
+        "Interest Expense"
+      ]
+    },
+    "account-type-chart-14eaae1d-d989-4505-8e6d-7245f652d8a1": {
+      "id": "14eaae1d-d989-4505-8e6d-7245f652d8a1",
+      "asset": [
+        "Cash at Bank",
+        "Cash",
+        "Deferred Expense",
+        "Other Assets",
+        "Accounts Receivable",
+        "Supplies",
+        "Prepaid Insurance",
+        "Equipment",
+        "Accumulated Depreciation Equipment"
+      ],
+      "liability": [
+        "Notes Payable",
+        "Accounts Payable",
+        "Unearned Service Revenue",
+        "Tax Payable",
+        "Bonds Payable",
+        "Salaries and Wages Payable",
+        "Interest Payable"
+      ],
+      "equity": [
+        "Owner's capital",
+        "Share Capital-Ordinary",
+        "Retained Earnings",
+        "Capital contributions",
+        "Dividends",
+        "Income Summary",
+        "Drawings"
+      ],
+      "revenue": [
+        "Service Income",
+        "Sales",
+        "Rental Income",
+        "Interest Income"
+      ],
+      "expense": [
+        "Office Expense",
+        "Computer Expenses",
+        "Communication Expense",
+        "Labour & Welfare Expenses",
+        "Advertising Expenses",
+        "Printing & Stationery Expenses",
+        "Supplies Expense",
+        "Depreciation Expense",
+        "Insurance Expense",
+        "Salaries and Wages Expense",
+        "Rent Expense",
+        "Utilities Expense",
+        "Interest Expense"
+      ]
+    },
+    "user-1": {
+      "id": "1",
+      "documents": [],
+      "settings": {
+        "defaultChartId": null,
+        "languageCode": "en"
+      }
+    },
+    "journal-ba26922b-8b2f-4679-b9ca-0a79efd2c9be": {
+      "id": "ba26922b-8b2f-4679-b9ca-0a79efd2c9be",
+      "trades": []
+    },
+    "account-type-chart-9f1f7f2e-1aed-457c-b500-2393a9d6aecd": {
+      "id": "9f1f7f2e-1aed-457c-b500-2393a9d6aecd",
+      "asset": [
+        "Cash at Bank",
+        "Cash",
+        "Deferred Expense",
+        "Other Assets",
+        "Accounts Receivable",
+        "Supplies",
+        "Prepaid Insurance",
+        "Equipment",
+        "Accumulated Depreciation Equipment"
+      ],
+      "liability": [
+        "Notes Payable",
+        "Accounts Payable",
+        "Unearned Service Revenue",
+        "Tax Payable",
+        "Bonds Payable",
+        "Salaries and Wages Payable",
+        "Interest Payable"
+      ],
+      "equity": [
+        "Owner's capital",
+        "Share Capital-Ordinary",
+        "Retained Earnings",
+        "Capital contributions",
+        "Dividends",
+        "Income Summary",
+        "Drawings"
+      ],
+      "revenue": [
+        "Service Income",
+        "Sales",
+        "Rental Income",
+        "Interest Income"
+      ],
+      "expense": [
+        "Office Expense",
+        "Computer Expenses",
+        "Communication Expense",
+        "Labour & Welfare Expenses",
+        "Advertising Expenses",
+        "Printing & Stationery Expenses",
+        "Supplies Expense",
+        "Depreciation Expense",
+        "Insurance Expense",
+        "Salaries and Wages Expense",
+        "Rent Expense",
+        "Utilities Expense",
+        "Interest Expense"
+      ]
+    },
+    "account-type-chart-56dd36ea-2937-416f-8b4b-8a459532ba8e": {
+      "id": "56dd36ea-2937-416f-8b4b-8a459532ba8e",
+      "asset": [
+        "Cash at Bank",
+        "Cash",
+        "Deferred Expense",
+        "Other Assets",
+        "Accounts Receivable",
+        "Supplies",
+        "Prepaid Insurance",
+        "Equipment",
+        "Accumulated Depreciation Equipment"
+      ],
+      "liability": [
+        "Notes Payable",
+        "Accounts Payable",
+        "Unearned Service Revenue",
+        "Tax Payable",
+        "Bonds Payable",
+        "Salaries and Wages Payable",
+        "Interest Payable"
+      ],
+      "equity": [
+        "Owner's capital",
+        "Share Capital-Ordinary",
+        "Retained Earnings",
+        "Capital contributions",
+        "Dividends",
+        "Income Summary",
+        "Drawings"
+      ],
+      "revenue": [
+        "Service Income",
+        "Sales",
+        "Rental Income",
+        "Interest Income"
+      ],
+      "expense": [
+        "Office Expense",
+        "Computer Expenses",
+        "Communication Expense",
+        "Labour & Welfare Expenses",
+        "Advertising Expenses",
+        "Printing & Stationery Expenses",
+        "Supplies Expense",
+        "Depreciation Expense",
+        "Insurance Expense",
+        "Salaries and Wages Expense",
+        "Rent Expense",
+        "Utilities Expense",
+        "Interest Expense"
+      ]
+    },
+    "journal-56d638ed-9e56-44bc-ba09-06e028470edb": {
+      "id": "56d638ed-9e56-44bc-ba09-06e028470edb",
+      "trades": []
+    },
+    "journal-0bbc48a3-c807-4a16-b743-837f090690b5": {
+      "id": "0bbc48a3-c807-4a16-b743-837f090690b5",
+      "trades": [
+        {
+          "id": "7c2282df-d2f6-4871-9a60-ae412c3c007a",
+          "desc": "start",
+          "date": "2018-01-01",
+          "dr": {
+            "Cash at Bank": 100000
+          },
+          "cr": {
+            "Owner's capital": 100000
+          }
+        },
+        {
+          "id": "cd6ab3e3-d854-4834-aef6-a1731f10575d",
+          "desc": "test",
+          "date": "2018-07-01",
+          "dr": {
+            "Supplies": 123
+          },
+          "cr": {
+            "Sales": 123
+          }
+        },
+        {
+          "id": "86d54ab6-c17a-43ab-a802-04df06652f48",
+          "desc": "aaa",
+          "date": "2018-07-01",
+          "dr": {
+            "Accounts Receivable": 1
+          },
+          "cr": {
+            "Sales": 1
+          }
+        },
+        {
+          "id": "a12847a4-cd0f-40f8-b760-8d5845bb0d84",
+          "desc": "a",
+          "date": "2018-07-01",
+          "dr": {
+            "Cash": 1
+          },
+          "cr": {
+            "Cash at Bank": 1
+          }
+        },
+        {
+          "id": "f3012b6d-6955-429f-980c-146d56030ac1",
+          "desc": "jul 3",
+          "date": "2018-07-03",
+          "dr": {
+            "Deferred Expense": 123
+          },
+          "cr": {
+            "Cash at Bank": 123
+          }
+        },
+        {
+          "id": "2bc5bc75-209c-4dfa-b830-99b5d89127f7",
+          "desc": "sales",
+          "date": "2018-08-02",
+          "dr": {
+            "Accounts Receivable": 80000
+          },
+          "cr": {
+            "Service Income": 80000
+          }
+        },
+        {
+          "id": "031800ad-a3cc-4189-9f92-0ce26c8b4739",
+          "desc": "pay",
+          "date": "2018-08-08",
+          "dr": {
+            "Communication Expense": 9000
+          },
+          "cr": {
+            "Accounts Payable": 9000
+          }
+        },
+        {
+          "id": "6ff98449-4b94-491f-aea2-c868df07f7f6",
+          "desc": "test",
+          "date": "2018-08-09",
+          "dr": {
+            "Office Expense": 1234
+          },
+          "cr": {
+            "Cash": 1234
+          }
+        },
+        {
+          "id": "34ea3894-2862-4fb9-9a3b-1debed073c97",
+          "desc": "test test",
+          "date": "2018-08-16",
+          "dr": {
+            "Accounts Receivable": 3450
+          },
+          "cr": {
+            "Sales": 3450
+          }
+        },
+        {
+          "id": "b6c4644a-ed3d-46d2-b412-75b9ac73a1f8",
+          "desc": "test",
+          "date": "2018-08-18",
+          "dr": {
+            "Computer Expenses": 1000
+          },
+          "cr": {
+            "Cash": 1000
+          }
+        },
+        {
+          "id": "fb98bd67-1d42-47ab-bb64-7cd9fb440424",
+          "desc": "設備投資",
+          "date": "2019-01-01",
+          "dr": {
+            "Equipment": 10000
+          },
+          "cr": {
+            "Cash at Bank": 10000
+          }
+        },
+        {
+          "id": "86f1b5b1-77f6-429a-b1e4-5f26db20543a",
+          "desc": "test 2",
+          "date": "2019-01-01",
+          "dr": {
+            "Equipment": 111
+          },
+          "cr": {
+            "Cash at Bank": 111
+          }
+        }
+      ]
+    },
+    "user-056d1df9-a4d9-43fe-93e9-1471aab85554": {
+      "id": "056d1df9-a4d9-43fe-93e9-1471aab85554",
+      "documents": [
+        {
+          "id": "1dfe33c3-995f-4ea3-8f36-e8e29d4df569",
+          "title": "asdf",
+          "journalId": "0bbc48a3-c807-4a16-b743-837f090690b5",
+          "chartId": "14eaae1d-d989-4505-8e6d-7245f652d8a1",
+          "currencyCode": "JPY",
+          "start": "2018-01-01",
+          "end": "2019-03-01",
+          "commaPeriodSetting": "comma-period",
+          "debitTypeRecentList": [
+            "Equipment",
+            "Computer Expenses",
+            "Communication Expense",
+            "Cash",
+            "Office Expense",
+            "Cash at Bank",
+            "Accounts Receivable",
+            "Accounts Payable",
+            "Deferred Expense",
+            "Prepaid Insurance",
+            "Supplies",
+            "Other Assets"
+          ],
+          "creditTypeRecentList": [
+            "Cash at Bank",
+            "Cash",
+            "Accounts Payable",
+            "Accounts Receivable",
+            "Owner's capital",
+            "Service Income",
+            "Capital contributions",
+            "Sales",
+            "Deferred Expense",
+            "Supplies"
+          ]
+        },
+        {
+          "id": "96eb58c8-2123-49e8-9416-d15a3889556b",
+          "title": "abasdf - no item",
+          "journalId": "3f40f35a-71af-4a40-9bf9-c3caa3c360b1",
+          "chartId": "792feada-cff5-41cf-a1a5-4e16c17033b9",
+          "currencyCode": "EUR",
+          "start": "2018-03-09",
+          "end": "2019-03-08",
+          "commaPeriodSetting": "comma-period",
+          "debitTypeRecentList": [],
+          "creditTypeRecentList": []
+        },
+        {
+          "id": "99f6ff69-c778-4799-8782-b44512aab2b8",
+          "title": "asdfasv",
+          "journalId": "c218d750-4b79-476d-87d2-d8241232dc0d",
+          "chartId": "9f1f7f2e-1aed-457c-b500-2393a9d6aecd",
+          "currencyCode": "BGP",
+          "start": "2018-03-08",
+          "end": "2019-03-07",
+          "commaPeriodSetting": "comma-period",
+          "debitTypeRecentList": [],
+          "creditTypeRecentList": []
+        },
+        {
+          "id": "ca64b712-f56a-4994-bbb3-c5eee583ac24",
+          "title": "adfvas",
+          "journalId": "56d638ed-9e56-44bc-ba09-06e028470edb",
+          "chartId": "ef7d713f-2468-48fb-97f4-e8e85c68a3c2",
+          "currencyCode": "JPY",
+          "start": "2018-03-02",
+          "end": "2019-03-01",
+          "commaPeriodSetting": "comma-period",
+          "debitTypeRecentList": [],
+          "creditTypeRecentList": []
+        },
+        {
+          "id": "2342032f-5a3a-4bdc-9ee4-38caf2c53f44",
+          "title": "abcd",
+          "journalId": "ba26922b-8b2f-4679-b9ca-0a79efd2c9be",
+          "chartId": "56dd36ea-2937-416f-8b4b-8a459532ba8e",
+          "currencyCode": "USD",
+          "start": "2018-03-01",
+          "end": "2019-02-28",
+          "commaPeriodSetting": "comma-period",
+          "debitTypeRecentList": [],
+          "creditTypeRecentList": []
+        },
+        {
+          "id": "d1f5662f-41d4-4f45-9036-37bd7c66c720",
+          "title": "abc",
+          "journalId": "698e10fc-48d1-4230-9239-9a35258e1781",
+          "chartId": "b0696e31-160a-455b-b415-d7718a8adb23",
+          "currencyCode": "JPY",
+          "start": "2018-03-02",
+          "end": "2019-03-01",
+          "commaPeriodSetting": "comma-period",
+          "debitTypeRecentList": [],
+          "creditTypeRecentList": []
+        },
+        {
+          "id": "3ce05d03-2ae3-4a2f-a049-6366c1d79510",
+          "title": "aaa",
+          "journalId": "6eb35f0e-415e-4711-a61c-36486756576b",
+          "chartId": "0e0fc592-2e28-419f-8111-891e66af4b1d",
+          "currencyCode": "JPY",
+          "start": "2018-03-15",
+          "end": "2019-03-14",
+          "commaPeriodSetting": "comma-period",
+          "debitTypeRecentList": [],
+          "creditTypeRecentList": []
+        },
+        {
+          "id": "d79e81bc-f74f-47ea-8878-828c2d74ed73",
+          "title": "Test journal",
+          "journalId": "26bf90d3-6af4-40d8-88f5-c21a95ab5bd5",
+          "chartId": "3dfec532-f51c-4866-9e05-573969724a5b",
+          "currencyCode": "USD",
+          "start": "2017-01-01",
+          "end": "2017-12-31",
+          "commaPeriodSetting": "comma-period",
+          "debitTypeRecentList": [],
+          "creditTypeRecentList": []
+        }
+      ],
+      "settings": {
+        "defaultChartId": "ab3af9b5-c445-420f-8c81-75d7a5b9512f",
+        "languageCode": "ja"
+      },
+      "currentDocumentId": "1dfe33c3-995f-4ea3-8f36-e8e29d4df569"
+    },
+    "account-type-chart-ef7d713f-2468-48fb-97f4-e8e85c68a3c2": {
+      "id": "ef7d713f-2468-48fb-97f4-e8e85c68a3c2",
+      "asset": [
+        "Cash at Bank",
+        "Cash",
+        "Deferred Expense",
+        "Other Assets",
+        "Accounts Receivable",
+        "Supplies",
+        "Prepaid Insurance",
+        "Equipment",
+        "Accumulated Depreciation Equipment"
+      ],
+      "liability": [
+        "Notes Payable",
+        "Accounts Payable",
+        "Unearned Service Revenue",
+        "Tax Payable",
+        "Bonds Payable",
+        "Salaries and Wages Payable",
+        "Interest Payable"
+      ],
+      "equity": [
+        "Owner's capital",
+        "Share Capital-Ordinary",
+        "Retained Earnings",
+        "Capital contributions",
+        "Dividends",
+        "Income Summary",
+        "Drawings"
+      ],
+      "revenue": [
+        "Service Income",
+        "Sales",
+        "Rental Income",
+        "Interest Income"
+      ],
+      "expense": [
+        "Office Expense",
+        "Computer Expenses",
+        "Communication Expense",
+        "Labour & Welfare Expenses",
+        "Advertising Expenses",
+        "Printing & Stationery Expenses",
+        "Supplies Expense",
+        "Depreciation Expense",
+        "Insurance Expense",
+        "Salaries and Wages Expense",
+        "Rent Expense",
+        "Utilities Expense",
+        "Interest Expense"
+      ]
+    },
+    "journal-6eb35f0e-415e-4711-a61c-36486756576b": {
+      "id": "6eb35f0e-415e-4711-a61c-36486756576b",
+      "trades": [
+        {
+          "id": "74512b51-a9c1-4f9d-b3f8-e26820ea5891",
+          "desc": "asdf",
+          "date": "2018-03-03",
+          "dr": {
+            "普通預金": 123
+          },
+          "cr": {
+            "元入金": 143
+          }
+        }
+      ]
+    },
+    "journal-698e10fc-48d1-4230-9239-9a35258e1781": {
+      "id": "698e10fc-48d1-4230-9239-9a35258e1781",
+      "trades": []
+    },
+    "account-type-chart-3dfec532-f51c-4866-9e05-573969724a5b": {
+      "id": "3dfec532-f51c-4866-9e05-573969724a5b",
+      "asset": [
+        "Cash at Bank",
+        "Cash",
+        "Deferred Expense",
+        "Other Assets",
+        "Accounts Receivable",
+        "Supplies",
+        "Prepaid Insurance",
+        "Equipment",
+        "Accumulated Depreciation Equipment"
+      ],
+      "liability": [
+        "Notes Payable",
+        "Accounts Payable",
+        "Unearned Service Revenue",
+        "Tax Payable",
+        "Bonds Payable",
+        "Salaries and Wages Payable",
+        "Interest Payable"
+      ],
+      "equity": [
+        "Owner's capital",
+        "Share Capital-Ordinary",
+        "Retained Earnings",
+        "Capital contributions",
+        "Dividends",
+        "Income Summary",
+        "Drawings"
+      ],
+      "revenue": [
+        "Service Income",
+        "Sales",
+        "Rental Income",
+        "Interest Income"
+      ],
+      "expense": [
+        "Office Expense",
+        "Computer Expenses",
+        "Communication Expense",
+        "Labour & Welfare Expenses",
+        "Advertising Expenses",
+        "Printing & Stationery Expenses",
+        "Supplies Expense",
+        "Depreciation Expense",
+        "Insurance Expense",
+        "Salaries and Wages Expense",
+        "Rent Expense",
+        "Utilities Expense",
+        "Interest Expense"
+      ]
+    }
+  }
+}

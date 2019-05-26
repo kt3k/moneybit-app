@@ -32,6 +32,12 @@ global.m = menu.create('m', {
         func () {
           return resetLocalStorage(require('./preset0'))
         }
+      },
+      preset1: {
+        description: 'Sets localStorage in a typical state',
+        func () {
+          return resetLocalStorage(require('./preset1'))
+        }
       }
     }
   },
