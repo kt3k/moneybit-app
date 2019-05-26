@@ -34,7 +34,7 @@ global.m = menu.create('m', {
         }
       },
       preset1: {
-        description: 'Sets localStorage in a typical state',
+        description: 'Sets localStorage to the snapshot of 2019-05-26',
         func () {
           return resetLocalStorage(require('./preset1'))
         }
