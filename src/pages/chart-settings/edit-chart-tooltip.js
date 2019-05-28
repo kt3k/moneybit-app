@@ -1,6 +1,10 @@
 const { component, on, emits, wired } = capsid
 
-const { OPEN_EDIT_MODAL, OPEN_DELETE_MODAL } = require('./event-types')
+const {
+  OPEN_EDIT_MODAL,
+  OPEN_DELETE_MODAL,
+  OPEN_TOOLTIP
+} = require('./event-types')
 const CLASS_IS_VISIBLE = 'is-visible'
 
 @component('edit-chart-tooltip')
@@ -11,17 +15,13 @@ class EditChartTooltip {
 
   @on.click.at('.is-primary')
   @emits(OPEN_EDIT_MODAL)
-  onClickEdit () {
-    console.log('EDIT')
-  }
+  onClickEdit () {}
 
   @on.click.at('.is-danger')
   @emits(OPEN_DELETE_MODAL)
-  onClickDelete () {
-    console.log('DELETE')
-  }
+  onClickDelete () {}
 
-  @on('open-tooltip')
+  @on(OPEN_TOOLTIP)
   onOpenTooltip ({ detail: { id, typeName, disabled } }) {
     this.el.dataset.popperRef = `[id="${id}"]`
     this.el.dispatchEvent(new CustomEvent(capsidPopper.UPDATE))

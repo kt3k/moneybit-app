@@ -1,5 +1,5 @@
 const { component, wired, on, emits, make } = capsid
-const { OPEN_CREATE_MODAL } = require('./event-types')
+const { OPEN_CREATE_MODAL, OPEN_TOOLTIP } = require('./event-types')
 const genel = require('genel')
 const uuid = require('uuid')
 
@@ -54,7 +54,7 @@ class ChartCardItem {
     this.el.id = uuid.v4()
   }
 
-  @emits('open-tooltip')
+  @emits(OPEN_TOOLTIP)
   @on.click
   openTooltip () {
     return {

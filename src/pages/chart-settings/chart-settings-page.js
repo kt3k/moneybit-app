@@ -3,31 +3,37 @@ const { component, on, wired, notifies } = capsid
 const {
   OPEN_EDIT_MODAL,
   OPEN_DELETE_MODAL,
-  OPEN_CREATE_MODAL
+  OPEN_CREATE_MODAL,
+  OPEN_TOOLTIP
 } = require('./event-types')
 
 @component('chart-settings-page')
 class ChartSettingsPage {
   @wired('.edit-chart-tooltip') editTooltip
 
-  // TODO: create const for event type
-  @on('open-tooltip')
-  @notifies('open-tooltip', '.edit-chart-tooltip')
+  @on(OPEN_TOOLTIP)
+  @notifies(OPEN_TOOLTIP, '.edit-chart-tooltip')
   openTooltip ({ detail }) {
     return detail
   }
 
   @on(OPEN_EDIT_MODAL)
   @notifies(OPEN_EDIT_MODAL)
-  onOpenEditModal () {}
+  onOpenEditModal ({ detail }) {
+    return detail
+  }
 
   @on(OPEN_DELETE_MODAL)
   @notifies(OPEN_DELETE_MODAL)
-  onOpenDeleteModal () {}
+  onOpenDeleteModal ({ detail }) {
+    return detail
+  }
 
   @on(OPEN_CREATE_MODAL)
   @notifies(OPEN_CREATE_MODAL)
-  onOpenCreateModal () {}
+  onOpenCreateModal ({ detail }) {
+    return detail
+  }
 
   @notifies('ledger-update', '.is-ledger-observer')
   @on(Action.MODEL_UPDATE)
