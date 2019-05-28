@@ -1,10 +1,21 @@
 const { component, wired, on, emits, make } = capsid
+const { OPEN_CREATE_MODAL } = require('./event-types')
 const genel = require('genel')
 const uuid = require('uuid')
 
 @component('chart-card')
 class ChartCard {
   @wired('tbody') tbody
+
+  @on.click.at('.card-header-title .button')
+  @emits(OPEN_CREATE_MODAL)
+  onOpenCreateModal () {
+    return { majorType: this.majorType }
+  }
+
+  getType () {
+    return this.el.getAttribute('type')
+  }
 
   @on('ledger-update')
   onLedgerUpdate ({
@@ -14,10 +25,10 @@ class ChartCard {
       domain: { MajorAccountType }
     }
   }) {
-    const majorType = MajorAccountType[this.el.getAttribute('type')]
+    const majorType = (this.majorType = MajorAccountType[this.getType()])
 
     if (!majorType) {
-      throw new Error(`no such type: "${this.el.getAttribute('type')}"`)
+      throw new Error(`no such type: "${this.getType()}"`)
     }
 
     this.tbody.innerHTML = ''

@@ -1,5 +1,6 @@
-const { component, on, wired } = capsid
+const { component, on, emits, wired } = capsid
 
+const { OPEN_EDIT_MODAL, OPEN_DELETE_MODAL } = require('./event-types')
 const CLASS_IS_VISIBLE = 'is-visible'
 
 @component('edit-chart-tooltip')
@@ -9,11 +10,13 @@ class EditChartTooltip {
   @wired('.edit-chart-tooltip__message') message
 
   @on.click.at('.is-primary')
+  @emits(OPEN_EDIT_MODAL)
   onClickEdit () {
     console.log('EDIT')
   }
 
   @on.click.at('.is-danger')
+  @emits(OPEN_DELETE_MODAL)
   onClickDelete () {
     console.log('DELETE')
   }
