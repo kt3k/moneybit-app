@@ -28,6 +28,7 @@ class InputModal {
   }
 
   @on.outside('click')
+  @on.click.at('.input-modal__cancel')
   @on(CLOSE)
   close () {
     this.el.parentElement.classList.remove('is-visible')

@@ -1,6 +1,3 @@
 require('./chart-settings-page')
 require('./chart-card')
 require('./edit-chart-tooltip')
-require('./delete-account-type-modal')
-require('./create-account-type-modal')
-require('./edit-account-type-modal')
