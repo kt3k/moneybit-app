@@ -68,7 +68,7 @@ js: pages/chart-settings/index.js
     </div>
   </div>
   <div class="overlay-shadow"></div>
-  <div class="delete-account-type-modal">
+  <div class="modal-wrapper delete-account-type-modal is-open-modal-observer">
     <div class="card">
       <div class="card-content">
       </div>
@@ -78,6 +78,30 @@ js: pages/chart-settings/index.js
       </div>
     </div>
   </div>
-  <div class="edit-account-type-modal"></div>
-  <div class="create-account-type-modal"></div>
+  <div class="modal-wrapper">
+    <div class="edit-account-type-modal">
+      <div class="card">
+        <div class="card-content">
+          edit-account-type-modal
+        </div>
+        <div class="card-footer">
+          <a class="card-footer-item confirm-modal__cancel"><t>ui.form.cancel</t></a>
+          <a class="card-footer-item confirm-modal__ok"><t>ui.form.delete</t></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-wrapper">
+    <div class="create-account-type-modal">
+      <div class="card">
+        <div class="card-content">
+          create-account-type-modal
+        </div>
+        <div class="card-footer">
+          <a class="card-footer-item confirm-modal__cancel"><t>ui.form.cancel</t></a>
+          <a class="card-footer-item confirm-modal__ok"><t>ui.form.delete</t></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>

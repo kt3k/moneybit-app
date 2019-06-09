@@ -18,23 +18,27 @@ class ChartSettingsPage {
   }
 
   @on(OPEN_EDIT_MODAL)
-  @notifies(OPEN_EDIT_MODAL)
+  @notifies(OPEN_EDIT_MODAL, '.is-open-modal-observer')
+  @notifies(Action.UI_SHOW, '.overlay-shadow')
   onOpenEditModal ({ detail }) {
     return detail
   }
 
   @on(OPEN_DELETE_MODAL)
-  @notifies(OPEN_DELETE_MODAL)
+  @notifies(OPEN_DELETE_MODAL, '.is-open-modal-observer')
+  @notifies(Action.UI_SHOW, '.overlay-shadow')
   onOpenDeleteModal ({ detail }) {
     return detail
   }
 
   @on(OPEN_CREATE_MODAL)
-  @notifies(OPEN_CREATE_MODAL)
+  @notifies(OPEN_CREATE_MODAL, '.is-open-modal-observer')
+  @notifies(Action.UI_SHOW, '.overlay-shadow')
   onOpenCreateModal ({ detail }) {
     return detail
   }
 
+  // TODO: use constants
   @notifies('ledger-update', '.is-ledger-observer')
   @on(Action.MODEL_UPDATE)
   onModelUpdate ({ detail: { currentChart, currentJournal, domain } }) {
