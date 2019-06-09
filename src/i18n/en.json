@@ -12,6 +12,7 @@
   "app.language.auto": "Auto",
   "app.journal.add_an_entry": "Add a journal entry",
   "app.journal.create_new": "Create a new journal",
+  "app.document.input_title": "Input the title of the document.",
   "app.edit_chart_of_accounts": "Edit Chart of Accounts",
   "app.save_this_chart_as_the_default_chart": "Save this chart as the default chart of the app.",
   "app.lets_create_new_journal": "Let's create a new journal when the fiscal year starts!",

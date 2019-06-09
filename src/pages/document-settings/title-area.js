@@ -2,7 +2,7 @@ const { emits, on, notifies, wired, component } = capsid
 const {
   actions: { MODEL_UPDATE, UPDATE_CURRENT_DOCUMENT }
 } = require('~')
-const { OPEN, CLOSE, INPUT } = require('../../common/molecules/input-modal')
+const { OPEN, CLOSE } = require('../../common/molecules/input-modal')
 
 @component('settings-title-area')
 class TitleArea {
@@ -19,12 +19,15 @@ class TitleArea {
   @notifies(OPEN, '.input-modal')
   @on('click', { at: 'button.opens-input-modal' })
   onClickButton () {
-    return this.title.textContent
+    return {
+      message: t10.t('app.document.input_title'),
+      value: this.title.textContent,
+      onSave: value => this.onInput(value)
+    }
   }
 
-  @on(INPUT)
   @emits(UPDATE_CURRENT_DOCUMENT)
-  onInput ({ detail: title }) {
+  onInput (title) {
     return { title }
   }
 }
