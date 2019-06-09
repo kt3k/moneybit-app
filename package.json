@@ -74,7 +74,7 @@
     "bulbo": "^6.13.0",
     "bulma": "^0.4.1",
     "bundle-through": "^1.0.3",
-    "capsid": "^0.29.1",
+    "capsid": "^0.29.2",
     "capsid-popper": "^2.0.0",
     "capsid-scroll-lock": "^2.0.0",
     "chai": "^3.5.0",
