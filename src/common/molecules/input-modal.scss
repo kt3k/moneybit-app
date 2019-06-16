@@ -8,6 +8,12 @@
   border-radius: 8px;
   box-shadow: 0 0 5px black;
 
+  &__input.hidden,
+  &__save.hidden,
+  &__delete.hidden {
+    display: none;
+  }
+
   &__button-wrapper {
     display: flex;
     flex-direction: row-reverse;
@@ -36,4 +42,3 @@
     opacity: 1;
   }
 }
-

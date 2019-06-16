@@ -22,7 +22,8 @@ class TitleArea {
     return {
       message: t10.t('app.document.input_title'),
       value: this.title.textContent,
-      onSave: value => this.onInput(value)
+      onSave: value => this.onInput(value),
+      needsInput: true
     }
   }
 

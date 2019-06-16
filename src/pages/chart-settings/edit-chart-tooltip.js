@@ -19,11 +19,18 @@ class EditChartTooltip {
 
   @on.click.at('.is-danger')
   @emits(OPEN_DELETE_MODAL)
-  onClickDelete () {}
+  onClickDelete () {
+    return {
+      message: `Are you sure deleting "${this.typeName}"?`,
+      needsInput: false,
+      onDelete: () => alert('delete')
+    }
+  }
 
   @on(OPEN_TOOLTIP)
   onOpenTooltip ({ detail: { id, typeName, disabled } }) {
     this.el.dataset.popperRef = `[id="${id}"]`
+    this.typeName = typeName
     this.el.dispatchEvent(new CustomEvent(capsidPopper.UPDATE))
     if (disabled) {
       this.editButton.disabled = true

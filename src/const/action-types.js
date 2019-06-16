@@ -38,3 +38,7 @@ exports.MODEL_UPDATE = 'mb/model/UPDATE'
 // ui
 exports.UI_SHOW = 'mb/ui/SHOW'
 exports.UI_HIDE = 'mb/ui/HIDE'
+
+// input-modal
+exports.INPUT_MODAL_OPEN = 'mb/input-modal/OPEN'
+exports.INPUT_MODAL_CLOSE = 'mb/input-modal/CLOSE'
