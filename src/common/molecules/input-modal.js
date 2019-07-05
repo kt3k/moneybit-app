@@ -34,13 +34,15 @@ class InputModal {
   }
 
   @on.click.at('.input-modal__save')
-  onSave () {
-    this.onSaveHandler(this.input.value)
+  async onSave () {
+    await this.onSaveHandler(this.input.value)
+    this.close()
   }
 
   @on.click.at('.input-modal__delete')
-  onDelete () {
-    this.onDeleteHandler(this.input.value)
+  async onDelete () {
+    await this.onDeleteHandler(this.input.value)
+    this.close()
   }
 
   @on.outside('click')
