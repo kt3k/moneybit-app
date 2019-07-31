@@ -1,5 +1,3 @@
-const { Action } = require('~')
-
 const { action, dispatches } = require('evex')
 
 class ChartModule {
@@ -29,6 +27,26 @@ class ChartModule {
     store.defaultChart = defaultChart
     store.currentChart = currentChart
     store.currentJournal = currentJournal
+  }
+
+  @action(Action.CHART_DELETE_ACCOUNT_TYPE)
+  @dispatches(Action.CHART_SAVE)
+  async deleteAccountType (
+    store,
+    {
+      detail: { accountTypeName }
+    }
+  ) {
+    const { domain, currentChart } = store
+    currentChart.delete(new domain.AccountType(accountTypeName))
+  }
+
+  @action(Action.CHART_SAVE)
+  async saveChart (store) {
+    const { domain } = store
+    const chartRepository = new domain.AccountTypeChart.Repository()
+    await chartRepository.save(store.currentChart)
+    store.notifyUpdate()
   }
 }
 

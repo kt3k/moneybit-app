@@ -23,8 +23,13 @@ class EditChartTooltip {
     return {
       message: `Are you sure deleting "${this.typeName}"?`,
       needsInput: false,
-      onDelete: () => alert('delete')
+      onDelete: () => this.deleteAccountType(this.typeName)
     }
+  }
+
+  @emits(Action.CHART_DELETE_ACCOUNT_TYPE)
+  deleteAccountType (typeName) {
+    return { accountTypeName: typeName }
   }
 
   @on(OPEN_TOOLTIP)
