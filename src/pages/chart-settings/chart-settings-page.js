@@ -31,8 +31,7 @@ class ChartSettingsPage {
   }
 
   @on(OPEN_CREATE_MODAL)
-  @notifies(OPEN_CREATE_MODAL, '.is-open-modal-observer')
-  @notifies(Action.UI_SHOW, '.overlay-shadow')
+  @notifies(Action.INPUT_MODAL_OPEN, '.input-modal')
   onOpenCreateModal ({ detail }) {
     return detail
   }

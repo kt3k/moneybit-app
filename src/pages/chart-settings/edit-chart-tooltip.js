@@ -21,7 +21,7 @@ class EditChartTooltip {
   @emits(OPEN_DELETE_MODAL)
   onClickDelete () {
     return {
-      message: `Are you sure deleting "${this.typeName}"?`,
+      message: `Are you sure deleting "${this.typeName}"?`, // TODO: i18n
       needsInput: false,
       onDelete: () => this.deleteAccountType(this.typeName)
     }

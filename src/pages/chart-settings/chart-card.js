@@ -10,7 +10,18 @@ class ChartCard {
   @on.click.at('.card-header-title .button')
   @emits(OPEN_CREATE_MODAL)
   onOpenCreateModal () {
-    return { majorType: this.majorType }
+    return {
+      message: `Input a new account title for "${this.majorType.name}"`, // TODO: i18n
+      onSave: input => this.addAccountType(input)
+    }
+  }
+
+  @emits(Action.CHART_ADD_ACCOUNT_TYPE)
+  addAccountType (typeName) {
+    return {
+      accountTypeName: typeName,
+      majorType: this.majorType
+    }
   }
 
   getType () {
