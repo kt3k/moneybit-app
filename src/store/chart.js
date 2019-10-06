@@ -53,17 +53,19 @@ class ChartModule {
     currentChart.set(new domain.AccountType(accountTypeName), majorType)
   }
 
-  @action(Action.CHART_RENAME_ACCOUNT_TYPE)
+  @action(Action.CHART_EDIT_ACCOUNT_TYPE)
   @dispatches(Action.CHART_SAVE)
   async renameAccountType (
     store,
     {
-      detail: { accountTypeName, newName, majorType }
+      detail: { accountTypeName, newAccountTypeName }
     }
   ) {
     const { domain, currentChart } = store
-    currentChart.delete(new domain.AccountType(accountTypeName))
-    currentChart.set(new domain.AccountType(newName), majorType)
+    const accountType = new domain.AccountType(accountTypeName)
+    const majorType = currentChart.getMajorTypeByAccountType(accountType)
+    currentChart.delete(accountType)
+    currentChart.set(new domain.AccountType(newAccountTypeName), majorType)
   }
 
   @action(Action.CHART_SAVE)

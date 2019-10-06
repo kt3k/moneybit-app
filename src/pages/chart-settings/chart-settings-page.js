@@ -18,8 +18,7 @@ class ChartSettingsPage {
   }
 
   @on(OPEN_EDIT_MODAL)
-  @notifies(OPEN_EDIT_MODAL, '.is-open-modal-observer')
-  @notifies(Action.UI_SHOW, '.overlay-shadow')
+  @notifies(Action.INPUT_MODAL_OPEN, '.input-modal')
   onOpenEditModal ({ detail }) {
     return detail
   }

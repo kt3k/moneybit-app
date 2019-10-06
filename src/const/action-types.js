@@ -29,9 +29,10 @@ exports.UI_LANGUAGE_READY = 'mb/language/READY'
 // chart
 exports.INIT_CHART = 'mb/chart/INIT'
 exports.LOAD_CHART = 'mb/chart/LOAD'
+exports.CHART_SAVE = 'mb/chart/SAVE'
 exports.CHART_READY = 'mb/chart/READY'
 exports.CHART_DELETE_ACCOUNT_TYPE = 'mb/chart/DELETE_ACCOUNT_TYPE'
-exports.CHART_RENAME_ACCOUNT_TYPE = 'mb/chart/RENAME_ACCOUNT_TYPE'
+exports.CHART_EDIT_ACCOUNT_TYPE = 'mb/chart/EDIT_ACCOUNT_TYPE'
 exports.CHART_ADD_ACCOUNT_TYPE = 'mb/chart/ADD_ACCOUNT_TYPE'
 // models
 exports.MODEL_SAVE = 'mb/model/SAVE'

@@ -5,19 +5,28 @@ const {
   OPEN_DELETE_MODAL,
   OPEN_TOOLTIP
 } = require('./event-types')
+
 const CLASS_IS_VISIBLE = 'is-visible'
+const SELECTOR_DELETE_BUTTON = '.edit-chart-tooltip__delete-button'
+const SELECTOR_EDIT_BUTTON = '.edit-chart-tooltip__edit-button'
 
 @component('edit-chart-tooltip')
 class EditChartTooltip {
-  @wired('.edit-chart-tooltip__edit-button') editButton
-  @wired('.edit-chart-tooltip__delete-button') deleteButton
+  @wired(SELECTOR_EDIT_BUTTON) editButton
+  @wired(SELECTOR_DELETE_BUTTON) deleteButton
   @wired('.edit-chart-tooltip__message') message
 
-  @on.click.at('.is-primary')
+  @on.click.at(SELECTOR_EDIT_BUTTON)
   @emits(OPEN_EDIT_MODAL)
-  onClickEdit () {}
+  onClickEdit () {
+    return {
+      message: `Input a new name for "${this.typeName}"`, // TODO: i18n
+      value: this.typeName,
+      onSave: newName => this.editAccountType(this.typeName, newName)
+    }
+  }
 
-  @on.click.at('.is-danger')
+  @on.click.at(SELECTOR_DELETE_BUTTON)
   @emits(OPEN_DELETE_MODAL)
   onClickDelete () {
     return {
@@ -25,6 +34,11 @@ class EditChartTooltip {
       needsInput: false,
       onDelete: () => this.deleteAccountType(this.typeName)
     }
+  }
+
+  @emits(Action.CHART_EDIT_ACCOUNT_TYPE)
+  editAccountType (typeName, newName) {
+    return { accountTypeName: typeName, newAccountTypeName: newName }
   }
 
   @emits(Action.CHART_DELETE_ACCOUNT_TYPE)
