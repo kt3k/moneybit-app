@@ -49,7 +49,7 @@ class AccountTypeChartRepository {
       accountTypes[majorType.name] = []
     })
 
-    chart.majorTypes.forEach((majorType, accountTypeName) => {
+    chart.majorTypes.forEach(([accountTypeName, majorType]) => {
       accountTypes[majorType.name].push(accountTypeName)
     })
 

@@ -62,10 +62,10 @@ class ChartModule {
     }
   ) {
     const { domain, currentChart } = store
-    const accountType = new domain.AccountType(accountTypeName)
-    const majorType = currentChart.getMajorTypeByAccountType(accountType)
-    currentChart.delete(accountType)
-    currentChart.set(new domain.AccountType(newAccountTypeName), majorType)
+    currentChart.replace(
+      new domain.AccountType(accountTypeName),
+      new domain.AccountType(newAccountTypeName)
+    )
   }
 
   @action(Action.CHART_SAVE)
