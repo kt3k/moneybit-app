@@ -50,7 +50,7 @@ class AccountTypeRecentList {
   sortChartKeys (chart) {
     const types = []
 
-    for (const [name] of chart.majorTypes.entries()) {
+    for (const [name] of chart.majorTypes) {
       if (!this.nameMap[name]) {
         types.push(new AccountType(name))
       }
