@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="250px" height="250px" viewBox="0 0 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#E1FA11" offset="0%"></stop>
+            <stop stop-color="#C0F307" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FBD82E" offset="0%"></stop>
+            <stop stop-color="#F4B015" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="v2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-94.000000, -104.000000)">
+            <g id="logo" transform="translate(94.000000, 104.000000)">
+                <rect id="Rectangle" fill="#99E8EA" x="0" y="0" width="250" height="250"></rect>
+                <g id="Group" transform="translate(13.000000, 13.000000)">
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="118" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="177" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="59" y="177" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="118" y="0" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="118" y="59" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="118" y="118" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="177" y="118" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="177" y="177" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="177" y="0" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-2)" x="59" y="0" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-2)" x="177" y="59" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-2)" x="59" y="59" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-2)" x="59" y="118" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-2)" x="118" y="177" width="47" height="47" rx="13"></rect>
+                    <rect id="Rectangle" fill="url(#linearGradient-2)" x="0" y="59" width="47" height="47" rx="13"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
