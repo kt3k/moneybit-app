@@ -31,24 +31,14 @@ class ChartModule {
 
   @action(Action.CHART_DELETE_ACCOUNT_TYPE)
   @dispatches(Action.CHART_SAVE)
-  async deleteAccountType (
-    store,
-    {
-      detail: { accountTypeName }
-    }
-  ) {
+  async deleteAccountType (store, { detail: { accountTypeName } }) {
     const { domain, currentChart } = store
     currentChart.delete(new domain.AccountType(accountTypeName))
   }
 
   @action(Action.CHART_ADD_ACCOUNT_TYPE)
   @dispatches(Action.CHART_SAVE)
-  async addAccountType (
-    store,
-    {
-      detail: { accountTypeName, majorType }
-    }
-  ) {
+  async addAccountType (store, { detail: { accountTypeName, majorType } }) {
     const { domain, currentChart } = store
     currentChart.set(new domain.AccountType(accountTypeName), majorType)
   }
@@ -57,9 +47,7 @@ class ChartModule {
   @dispatches(Action.CHART_SAVE)
   async renameAccountType (
     store,
-    {
-      detail: { accountTypeName, newAccountTypeName }
-    }
+    { detail: { accountTypeName, newAccountTypeName } }
   ) {
     const { domain, currentChart } = store
     currentChart.replace(
@@ -74,6 +62,19 @@ class ChartModule {
     const chartRepository = new domain.AccountTypeChart.Repository()
     await chartRepository.save(store.currentChart)
     store.notifyUpdate()
+  }
+
+  @action(Action.CHART_SET_AS_DEFAULT)
+  @dispatches(Action.MODEL_SAVE)
+  async setAsDefault (store, { detail }) {
+    const { domain, defaultChart, currentChart } = store
+    const newDefaultChart = currentChart.clone(defaultChart.id)
+    const chartRepository = new domain.AccountTypeChart.Repository()
+    await chartRepository.save(newDefaultChart)
+
+    if (detail && detail.callback) {
+      detail.callback()
+    }
   }
 }
 

@@ -1,4 +1,4 @@
-const { component, on, wired, notifies } = capsid
+const { component, on, wired, notifies, emits } = capsid
 
 const {
   OPEN_EDIT_MODAL,
@@ -35,8 +35,27 @@ class ChartSettingsPage {
     return detail
   }
 
-  // TODO: use constants
-  @notifies('ledger-update', '.is-ledger-observer')
+  @on.click.at('.set-default-button')
+  @notifies(Action.INPUT_MODAL_OPEN, '.input-modal')
+  onSetDefaultChart () {
+    return {
+      message: t10.t('app.chart.set_this_chart_as_default'),
+      needsInput: false,
+      onSave: () => {
+        this.setDefaultChart(() => {
+          // TODO: トーストにする
+          alert('saved!')
+        })
+      }
+    }
+  }
+
+  @emits(Action.CHART_SET_AS_DEFAULT)
+  setDefaultChart (callback) {
+    return { callback }
+  }
+
+  @notifies(Action.LEDGER_UPDATE, '.is-ledger-observer')
   @on(Action.MODEL_UPDATE)
   onModelUpdate ({ detail: { currentChart, currentJournal, domain } }) {
     const ledger = currentJournal.toLedger(currentChart)

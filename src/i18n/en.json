@@ -19,6 +19,7 @@
   "app.ask_delete_this_trade": "Are you sure you want to delete this trade?",
   "app.title.language": "あA Language",
   "app.this_chart_of_accounts_is_used_as_default": "This is the default chart of accounts. This is used as the default for each new journal.",
+  "app.chart.set_this_chart_as_default": "Saving this chart as the default chart of the app",
   "app.onboarding.lets_start": "Let's tap the button above and start entering journal items! 😄",
   "domain.title": "Title",
   "domain.balancesheet": "Balance Sheet",

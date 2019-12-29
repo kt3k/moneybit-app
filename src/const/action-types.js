@@ -34,6 +34,9 @@ exports.CHART_READY = 'mb/chart/READY'
 exports.CHART_DELETE_ACCOUNT_TYPE = 'mb/chart/DELETE_ACCOUNT_TYPE'
 exports.CHART_EDIT_ACCOUNT_TYPE = 'mb/chart/EDIT_ACCOUNT_TYPE'
 exports.CHART_ADD_ACCOUNT_TYPE = 'mb/chart/ADD_ACCOUNT_TYPE'
+exports.CHART_SET_AS_DEFAULT = 'mb/chart/SET_AS_DEFAULT'
+// ledger
+exports.LEDGER_UPDATE = 'mb/ledger/UPDATE'
 // models
 exports.MODEL_SAVE = 'mb/model/SAVE'
 exports.MODEL_SAVE_AND_RELOAD = 'mb/model/SAVE_AND_RELOAD'

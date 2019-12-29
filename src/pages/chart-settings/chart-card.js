@@ -28,7 +28,7 @@ class ChartCard {
     return this.el.getAttribute('type')
   }
 
-  @on('ledger-update')
+  @on(Action.LEDGER_UPDATE)
   onLedgerUpdate ({
     detail: {
       currentChart,
