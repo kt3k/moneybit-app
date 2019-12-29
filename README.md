@@ -1,5 +1,7 @@
 # MoneyBit App - WIP
 
+<img src="https://raw.githubusercontent.com/kt3k/moneybit-app/master/design/logo.png" />
+
 > オープンソースの会計処理アプリ (フリーランサー向け)
 
 [![CircleCI](https://circleci.com/gh/kt3k/moneybit-app.svg?style=svg)](https://circleci.com/gh/kt3k/moneybit-app)
