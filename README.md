@@ -1,4 +1,4 @@
-# moneybit-app WIP
+# MoneyBit App - WIP
 
 > オープンソースの会計処理アプリ (フリーランサー向け)
 
