@@ -88,7 +88,7 @@
     "evex": "^2.2.0",
     "genel": "^1.1.0",
     "get-js": "^0.0.4-0",
-    "gh-pages": "^0.12.0",
+    "gh-pages": "^5.0.0",
     "gulp-dart-sass": "^0.9.1",
     "gulp-front-matter": "^1.3.0",
     "gulp-nunjucks-render": "^2.0.0",
