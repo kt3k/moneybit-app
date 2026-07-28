@@ -26,6 +26,12 @@ module.exports = config =>
     },
     reporters: ['progress', 'coverage'],
     coverageReporter: { reporters: [{ type: 'lcov' }] },
-    browsers: ['Chrome'],
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu']
+      }
+    },
+    browsers: [process.env.CI ? 'ChromeHeadlessCI' : 'Chrome'],
     singleRun: true
   })
