@@ -1,4 +1,3 @@
-const uuid = require('uuid')
 const moment = require('moment')
 const {
   domain: { AccountTypeChart, Journal, JournalDocument },
@@ -28,7 +27,7 @@ class JournalDocumentModule {
 
     const documentObj = Object.assign({}, e.detail)
 
-    documentObj.id = uuid.v4()
+    documentObj.id = crypto.randomUUID()
     documentObj.journalId = journal.id
     documentObj.chartId = chart.id
 
@@ -43,7 +42,10 @@ class JournalDocumentModule {
    * @return {Journal}
    */
   async createEmptyJournal () {
-    const journal = this.journalFactory.createFromIdAndArray(uuid.v4(), [])
+    const journal = this.journalFactory.createFromIdAndArray(
+      crypto.randomUUID(),
+      []
+    )
 
     await this.journalRepository.save(journal)
 
@@ -60,7 +62,7 @@ class JournalDocumentModule {
       user.settings.defaultChartId
     )
 
-    const newChart = defaultChart.clone(uuid.v4())
+    const newChart = defaultChart.clone(crypto.randomUUID())
 
     await this.chartRepository.save(newChart)
 
@@ -93,9 +95,7 @@ class JournalDocumentModule {
   @dispatches(Action.MODEL_SAVE)
   updateCurrentDocument (
     hub,
-    {
-      detail: { title, commaPeriodSetting, start, end }
-    }
+    { detail: { title, commaPeriodSetting, start, end } }
   ) {
     const {
       user: { currentDocument },
@@ -118,12 +118,7 @@ class JournalDocumentModule {
   }
 
   @action(Action.REQUEST_MONEY_FORMAT)
-  formatMoney (
-    hub,
-    {
-      detail: { send, amount }
-    }
-  ) {
+  formatMoney (hub, { detail: { send, amount } }) {
     send(hub.user.currentDocument.format(new Money(amount)))
   }
 }
