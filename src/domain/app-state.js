@@ -1,5 +1,3 @@
-const uuid = require('uuid')
-
 class AppState {
   /**
    * @param {string} userId The user id
@@ -15,7 +13,7 @@ class AppState {
   }
 
   initUserId () {
-    this.userId = uuid.v4()
+    this.userId = crypto.randomUUID()
   }
 }
 

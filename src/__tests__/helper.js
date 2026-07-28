@@ -2,7 +2,6 @@ require('@babel/polyfill')
 require('../infrastructure')
 require('./fixture')
 const { before } = require('kocha')
-const uuid = require('uuid')
 global.$ = require('jquery')
 global.t10 = require('t10')
 global.basepath = '/'
@@ -37,15 +36,15 @@ before(async done => {
   )
 
   const currentJournal = (global.currentJournal = new Journal.Factory().createFromIdAndArray(
-    uuid.v4(),
+    crypto.randomUUID(),
     []
   ))
   const currentChart = (global.currentChart = global.defaultChart.clone(
-    uuid.v4()
+    crypto.randomUUID()
   ))
 
   const doc = new JournalDocument.Factory().createFromObject({
-    id: uuid.v4(),
+    id: crypto.randomUUID(),
     journalId: currentJournal.id,
     chartId: currentChart.id,
     title: 'foo'

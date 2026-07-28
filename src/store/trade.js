@@ -1,5 +1,4 @@
 const { Action } = require('~')
-const uuid = require('uuid')
 
 const { action, dispatches } = require('evex')
 
@@ -9,12 +8,7 @@ class TradeModule {
    */
   @action(Action.SAVE_TRADE)
   @dispatches(Action.MODEL_SAVE)
-  createTrade (
-    store,
-    {
-      detail: { id, date, desc, debitArray, creditArray }
-    }
-  ) {
+  createTrade (store, { detail: { id, date, desc, debitArray, creditArray } }) {
     const { AccountType } = store.domain
 
     const dr = {}
@@ -33,7 +27,7 @@ class TradeModule {
     })
 
     const trade = new store.domain.Trade.Factory().createFromObject({
-      id: id || uuid.v4(),
+      id: id || crypto.randomUUID(),
       date,
       desc,
       dr,
@@ -45,12 +39,7 @@ class TradeModule {
 
   @action(Action.DELETE_TRADE)
   @dispatches(Action.MODEL_SAVE)
-  deleteTrade (
-    store,
-    {
-      detail: { id }
-    }
-  ) {
+  deleteTrade (store, { detail: { id } }) {
     store.currentJournal.removeTradeById(id)
   }
 }
