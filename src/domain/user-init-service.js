@@ -1,4 +1,3 @@
-const uuid = require('uuid')
 const User = require('./user')
 const UserSettings = require('./user-settings')
 const { AccountTypeChart } = require('./')
@@ -47,7 +46,7 @@ class UserInitService {
   async createInitialSettings (language) {
     const defaultChart = AccountTypeChart.defaults[language.code]
 
-    const chart = defaultChart.clone(uuid.v4())
+    const chart = defaultChart.clone(crypto.randomUUID())
 
     await new AccountTypeChart.Repository().save(chart)
 
